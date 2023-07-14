@@ -36,9 +36,9 @@ public class RecenterOrigin : MonoBehaviour
         origin.RotateAround(head.position, Vector3.up, angle);
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if (recenterButton.action.WasPressedThisFrame()) Recenter();
+        if (recenterButton.action.WasPressedThisFrame())
+            Recenter();
     }
 }
