@@ -422,6 +422,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3228965265086980065}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502499303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6659609600123234385, guid: 801f54884cf4fb4419132266ec4b9a40,
+    type: 3}
+  m_PrefabInstance: {fileID: 9072110398691359592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1531389085
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489c05d839c0c6147be375822237f28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlane: {fileID: 0}
+  targetPlane: {fileID: 1502499303}
   repeatRate: 0.02
   viewDistance: 1500
   viewAngle: 360
@@ -21043,6 +21049,16 @@ PrefabInstance:
     - target: {fileID: 4479351883062634, guid: ebbac259c5b2a0941992ee37e1d14a5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706977045905740187, guid: ebbac259c5b2a0941992ee37e1d14a5f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706977045905740187, guid: ebbac259c5b2a0941992ee37e1d14a5f,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

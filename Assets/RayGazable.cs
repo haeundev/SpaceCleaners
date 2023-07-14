@@ -17,6 +17,6 @@ public class RayGazable : MonoBehaviour
 
     public void OnGazeStay()
     {
-        throw new System.NotImplementedException();
+        
     }
 }
