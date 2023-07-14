@@ -18,6 +18,10 @@ public class BeamShooter : MonoBehaviour
     private void ShootRay()
     {
         Debug.Log("SHOOOOOOT!!!");
+        
+        
+        
+        
         var laser = Instantiate(shotPrefab, transform.position, transform.rotation);
         laser.GetComponent<ShotBehavior>().Init(beamSpeed, destroySec);
     }
