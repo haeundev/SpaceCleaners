@@ -2257,6 +2257,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Player Controls",
+            "id": "31240b6a-a0d3-49e8-ae5d-554015a883c9",
+            "actions": [
+                {
+                    "name": "Boost",
+                    "type": "Button",
+                    "id": "66d46fdd-14df-48ca-8b88-c9ff9a692e73",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4fc2662b-e719-4149-a85a-c2f07e55e2c4",
+                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
