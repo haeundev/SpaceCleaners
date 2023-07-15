@@ -2260,27 +2260,67 @@
         },
         {
             "name": "Player Controls",
-            "id": "31240b6a-a0d3-49e8-ae5d-554015a883c9",
+            "id": "b22b2ec4-9941-427c-93ce-4b5d2094d28c",
             "actions": [
                 {
-                    "name": "Boost",
-                    "type": "Button",
-                    "id": "66d46fdd-14df-48ca-8b88-c9ff9a692e73",
-                    "expectedControlType": "Button",
+                    "name": "SpaceMove",
+                    "type": "Value",
+                    "id": "3c27f228-4798-4c32-bbf8-a45ba6fde7b9",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "BoostLeft",
+                    "type": "Button",
+                    "id": "be00fe8d-2e46-4a9b-9006-7b8d30c02797",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BoostRight",
+                    "type": "Button",
+                    "id": "bb03feb4-86c3-48fa-8fed-68c3295fc6da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "4fc2662b-e719-4149-a85a-c2f07e55e2c4",
+                    "id": "92d7b925-28d4-4077-adeb-388a1bea914e",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpaceMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81d54490-5c47-4c44-a7c0-a26cf17ea70d",
                     "path": "<XRController>{LeftHand}/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Boost",
+                    "action": "BoostLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de806fcf-a050-4520-b773-e24eaf479385",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BoostRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
