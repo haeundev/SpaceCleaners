@@ -7506,7 +7506,7 @@ MonoBehaviour:
   anchor: 4
   chunks: 1000
   density: 60
-  internalStrength: 0
+  internalStrength: 1
   insideMaterial: {fileID: 2100000, guid: 0993838b862f2d245bb5a05bc30d94a8, type: 2}
   outsideMaterial: {fileID: 2100000, guid: 261ca49ebb5e8474c83f0810f89fa1bc, type: 2}
 --- !u!4 &931149673
