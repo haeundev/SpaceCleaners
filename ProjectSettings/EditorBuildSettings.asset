@@ -9,6 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/OuterSpaceScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 161bc42c1b7fa8946b31ee047a5c659f,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9202e023236457444a79cefd85db504d,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 3689b6fa140b53f4598ceca5ffb5d932,
