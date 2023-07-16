@@ -6145,6 +6145,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8019973347182187084}
+  - {fileID: 2688239577129019499}
   m_Father: {fileID: 3894227164003613760}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -6859,6 +6860,37 @@ Transform:
   m_Father: {fileID: 4048671579671921720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9170132194193123284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2688239577129019499}
+  m_Layer: 30
+  m_Name: GrappleDrawDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2688239577129019499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170132194193123284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 1.107, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2839398465129546255}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &434535142869611643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6867,6 +6899,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1247457696545835319}
     m_Modifications:
+    - target: {fileID: 2203609357302271695, guid: d7af4c38e22c78d4ab861edb5a0a5454,
+        type: 3}
+      propertyPath: drawDestination
+      value: 
+      objectReference: {fileID: 2688239577129019499}
     - target: {fileID: 3304561270592384768, guid: d7af4c38e22c78d4ab861edb5a0a5454,
         type: 3}
       propertyPath: m_Name
