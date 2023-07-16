@@ -907,7 +907,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122523494744090172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 643c971818f68d3439e84b5d8bdafe07, type: 3}
   m_Name: 
@@ -10553,6 +10553,8 @@ GameObject:
   - component: {fileID: 481381357527690611}
   - component: {fileID: 7721185787178311736}
   - component: {fileID: 1443039024643140183}
+  - component: {fileID: 9046363334325984901}
+  - component: {fileID: 9046363334325984903}
   m_Layer: 8
   m_Name: AircraftJet
   m_TagString: Player
@@ -10642,7 +10644,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122523494744090172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf6c56c7f8c75ca4c99450be5aca5ace, type: 3}
   m_Name: 
@@ -22280,6 +22282,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 4937674482552510930}
+    - target: {fileID: 7938902609642750181, guid: 9dfb7ff679131204b88ff2eac751eff9,
+        type: 3}
+      propertyPath: m_PositionAction.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8144244611217554624, guid: 9dfb7ff679131204b88ff2eac751eff9,
         type: 3}
       propertyPath: m_RootOrder
@@ -28288,7 +28295,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122523494744090172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 235a6615124795442b98c1f03500003e, type: 3}
   m_Name: 
@@ -28350,7 +28357,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122523494744090172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ee34fdb2d383a84e9ef60c30fc2778e, type: 3}
   m_Name: 
@@ -28508,8 +28515,8 @@ Rigidbody:
   m_GameObject: {fileID: 1122523494744090172}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.02
-  m_AngularDrag: 0.05
+  m_Drag: 0.5
+  m_AngularDrag: 0.5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -28804,13 +28811,66 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122523494744090172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b297a60c0ddf0ee4dabefaf158fb097d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxRollAngle: 80
   maxPitchAngle: 80
+--- !u!114 &9046363334325984901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122523494744090172}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ef26a2e0cbb3649ab0c51ef423032f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rollTorque: 1000
+  thrust: 100
+  upThrust: 50
+  strafeThrust: 50
+  maxBoostAmount: 2
+  boostDeprecationRate: 0.25
+  boostRechargeRate: 0.5
+  boostMultiplier: 5
+  boosting: 0
+  currentBoostAmount: 0
+  thrustGlideReduction: 0.999
+  upDownGlideReduction: 0.111
+  leftRightGlideReduction: 0.111
+--- !u!114 &9046363334325984903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122523494744090172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b68a3659470a5a44a240ed20ea9f7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 2000
+  maxBoostAmount: 2
+  boostDeprecationRate: 0.25
+  boostRechargeRate: 0.5
+  boostMultiplier: 5
+  boosting: 0
+  isLeftBoost: 0
+  isRightBoost: 0
+  currentBoostAmount: 0
+  thrustGlideReduction: 0.137
+  playerMoveActionRef: {fileID: -7145009161511568472, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  boostLeftActionRef: {fileID: 4138973135897638227, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  boostRightActionRef: {fileID: 8075259192875580878, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &9069791675857995175
 GameObject:
   m_ObjectHideFlags: 0

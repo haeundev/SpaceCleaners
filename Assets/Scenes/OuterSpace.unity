@@ -28830,6 +28830,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ef26a2e0cbb3649ab0c51ef423032f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rollTorque: 1000
+  thrust: 100
+  upThrust: 50
+  strafeThrust: 50
+  maxBoostAmount: 2
+  boostDeprecationRate: 0.25
+  boostRechargeRate: 0.5
+  boostMultiplier: 5
+  boosting: 0
+  currentBoostAmount: 0
+  thrustGlideReduction: 0.999
+  upDownGlideReduction: 0.111
+  leftRightGlideReduction: 0.111
 --- !u!114 &9046363334325984903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28842,6 +28855,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b68a3659470a5a44a240ed20ea9f7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 100
+  maxBoostAmount: 2
+  boostDeprecationRate: 0.25
+  boostRechargeRate: 0.5
+  boostMultiplier: 5
+  boosting: 0
+  isLeftBoost: 0
+  isRightBoost: 0
+  currentBoostAmount: 0
+  thrustGlideReduction: 0.999
+  playerMoveActionRef: {fileID: -7145009161511568472, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  boostLeftActionRef: {fileID: 4138973135897638227, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  boostRightActionRef: {fileID: 8075259192875580878, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &9069791675857995175
 GameObject:
   m_ObjectHideFlags: 0
