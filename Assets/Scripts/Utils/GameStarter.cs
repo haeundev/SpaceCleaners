@@ -8,8 +8,11 @@ namespace Script.Editor
     [InitializeOnLoad]
     public static class GameStarter
     {
-        private const string OUTER_SPACE = "Assets/Scenes/OuterSpaceScene.unity";
-        private const string PLANET_JUNGLE = "Assets/Scenes/Planet Jungle.unity";
+        private const string BOOTING = "Assets/Scenes/Booting.unity";
+        private const string OUTER_SPACE = "Assets/Scenes/OuterSpace.unity";
+        private const string JUNGLE = "Assets/Scenes/JunglePlanet.unity";
+        private const string MONUMENT = "Assets/Scenes/MonumentPlanet.unity";
+        private const string CRYSTAL_DEPOT = "Assets/Scenes/CrystalDepot.unity";
 
         static GameStarter()
         {
@@ -39,11 +42,17 @@ namespace Script.Editor
             // EditorApplication.EnterPlaymode();
         }
         
-        [MenuItem("AlienBusters/Outer Space", false, 100)]
+        [MenuItem("AlienBusters/Booting", false, 99)]
+        private static void LoadPlanetJungleScene() => OpenScene(BOOTING);
+        [MenuItem("AlienBusters/OuterSpace", false, 100)]
         private static void LoadOuterSpaceScene() => OpenScene(OUTER_SPACE);
         
-        [MenuItem("AlienBusters/Planet Jungle", false, 101)]
-        private static void LoadPlanetJungleScene() => OpenScene(PLANET_JUNGLE);
+        [MenuItem("AlienBusters/Jungle", false, 101)]
+        private static void LoadJungleScene() => OpenScene(JUNGLE);
+        [MenuItem("AlienBusters/Monument", false, 102)]
+        private static void LoadMonumentScene() => OpenScene(MONUMENT);
+        [MenuItem("AlienBusters/CrystalDepot", false, 103)]
+        private static void LoadCrystalDepotScene() => OpenScene(CRYSTAL_DEPOT);
 
         private static void OpenScene(string scenePath)
         {
