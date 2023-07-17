@@ -1,10 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
+using LiveLarson.BootAndLoad;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameStartMenu : MonoBehaviour
 {
+    [SerializeField] private string sceneToGoOnStart = "Scenes/OuterSpace.unity";
+    
     [Header("UI Pages")]
     public GameObject mainMenu;
     public GameObject options;
@@ -18,8 +20,7 @@ public class GameStartMenu : MonoBehaviour
 
     public List<Button> returnButtons;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         EnableMainMenu();
 
@@ -43,7 +44,7 @@ public class GameStartMenu : MonoBehaviour
     public void StartGame()
     {
         HideAll();
-        SceneTransitionManager.singleton.GoToSceneAsync(1);
+        ApplicationContext.Instance.LoadScene(sceneToGoOnStart);
     }
 
     public void HideAll()

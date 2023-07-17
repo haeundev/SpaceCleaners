@@ -1,49 +1,49 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Main Camera 밑에 배치하고 Fader Screen 참조.
 public class SceneTransitionManager : MonoBehaviour
 {
     public FadeScreen fadeScreen;
-    public static SceneTransitionManager singleton;
+    public static SceneTransitionManager Instance;
 
     private void Awake()
     {
-        if (singleton && singleton != this)
-            Destroy(singleton);
+        if (Instance && Instance != this)
+            Destroy(Instance);
 
-        singleton = this;
+        Instance = this;
     }
 
-    public void GoToScene(int sceneIndex)
+    public void GoToScene(string sceneName)
     {
-        StartCoroutine(GoToSceneRoutine(sceneIndex));
+        StartCoroutine(GoToSceneRoutine(sceneName));
     }
 
-    IEnumerator GoToSceneRoutine(int sceneIndex)
+    private IEnumerator GoToSceneRoutine(string sceneName)
     {
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(fadeScreen.fadeDuration);
 
         //Launch the new scene
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneName);
     }
 
-    public void GoToSceneAsync(int sceneIndex)
+    public void GoToSceneAsync(string sceneName)
     {
-        StartCoroutine(GoToSceneAsyncRoutine(sceneIndex));
+        StartCoroutine(GoToSceneAsyncRoutine(sceneName));
     }
 
-    IEnumerator GoToSceneAsyncRoutine(int sceneIndex)
+    private IEnumerator GoToSceneAsyncRoutine(string sceneName)
     {
         fadeScreen.FadeOut();
         //Launch the new scene
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        var operation = SceneManager.LoadSceneAsync(sceneName);
         operation.allowSceneActivation = false;
 
         float timer = 0;
-        while(timer <= fadeScreen.fadeDuration && !operation.isDone)
+        while (timer <= fadeScreen.fadeDuration && !operation.isDone)
         {
             timer += Time.deltaTime;
             yield return null;
