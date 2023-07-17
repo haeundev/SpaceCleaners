@@ -20,7 +20,7 @@ namespace LiveLarson.DataTableManagement.DataSheet.Editor
 
         public static void OpenRequest(string fileID, string sheetName, DataType dataType, OnOpenEvent onOpen)
         {
-            var request = new Request("Assets/HEDEV/DataTableManagement/DataSheet/Google/credentials.json",
+            var request = new Request("Assets/LiveLarson/DataTableManagement/DataSheet/Google/credentials.json",
                 "Temp/token.json");
             var values = request.Open(fileID, sheetName);
             if (dataType == DataType.Const)
@@ -45,7 +45,7 @@ namespace LiveLarson.DataTableManagement.DataSheet.Editor
         public static void OpenRequest(string fileID, string tableName, string[] sheetNames,
             Action<ClassBuilder, string, string> onOpen)
         {
-            var request = new Request("Assets/HEDEV/DataTableManagement/DataSheet/Google/credentials.json", "Temp/token.json");
+            var request = new Request("Assets/LiveLarson/DataTableManagement/DataSheet/Google/credentials.json", "Temp/token.json");
             sheetNames.ForEach(sheetName =>
             {
                 IList<IList<object>> values;

@@ -43,6 +43,7 @@ namespace LiveLarson.Util.Editor
                 {
                     writer.WriteLine("using UnityEngine;");
                     writer.WriteLine("using UnityEditor;");
+                    writer.WriteLine("using LiveLarson.DataTableManagement.DataSheet.Editor;");
                     writer.WriteLine("");
                     writer.WriteLine($"[CustomEditor(typeof({className}))]");
                     writer.WriteLine($"public class {targetName} : Editor");

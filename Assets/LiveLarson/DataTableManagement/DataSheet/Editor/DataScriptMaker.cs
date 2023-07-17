@@ -10,7 +10,7 @@ namespace LiveLarson.DataTableManagement.DataSheet.Editor
 {
     public class DataScriptMaker : EditorWindow
     {
-        private const string DEFAULT_NAMESPACE_NAME = "LiveLarson.Data";
+        private const string DEFAULT_NAMESPACE_NAME = "DataTables";
         private string BaseDirectory => GetBaseDirectory(_dataType);
         private string ScriptDirectory => GetScriptDirectory(_dataType);
 
@@ -62,7 +62,7 @@ namespace LiveLarson.DataTableManagement.DataSheet.Editor
                 {
                     _classBuilder = builder;
                     _jsonString = str;
-                    Debug.Log("Load Done.");
+                    Debug.Log("Load Done. Press [Build]");
                 });
             GUILayout.EndHorizontal();
         }
@@ -77,11 +77,12 @@ namespace LiveLarson.DataTableManagement.DataSheet.Editor
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Build"))
             {
+                Debug.Log("Building... please wait");
                 _mainClassName = GetMainClassName(_className);
                 Build(_className);
                 AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
                 CompilationPipeline.RequestScriptCompilation();
-                Debug.Log("Build Done.");
+                Debug.Log("Build Done. Press [Make Asset]");
                 _isBuilt = true;
             }
 

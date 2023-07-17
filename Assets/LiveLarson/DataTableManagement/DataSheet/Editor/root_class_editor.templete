@@ -1,5 +1,6 @@
 using UnityEditor;
 using System;
+using LiveLarson.DataTableManagement.DataSheet.Editor;
 
 namespace {namespace_name}
 {
@@ -14,7 +15,7 @@ namespace {namespace_name}
         public override void SetAssetData(string json)
         {
             var obj = target as {root_class_name};
-            obj.Values = DataScript.MakeJsonListObjectString<{sub_class_name}>(json).Values;
+            obj.Values = DataScript.MakeJsonListObjectString<{sub_class_name}>(json).values;
         }
     }
 }
