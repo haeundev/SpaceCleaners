@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Core
+  m_EditorClassIdentifier: 
+  m_GroupName: Core
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8789f181be6307742a0a7e6e1c8144bb
+  m_SerializeEntries:
+  - m_GUID: 428d6112c3d04f74fa9163a9cd8bc00a
+    m_Address: GameSystem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01125e54dc3376f42b79f175514269c2
+    m_Address: ApplicationContext
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15a0babe1fbe9f144a0d4fab5be7e9ee
+    m_Address: DataTableManager
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f084435683824da43b8bff080eb5020f
+    m_Address: MasterAudioMixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 02adc8d5ec4545a48a134065cc146d5e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ddc4cd8383389e845852b2ae86657b72, type: 2}
+    - {fileID: 11400000, guid: a07a5a45f424c1a45a8cf6f68bdcb7df, type: 2}

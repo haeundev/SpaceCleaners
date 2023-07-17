@@ -1,6 +1,4 @@
-﻿using Zenject;
-
-namespace LiveLarson.UISystem
+﻿namespace LiveLarson.UISystem
 {
     public class NoneUiService : IUiService
     {
@@ -14,7 +12,6 @@ namespace LiveLarson.UISystem
             
         }
         
-        [Inject]
         public void Register(IUiServiceFactory factory)
         {
             factory.RegisterUiService(Enums.GameMode.None, this);

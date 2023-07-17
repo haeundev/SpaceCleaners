@@ -1,5 +1,4 @@
-﻿using LiveLarson.DependencyInjection;
-using LiveLarson.GameMode;
+﻿using LiveLarson.GameMode;
 using UnityEngine;
 
 namespace LiveLarson.GameService
@@ -8,6 +7,5 @@ namespace LiveLarson.GameService
     {
         public static readonly int FrameCountPerSec = Application.targetFrameRate;
         private static IGameModeService _gameModeService = default;
-        public static IGameModeService GameModeService => _gameModeService ??= ZenjectService.Resolve<IGameModeService>();
     }
 }

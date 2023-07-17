@@ -16,19 +16,14 @@ namespace LiveLarson.GameMode
         private GameModeService Instance { get; set; }
         private const float DEFAULT_FADE_TIME = 0.3f;
         private static readonly List<Enums.GameMode> BaseGameModes = new() { Enums.GameMode.InGame };
-        private readonly Stack<Enums.GameMode> _gameModeHistoryStack = new();
-        private readonly IUiServiceFactory _uiServiceFactory;
+        private Stack<Enums.GameMode> _gameModeHistoryStack = new();
         private Enums.GameMode _gameMode;
         private Enums.GameMode _nextGameMode;
-
-        public GameModeService(IUiServiceFactory uiServiceFactory)
-        {
-            _uiServiceFactory = uiServiceFactory;
-        }
-
+        
         private void Awake()
         {
             Instance = this;
+            _gameModeHistoryStack = new Stack<Enums.GameMode>();
         }
 
         public static float FadeTime { get; set; } = DEFAULT_FADE_TIME;
@@ -80,10 +75,7 @@ namespace LiveLarson.GameMode
             while (_gameModeHistoryStack.Count > 0)
             {
                 var stackGameMode = _gameModeHistoryStack.Pop();
-
                 OnGameModeExit?.Invoke(stackGameMode);
-                if (_uiServiceFactory.GetUiService(stackGameMode) != null)
-                    _uiServiceFactory.GetUiService(stackGameMode).Exit();
                 SoundService.Instance.OnGameModeExit(stackGameMode);
             }
 
@@ -116,15 +108,9 @@ namespace LiveLarson.GameMode
             CameraManager.Reset();
             // Leave game mode
             OnGameModeExit?.Invoke(_gameMode);
-            if (_uiServiceFactory.GetUiService(_gameMode) != null)
-                _uiServiceFactory.GetUiService(_gameMode).Exit();
             SoundService.Instance.OnGameModeExit(_gameMode);
-
             _gameMode = gameMode;
-            if (_uiServiceFactory.GetUiService(_gameMode) != null)
-                _uiServiceFactory.GetUiService(_gameMode).Enter();
             SoundService.Instance.OnGameModeEnter(_gameMode);
-
             OnGameModeEnter?.Invoke(_gameMode);
         }
 

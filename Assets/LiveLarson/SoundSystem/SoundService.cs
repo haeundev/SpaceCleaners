@@ -19,9 +19,9 @@ namespace LiveLarson.SoundSystem
 
     public class SoundService : MonoBehaviour
     {
-        private const string AudioMixerName = "MasterAudioMixer";
-        private const string DefaultSnapshotName = "Default";
-        private const string DefaultAudioClipOnError = "Sound/UI/UI_Button2.ogg";
+        private const string AUDIO_MIXER_NAME = "MasterAudioMixer";
+        private const string DEFAULT_SNAPSHOT_NAME = "Default";
+        private const string DEFAULT_AUDIO_CLIP_ON_ERROR = "Sound/UI/UI_Button2.ogg";
 
         private static SoundServiceSettings _soundServiceSettings;
 
@@ -37,11 +37,11 @@ namespace LiveLarson.SoundSystem
 
         private bool _applicationPaused;
 
-        private AudioMixer _audioMixer;
+        [SerializeField] private AudioMixer audioMixer;
         private Audio _currentBGM;
 
         private Enums.GameMode _currentGameMode;
-        private string _currentZoneBGMPath = "BGM/Field_BGM";
+        private string _currentZoneBGMPath = "Audio/Easy Going Medieval Tavern - Loop.wav";
         private AudioMixerSnapshot _defaultSnapshot;
 
         private Audio _helperSound;
@@ -59,7 +59,12 @@ namespace LiveLarson.SoundSystem
         }
 
         public string CurrentSnapshotName { get; private set; }
-
+        
+        private void Awake()
+        {
+            LoadAudioMixer();
+        }
+        
         private void Update()
         {
             AudioDict
@@ -74,8 +79,7 @@ namespace LiveLarson.SoundSystem
 
         private void LoadAudioMixer()
         {
-            _audioMixer = Resources.Load<AudioMixer>(AudioMixerName);
-            _defaultSnapshot = _audioMixer.FindSnapshot(DefaultSnapshotName);
+            _defaultSnapshot = audioMixer.FindSnapshot(DEFAULT_SNAPSHOT_NAME);
         }
 
         public static Audio Play(AudioType type, string name, Vector3 position, bool loop)
@@ -148,7 +152,7 @@ namespace LiveLarson.SoundSystem
         private static void GenerateAudioError(string message)
         {
             Debug.LogError($"Invalid audio error! : {message}");
-            Addressables.LoadAssetAsync<AudioClip>(DefaultAudioClipOnError).Completed += handle =>
+            Addressables.LoadAssetAsync<AudioClip>(DEFAULT_AUDIO_CLIP_ON_ERROR).Completed += handle =>
             {
                 var instance = new GameObject("Invalid audio error");
                 var audioSource = instance.AddComponent<AudioSource>();
@@ -427,7 +431,7 @@ namespace LiveLarson.SoundSystem
 
         public AudioMixer GetAudioMixer()
         {
-            return _audioMixer;
+            return audioMixer;
         }
 
         public void SetAudioMixerVolume(VolumeType volumeType, float volume)
@@ -437,11 +441,11 @@ namespace LiveLarson.SoundSystem
             switch (volumeType)
             {
                 case VolumeType.GameSound:
-                    _audioMixer.SetFloat("BGMVolume", volume);
-                    _audioMixer.SetFloat("SFXVolume", volume);
+                    audioMixer.SetFloat("BGMVolume", volume);
+                    audioMixer.SetFloat("SFXVolume", volume);
                     break;
                 case VolumeType.VoiceSound:
-                    _audioMixer.SetFloat("VoiceVolume", volume);
+                    audioMixer.SetFloat("VoiceVolume", volume);
                     break;
             }
         }
@@ -456,17 +460,17 @@ namespace LiveLarson.SoundSystem
         {
             if (snapshotName == default)
                 return;
-            if (_audioMixer.FindSnapshot(snapshotName) != null)
+            if (audioMixer.FindSnapshot(snapshotName) != null)
             {
                 Debug.Log($"Change audio snapshot to {snapshotName}.");
-                _audioMixer.FindSnapshot(snapshotName).TransitionTo(time);
+                audioMixer.FindSnapshot(snapshotName).TransitionTo(time);
                 CurrentSnapshotName = snapshotName;
             }
             else
             {
                 Debug.Log("Change audio snapshot to default.");
                 _defaultSnapshot.TransitionTo(time);
-                CurrentSnapshotName = DefaultSnapshotName;
+                CurrentSnapshotName = DEFAULT_SNAPSHOT_NAME;
             }
         }
 
@@ -474,12 +478,12 @@ namespace LiveLarson.SoundSystem
         {
             var lastBgm = GetBgmName(_currentGameMode);
             _currentGameMode = gameMode;
-            _currentZoneBGMPath = "BGM/Field_BGM";
+            _currentZoneBGMPath = "Audio/Easy Going Medieval Tavern - Loop.wav";
             TransitToSnapshot(gameMode.ToString());
             var bgm = GetBgmName(_currentGameMode);
             if (BGMDictionary.Count == 0)
             {
-                PlayBGM(bgm, default, true);
+                // PlayBGM(bgm, default, true);
             }
             else if (bgm != lastBgm)
             {
