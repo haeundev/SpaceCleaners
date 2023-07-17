@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9149856260390887373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035218082748071386}
+  - component: {fileID: 5674983392512853170}
+  m_Layer: 5
+  m_Name: InputIconManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1035218082748071386
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149856260390887373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5674983392512853170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149856260390887373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eed7f9ef9b6a9b469e3d57e1d7fdb28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyboardLight: {fileID: 11400000, guid: 944c44878463a0344b5e69a741b9837f, type: 2}
+  KeyboardDark: {fileID: 11400000, guid: f447842705d2faa4fae33d164e30a4c8, type: 2}
+  KeyboardData:
+  - Index: 18
+    Key: 273
+  - Index: 15
+    Key: 274
+  - Index: 17
+    Key: 275
+  - Index: 16
+    Key: 276
+  - Index: 90
+    Key: 119
+  - Index: 13
+    Key: 97
+  - Index: 79
+    Key: 115
+  - Index: 29
+    Key: 100
+  - Index: 84
+    Key: 32
+  - Index: 81
+    Key: 304
+  - Index: 34
+    Key: 13
+  - Index: 53
+    Key: 105
+  - Index: 31
+    Key: 101
+  - Index: 49
+    Key: 102
+  - Index: 58
+    Key: 109
