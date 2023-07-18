@@ -8,6 +8,12 @@ public class TestSpaceMovement : MonoBehaviour
     [Header("=== Player Movement Settings ===")]
     [SerializeField]
     private float thrust = 100f;
+    [SerializeField]
+    private float pitchSpeed = 50f;
+    [SerializeField]
+    private float maxPitchAngle = 60f;
+    // [SerializeField]
+    // private float upThrust = 50f;
 
     private Vector3 moveDir;
 
@@ -29,18 +35,23 @@ public class TestSpaceMovement : MonoBehaviour
 
     [SerializeField, Range(0.001f, 0.999f)]
     private float thrustGlideReduction = 0.999f;
+    [SerializeField, Range(0.001f, 0.999f)]
+    private float upDownGlideReduction = 0.111f;
     // [SerializeField, Range(0.001f, 0.999f)]
     // private float upDownGlideReduction = 0.111f;
     // [SerializeField, Range(0.001f, 0.999f)]
     // private float leftRightGlideReduction = 0.111f;
-    float glide = 0f;
+    float glide, verticalGlide = 0f;
+
 
     Rigidbody rb;
 
     //Input Values
-    private Vector2 move;
+    private Vector2 move, move2;
 
     [SerializeField] private InputActionReference playerMoveActionRef;
+
+    [SerializeField] private InputActionReference playerMove2ActionRef;
     [SerializeField] private InputActionReference boostLeftActionRef;
     [SerializeField] private InputActionReference boostRightActionRef;
 
@@ -50,11 +61,16 @@ public class TestSpaceMovement : MonoBehaviour
         playerMoveActionRef.action.performed += PlayerMove_performed;
         playerMoveActionRef.action.canceled += PlayerMove_canceled;
 
+        playerMove2ActionRef.action.performed += PlayerMove2_performed;
+        playerMove2ActionRef.action.canceled += PlayerMove2_canceled;
+
         boostLeftActionRef.action.performed += BoostLeft_performed;
         boostLeftActionRef.action.canceled += BoostLeft_canceled;
 
         boostRightActionRef.action.performed += BoostRight_performed;
         boostRightActionRef.action.canceled += BoostRight_canceled;
+
+
 
     }
 
@@ -76,6 +92,9 @@ public class TestSpaceMovement : MonoBehaviour
     {
         playerMoveActionRef.action.performed -= PlayerMove_performed;
         playerMoveActionRef.action.canceled -= PlayerMove_canceled;
+
+        playerMove2ActionRef.action.performed -= PlayerMove2_performed;
+        playerMove2ActionRef.action.canceled -= PlayerMove2_canceled;
 
         boostLeftActionRef.action.performed -= BoostLeft_performed;
         boostLeftActionRef.action.canceled -= BoostLeft_canceled;
@@ -111,10 +130,18 @@ public class TestSpaceMovement : MonoBehaviour
 
     void HandleMovement()
     {
+        //Roll
+        // rb.AddTorque(-mainCam.transform.forward * move2.x * rollTorque * Time.deltaTime);
+        //Pitch
+        // float pitchAngle = Mathf.Clamp(-move2.y, -1f, 1f) * pitchSpeed * Time.deltaTime;
+        // float newPitchAngle = Mathf.Clamp(pitchAngle, -maxPitchAngle, maxPitchAngle);
+        // rb.AddRelativeTorque(mainCam.transform.right * newPitchAngle);
         
         if(move.x > 0.1f || move.y > 0.1f || move.x < -0.1f || move.y < -0.1f) //checking if we're pressing any stick
         {
-            moveDir = new Vector3(move.x, 0, move.y);//new Vector3(mainCam.transform.forward.x + move.x, mainCam.transform.forward.y + 0, mainCam.transform.forward.z + move.y);
+            moveDir = new Vector3(move.x, 0, move.y);
+            Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, mainCam.transform.forward);
+            moveDir = rotation * moveDir;
 
             float currentThrust;
 
@@ -135,6 +162,18 @@ public class TestSpaceMovement : MonoBehaviour
             rb.AddForce(moveDir * glide * Time.deltaTime); //eventually glide will be 0 and won't be moving
             glide *= thrustGlideReduction;
         }
+
+        // //Up/Down
+        // if(move2.y > 0.1f || move2.y < -0.1f) //checking if we're pressing the stick
+        // {
+        //     rb.AddRelativeForce(Vector3.up * move2.y * upThrust * Time.fixedDeltaTime);
+        //     verticalGlide = move2.y * upThrust;
+        // }
+        // else
+        // {
+        //     rb.AddRelativeForce(Vector3.up * verticalGlide * Time.fixedDeltaTime);
+        //     verticalGlide *= upDownGlideReduction;
+        // }
         
 
     }
@@ -146,7 +185,17 @@ public class TestSpaceMovement : MonoBehaviour
 
     private void PlayerMove_canceled(InputAction.CallbackContext context)
     {
-        // move = context.ReadValue<Vector2>();
+        move = context.ReadValue<Vector2>();
+    }
+
+    private void PlayerMove2_performed(InputAction.CallbackContext context)
+    {
+        move2 = context.ReadValue<Vector2>();
+    }
+
+    private void PlayerMove2_canceled(InputAction.CallbackContext context)
+    {
+        move2 = context.ReadValue<Vector2>();
     }
 
     private void BoostLeft_performed(InputAction.CallbackContext context)

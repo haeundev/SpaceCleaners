@@ -2308,6 +2308,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SpaceMove2",
+                    "type": "Value",
+                    "id": "607b45f5-49f4-4791-aeeb-ebefe9dfe464",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -2341,6 +2350,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "BoostRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b88f0603-5799-423e-95e2-5f8fa8e60be0",
+                    "path": "<XRController>{RightHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpaceMove2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
