@@ -5334,7 +5334,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
-  range: 1000
   beamSpeed: 300
   destroySec: 2
   button:
@@ -10241,7 +10240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 136330, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
-  range: 1000
   beamSpeed: 1000
   destroySec: 3
   button:
@@ -38649,7 +38647,7 @@ MonoBehaviour:
   thrust: 2000
   pitchSpeed: 5
   maxPitchAngle: 45
-  maxBoostAmount: 2
+  maxBoostAmount: 20
   boostDeprecationRate: 0.25
   boostRechargeRate: 0.5
   boostMultiplier: 5
@@ -38667,6 +38665,8 @@ MonoBehaviour:
     type: 3}
   boostRightActionRef: {fileID: 8075259192875580878, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  speedLines: {fileID: 103115424}
+  isSpeedLineActivated: 0
 --- !u!1 &9069791675857995175
 GameObject:
   m_ObjectHideFlags: 0

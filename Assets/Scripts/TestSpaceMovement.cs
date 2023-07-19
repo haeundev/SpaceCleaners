@@ -21,7 +21,7 @@ public class TestSpaceMovement : MonoBehaviour
 
     [Header("=== Boost Settings ===")]
     [SerializeField]
-    private float maxBoostAmount = 2f; //how big the boost tank is
+    private float maxBoostAmount = 20f; //how big the boost tank is
     [SerializeField]
     private float boostDeprecationRate = 0.25f; //how quickly the tank is depleted while player is holding the boost button
     [SerializeField]
@@ -55,6 +55,9 @@ public class TestSpaceMovement : MonoBehaviour
     [SerializeField] private InputActionReference boostLeftActionRef;
     [SerializeField] private InputActionReference boostRightActionRef;
 
+    public GameObject speedLines;
+    public bool isSpeedLineActivated = false;
+
 
     private void OnEnable()
     {
@@ -80,6 +83,7 @@ public class TestSpaceMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         currentBoostAmount = maxBoostAmount;
+        speedLines.SetActive(false);
     }
 
     void FixedUpdate()
@@ -109,10 +113,16 @@ public class TestSpaceMovement : MonoBehaviour
         if(isLeftBoost && isRightBoost)
         {
             boosting = true;
+            
+        }
+        else
+        {
+            boosting = false;
         }
 
         if(boosting && currentBoostAmount > 0f) //if we have boost left in the tank
         {
+            speedLines.SetActive(true);
             currentBoostAmount -= boostDeprecationRate;
             if(currentBoostAmount <= 0f)
             {
@@ -121,6 +131,7 @@ public class TestSpaceMovement : MonoBehaviour
         }
         else
         {
+            speedLines.SetActive(false);
             if(currentBoostAmount < maxBoostAmount) //when not boosting replenish
             {
                 currentBoostAmount += boostRechargeRate;
@@ -142,6 +153,10 @@ public class TestSpaceMovement : MonoBehaviour
             moveDir = new Vector3(move.x, 0, move.y);
             Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, mainCam.transform.forward);
             moveDir = rotation * moveDir;
+
+            Quaternion speedLineRotation = Quaternion.FromToRotation(Vector3.forward, moveDir);
+            speedLines.transform.rotation = speedLineRotation;
+
 
             float currentThrust;
 
