@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f524fe12c0055e64eb5734f0db84be55, type: 3}
   m_Name: JunglePlanet shape
   m_EditorClassIdentifier: 
-  planetRadius: 10
+  planetRadius: 500
   noiseLayers:
   - enabled: 1
     useFirstLayerAsMask: 0

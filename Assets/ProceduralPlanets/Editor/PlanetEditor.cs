@@ -1,18 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ProceduralPlanets;
+using UniRx;
 using UnityEngine;
 using UnityEditor;
+using Object = UnityEngine.Object;
 
 [CustomEditor(typeof(Planet))]
 public class PlanetEditor : Editor {
 
     Planet planet;
     Editor shapeEditor;
+    private Animator animator;
     Editor colourEditor;
+    private static readonly int Attack = Animator.StringToHash("Attack");
 
-	public override void OnInspectorGUI()
+    public override void OnInspectorGUI()
 	{
+        Observable.Timer(TimeSpan.FromSeconds(3f)).Subscribe(_ => {
+            animator.SetTrigger(Attack);
+        });
         using (var check = new EditorGUI.ChangeCheckScope())
         {
             base.OnInspectorGUI();

@@ -139,6 +139,27 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
     public Bounds boundsEncapsulatedBounds;
     [HideInInspector]
     public Vector3 vBoxSize;
+#if UNITY_EDITOR
+    void OnDrawGizmosSelected()
+    {
+        var matrix = transform.localToWorldMatrix;
+        float positionY = 0;
+        Handles.color = Color.green;
+        // Handles.matrix = matrix;
+        Handles.DrawWireCube(transform.position, gizmoSize);
+        // for (var i = 0; i < heightRaysCount; i++)
+        // {
+        //     var percentage = (float)i / (float)heightRaysCount;
+        //     float value = stepHeightCurve.Evaluate(percentage);
+        //     positionY += value * maxStepHeight;
+        //     Handles.matrix = matrix;
+        //     var position = new Vector3(0, positionY, 0);
+        //     Handles.DrawWireCube(transform.position, vBoxSize);
+        // }
+    }
+
+    [SerializeField] private Vector3 gizmoSize = Vector3.one;
+#endif
     [HideInInspector]
     public int iBoxSizeX;
     [HideInInspector]
@@ -273,7 +294,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
         {
             if (listAllObjects.Count > 0)
             {
-                foreach (GameObject obj in listAllObjects)
+                foreach (var obj in listAllObjects)
                 {
                     if (obj.GetComponent<MeshRenderer>() != null)
                     {
@@ -282,7 +303,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                     }
                     if (obj.GetComponentsInChildren<MeshRenderer>().Length > 0)
                     {
-                        foreach (MeshRenderer meshrenderer in obj.GetComponentsInChildren<MeshRenderer>())
+                        foreach (var meshrenderer in obj.GetComponentsInChildren<MeshRenderer>())
                         {
                             meshrenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                             meshrenderer.receiveShadows = false;
@@ -436,7 +457,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
             }
 
             //Get the starting location                
-            bool bGotStartingBounds = false;
+            var bGotStartingBounds = false;
             if (StartingEnvironmentToWrap != null)
             {
                 if (StartingEnvironmentToWrap.GetComponent<MeshRenderer>() != null)
@@ -446,8 +467,8 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                 }
                 if (StartingEnvironmentToWrap.GetComponentsInChildren<MeshRenderer>().Length > 0)
                 {
-                    MeshRenderer[] StartingMeshes = StartingEnvironmentToWrap.GetComponentsInChildren<MeshRenderer>();
-                    foreach (MeshRenderer mesh in StartingMeshes)
+                    var StartingMeshes = StartingEnvironmentToWrap.GetComponentsInChildren<MeshRenderer>();
+                    foreach (var mesh in StartingMeshes)
                     {
                         if (!bGotStartingBounds)
                         {
@@ -469,9 +490,9 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
             //Add each mesh renderer bounds to the list            
             if (listAllObjects.Count > 0)
             {
-                foreach (GameObject obj in listAllObjects)
+                foreach (var obj in listAllObjects)
                 {                    
-                    bool bGotFirst = false;
+                    var bGotFirst = false;
 
                     if (obj != null)
                     {
@@ -479,7 +500,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                         {
                             if (bGPUInstancing)
                             {
-                                foreach (Material mat in obj.GetComponent<MeshRenderer>().sharedMaterials)
+                                foreach (var mat in obj.GetComponent<MeshRenderer>().sharedMaterials)
                                 {
                                     mat.enableInstancing = true;
                                 }
@@ -493,12 +514,12 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
 
                         if (obj.GetComponentsInChildren<MeshRenderer>().Length > 0)
                         {
-                            MeshRenderer[] cMeshes = obj.GetComponentsInChildren<MeshRenderer>();
-                            foreach (MeshRenderer meshrenderer in cMeshes)
+                            var cMeshes = obj.GetComponentsInChildren<MeshRenderer>();
+                            foreach (var meshrenderer in cMeshes)
                             {
                                 if (bGPUInstancing)
                                 {
-                                    foreach (Material mat in meshrenderer.sharedMaterials)
+                                    foreach (var mat in meshrenderer.sharedMaterials)
                                     {
                                         mat.enableInstancing = true;
                                     }
@@ -525,8 +546,8 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
             //Get the greatest bounds for each axis
             if (listBounds.Count > 0)
             {
-                bool bBoxSizeStarted = false;
-                foreach (Bounds bounds in listBounds)
+                var bBoxSizeStarted = false;
+                foreach (var bounds in listBounds)
                 {
                     if (!bBoxSizeStarted)
                     {
@@ -543,7 +564,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                 Debug.Log(vBoxSize + "box size");
 
                 //If the mesh bounds are too small, increase the buffer, otherwise it will instantiate too many
-                float fBufferBasedOnCamClip = fCameraFarClip * .025f;
+                var fBufferBasedOnCamClip = fCameraFarClip * .025f;
 
                 if (vBoxSize.x + vDistanceBetweenObjects.x < fBufferBasedOnCamClip)
                 { vDistanceBetweenObjects.x = fBufferBasedOnCamClip - vBoxSize.x; vDistanceBetweenObjects.x = fBufferBasedOnCamClip - vBoxSize.x; }
@@ -559,32 +580,32 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                 vBoxSize.z += vDistanceBetweenObjects.z;
                 
                 //The starting point for object duping
-                Vector3 vStartPoint = boundsStartingBounds.center;
+                var vStartPoint = boundsStartingBounds.center;
 
                 //Calculate how many duplicates should be created.  This is relative to the camera's clip so that the edge of the grid is never seen.
-                float fMaxDupeSizeLateralX = ((fCameraFarClip * 1.5f / vBoxSize.x) + 1) * vBoxSize.x;
-                float fMaxDupeSizeLateralY = ((fCameraFarClip * 1.5f / vBoxSize.y) + 1) * vBoxSize.y;
-                float fMaxDupeSizeLateralZ = ((fCameraFarClip * 1.5f / vBoxSize.z) + 1) * vBoxSize.z;
+                var fMaxDupeSizeLateralX = ((fCameraFarClip * 1.5f / vBoxSize.x) + 1) * vBoxSize.x;
+                var fMaxDupeSizeLateralY = ((fCameraFarClip * 1.5f / vBoxSize.y) + 1) * vBoxSize.y;
+                var fMaxDupeSizeLateralZ = ((fCameraFarClip * 1.5f / vBoxSize.z) + 1) * vBoxSize.z;
                 
 
                 //Calculate half the size of the maximum lateral size, for easier parenting at 0,0,0
-                float fHalfDupeSizeLateralX = fMaxDupeSizeLateralX / 2;
-                float fHalfDupeSizeLateralY = fMaxDupeSizeLateralY / 2;
-                float fHalfDupeSizeLateralZ = fMaxDupeSizeLateralZ / 2;
+                var fHalfDupeSizeLateralX = fMaxDupeSizeLateralX / 2;
+                var fHalfDupeSizeLateralY = fMaxDupeSizeLateralY / 2;
+                var fHalfDupeSizeLateralZ = fMaxDupeSizeLateralZ / 2;
 
-                bool bCountFinished1 = false;
-                bool bCountFinished2 = false;
+                var bCountFinished1 = false;
+                var bCountFinished2 = false;
 
                 
                 
                 //Create the grid, account for starting point
-                for (float x = vStartPoint.x; x < (fMaxDupeSizeLateralX + vStartPoint.x); x += vBoxSize.x)
+                for (var x = vStartPoint.x; x < (fMaxDupeSizeLateralX + vStartPoint.x); x += vBoxSize.x)
                 {
                     iLateralDupeCountInQuadrantX += 1;
-                    for (float y = vStartPoint.y; y < (fMaxDupeSizeLateralY + vStartPoint.y); y += vBoxSize.y)
+                    for (var y = vStartPoint.y; y < (fMaxDupeSizeLateralY + vStartPoint.y); y += vBoxSize.y)
                     {
                         if (!bCountFinished1) { iLateralDupeCountInQuadrantY += 1; }
-                        for (float z = vStartPoint.z; z < (fMaxDupeSizeLateralZ + vStartPoint.z); z += vBoxSize.z)
+                        for (var z = vStartPoint.z; z < (fMaxDupeSizeLateralZ + vStartPoint.z); z += vBoxSize.z)
                         {                           
                             if (!bCountFinished2) { iLateralDupeCountInQuadrantZ += 1; }
                             doInstantiateObject(x, y, z);
@@ -598,30 +619,30 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                 fLateralQuadrantSizeX = vBoxSize.x * iLateralDupeCountInQuadrantX;
                 fLateralQuadrantSizeY = vBoxSize.y * iLateralDupeCountInQuadrantY;
                 fLateralQuadrantSizeZ = vBoxSize.z * iLateralDupeCountInQuadrantZ;
-                float fHalfQuadrantSizeX = fLateralQuadrantSizeX * .5f;
-                float fHalfQuadrantSizeY = fLateralQuadrantSizeY * .5f;
-                float fHalfQuadrantSizeZ = fLateralQuadrantSizeZ * .5f;
+                var fHalfQuadrantSizeX = fLateralQuadrantSizeX * .5f;
+                var fHalfQuadrantSizeY = fLateralQuadrantSizeY * .5f;
+                var fHalfQuadrantSizeZ = fLateralQuadrantSizeZ * .5f;
 
 
                 //Parent all objects in the first quadrant to an empty object
-                GameObject oQuadrantParent0 = new GameObject("Quadrant Parent 0");
-                Vector3 vHalfBoxSize = vBoxSize * .5f;                
+                var oQuadrantParent0 = new GameObject("Quadrant Parent 0");
+                var vHalfBoxSize = vBoxSize * .5f;                
                 oQuadrantParent0.transform.position = new Vector3(vStartPoint.x + fHalfQuadrantSizeX - vHalfBoxSize.x, vStartPoint.y + fHalfQuadrantSizeY - vHalfBoxSize.y, vStartPoint.z + fHalfQuadrantSizeZ - vHalfBoxSize.z);
-                foreach (GameObject quadrantobject in listQuadrantObjects)
+                foreach (var quadrantobject in listQuadrantObjects)
                 {
                     quadrantobject.transform.SetParent(oQuadrantParent0.transform);
                 }
 
                 //Duplicate quadrants and position them in the grid, using offset from starting object
-                Vector3 vOSet = oQuadrantParent0.transform.position;       //U1     
-                GameObject oQuadrantParent1 = Instantiate(oQuadrantParent0, vOSet - new Vector3(fLateralQuadrantSizeX, 0, fLateralQuadrantSizeZ), Quaternion.identity);//(-1, 0, -1) U3
-                GameObject oQuadrantParent2 = Instantiate(oQuadrantParent0, vOSet - new Vector3(fLateralQuadrantSizeX, 0, 0), Quaternion.identity);//(-1, 0, 0) U4
-                GameObject oQuadrantParent3 = Instantiate(oQuadrantParent0, vOSet - new Vector3(fLateralQuadrantSizeX, fLateralQuadrantSizeY, 0), Quaternion.identity);//(-1, -1, 0)  D8
+                var vOSet = oQuadrantParent0.transform.position;       //U1     
+                var oQuadrantParent1 = Instantiate(oQuadrantParent0, vOSet - new Vector3(fLateralQuadrantSizeX, 0, fLateralQuadrantSizeZ), Quaternion.identity);//(-1, 0, -1) U3
+                var oQuadrantParent2 = Instantiate(oQuadrantParent0, vOSet - new Vector3(fLateralQuadrantSizeX, 0, 0), Quaternion.identity);//(-1, 0, 0) U4
+                var oQuadrantParent3 = Instantiate(oQuadrantParent0, vOSet - new Vector3(fLateralQuadrantSizeX, fLateralQuadrantSizeY, 0), Quaternion.identity);//(-1, -1, 0)  D8
 
-                GameObject oQuadrantParent4 = Instantiate(oQuadrantParent0, vOSet - new Vector3(0, fLateralQuadrantSizeY, fLateralQuadrantSizeZ), Quaternion.identity); //(0, -1, -1) D6 
-                GameObject oQuadrantParent5 = Instantiate(oQuadrantParent0, vOSet - new Vector3(0, 0, fLateralQuadrantSizeZ), Quaternion.identity);//(0, 0, -1) U2
-                GameObject oQuadrantParent6 = Instantiate(oQuadrantParent0, vOSet - new Vector3(fLateralQuadrantSizeX, fLateralQuadrantSizeY, fLateralQuadrantSizeZ), Quaternion.identity);//(1, 1, 1) 
-                GameObject oQuadrantParent7 = Instantiate(oQuadrantParent0, vOSet - new Vector3(0, fLateralQuadrantSizeY, 0), Quaternion.identity);//(0, -1, 0)  D5         
+                var oQuadrantParent4 = Instantiate(oQuadrantParent0, vOSet - new Vector3(0, fLateralQuadrantSizeY, fLateralQuadrantSizeZ), Quaternion.identity); //(0, -1, -1) D6 
+                var oQuadrantParent5 = Instantiate(oQuadrantParent0, vOSet - new Vector3(0, 0, fLateralQuadrantSizeZ), Quaternion.identity);//(0, 0, -1) U2
+                var oQuadrantParent6 = Instantiate(oQuadrantParent0, vOSet - new Vector3(fLateralQuadrantSizeX, fLateralQuadrantSizeY, fLateralQuadrantSizeZ), Quaternion.identity);//(1, 1, 1) 
+                var oQuadrantParent7 = Instantiate(oQuadrantParent0, vOSet - new Vector3(0, fLateralQuadrantSizeY, 0), Quaternion.identity);//(0, -1, 0)  D5         
 
                 //Create a parent for all quadrants
                 oGlobalParent = new GameObject("Wrap Parent");
@@ -671,16 +692,16 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
             {
                 iIndexStart = 0;
             }
-            int iRandIndex = Random.Range(iIndexStart, listAllObjects.Count);
-            GameObject oNewDuplicate = Instantiate(listAllObjects[iRandIndex]);
+            var iRandIndex = Random.Range(iIndexStart, listAllObjects.Count);
+            var oNewDuplicate = Instantiate(listAllObjects[iRandIndex]);
 
             //Get the bounds of this object, to get the center point, for offset.  Just in case the object is parented with offset.                            
-            bool bGotNewDuplicateFirstBounds = false;
+            var bGotNewDuplicateFirstBounds = false;
             if (oNewDuplicate.GetComponent<MeshRenderer>() != null)
             { boundsNewDuplicateEncapsulated = oNewDuplicate.GetComponent<MeshRenderer>().bounds; bGotNewDuplicateFirstBounds = true; }
             if (oNewDuplicate.GetComponentsInChildren<MeshRenderer>().Length > 0)
             {
-                foreach (MeshRenderer renderer in oNewDuplicate.GetComponentsInChildren<MeshRenderer>())
+                foreach (var renderer in oNewDuplicate.GetComponentsInChildren<MeshRenderer>())
                 {
                     if (bGotNewDuplicateFirstBounds)
                     {
@@ -695,27 +716,27 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
             }
 
             //Create a parent for the new dupe, center it on the new dupe's mesh bounds
-            GameObject oNewDuplicateParent = new GameObject("Dupe");
+            var oNewDuplicateParent = new GameObject("Dupe");
             oNewDuplicateParent.transform.position = boundsNewDuplicateEncapsulated.center;
             oNewDuplicate.transform.parent = oNewDuplicateParent.transform;
 
             //Add some randomness to the position                            
-            float fRandPosX = Random.Range(fStaggerPositions * vBoxSize.x * .5f * -1, fStaggerPositions * vBoxSize.x * .5f);
-            float fRandPosY = Random.Range(fStaggerPositions * vBoxSize.y * .5f * -1, fStaggerPositions * vBoxSize.y * .5f);
-            float fRandPosZ = Random.Range(fStaggerPositions * vBoxSize.z * .5f * -1, fStaggerPositions * vBoxSize.z * .5f);
+            var fRandPosX = Random.Range(fStaggerPositions * vBoxSize.x * .5f * -1, fStaggerPositions * vBoxSize.x * .5f);
+            var fRandPosY = Random.Range(fStaggerPositions * vBoxSize.y * .5f * -1, fStaggerPositions * vBoxSize.y * .5f);
+            var fRandPosZ = Random.Range(fStaggerPositions * vBoxSize.z * .5f * -1, fStaggerPositions * vBoxSize.z * .5f);
             oNewDuplicateParent.transform.position = new Vector3(x + fRandPosX, y + fRandPosY, z + fRandPosZ);
 
             //Add some randomness to the rotation
-            float fRandRotX = Random.Range(-fStaggerRotationX, fStaggerRotationX);
-            float fRandRotY = Random.Range(-fStaggerRotationY, fStaggerRotationY);
-            float fRandRotZ = Random.Range(-fStaggerRotationZ, fStaggerRotationZ);
+            var fRandRotX = Random.Range(-fStaggerRotationX, fStaggerRotationX);
+            var fRandRotY = Random.Range(-fStaggerRotationY, fStaggerRotationY);
+            var fRandRotZ = Random.Range(-fStaggerRotationZ, fStaggerRotationZ);
             oNewDuplicateParent.transform.eulerAngles = new Vector3(360 * fRandRotX, 360 * fRandRotY, 360 * fRandRotZ);
 
             //Add some randomness to the scale            
-            Vector3 vCurrentScale = oNewDuplicateParent.transform.localScale;
-            float fRandScaleX = Random.Range(1 - fRandomScale * .8f, vCurrentScale.x);
-            float fRandScaleY = Random.Range(1 - fRandomScale * .8f, vCurrentScale.y);
-            float fRandScaleZ = Random.Range(1 - fRandomScale * .8f, vCurrentScale.z);
+            var vCurrentScale = oNewDuplicateParent.transform.localScale;
+            var fRandScaleX = Random.Range(1 - fRandomScale * .8f, vCurrentScale.x);
+            var fRandScaleY = Random.Range(1 - fRandomScale * .8f, vCurrentScale.y);
+            var fRandScaleZ = Random.Range(1 - fRandomScale * .8f, vCurrentScale.z);
             oNewDuplicateParent.transform.localScale = new Vector3(fRandScaleX, fRandScaleY, fRandScaleZ);
 
             //Add the newly instantiated object to the list of all objects in this quadrant
@@ -724,7 +745,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
         //If it's the first object, skip instantiation, and instead just add the starting object to the list of objects
         else if ((bFirstRun) && (oStartingObject != null))
         {
-            GameObject oNewDuplicateParent = new GameObject("Dupe");
+            var oNewDuplicateParent = new GameObject("Dupe");
             oNewDuplicateParent.transform.position = boundsStartingBounds.center;
             oStartingObject.transform.parent = oNewDuplicateParent.transform;
             listQuadrantObjects.Add(oNewDuplicateParent);
@@ -741,13 +762,13 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
     {
         if (oPlayer != null)
         {
-            Vector3 vPlayerPos = oGlobalParent.transform.InverseTransformPoint(oPlayer.transform.position);
-            Vector3 vCameraPos = oGlobalParent.transform.InverseTransformPoint(cCamera.transform.position);
+            var vPlayerPos = oGlobalParent.transform.InverseTransformPoint(oPlayer.transform.position);
+            var vCameraPos = oGlobalParent.transform.InverseTransformPoint(cCamera.transform.position);
 
-            Vector3 vCameraPosGlobal = cCamera.transform.position;
-            Vector3 vCameraPosLocalInPlayer = oPlayer.transform.InverseTransformPoint(vCameraPosGlobal);
-            Vector3 vCameraRootPosGlobal = Vector3.zero;
-            Vector3 vCameraRootPosLocalInPlayer = Vector3.zero;
+            var vCameraPosGlobal = cCamera.transform.position;
+            var vCameraPosLocalInPlayer = oPlayer.transform.InverseTransformPoint(vCameraPosGlobal);
+            var vCameraRootPosGlobal = Vector3.zero;
+            var vCameraRootPosLocalInPlayer = Vector3.zero;
 
             if (bCameraIsChildOfOther)
             {
@@ -759,77 +780,80 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
             //Check if should wrap player by distance, then do wrap player
             if ((Mathf.Abs(vPlayerPos.x) > fMaxDistanceX) && (Mathf.Abs(vCameraPos.x) > fMaxDistanceX))
             {
-                float fPlayerPosAbsX = Mathf.Abs(vPlayerPos.x);
-                float fMultiplier = vPlayerPos.x / fPlayerPosAbsX;
+                var fPlayerPosAbsX = Mathf.Abs(vPlayerPos.x);
+                var fMultiplier = vPlayerPos.x / fPlayerPosAbsX;
                 fMultiplier *= -1;
-                float fPlayerNewPosX = (iLateralDupeCountInQuadrantX * vBoxSize.x) - fPlayerPosAbsX;//
+                var fPlayerNewPosX = (iLateralDupeCountInQuadrantX * vBoxSize.x) - fPlayerPosAbsX;//
                 oPlayer.transform.position = oGlobalParent.transform.TransformPoint(new Vector3((fPlayerNewPosX * fMultiplier), vPlayerPos.y, vPlayerPos.z));
                 if (bCameraIsChildOfOther)
                 {
                     oCameraRoot.transform.position = oPlayer.transform.TransformPoint(vCameraRootPosLocalInPlayer);
                 }
                 cCamera.transform.position = oPlayer.transform.TransformPoint(vCameraPosLocalInPlayer);
+                Debug.Log($"Wrap axis X");
             }
             else if ((Mathf.Abs(vPlayerPos.y) > fMaxDistanceY) && (Mathf.Abs(vCameraPos.y) > fMaxDistanceY))
             {
-                float fPlayerPosAbsY = Mathf.Abs(vPlayerPos.y);
-                float fMultiplier = vPlayerPos.y / fPlayerPosAbsY;
+                var fPlayerPosAbsY = Mathf.Abs(vPlayerPos.y);
+                var fMultiplier = vPlayerPos.y / fPlayerPosAbsY;
                 fMultiplier *= -1;
-                float fPlayerNewPosY = (iLateralDupeCountInQuadrantY * vBoxSize.y) - fPlayerPosAbsY;//
+                var fPlayerNewPosY = (iLateralDupeCountInQuadrantY * vBoxSize.y) - fPlayerPosAbsY;//
                 oPlayer.transform.position = oGlobalParent.transform.TransformPoint(new Vector3(vPlayerPos.x, (fPlayerNewPosY * fMultiplier), vPlayerPos.z));
                 if (bCameraIsChildOfOther)
                 {
                     oCameraRoot.transform.position = oPlayer.transform.TransformPoint(vCameraRootPosLocalInPlayer);
                     cCamera.transform.position = oPlayer.transform.TransformPoint(vCameraPosLocalInPlayer);
                 }
+                Debug.Log($"Wrap axis Y");
             }
             else if ((Mathf.Abs(vPlayerPos.z) > fMaxDistanceZ) && (Mathf.Abs(vCameraPos.z) > fMaxDistanceZ))
             {
-                float fPlayerPosAbsZ = Mathf.Abs(vPlayerPos.z);
-                float fMultiplier = vPlayerPos.z / fPlayerPosAbsZ;
+                var fPlayerPosAbsZ = Mathf.Abs(vPlayerPos.z);
+                var fMultiplier = vPlayerPos.z / fPlayerPosAbsZ;
                 fMultiplier *= -1;            
-                float fPlayerNewPosZ = (iLateralDupeCountInQuadrantZ * vBoxSize.z) - fPlayerPosAbsZ;//
+                var fPlayerNewPosZ = (iLateralDupeCountInQuadrantZ * vBoxSize.z) - fPlayerPosAbsZ;//
                 oPlayer.transform.position = oGlobalParent.transform.TransformPoint(new Vector3(vPlayerPos.x, vPlayerPos.y, (fPlayerNewPosZ * fMultiplier)));
                 if (bCameraIsChildOfOther)
                 {
                     oCameraRoot.transform.position = oPlayer.transform.TransformPoint(vCameraRootPosLocalInPlayer);
                     cCamera.transform.position = oPlayer.transform.TransformPoint(vCameraPosLocalInPlayer);
                 }
+                Debug.Log($"Wrap axis Z");
             }
 
             //Wrap other objects ---------------------------------------
             if (sOtherTags.Length > 0)
             {
-                foreach (string tag in sOtherTags)
+                foreach (var tag in sOtherTags)
                 {
-                    foreach (GameObject othertag in GameObject.FindGameObjectsWithTag("tag"))
+                    foreach (var othertag in GameObject.FindGameObjectsWithTag("tag"))
                     {
                         if (othertag != null)
                         {
-                            Vector3 vOtherTagPos = oGlobalParent.transform.InverseTransformPoint(othertag.transform.position);
+                            var vOtherTagPos = oGlobalParent.transform.InverseTransformPoint(othertag.transform.position);
 
                             if (Mathf.Abs(vOtherTagPos.x) > fMaxDistanceX)
                             {
-                                float fOtherTagAbsX = Mathf.Abs(vOtherTagPos.x);
-                                float fMultiplier = vOtherTagPos.x / fOtherTagAbsX;
+                                var fOtherTagAbsX = Mathf.Abs(vOtherTagPos.x);
+                                var fMultiplier = vOtherTagPos.x / fOtherTagAbsX;
                                 fMultiplier *= -1;
-                                float fOtherTagNewPosX = (iLateralDupeCountInQuadrantX * vBoxSize.x) - fOtherTagAbsX;
+                                var fOtherTagNewPosX = (iLateralDupeCountInQuadrantX * vBoxSize.x) - fOtherTagAbsX;
                                 othertag.transform.position = oGlobalParent.transform.TransformPoint(new Vector3((fOtherTagNewPosX * fMultiplier), vOtherTagPos.y, vOtherTagPos.z));
                             }
                             else if (Mathf.Abs(vOtherTagPos.y) > fMaxDistanceY)
                             {
-                                float fOtherTagAbsY = Mathf.Abs(vOtherTagPos.y);
-                                float fMultiplier = vOtherTagPos.y / fOtherTagAbsY;
+                                var fOtherTagAbsY = Mathf.Abs(vOtherTagPos.y);
+                                var fMultiplier = vOtherTagPos.y / fOtherTagAbsY;
                                 fMultiplier *= -1;
-                                float fOtherTagNewPosY = (iLateralDupeCountInQuadrantY * vBoxSize.y) - fOtherTagAbsY;
+                                var fOtherTagNewPosY = (iLateralDupeCountInQuadrantY * vBoxSize.y) - fOtherTagAbsY;
                                 othertag.transform.position = oGlobalParent.transform.TransformPoint(new Vector3(vOtherTagPos.x, (fOtherTagNewPosY * fMultiplier), vOtherTagPos.z));
                             }
                             else if (Mathf.Abs(vOtherTagPos.z) > fMaxDistanceZ)
                             {
-                                float fOtherTagAbsZ = Mathf.Abs(vOtherTagPos.z);
-                                float fMultiplier = vOtherTagPos.z / fOtherTagAbsZ;
+                                var fOtherTagAbsZ = Mathf.Abs(vOtherTagPos.z);
+                                var fMultiplier = vOtherTagPos.z / fOtherTagAbsZ;
                                 fMultiplier *= -1;
-                                float fOtherTagNewPosZ = (iLateralDupeCountInQuadrantZ * vBoxSize.z) - fOtherTagAbsZ;
+                                var fOtherTagNewPosZ = (iLateralDupeCountInQuadrantZ * vBoxSize.z) - fOtherTagAbsZ;
                                 othertag.transform.position = oGlobalParent.transform.TransformPoint(new Vector3(vOtherTagPos.x, vOtherTagPos.y, (fOtherTagNewPosZ * fMultiplier)));
                             }
                         }

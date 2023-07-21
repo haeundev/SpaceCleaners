@@ -6,10 +6,25 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OuterSpaceScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Booting.unity
+    guid: 1b00e54b85577054590442e9d52f9d10
+  - enabled: 0
+    path: Assets/Scenes/Loading.unity
+    guid: 3a12ec2df554cba4cb82e6c241435efd
+  - enabled: 1
+    path: Assets/Scenes/OuterSpace.unity
+    guid: 7f2eab73d0b7f06448e761d8db008b3b
+  - enabled: 1
+    path: Assets/Scenes/JunglePlanet.unity
+    guid: 640431bff622d684abb3378f632566e7
+  - enabled: 1
+    path: Assets/Scenes/MonumentPlanet.unity
+    guid: ddaecc3d9d2ab4641973008ecb3eb18e
+  - enabled: 1
+    path: Assets/Scenes/CrystalDepot.unity
+    guid: 5e8c6eb96f1e8d64382d229969bde7db
   m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: 161bc42c1b7fa8946b31ee047a5c659f,
+    com.unity.addressableassets: {fileID: 11400000, guid: f0a154a9c9a8edb4f8eff98267c51fc0,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9202e023236457444a79cefd85db504d,
       type: 2}

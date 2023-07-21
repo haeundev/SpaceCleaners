@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace ProceduralPlanets
 {  
@@ -71,6 +72,24 @@ namespace ProceduralPlanets
             Initialize();
             GenerateMesh();
             GenerateColours();
+            // Save();
+        }
+
+        private void Save()
+        {
+            for (var i = 0; i < transform.childCount; i++)
+            {
+                var ch = transform.GetChild(i);
+                var material = ch.GetComponent<MeshRenderer>().material;
+                // AssetDatabase.CreateAsset(material.GetTexture("_texture"), $"Assets/Prefabs/ProceduralSpaceObjects/Graphics/{gameObject.name}_{i}_texture.asset");
+                AssetDatabase.CreateAsset(material, $"Assets/Prefabs/ProceduralSpaceObjects/Graphics/{gameObject.name}_{i}_material.asset");
+                var mesh = ch.GetComponent<MeshFilter>().sharedMesh;
+                //AssetDatabase.CreateAsset(mesh, $"Assets/Prefabs/ProceduralSpaceObjects/Graphics/{gameObject.name}_{i}_mesh.asset");
+                MeshUtility.Optimize(mesh);
+                AssetDatabase.CreateAsset(mesh, $"Assets/Prefabs/ProceduralSpaceObjects/Graphics/{gameObject.name}_{i}_mesh.asset");
+                AssetDatabase.SaveAssets();
+            }
+            AssetDatabase.SaveAssets();
         }
 
         public void OnShapeSettingsUpdated()
@@ -102,6 +121,7 @@ namespace ProceduralPlanets
 
         private void GenerateColours()
         {
+            Debug.Log($"generate color");
             _colourGenerator.UpdateColours();
             for (var i = 0; i < 6; i++)
                 if (meshFilters[i].gameObject.activeSelf)

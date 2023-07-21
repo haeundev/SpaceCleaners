@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7633707575452140088
 MonoBehaviour:
@@ -54,9 +54,8 @@ MonoBehaviour:
   StartingEnvironmentToWrap: {fileID: 0}
   WrapStartingEnvironment: 0
   OtherEnvironmentToWrap:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1522520519041644842, guid: 1f568990c402b0249b7de92bd05c1f19, type: 3}
+  - {fileID: 4382209473003224024, guid: fca8e2a1bc47bc94cb75d61fc65767bf, type: 3}
   RandomPositionStrength: 0.8
   RandomScaleStrength: 1
   XRandomRotationStrength: 1
@@ -102,6 +101,7 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   vBoxSize: {x: 0, y: 0, z: 0}
+  gizmoSize: {x: 1, y: 1, z: 1}
   iBoxSizeX: 0
   iBoxSizeY: 0
   iBoxSizeZ: 0
