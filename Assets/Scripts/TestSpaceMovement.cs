@@ -233,5 +233,12 @@ public class TestSpaceMovement : MonoBehaviour
         isRightBoost = context.performed;
         
     }
+
+    #region Input Methods
+    public void OnBoost(InputAction.CallbackContext context)
+    {
+        print("LeftBoost Pressed!");
+    }
+    #endregion
   
 }
