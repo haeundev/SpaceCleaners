@@ -110,7 +110,7 @@ public class TestSpaceMovement : MonoBehaviour
 
     void HandleBoosting()
     {
-        if(isLeftBoost && isRightBoost)
+        if(isLeftBoost && isRightBoost)// && currentBoostAmount > 0f) //if boost has limit uncomment this!
         {
             boosting = true;
             
@@ -122,7 +122,7 @@ public class TestSpaceMovement : MonoBehaviour
 
         if(boosting && currentBoostAmount > 0f) //if we have boost left in the tank
         {
-            speedLines.SetActive(true);
+            // speedLines.SetActive(true);
             currentBoostAmount -= boostDeprecationRate;
             if(currentBoostAmount <= 0f)
             {
@@ -131,11 +131,11 @@ public class TestSpaceMovement : MonoBehaviour
         }
         else
         {
-            speedLines.SetActive(false);
-            if(currentBoostAmount < maxBoostAmount) //when not boosting replenish
-            {
-                currentBoostAmount += boostRechargeRate;
-            }
+            // // speedLines.SetActive(false);
+            // if(currentBoostAmount < maxBoostAmount) //when not boosting replenish
+            // {
+            //     currentBoostAmount += boostRechargeRate;
+            // }
         }
     }
 
@@ -154,8 +154,10 @@ public class TestSpaceMovement : MonoBehaviour
             Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, mainCam.transform.forward);
             moveDir = rotation * moveDir;
 
-            Quaternion speedLineRotation = Quaternion.FromToRotation(Vector3.forward, moveDir);
-            speedLines.transform.rotation = speedLineRotation;
+            Quaternion speedLineRotation = Quaternion.FromToRotation(mainCam.transform.forward, moveDir);//Quaternion.FromToRotation(Vector3.forward, moveDir);
+            speedLines.transform.rotation = speedLineRotation * rotation;
+            // speedLines.transform.localRotation = speedLineRotation;
+            
 
 
             float currentThrust;
@@ -163,10 +165,12 @@ public class TestSpaceMovement : MonoBehaviour
             if(boosting)
             {
                 currentThrust = thrust * boostMultiplier;
+                speedLines.SetActive(true);
             }
             else
             {
                 currentThrust = thrust;
+                speedLines.SetActive(false);
             }
 
             rb.AddForce(moveDir * currentThrust * Time.deltaTime); //currentThrust for boosting
@@ -174,6 +178,7 @@ public class TestSpaceMovement : MonoBehaviour
         }
         else
         {
+            speedLines.SetActive(false);
             rb.AddForce(moveDir * glide * Time.deltaTime); //eventually glide will be 0 and won't be moving
             glide *= thrustGlideReduction;
         }
@@ -233,12 +238,5 @@ public class TestSpaceMovement : MonoBehaviour
         isRightBoost = context.performed;
         
     }
-
-    #region Input Methods
-    public void OnBoost(InputAction.CallbackContext context)
-    {
-        print("LeftBoost Pressed!");
-    }
-    #endregion
   
 }
