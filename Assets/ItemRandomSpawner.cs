@@ -12,7 +12,7 @@ public class ItemRandomSpawner : MonoBehaviour
         GetComponentInChildren<MeshRenderer>().enabled = false;
         
         var rnd = Random.Range(0, 10);
-        if (rnd == 0)
+        if (rnd < 5)
         {
             Addressables.InstantiateAsync(itemRefs.PeekRandom(), transform);
         }
