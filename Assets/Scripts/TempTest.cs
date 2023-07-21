@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,7 +16,7 @@ public class TempTest : MonoBehaviour
         mainCam = Camera.main;
         rb = GetComponent<Rigidbody>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +31,7 @@ public class TempTest : MonoBehaviour
     public void OnBoost(InputAction.CallbackContext context)
     {
         boosting = context.performed;
-        print("Left Boost pressed!!!");
+        Debug.Log("Left Boost pressed!!!");
 
     }
     #endregion
