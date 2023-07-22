@@ -790,6 +790,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                     oCameraRoot.transform.position = oPlayer.transform.TransformPoint(vCameraRootPosLocalInPlayer);
                 }
                 cCamera.transform.position = oPlayer.transform.TransformPoint(vCameraPosLocalInPlayer);
+                OuterSpaceEvent.Trigger_PlayerPositionWrapped();
                 Debug.Log($"Wrap axis X");
             }
             else if ((Mathf.Abs(vPlayerPos.y) > fMaxDistanceY) && (Mathf.Abs(vCameraPos.y) > fMaxDistanceY))
@@ -804,6 +805,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                     oCameraRoot.transform.position = oPlayer.transform.TransformPoint(vCameraRootPosLocalInPlayer);
                     cCamera.transform.position = oPlayer.transform.TransformPoint(vCameraPosLocalInPlayer);
                 }
+                OuterSpaceEvent.Trigger_PlayerPositionWrapped();
                 Debug.Log($"Wrap axis Y");
             }
             else if ((Mathf.Abs(vPlayerPos.z) > fMaxDistanceZ) && (Mathf.Abs(vCameraPos.z) > fMaxDistanceZ))
@@ -818,6 +820,7 @@ public class InfiniteWorldsAndMegastructures : MonoBehaviour
                     oCameraRoot.transform.position = oPlayer.transform.TransformPoint(vCameraRootPosLocalInPlayer);
                     cCamera.transform.position = oPlayer.transform.TransformPoint(vCameraPosLocalInPlayer);
                 }
+                OuterSpaceEvent.Trigger_PlayerPositionWrapped();
                 Debug.Log($"Wrap axis Z");
             }
 
