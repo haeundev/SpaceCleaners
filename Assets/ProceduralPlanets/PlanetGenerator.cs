@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProceduralPlanets
 {  
-    public class Planet : MonoBehaviour
+    public class PlanetGenerator : MonoBehaviour
     {
         [Range(2, 256)] public int resolution = 10;
         public bool autoUpdate = true;
