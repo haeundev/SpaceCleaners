@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using LiveLarson.BootAndLoad;
 using UnityEngine;
@@ -33,6 +34,16 @@ public class GameStartMenu : MonoBehaviour
         foreach (var item in returnButtons)
         {
             item.onClick.AddListener(EnableMainMenu);
+        }
+    }
+
+    private bool isStartedGame;
+    private void Update()
+    {
+        if (isStartedGame == false && Input.anyKey)
+        {
+            isStartedGame = true;
+            StartGame();
         }
     }
 

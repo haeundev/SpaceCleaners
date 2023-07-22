@@ -5,6 +5,9 @@ using UnityEngine;
 public class StringStringDictionary : SerializableDictionary<string, string> {}
 
 [Serializable]
+public class IntIntDictionary : SerializableDictionary<int, int> {}
+
+[Serializable]
 public class StringIntDictionary : SerializableDictionary<string, int>
 {
     public StringIntDictionary()

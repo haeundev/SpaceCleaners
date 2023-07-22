@@ -14,7 +14,7 @@ namespace LiveLarson.SoundSystem
 {
     public sealed class Audio
     {
-        private const string DEFAULT_AUDIO_CLIP_ON_ERROR = "Sound/UI/UI_Button2.ogg";
+        private const string DEFAULT_AUDIO_CLIP_ON_ERROR = "Audio/Kenney Audio/kenney_digital-audio/Audio/phaseJump2.ogg";
 
         private static IGameModeService _gameModeService;
         private static readonly IObservable<long> DelayReleaseStream = Observable.Timer(TimeSpan.FromSeconds(1));

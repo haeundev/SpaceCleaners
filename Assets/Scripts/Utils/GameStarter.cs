@@ -9,6 +9,7 @@ namespace Script.Editor
     public static class GameStarter
     {
         private const string BOOTING = "Assets/Scenes/Booting.unity";
+        private const string LOADING = "Assets/Scenes/Loading.unity";
         private const string OUTER_SPACE = "Assets/Scenes/OuterSpace.unity";
         private const string JUNGLE = "Assets/Scenes/JunglePlanet.unity";
         private const string MONUMENT = "Assets/Scenes/MonumentPlanet.unity";
@@ -42,8 +43,10 @@ namespace Script.Editor
             // EditorApplication.EnterPlaymode();
         }
         
-        [MenuItem("AlienBusters/Booting", false, 99)]
+        [MenuItem("AlienBusters/Booting", false, 98)]
         private static void LoadPlanetJungleScene() => OpenScene(BOOTING);
+        [MenuItem("AlienBusters/Loading", false, 99)]
+        private static void LoadLoadingScene() => OpenScene(LOADING);
         [MenuItem("AlienBusters/OuterSpace", false, 100)]
         private static void LoadOuterSpaceScene() => OpenScene(OUTER_SPACE);
         

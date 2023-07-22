@@ -171,9 +171,8 @@ namespace LiveLarson.SoundSystem
             };
         }
 
-        public static void PlaySfx(string name, Vector3 position)
+        public static void PlaySfx(string path, Vector3 position)
         {
-            var path = $"{AudioType.SFX.ToString()}/{name}";
             var audio = new Audio(Instance, _key, AudioType.SFX, path, position, false);
             ApplySoundSettings(path, AudioType.SFX, audio);
             AudioDict.Add(_key++, audio);
