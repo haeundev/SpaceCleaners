@@ -3,9 +3,12 @@ namespace LiveLarson.Enums
     public enum GameMode
     {
         None,
+        Booting,
         Loading,
         Tutorial,
-        OutGame,
-        InGame
+        OuterSpace,
+        JunglePlanet,
+        MonumentPlanet,
+        CrystalDepot,
     }
 }

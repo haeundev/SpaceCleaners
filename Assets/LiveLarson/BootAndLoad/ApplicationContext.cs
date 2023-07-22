@@ -1,16 +1,12 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using LiveLarson.GameMode;
 using LiveLarson.GamePause;
-using LiveLarson.SoundSystem;
 using LiveLarson.UISystem;
 using LiveLarson.Util;
-using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -28,105 +24,44 @@ namespace LiveLarson.BootAndLoad
                 return _gameModeService;
             }
         }
-        [SerializeField] private Transform playerSpot;
         [SerializeField] private LoadingDisplay[] displays;
-        [SerializeField] private bool isLoadingSceneDebugMode;
         [SerializeField] private LoadingDisplay.LoadingThemeType loadingThemeType;
-        
         private LoadingDisplay _currentDisplay;
-        private string _previousSceneName;
-    
-        private static ApplicationContext _instance;
-        
-        private readonly Dictionary<string, SceneInstance> _subScenes = new();
-        
-        public static ApplicationContext Instance => _instance;
+        public static ApplicationContext Instance { get; private set; }
 
         private bool _loading;
+        private Enums.GameMode _previousMode;
         public bool IsLoadingDisplayOn { get; private set; }
         
 #if UNITY_EDITOR
         public static event Action OnReadyToLoad = delegate { };
         public static event Action OnLoadCompleted = delegate { };
-#endif        
-
+#endif
+        
         private void Awake()
         {
-            if (_instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            _instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
-            
             Random.InitState(DateTime.Now.Millisecond);
         }
-
-        private void Start()
-        {
-            var player = GameObject.FindWithTag("Player");
-            if (player == default)
-            {
-                Debug.LogError("No player!");
-            }
-            player.transform.position = playerSpot.position;
-            player.transform.rotation = playerSpot.rotation;
-        }
-
+        
         public void LoadScene(string scene, UnityAction loaded = null, UnityAction activated = null)
         {
             if (_loading)
                 return;
-
-            GameModeService.EnterGameMode(Enums.GameMode.Loading);
+            var targetGameMode = Enum.Parse<Enums.GameMode>(scene.Replace("Scenes/", "").Replace(".unity", ""));
+            GameModeService.TryEnterGameMode(targetGameMode);
             // SoundService.Play("UI/Common/Common_Loading_Loop");
             _currentDisplay = displays[0]; // 그 외의 경우들은 임시로 Common 로딩
-            
             _loading = true;
-            Debug.Log(scene);
-
-            StartCoroutine(LoadSceneAsync(scene, loaded, activated));
-        }
-
-        public void LoadScene(string scene, Enums.GameMode mode, UnityAction loaded = null, UnityAction activated = null)
-        {
-            if (_loading)
-                return;
-
-            var prevGameMode = GameModeService.GetGameMode();
-            GameModeService.EnterLoadingGameMode(mode);
-            
-            SoundService.Play("UI/Common/Common_Loading_Loop");
-            ChangeLoadingThema(prevGameMode, mode);
-            _currentDisplay.gameObject.SetActive(true);
-
-            _loading = true;
-            Debug.Log(scene);
-
-            StartCoroutine(LoadSceneAsync(scene, loaded, activated));
-        }
-
-        private void ChangeLoadingThema(Enums.GameMode prev, Enums.GameMode next)
-        {
-            _currentDisplay.gameObject.SetActive(false);
-            if (isLoadingSceneDebugMode)
-            {
-                _currentDisplay = displays[(int)loadingThemeType];
-                return;
-            }
-            _currentDisplay = displays[2];
+            StartCoroutine(LoadSceneAsync(scene, targetGameMode, loaded, activated));
         }
         
-        private IEnumerator LoadSceneAsync(string scene, UnityAction loaded, UnityAction activated)
+        private IEnumerator LoadSceneAsync(string scene, Enums.GameMode gameMode, UnityAction loaded, UnityAction activated)
         {
 #if UNITY_EDITOR
             OnReadyToLoad();
 #endif
-            _currentDisplay.UnityPreviousSceneName = _previousSceneName;
-            _currentDisplay.UnitySceneName = scene;
-            _previousSceneName = scene;
             _currentDisplay.gameObject.SetActive(true);
             IsLoadingDisplayOn = true;
             yield return null;
@@ -141,30 +76,27 @@ namespace LiveLarson.BootAndLoad
             {
                 progress = (loader.PercentComplete - baseOffset) * 10;
                 _currentDisplay.UpdateProgress(progress);
-                yield return null;
+                yield return default;
             }
-
             while (progress < 1.0f)
             {
                 progress = Mathf.MoveTowards(progress, 1.0f, Time.unscaledDeltaTime);
                 _currentDisplay.UpdateProgress(progress);
-                yield return null;
+                yield return default;
             }
-
             while (Time.unscaledTime - startLoadingTime < waitingTime)
             { 
-                yield return null;
+                yield return default;
             }
 
             loaded?.Invoke();
             ShowDisplayLoading(false);
 
             yield return loader.Result.ActivateAsync();
-           
 
             activated?.Invoke();
 
-            this.DoWaitForSeconds(1.0f, ChangeGameMode);
+            this.DoWaitForSeconds(1f, () => OnLoadSceneAsyncDone(gameMode));
 
 #if UNITY_EDITOR
             OnLoadCompleted();
@@ -172,40 +104,13 @@ namespace LiveLarson.BootAndLoad
             _loading = false;
         }
 
-        private void ChangeGameMode()
+        private void OnLoadSceneAsyncDone(Enums.GameMode gameMode)
         {
-            GameModeService.LeaveGameMode(Enums.GameMode.Loading);
+            Debug.Log($"ChangeGameMode to {gameMode}");
             _currentDisplay.gameObject.SetActive(false);
             IsLoadingDisplayOn = false;
-        }
-        
-        public void AddScene(string scene, UnityAction complete)
-        {
-            StartCoroutine(scene, complete);
-        }
-        
-        private IEnumerator AddSceneAsync(string scene, UnityAction complete)
-        {
-            var loader = Addressables.LoadSceneAsync(scene, LoadSceneMode.Additive, false);
-            yield return loader;
-            complete?.Invoke();
-            _subScenes.Add(scene, loader.Result);
-            yield return loader.Result.ActivateAsync();
-        }
-        
-        public void RemoveScene(string scene, UnityAction complete = null)
-        {
-            if (_subScenes.TryGetValue(scene, out var instance))
-            {
-                Observable.FromCoroutine(() => Addressables.UnloadSceneAsync(instance))
-                    .Subscribe(_ => { },
-                        () =>
-                        {
-                            complete?.Invoke();
-                            _subScenes.Remove(scene);
-                        })
-                    .AddTo(this);
-            }
+            // GameModeService.TryEnterGameMode(gameMode);
+            _previousMode = gameMode;
         }
         
         public void ShowDisplayLoading(bool show)
@@ -220,7 +125,6 @@ namespace LiveLarson.BootAndLoad
         {
             UIWindowService.CloseAll();
             GamePauseManager.AllResume();
-            //UnlockManager.Reset();
         }
     }
 }

@@ -27,8 +27,7 @@ namespace LiveLarson.SoundSystem
         private bool _clipLoading;
         private bool _waitClip;
 
-        public Audio(SoundService soundService, int audioId, AudioType audioType, string clipPath, Vector3 pos,
-            bool loop)
+        public Audio(SoundService soundService, int audioId, AudioType audioType, string clipPath, Vector3 pos, bool loop)
         {
             _soundService = soundService;
             AudioId = audioId;
@@ -105,10 +104,8 @@ namespace LiveLarson.SoundSystem
             return instance;
         }
 
-        private void GetAudioClip(string name, Action<AudioClip> onLoading)
+        private void GetAudioClip(string path, Action<AudioClip> onLoading)
         {
-            var path = $"Sound/{name}.ogg";
-
             Addressables.LoadAssetAsync<AudioClip>(path).Completed += op =>
             {
                 if (op.Status == AsyncOperationStatus.Succeeded)
@@ -124,7 +121,7 @@ namespace LiveLarson.SoundSystem
                         if (op2.Status == AsyncOperationStatus.Succeeded)
                         {
                             Debug.LogError(
-                                $"Audio error! : {name} 오디오 파일 load 실패. 임시 {DEFAULT_AUDIO_CLIP_ON_ERROR} 재생.");
+                                $"Audio error! : {path} 오디오 파일 load 실패. 임시 {DEFAULT_AUDIO_CLIP_ON_ERROR} 재생.");
                             onLoading?.Invoke(op2.Result);
                             _addressableHandle = op2;
                         }

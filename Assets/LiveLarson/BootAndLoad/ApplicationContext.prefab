@@ -294,6 +294,21 @@ MonoBehaviour:
   - {fileID: 6703844557429564545}
   isLoadingSceneDebugMode: 0
   loadingThemeType: 1
+  gameModeBySceneName:
+    m_keys:
+    - Booting
+    - CrystalDepot
+    - JunglePlanet
+    - Loading
+    - MonumentPlanet
+    - OuterSpace
+    m_values:
+    - Booting
+    - 
+    - 
+    - 
+    - 
+    - 
 --- !u!1 &6248525145996858169
 GameObject:
   m_ObjectHideFlags: 0

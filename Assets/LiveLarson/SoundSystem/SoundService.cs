@@ -41,12 +41,12 @@ namespace LiveLarson.SoundSystem
         private Audio _currentBGM;
 
         private Enums.GameMode _currentGameMode;
-        private string _currentZoneBGMPath = "Audio/Easy Going Medieval Tavern - Loop.wav";
         private AudioMixerSnapshot _defaultSnapshot;
 
         private Audio _helperSound;
         private IEnumerator _volumeDownCoroutine;
         private IEnumerator _volumeUpCoroutine;
+        [SerializeField] private StringStringDictionary bgmByGameMode;
         public static string CurrentBGM { get; private set; }
 
         public static SoundService Instance
@@ -460,7 +460,7 @@ namespace LiveLarson.SoundSystem
         {
             if (snapshotName == default)
                 return;
-            if (audioMixer.FindSnapshot(snapshotName) != null)
+            if (audioMixer.FindSnapshot(snapshotName) != default)
             {
                 Debug.Log($"Change audio snapshot to {snapshotName}.");
                 audioMixer.FindSnapshot(snapshotName).TransitionTo(time);
@@ -478,12 +478,11 @@ namespace LiveLarson.SoundSystem
         {
             var lastBgm = GetBgmName(_currentGameMode);
             _currentGameMode = gameMode;
-            _currentZoneBGMPath = "Audio/Easy Going Medieval Tavern - Loop.wav";
             TransitToSnapshot(gameMode.ToString());
             var bgm = GetBgmName(_currentGameMode);
             if (BGMDictionary.Count == 0)
             {
-                // PlayBGM(bgm, default, true);
+                PlayBGM(bgm, default, true);
             }
             else if (bgm != lastBgm)
             {
@@ -494,16 +493,12 @@ namespace LiveLarson.SoundSystem
 
         public void OnGameModeExit(Enums.GameMode gameMode)
         {
-            
+            StopBGM(GetBgmName(gameMode), true);
         }
 
         private string GetBgmName(Enums.GameMode gameMode)
         {
-            switch (gameMode)
-            {
-                default:
-                    return _currentZoneBGMPath;
-            }
+            return bgmByGameMode[gameMode.ToString()];
         }
     }
 }

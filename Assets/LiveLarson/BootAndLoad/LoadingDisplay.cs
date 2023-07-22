@@ -1,21 +1,17 @@
-using System;
 using UnityEngine;
 
 namespace LiveLarson.BootAndLoad
 {
     public class LoadingDisplay : MonoBehaviour
     {
-        [SerializeField] private LoadingProgressBarDisplay _progressBarDisplay = null;
+        [SerializeField] private LoadingProgressBarDisplay _progressBarDisplay;
         private Transform _camTransform;
 
         public enum LoadingThemeType
         {
             GamePlayTip,
-            SpaceDebrisInfo,
+            SpaceDebrisInfo
         }
-
-        public string UnityPreviousSceneName { get; set; }
-        public string UnitySceneName { get; set; }
 
         public void UpdateProgress(float progress)
         {
@@ -27,7 +23,7 @@ namespace LiveLarson.BootAndLoad
             var mainCam = UnityEngine.Camera.main;
             if (mainCam == default)
                 return;
-            _camTransform = UnityEngine.Camera.main.transform;
+            _camTransform = mainCam.transform;
         }
 
         private void Update()

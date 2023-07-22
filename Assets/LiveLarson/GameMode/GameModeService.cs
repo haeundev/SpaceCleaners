@@ -1,13 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using LiveLarson.Camera;
 using LiveLarson.Camera.CameraFade;
 using LiveLarson.SoundSystem;
-using LiveLarson.UISystem;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace LiveLarson.GameMode
 {
@@ -15,103 +12,45 @@ namespace LiveLarson.GameMode
     {
         private GameModeService Instance { get; set; }
         private const float DEFAULT_FADE_TIME = 0.3f;
-        private static readonly List<Enums.GameMode> BaseGameModes = new() { Enums.GameMode.InGame };
-        private Stack<Enums.GameMode> _gameModeHistoryStack = new();
-        private Enums.GameMode _gameMode;
-        private Enums.GameMode _nextGameMode;
+        private static readonly List<Enums.GameMode> BaseGameModes = new() { Enums.GameMode.OuterSpace };
+        private Enums.GameMode _currentGameMode;
         
         private void Awake()
         {
             Instance = this;
-            _gameModeHistoryStack = new Stack<Enums.GameMode>();
         }
 
         public static float FadeTime { get; set; } = DEFAULT_FADE_TIME;
         public static bool IsReadyToFadeIn { get; set; }
         public event Action<Enums.GameMode> OnGameModeEnter = delegate { };
         public event Action<Enums.GameMode> OnGameModeExit = delegate { };
-
+        
         public Enums.GameMode GetGameMode()
         {
-            return _gameMode;
+            return _currentGameMode;
         }
 
-        public Enums.GameMode GetNextGameMode()
+        public void TryEnterGameMode(Enums.GameMode gameMode)
         {
-            return _nextGameMode;
-        }
-
-        public void EnterLoadingGameMode(Enums.GameMode gameMode)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EnterGameMode(Enums.GameMode gameMode)
-        {
-            if (_gameMode == gameMode)
+            if (_currentGameMode == gameMode)
+            {
+                Debug.Log($"already in gameMode {gameMode.ToString()}");
                 return;
-            _gameModeHistoryStack.Push(_gameMode);
-
-            SetGameMode(gameMode);
-        }
-
-        public void LeaveGameMode(Enums.GameMode gameMode)
-        {
-            Assert.AreEqual(gameMode, _gameMode, $"Your game mode is not {gameMode} but {_gameMode}.");
-            Assert.IsTrue(_gameModeHistoryStack.Count > 0,
-                "The game mode history is empty. Make sure you entered a game mode.");
-            var lastGameMode = _gameModeHistoryStack.Pop();
-            if (lastGameMode == Enums.GameMode.None)
-            {
-                lastGameMode = Enums.GameMode.InGame;
-                _gameModeHistoryStack.Push(Enums.GameMode.None);
             }
-
-            SetGameMode(gameMode);
+            Debug.Log($"EnterGameMode {gameMode.ToString()}");
+            ChangeGameMode(gameMode);
         }
-
-        public void ResetGameMode()
+        
+        private void ChangeGameMode(Enums.GameMode targetGameMode)
         {
-            while (_gameModeHistoryStack.Count > 0)
-            {
-                var stackGameMode = _gameModeHistoryStack.Pop();
-                OnGameModeExit?.Invoke(stackGameMode);
-                SoundService.Instance.OnGameModeExit(stackGameMode);
-            }
-
-            CameraManager.Reset();
-            _gameModeHistoryStack.Push(Enums.GameMode.InGame);
-        }
-
-        public void ForceSetGameMode(Enums.GameMode gameMode)
-        {
-            _gameModeHistoryStack.Clear();
-            SetGameMode(gameMode);
-        }
-
-        public bool IsCurrentlyInBaseGameMode(Enums.GameMode mode)
-        {
-            return (from gameMode in _gameModeHistoryStack
-                where IsClassifiedAsBaseGameMode(gameMode)
-                select mode == gameMode).FirstOrDefault();
-        }
-
-        public bool IsClassifiedAsBaseGameMode(Enums.GameMode mode)
-        {
-            return BaseGameModes.Contains(mode);
-        }
-
-        private void SetGameMode(Enums.GameMode gameMode)
-        {
-            _nextGameMode = gameMode;
-            Debug.Log($"SetGameMode : {gameMode}");
+            Debug.Log($"SetGameMode : {targetGameMode}");
             CameraManager.Reset();
             // Leave game mode
-            OnGameModeExit?.Invoke(_gameMode);
-            SoundService.Instance.OnGameModeExit(_gameMode);
-            _gameMode = gameMode;
-            SoundService.Instance.OnGameModeEnter(_gameMode);
-            OnGameModeEnter?.Invoke(_gameMode);
+            OnGameModeExit?.Invoke(_currentGameMode);
+            SoundService.Instance.OnGameModeExit(_currentGameMode);
+            _currentGameMode = targetGameMode;
+            SoundService.Instance.OnGameModeEnter(_currentGameMode);
+            OnGameModeEnter?.Invoke(_currentGameMode);
         }
 
         private IEnumerator ChangeWithFade(Enums.GameMode gameMode)
@@ -122,7 +61,7 @@ namespace LiveLarson.GameMode
             while (!IsReadyToFadeIn)
                 yield return null;
 
-            SetGameMode(gameMode);
+            ChangeGameMode(gameMode);
             yield return null;
             CameraFadeService.In(FadeTime);
         }
@@ -131,7 +70,7 @@ namespace LiveLarson.GameMode
         {
             CameraFadeService.Out(DEFAULT_FADE_TIME);
             yield return new WaitForSeconds(DEFAULT_FADE_TIME);
-            SetGameMode(gameMode);
+            ChangeGameMode(gameMode);
             yield return null;
             CameraFadeService.In(0);
         }
@@ -140,7 +79,7 @@ namespace LiveLarson.GameMode
         {
             CameraFadeService.Out(0);
             yield return null;
-            SetGameMode(gameMode);
+            ChangeGameMode(gameMode);
             yield return new WaitForSeconds(DEFAULT_FADE_TIME);
             CameraFadeService.In(DEFAULT_FADE_TIME);
         }
