@@ -27,7 +27,10 @@ public class Grappler : MonoBehaviour
         {
             var ray = new Ray(transform.position, transform.forward);
             Debug.DrawRay(ray.origin, ray.direction * 10f, Color.cyan, .1f);
-            if (Physics.Raycast(ray, out var info, 100, 1 << LayerMask.NameToLayer("GrappleTarget")))
+            var grappleTargetLayer = 1 << LayerMask.NameToLayer("GrappleTarget");
+            var asteroidLayer = 1 << LayerMask.NameToLayer("Asteroid");
+            var finalLayers = grappleTargetLayer | asteroidLayer;
+            if (Physics.Raycast(ray, out var info, 100, finalLayers))
                 Debug.Log($"hit {info.collider.name}");
             if (info.collider == null)
                 return;
