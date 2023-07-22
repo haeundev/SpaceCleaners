@@ -2283,7 +2283,7 @@
             "id": "b22b2ec4-9941-427c-93ce-4b5d2094d28c",
             "actions": [
                 {
-                    "name": "SpaceMove",
+                    "name": "SpaceMove Left",
                     "type": "Value",
                     "id": "3c27f228-4798-4c32-bbf8-a45ba6fde7b9",
                     "expectedControlType": "Vector2",
@@ -2310,7 +2310,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SpaceMove2",
+                    "name": "SpaceMove Right",
                     "type": "Value",
                     "id": "607b45f5-49f4-4791-aeeb-ebefe9dfe464",
                     "expectedControlType": "Vector2",
@@ -2399,7 +2399,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpaceMove",
+                    "action": "SpaceMove Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -2432,7 +2432,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpaceMove2",
+                    "action": "SpaceMove Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
