@@ -1,17 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpacePlayer : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
-    public float MoveSpeed
+    [SerializeField] private float idleMoveMoveSpeed = 5f;
+    public float IdleMoveSpeed
     {
-        get => moveSpeed;
-        set => moveSpeed = value;
+        get => idleMoveMoveSpeed;
+        set => idleMoveMoveSpeed = value;
     }
 
-    [SerializeField] private float rotateSpeed;
+    [SerializeField] private float fastFastMoveSpeed = 10f;
+    public float FastMoveSpeed
+    {
+        get => fastFastMoveSpeed;
+        set => fastFastMoveSpeed = value;
+    }
+
+    [SerializeField] private float rotateSpeed = 10f;
     public float RotateSpeed
     {
         get => rotateSpeed;

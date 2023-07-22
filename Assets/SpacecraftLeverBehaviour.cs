@@ -21,6 +21,8 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
         _isLeverUp = _lever.value;
         
         if (_isLeverUp || Input.GetKey(KeyCode.W))
-            _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.MoveSpeed);
+            _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.FastMoveSpeed);
+        else
+            _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.IdleMoveSpeed);
     }
 }
