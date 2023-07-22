@@ -7,42 +7,38 @@ using UnityEngine;
 using UnityEditor;
 using Object = UnityEngine.Object;
 
-[CustomEditor(typeof(Planet))]
+[CustomEditor(typeof(PlanetGenerator))]
 public class PlanetEditor : Editor {
 
-    Planet planet;
+    PlanetGenerator _planetGenerator;
     Editor shapeEditor;
     private Animator animator;
     Editor colourEditor;
-    private static readonly int Attack = Animator.StringToHash("Attack");
-
+    
     public override void OnInspectorGUI()
 	{
-        Observable.Timer(TimeSpan.FromSeconds(3f)).Subscribe(_ => {
-            animator.SetTrigger(Attack);
-        });
         using (var check = new EditorGUI.ChangeCheckScope())
         {
             base.OnInspectorGUI();
             if (check.changed)
             {
-                planet.GeneratePlanet();
+                _planetGenerator.GeneratePlanet();
             }
         }
 
         if (GUILayout.Button("Generate Planet"))
         {
             ClearChildren();
-            planet.GeneratePlanet();
+            _planetGenerator.GeneratePlanet();
         }
 
-        DrawSettingsEditor(planet.shapeSettings, planet.OnShapeSettingsUpdated, ref planet.shapeSettingsFoldout, ref shapeEditor);
-        DrawSettingsEditor(planet.colourSettings, planet.OnColourSettingsUpdated, ref planet.colourSettingsFoldout, ref colourEditor);
+        DrawSettingsEditor(_planetGenerator.shapeSettings, _planetGenerator.OnShapeSettingsUpdated, ref _planetGenerator.shapeSettingsFoldout, ref shapeEditor);
+        DrawSettingsEditor(_planetGenerator.colourSettings, _planetGenerator.OnColourSettingsUpdated, ref _planetGenerator.colourSettingsFoldout, ref colourEditor);
 	}
 
     private void ClearChildren()
     {
-        var p = target as Planet;
+        var p = target as PlanetGenerator;
         for (var i = 0; i < p.gameObject.transform.childCount; i++)
             DestroyImmediate(p.gameObject.transform.GetChild(i).gameObject);
     }
@@ -73,6 +69,6 @@ public class PlanetEditor : Editor {
 
 	private void OnEnable()
 	{
-        planet = (Planet)target;
+        _planetGenerator = (PlanetGenerator)target;
 	}
 }
