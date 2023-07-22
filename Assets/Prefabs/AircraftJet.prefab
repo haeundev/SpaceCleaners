@@ -21850,6 +21850,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 607b45f5-49f4-4791-aeeb-ebefe9dfe464
     m_ActionName: Player Controls/SpaceMove2
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 316a249e-6fb2-4e67-ad27-6263b6df7063
+    m_ActionName: Player Controls/Rotation[/HeadTrackingOpenXR/centereyerotation]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aadb2a23-189d-46ef-bc3e-107a2d7aa000
+    m_ActionName: Player Controls/Position[/HeadTrackingOpenXR/centereyeposition]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6683a445-3e4c-4775-8aa8-28e05db07243
+    m_ActionName: Player Controls/Is Tracked[/HeadTrackingOpenXR/istracked]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 988a3329-bfdf-4897-99dd-475f8612d0ea
+    m_ActionName: Player Controls/Tracking State[/HeadTrackingOpenXR/trackingstate]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5ca91e26-90ea-468f-892c-0cf04db1d5f6
+    m_ActionName: Player Controls/Eye Gaze Position[/HeadTrackingOpenXR/centereyeposition]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b9bd9e1e-2316-4c6e-ab76-2783550d5784
+    m_ActionName: Player Controls/Eye Gaze Rotation[/HeadTrackingOpenXR/centereyerotation]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a2e7d269-d06d-4b51-b7c9-8b92fd3eecf6
+    m_ActionName: Player Controls/Eye Gaze Is Tracked[/HeadTrackingOpenXR/istracked]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d1e00b9b-69fe-41be-af56-337ebcbbe65b
+    m_ActionName: Player Controls/Eye Gaze Tracking State[/HeadTrackingOpenXR/trackingstate]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Controls
