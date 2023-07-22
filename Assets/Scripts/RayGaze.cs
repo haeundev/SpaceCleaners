@@ -21,7 +21,7 @@ public class RayGaze : MonoBehaviour
         var lastGazable = _lastHit == default ? default : _lastHit.GetComponent<RayGazable>();
 
         Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.cyan, .1f);
-        if (Physics.Raycast(ray, out var info, Mathf.Infinity, 1 << LayerMask.NameToLayer("Asteroid")))
+        if (Physics.Raycast(ray, out var info, 1000f, 1 << LayerMask.NameToLayer("Asteroid")))
         {
             //Debug.Log($"hit {info.collider.name}");
         }
