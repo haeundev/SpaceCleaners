@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b4c8634c961634598c763faf95ad56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messages: {fileID: 11400000, guid: e1004932370d3af41a66bbcb74f8ad3a, type: 2}
-  playerConst: {fileID: 11400000, guid: ae292fc2f5a89b74095827449376ae52, type: 2}
+  gameConst: {fileID: 11400000, guid: bf1849f27e89ec24fba8f5509ff3390f, type: 2}
+  gadgetInfos: {fileID: 11400000, guid: de1149cccaf94844682bf52c439d83a6, type: 2}

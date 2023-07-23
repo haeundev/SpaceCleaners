@@ -1,3 +1,4 @@
+using DataTables;
 using UniRx;
 using UnityEditor;
 using UnityEngine;
@@ -7,8 +8,8 @@ namespace LiveLarson.DataTableManagement
     [ExecuteAlways]
     public class DataTableManager : MonoBehaviour
     {
-        [Header("Example")] [Space] 
-        // [SerializeField] private Items items;
+        [SerializeField] private GameConst gameConst;
+        [SerializeField] private GadgetInfos gadgetInfos;
         // [SerializeField] private Messages messages;
         // [SerializeField] private PlayerConst playerConst;
 
@@ -40,7 +41,7 @@ namespace LiveLarson.DataTableManagement
 
         private void OnDestroy()
         {
-            Debug.Log("DataTableManager OnDestroy!");
+            Debug.Log("[DataTableManager]  OnDestroy!");
 
             Instance = null;
             _needToInit = true;
@@ -48,7 +49,7 @@ namespace LiveLarson.DataTableManagement
 
         public void Init()
         {
-            Debug.Log("DataTableManager Init!");
+            Debug.Log("[DataTableManager]  Init!");
 
             _needToInit = false;
 #if UNITY_EDITOR
@@ -61,7 +62,8 @@ namespace LiveLarson.DataTableManagement
 #endif
         }
 
-        // public static Messages Messages => Instance.messages;
+        public static GameConst GameConst => Instance.gameConst;
+        public static GadgetInfos GadgetInfos => Instance.gadgetInfos;
         // public static PlayerConst PlayerConst => Instance.playerConst;
         // public static Items Items => Instance.items;
     }

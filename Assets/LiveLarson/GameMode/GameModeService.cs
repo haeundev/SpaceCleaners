@@ -34,16 +34,16 @@ namespace LiveLarson.GameMode
         {
             if (_currentGameMode == gameMode)
             {
-                Debug.Log($"already in gameMode {gameMode.ToString()}");
+                Debug.Log($"[GameMode]  already in gameMode {gameMode.ToString()}");
                 return;
             }
-            Debug.Log($"EnterGameMode {gameMode.ToString()}");
+            Debug.Log($"[GameMode]  EnterGameMode {gameMode.ToString()}");
             ChangeGameMode(gameMode);
         }
         
         private void ChangeGameMode(Enums.GameMode targetGameMode)
         {
-            Debug.Log($"SetGameMode : {targetGameMode}");
+            Debug.Log($"[GameMode]  SetGameMode : {targetGameMode}");
             CameraManager.Reset();
             // Leave game mode
             OnGameModeExit?.Invoke(_currentGameMode);

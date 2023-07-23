@@ -461,13 +461,13 @@ namespace LiveLarson.SoundSystem
                 return;
             if (audioMixer.FindSnapshot(snapshotName) != default)
             {
-                Debug.Log($"Change audio snapshot to {snapshotName}.");
+                Debug.Log($"[SoundService]  Change audio snapshot to {snapshotName}.");
                 audioMixer.FindSnapshot(snapshotName).TransitionTo(time);
                 CurrentSnapshotName = snapshotName;
             }
             else
             {
-                Debug.Log("Change audio snapshot to default.");
+                Debug.Log("[SoundService]  Change audio snapshot to default.");
                 _defaultSnapshot.TransitionTo(time);
                 CurrentSnapshotName = DEFAULT_SNAPSHOT_NAME;
             }

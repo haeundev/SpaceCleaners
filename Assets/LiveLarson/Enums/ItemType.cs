@@ -1,9 +1,9 @@
-namespace Enums
+namespace LiveLarson.Enums
 {
     public enum ItemType
     {
-        Currency,
-        Consumable,
-        
+        Oxygen,
+        Food,
+        Gadget
     }
 }
