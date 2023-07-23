@@ -10,15 +10,12 @@ using UnityEngine;
 namespace DataTables
 {
     [Serializable]
-    public class GadgetInfo
+    public class ItemInfo
     {
         public int ID;
         [JsonConverter(typeof(StringEnumConverter))]
-        public GadgetType GadgetType;
+        public ItemType ItemType;
         public string Name;
-        public string Description;
-        public string ModelPath;
-        public bool HasFromStart;
     }
 
 }

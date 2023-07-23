@@ -15,17 +15,28 @@ MonoBehaviour:
   Values:
   - ID: 1001
     GadgetType: 0
-    Name: Galaxy Grappler (Lv.1)
+    Name: Solar Spear
     Description: '- Shoot the harpoon towards the debris
 
       - Suitable for metallic
       objects'
     ModelPath: Prefabs/Food/BeerBottle.prefab
-  - ID: 1002
-    GadgetType: 0
-    Name: Galaxy Grappler (Lv.2)
-    Description: '- Shoot the harpoon towards the debris
+    HasFromStart: 1
+  - ID: 2001
+    GadgetType: 1
+    Name: Interstellar Web
+    Description: '- Shoot the net towards the debris
 
-      - Suitable for metallic
+      - Suitable for large
       objects'
     ModelPath: Prefabs/Food/Bread.prefab
+    HasFromStart: 1
+  - ID: 3001
+    GadgetType: 2
+    Name: Cosmic Blaze
+    Description: '- Shoot the laser towards the debris
+
+      - Suitable for fast
+      moving objects'
+    ModelPath: Prefabs/Food/Almonds.prefab
+    HasFromStart: 1

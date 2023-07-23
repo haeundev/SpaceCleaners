@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b673971cdb247749aebc982bcfa94c4, type: 3}
+  m_Name: GameConst
+  m_EditorClassIdentifier: 
+  Data:
+    AgentNames:
+    - Alex
+    - Jordan
+    - Casey
+    - Avery
+    - Taylor
+    - Morgan
+    - Riley
+    - Cameron
+    - Quinn
+    - Sage
+    - Charlie
+    - Harper
+    - Blake
+    - Hayden
+    - Reese
+    - Skylar
+    - Jamie
+    - Rowan
+    - Morgan
+    - Phoenix
+    - Taylor
+    - Eden
+    - Dakota
+    - Kai
+    - Sawyer
+    - Emery
+    - Devon
+    - River
+    - Aspen
+    - Robin
+    AgentNumbers:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    AgentGenerations:
+    - Archer
+    - Bravo
+    - Cobra
+    - Dragon
+    - Eagle
+    - Falcon
+    - Ghost
+    - Hunter
+    - Inferno
+    - Jet
+    - Knight
+    - Lynx
+    - Maverick
+    - Neptune
+    - Omega
+    - Phantom
+    - Quantum
+    - Raven
+    - Shadow
+    - Thunder
+    - Uzi
+    - Viper
+    - Wolf
+    - Xenon
+    - Yukon
+    - Zeus
+    AgentLevelNames:
+    - Cadet
+    - Lieutenant
+    - Captain
+    - Major
+    - Brigadier
+    - General
+    - Commander
