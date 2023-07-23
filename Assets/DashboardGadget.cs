@@ -17,6 +17,7 @@ public class DashboardGadget : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gadgetDescription;
     [SerializeField] private Button prevButton;
     [SerializeField] private Button nextButton;
+    [SerializeField] private Button selectButton;
 
     private List<GadgetInfo> _gadgetInfos;
     private GadgetStat _gadgetStat;
@@ -34,8 +35,9 @@ public class DashboardGadget : MonoBehaviour
     {
         prevButton.onClick.AddListener(OnClickPrevButton);
         nextButton.onClick.AddListener(OnClickNextButton);
+        selectButton.onClick.AddListener(OnClickSelectButton);
     }
-
+    
     [Button]
     private void OnClickPrevButton()
     {
@@ -51,9 +53,20 @@ public class DashboardGadget : MonoBehaviour
     {
         var ownedGadgetIDs = _gadgetStat.Gadgets.Keys.ToList();
         var indexForCurrent = ownedGadgetIDs.IndexOf(_currentID);
-        var indexForNext = indexForCurrent + 1 == _gadgetStat.Gadgets.Count ? 1 : indexForCurrent + 1;
+        var indexForNext = indexForCurrent + 1 == _gadgetStat.Gadgets.Count ? 0 : indexForCurrent + 1;
         var nextGadgetInfo = _gadgetInfos.FirstOrDefault(p => p.ID == ownedGadgetIDs[indexForNext]);
         Display(nextGadgetInfo);
+    }
+
+
+    [Button]
+    private void OnClickSelectButton()
+    {
+        var gadgetInfo = DataTableManager.GadgetInfos.Find(_currentID);
+        if (gadgetInfo == default)
+            return;
+        OuterSpaceEvent.Trigger_GadgetSelected(gadgetInfo);
+        enabled = false;
     }
 
     private void OnEnable()

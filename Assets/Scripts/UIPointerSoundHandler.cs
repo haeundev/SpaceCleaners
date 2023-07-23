@@ -10,16 +10,16 @@ public class UIPointerSoundHandler : MonoBehaviour, IPointerClickHandler, IPoint
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        SoundService.PlaySfx(SFX_SELECT, default);
+        SoundService.PlaySfx(SFX_SELECT, transform.position);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        SoundService.PlaySfx(SFX_HOVER_ENTER, default);
+        SoundService.PlaySfx(SFX_HOVER_ENTER, transform.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        SoundService.PlaySfx(SFX_HOVER_EXIT, default);
+        SoundService.PlaySfx(SFX_HOVER_EXIT, transform.position);
     }
 }

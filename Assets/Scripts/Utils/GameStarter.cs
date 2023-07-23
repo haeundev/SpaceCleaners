@@ -23,7 +23,7 @@ namespace Script.Editor
             }
         }
 
-        [MenuItem("AlienBusters/Start Game (Not implemented) %&r", false, 999)] //%&
+        [MenuItem("AlienBusters/Start Game %&r", false, 999)] //%&
         private static void StartGame() => StartGame_impl(true, false);
         
         private static void StartGame_impl(bool server, bool noLimit = false)
@@ -41,6 +41,9 @@ namespace Script.Editor
             // EditorPrefs.SetBool("NoLimit", noLimit);
             // EditorSceneManager.OpenScene(MasterScene);
             // EditorApplication.EnterPlaymode();
+            
+            EditorSceneManager.OpenScene(BOOTING);
+            EditorApplication.EnterPlaymode();
         }
         
         [MenuItem("AlienBusters/Booting", false, 98)]

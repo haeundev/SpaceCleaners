@@ -25,33 +25,43 @@ public class Grappler : MonoBehaviour
     {
         if (button.action.WasPressedThisFrame())
         {
-            var ray = new Ray(transform.position, transform.forward);
-            Debug.DrawRay(ray.origin, ray.direction * 10f, Color.cyan, .1f);
-            var grappleTargetLayer = 1 << LayerMask.NameToLayer("GrappleTarget");
-            var asteroidLayer = 1 << LayerMask.NameToLayer("Asteroid");
-            var finalLayers = grappleTargetLayer | asteroidLayer;
-            if (Physics.Raycast(ray, out var info, 100, finalLayers))
-                Debug.Log($"hit {info.collider.name}");
-            if (info.collider == null)
-                return;
-            
-            var hitObj = info.collider.gameObject;
-            _grappleEffect.transform.LookAt(info.point);
-            _grappleEffect.DoGrapple();
-            
-            Debug.Log("Do Grapple");
-
-            _disposable = Observable.Timer(TimeSpan.FromSeconds(0.3f)).Subscribe(_ =>
-            {
-                StartCoroutine(DrawTarget(hitObj));
-            });
+            DoGrapple();
         }
         else if (button.action.WasReleasedThisFrame())
         {
-            _disposable?.Dispose();
-            _grappleEffect.StopGrapple();
-            Debug.Log("Stop Grapple");
+            OnGrappleDone();
         }
+    }
+
+    public void DoGrapple()
+    {
+        var ray = new Ray(transform.position, transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * 10f, Color.cyan, .1f);
+        var grappleTargetLayer = 1 << LayerMask.NameToLayer("GrappleTarget");
+        var asteroidLayer = 1 << LayerMask.NameToLayer("Asteroid");
+        var finalLayers = grappleTargetLayer | asteroidLayer;
+        if (Physics.Raycast(ray, out var info, 100, finalLayers))
+            Debug.Log($"hit {info.collider.name}");
+        if (info.collider == null)
+            return;
+        
+        var hitObj = info.collider.gameObject;
+        _grappleEffect.transform.LookAt(info.point);
+        _grappleEffect.DoGrapple();
+        
+        Debug.Log("Do Grapple");
+        
+        _disposable = Observable.Timer(TimeSpan.FromSeconds(0.3f)).Subscribe(_ =>
+        {
+            StartCoroutine(DrawTarget(hitObj));
+        });
+    }
+
+    public void OnGrappleDone()
+    {
+        _disposable?.Dispose();
+        _grappleEffect.StopGrapple();
+        Debug.Log("Stop Grapple");
     }
 
     private IEnumerator DrawTarget(GameObject hitObj)
