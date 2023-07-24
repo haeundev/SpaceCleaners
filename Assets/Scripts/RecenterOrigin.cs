@@ -33,7 +33,7 @@ public class RecenterOrigin : MonoBehaviour
 
         var angle = Vector3.SignedAngle(cameraForward, targetForward, Vector3.up);
 
-        origin.RotateAround(head.position, Vector3.up, angle);
+        origin.RotateAround(head.position, -Vector3.up, angle);
     }
 
     private void Update()
