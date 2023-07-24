@@ -11,21 +11,20 @@ public class UIPointerSoundHandler : MonoBehaviour, IPointerClickHandler, IPoint
     }
     
     //private const string SFX_SELECT = "Audio/Kenney Audio/kenney_interface-sounds/Audio/UI OK.ogg";
-    private const string SFX_CONFIRM = "Audio/Confirm.ogg";
-    private const string SFX_SELECT = "Audio/UI Click.ogg";
-    private const string SFX_HOVER_ENTER = "Audio/UI Hover Enter.ogg";
+    [SerializeField] private string sfxConfirm = "Audio/Confirm.ogg";
+    [SerializeField] private string sfxSelect = "Audio/UI Click.ogg";
+    [SerializeField] private string sfxHoverEnter = "Audio/UI Hover Enter.ogg";
     // private const string SFX_HOVER_EXIT = "Audio/Kenney Audio/kenney_interface-sounds/Audio/UI Hover Exit.ogg";
-
     [SerializeField] private ButtonType buttonType;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        SoundService.PlaySfx(buttonType == ButtonType.Confirm ? SFX_CONFIRM : SFX_SELECT, transform.position);
+        SoundService.PlaySfx(buttonType == ButtonType.Confirm ? sfxConfirm : sfxSelect, transform.position);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        SoundService.PlaySfx(SFX_HOVER_ENTER, transform.position);
+        SoundService.PlaySfx(sfxHoverEnter, transform.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
