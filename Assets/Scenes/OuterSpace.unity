@@ -641,6 +641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxConfirm: Audio/Confirm.ogg
+  sfxSelect: Audio/UI Click.ogg
+  sfxHoverEnter: Audio/UI Hover Enter.ogg
   buttonType: 0
 --- !u!1 &65529700
 GameObject:
@@ -794,6 +797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 161109048}
+  - component: {fileID: 161109049}
   m_Layer: 0
   m_Name: ShipBody
   m_TagString: Untagged
@@ -822,6 +826,20 @@ Transform:
   m_Father: {fileID: 900889539}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &161109049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161109047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e57e15b0573bbae419c77303e2fc1a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayCount: 15
+  rayDistance: 1000
 --- !u!1 &191315155
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,6 +5076,7 @@ Transform:
   - {fileID: 7181284721488490475}
   - {fileID: 161109048}
   - {fileID: 1531392363}
+  - {fileID: 6055977283711540763}
   m_Father: {fileID: 4167136800036221505}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5732,6 +5751,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxConfirm: Audio/Confirm.ogg
+  sfxSelect: Audio/UI Click.ogg
+  sfxHoverEnter: Audio/UI Hover Enter.ogg
   buttonType: 1
 --- !u!1 &1088380107
 GameObject:
@@ -7081,6 +7103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxConfirm: Audio/Confirm.ogg
+  sfxSelect: Audio/UI Click.ogg
+  sfxHoverEnter: Audio/UI Hover Enter.ogg
   buttonType: 0
 --- !u!1001 &1415599945
 PrefabInstance:
@@ -7708,6 +7733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxConfirm: Audio/Confirm.ogg
+  sfxSelect: Audio/UI Click.ogg
+  sfxHoverEnter: Audio/UI Hover Enter.ogg
   buttonType: 0
 --- !u!114 &1626685679
 MonoBehaviour:
@@ -7948,6 +7976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxConfirm: Audio/Confirm.ogg
+  sfxSelect: Audio/UI Click.ogg
+  sfxHoverEnter: Audio/UI Hover Enter.ogg
   buttonType: 0
 --- !u!1 &1718072521
 GameObject:
@@ -9283,6 +9314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxConfirm: Audio/Confirm.ogg
+  sfxSelect: Audio/UI Click.ogg
+  sfxHoverEnter: Audio/UI Hover Enter.ogg
   buttonType: 0
 --- !u!1 &2089471013 stripped
 GameObject:
@@ -33103,6 +33137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeac910ce00331040b0aa05722d21c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxBoost: Audio/Simple Boost.wav
 --- !u!1 &5831091786828016087
 GameObject:
   m_ObjectHideFlags: 0
@@ -33755,14 +33790,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2414830045175888772}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9566665, y: 1.6566665, z: 0.09333333}
+  m_LocalScale: {x: 3.333333, y: 3.333333, z: 3.333333}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7119118504509258362}
   - {fileID: 2006465518639926006}
-  m_Father: {fileID: 6784358475581660673}
+  m_Father: {fileID: 900889539}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6055977283711540764
@@ -35687,7 +35722,6 @@ Transform:
   - {fileID: 836969421}
   - {fileID: 1427020104}
   - {fileID: 7654051115217333984}
-  - {fileID: 6055977283711540763}
   m_Father: {fileID: 5861841660886799934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
