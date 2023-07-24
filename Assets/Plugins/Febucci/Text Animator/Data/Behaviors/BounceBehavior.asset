@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BounceBehavior
   m_EditorClassIdentifier: 
   tagID: bounce
-  baseAmplitude: 0.15
+  baseAmplitude: 0.4
   baseFrequency: 0.2
   baseWaveSize: 0.021

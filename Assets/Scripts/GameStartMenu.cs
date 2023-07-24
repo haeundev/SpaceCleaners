@@ -40,7 +40,7 @@ public class GameStartMenu : MonoBehaviour
     private bool isStartedGame;
     private void Update()
     {
-        if (isStartedGame == false && Input.anyKey)
+        if (isStartedGame == false )
         {
             isStartedGame = true;
             StartGame();

@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConst: {fileID: 11400000, guid: bf1849f27e89ec24fba8f5509ff3390f, type: 2}
   gadgetInfos: {fileID: 11400000, guid: de1149cccaf94844682bf52c439d83a6, type: 2}
+  notifications: {fileID: 11400000, guid: 09ef6e4bf0b02284080f36b54050cdad, type: 2}

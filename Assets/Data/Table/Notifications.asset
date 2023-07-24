@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8aae4c722e61b40bb3c8530e2c93fa, type: 3}
+  m_Name: Notifications
+  m_EditorClassIdentifier: 
+  Values:
+  - ID: 1
+    Value: Potential risk of energetic particles
+  - ID: 2
+    Value: Maintain oxygen level
+  - ID: 3
+    Value: Avoid harmful radiation exposure
+  - ID: 4
+    Value: Signal disruption may occur
+  - ID: 5
+    Value: Potential risk of energetic particles
+  - ID: 6
+    Value: Stay in contact with mission control
+  - ID: 7
+    Value: Maintain fuel supply
+  - ID: 8
+    Value: Prevent equipment damage
+  - ID: 9
+    Value: Temporary darkness may occur
+  - ID: 10
+    Value: Report any unusual readings
+  - ID: 11
+    Value: Follow radiation shielding protocols
+  - ID: 12
+    Value: Ensure proper waste disposal
+  - ID: 13
+    Value: Maintain psychological well-being
+  - ID: 14
+    Value: Conduct regular health checks
+  - ID: 15
+    Value: Implement strict quarantine measures
+  - ID: 16
+    Value: Minimize electro magnetic interference
+  - ID: 17
+    Value: Keep a backup supply of resources
+  - ID: 18
+    Value: Train in basic repair skills
+  - ID: 19
+    Value: Ensure effective waste recycling
+  - ID: 20
+    Value: Establish a clear communication

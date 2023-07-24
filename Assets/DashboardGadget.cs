@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DataTables;
@@ -18,6 +19,7 @@ public class DashboardGadget : MonoBehaviour
     [SerializeField] private Button prevButton;
     [SerializeField] private Button nextButton;
     [SerializeField] private Button selectButton;
+    [SerializeField] private GameObject checkIcon;
 
     private List<GadgetInfo> _gadgetInfos;
     private GadgetStat _gadgetStat;
@@ -30,7 +32,7 @@ public class DashboardGadget : MonoBehaviour
 
         RegisterEvents();
     }
-
+    
     private void RegisterEvents()
     {
         prevButton.onClick.AddListener(OnClickPrevButton);
@@ -57,16 +59,15 @@ public class DashboardGadget : MonoBehaviour
         var nextGadgetInfo = _gadgetInfos.FirstOrDefault(p => p.ID == ownedGadgetIDs[indexForNext]);
         Display(nextGadgetInfo);
     }
-
-
+    
     [Button]
     private void OnClickSelectButton()
     {
         var gadgetInfo = DataTableManager.GadgetInfos.Find(_currentID);
         if (gadgetInfo == default)
             return;
+        _gadgetStat.lastSelectedID = _currentID;
         OuterSpaceEvent.Trigger_GadgetSelected(gadgetInfo);
-        enabled = false;
     }
 
     private void OnEnable()
@@ -83,6 +84,7 @@ public class DashboardGadget : MonoBehaviour
 
     private void Display(GadgetInfo gadgetInfo)
     {
+        checkIcon.SetActive(gadgetInfo.ID == _gadgetStat.lastSelectedID);
         _currentID = gadgetInfo.ID;
 
         // 3D model
@@ -100,7 +102,6 @@ public class DashboardGadget : MonoBehaviour
 
     private void OnDisable()
     {
-        _gadgetStat.lastSelectedID = _currentID;
         SaveAndLoadManager.Instance.Save(_gadgetStat);
     }
 }

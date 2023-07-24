@@ -25,7 +25,7 @@ public class SpacecraftPushButtonBehaviour : MonoBehaviour
         
         _pushButton.onPress.AddListener(OnPressed);
         _pushButton.onRelease.AddListener(OnReleased);
-        OuterSpaceEvent.GadgetSelected += OnGadgetSelected;
+        OuterSpaceEvent.OnGadgetSelected += OnGadgetSelected;
     }
     
     private void OnGadgetSelected(GadgetInfo gadgetInfo)

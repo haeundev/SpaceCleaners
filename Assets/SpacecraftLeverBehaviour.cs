@@ -19,10 +19,16 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
     private void Update()
     {
         _isLeverUp = _lever.value;
-        
+
         if (_isLeverUp || Input.GetKey(KeyCode.W))
+        {
             _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.FastMoveSpeed);
+            OuterSpaceEvent.Trigger_Boost(true);
+        }
         else
+        {
             _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.IdleMoveSpeed);
+            OuterSpaceEvent.Trigger_Boost(false);
+        }
     }
 }
