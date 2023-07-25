@@ -1,12 +1,12 @@
-using System;
 using UnityEngine;
 
 public class RayGaze : MonoBehaviour
 {
+    [SerializeField] private float gazeDistance = 1000f;
     private GameObject _newHit;
     private GameObject _lastHit;
     private Camera _camera;
-    
+
     private void Awake()
     {
         _camera = Camera.main;
@@ -16,15 +16,18 @@ public class RayGaze : MonoBehaviour
     {
         if (_camera == default)
             return;
-        
+
         var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         var lastGazable = _lastHit == default ? default : _lastHit.GetComponent<RayGazable>();
-
-        Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.cyan, .1f);
-        if (Physics.Raycast(ray, out var info, 1000f, 1 << LayerMask.NameToLayer("Asteroid")))
+        var asteroidLayer = 1 << LayerMask.NameToLayer("Asteroid");
+        var planetLayer = 1 << LayerMask.NameToLayer("Planet");
+        var finalLayers = asteroidLayer | planetLayer;
+        Debug.DrawRay(ray.origin, ray.direction * gazeDistance, Color.cyan, .1f);
+        if (Physics.Raycast(ray, out var info, gazeDistance, finalLayers))
         {
             //Debug.Log($"hit {info.collider.name}");
         }
+
         if (info.collider == null)
         {
             if (lastGazable != default)
@@ -52,7 +55,7 @@ public class RayGaze : MonoBehaviour
                     lastGazable.OnGazeExit();
                     FocusGauge.OnFocusExit();
                 }
-                
+
                 Debug.Log($"focus enter {_newHit.name}");
                 newGazable.OnGazeEnter();
                 FocusGauge.OnFocusEnter();

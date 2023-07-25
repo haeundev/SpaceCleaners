@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using EPOOutline;
 using LiveLarson.Util;
 using ProceduralPlanets;
 using UnityEngine;
@@ -42,6 +43,11 @@ public class PlanetSpawner : MonoBehaviour
             var planetObj = op.Result;
             planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
             planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
+            planetObj.AddComponent<RayGazable>();
+            var outlinable = planetObj.AddComponent<Outlinable>();
+            outlinable.RenderStyle = RenderStyle.FrontBack;
+            outlinable.BackParameters.Enabled = false;
+            outlinable.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
             planetObj.transform.position = randomPoint.position;
             _currentSpawnedPlanet = planetObj;
         };
@@ -49,6 +55,6 @@ public class PlanetSpawner : MonoBehaviour
 
     private void OnPlayerRefusePlanet()
     {
-        
+
     }
 }

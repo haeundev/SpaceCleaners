@@ -16,6 +16,8 @@ namespace DevFeatures.SaveSystem
         public PlayerStat PlayerStat { get; set; } = new();
         public GadgetStat GadgetStat { get; set; } = new();
         public InventoryStat InventoryStat { get; set; } = new();
+        public bool IsFirstTime => GameStat.isWatchedOpeningCutscene == false;
+
         private readonly IDataService _dataService = new JsonDataService();
         [SerializeField] private bool encryptionEnabled;
         private long _saveTime;

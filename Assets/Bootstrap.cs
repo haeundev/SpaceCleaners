@@ -4,7 +4,7 @@ using UnityEngine.AddressableAssets;
 
 public class Bootstrap : MonoBehaviour
 {
-    [SerializeField] private string nextSceneName = "Scenes/Loading.unity";
+    private string nextSceneName = "Loading";
     
     private void Awake()
     {

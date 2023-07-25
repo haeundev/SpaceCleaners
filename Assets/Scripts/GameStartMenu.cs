@@ -1,12 +1,13 @@
-using System;
 using System.Collections.Generic;
+using DevFeatures.SaveSystem;
 using LiveLarson.BootAndLoad;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameStartMenu : MonoBehaviour
 {
-    [SerializeField] private string sceneToGoOnStart = "Scenes/OuterSpace.unity";
+    private string sceneToGoOnStart = "OuterSpace"; // SCENE NAME
+    private string sceneToGoOnStartIfFirst = "OpeningCutscene"; // SCENE NAME
     
     [Header("UI Pages")]
     public GameObject mainMenu;
@@ -55,7 +56,13 @@ public class GameStartMenu : MonoBehaviour
     public void StartGame()
     {
         HideAll();
-        ApplicationContext.Instance.LoadScene(sceneToGoOnStart);
+        if (SaveAndLoadManager.Instance.IsFirstTime)
+        {
+            ApplicationContext.Instance.LoadScene(sceneToGoOnStartIfFirst);
+        }
+        else         
+            ApplicationContext.Instance.LoadScene(sceneToGoOnStart);
+
     }
 
     public void HideAll()
