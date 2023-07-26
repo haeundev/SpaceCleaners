@@ -9,11 +9,11 @@ public class SpacePlayer : MonoBehaviour
         set => idleMoveMoveSpeed = value;
     }
 
-    [SerializeField] private float fastFastMoveSpeed = 10f;
+    [SerializeField] private float fastMoveSpeed = 10f;
     public float FastMoveSpeed
     {
-        get => fastFastMoveSpeed;
-        set => fastFastMoveSpeed = value;
+        get => fastMoveSpeed;
+        set => fastMoveSpeed = value;
     }
 
     [SerializeField] private float rotateSpeed = 10f;

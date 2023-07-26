@@ -5,7 +5,7 @@ using UnityEngine.XR.Content.Interaction;
 public class SpacecraftLeverBehaviour : MonoBehaviour
 {
     [SerializeField] private string sfxBoost = "Audio/Simple Boost.wav";
-    
+
     private Transform _playerTransform;
     private SpacePlayer _spacePlayer;
     private XRLever _lever;
@@ -25,6 +25,7 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
         _lastLeverState = _isLeverUp;
     }
 
+    
     private void Update()
     {
         _isLeverUp = _lever.value;
@@ -35,16 +36,16 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
             _lastLeverState = _isLeverUp;
             PlaySFX(_isLeverUp);
         }
-
+        
         if (_isLeverUp || Input.GetKey(KeyCode.W))
         {
             _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.FastMoveSpeed);
+            
         }
         else
         {
             _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.IdleMoveSpeed);
         }
-
     }
 
     private void PlaySFX(bool isLeverUp)

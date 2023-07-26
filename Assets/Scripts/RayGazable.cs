@@ -9,7 +9,8 @@ public class RayGazable : MonoBehaviour
 {
     private List<SpaceObjectLabel> _labels;
     private string _generatedName = "";
-
+    private bool _isNeverGazed = true;
+    
     private void Awake()
     {
         CollectLabels();
@@ -29,7 +30,13 @@ public class RayGazable : MonoBehaviour
 
     private void ShowOutline(bool isShow)
     {
-        gameObject.GetComponent<Outlinable>().enabled = isShow;
+        var outline = gameObject.GetComponent<Outlinable>();
+        if (_isNeverGazed)
+        {
+            _isNeverGazed = false;
+            outline.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
+        }
+        outline.enabled = isShow;
     }
 
     private void ShowLabel(bool isShow)
@@ -47,11 +54,12 @@ public class RayGazable : MonoBehaviour
                 var label = _labels.Single(p => p.type == SpaceObjectLabelType.Planet);
                 label.Show(GetLabel(label.type));
                 label.gameObject.SetActive(true);
+                var planetInfo = gameObject.GetComponent<PlanetInfo>();
                 
                 // HEO TODO: go to different planet scene
                 label.RegisterEnterButtonEvent(() =>
                 {
-                    ApplicationContext.Instance.LoadScene("JunglePlanet"); // SCENE NAME
+                    ApplicationContext.Instance.LoadScene(planetInfo.SceneName); // SCENE NAME
                 });
             }
         }
