@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEditor;
@@ -153,4 +154,4 @@ public class PrefabChangedHandler
     }
     #endregion GetIdenticalMaterialFromList()
 }
-
+#endif
