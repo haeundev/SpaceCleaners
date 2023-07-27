@@ -11,9 +11,9 @@ public class UIPointerSoundHandler : MonoBehaviour, IPointerClickHandler, IPoint
     }
     
     //private const string SFX_SELECT = "Audio/Kenney Audio/kenney_interface-sounds/Audio/UI OK.ogg";
-    [SerializeField] private string sfxConfirm = "Audio/Confirm.ogg";
-    [SerializeField] private string sfxSelect = "Audio/UI Click.ogg";
-    [SerializeField] private string sfxHoverEnter = "Audio/UI Hover Enter.ogg";
+    private string sfxConfirm = "Assets/Audio/Confirm.ogg";
+    private string sfxSelect = "Assets/Audio/UI Click.ogg";
+    private string sfxHoverEnter = "Assets/Audio/UI Hover Enter.ogg";
     // private const string SFX_HOVER_EXIT = "Audio/Kenney Audio/kenney_interface-sounds/Audio/UI Hover Exit.ogg";
     [SerializeField] private ButtonType buttonType;
 

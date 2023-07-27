@@ -10,7 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6040988238999220123}
   - component: {fileID: 6628960031044951967}
-  m_Layer: 0
+  - component: {fileID: 4245794566871244036}
+  - component: {fileID: 2724921140687133311}
+  - component: {fileID: 4647166653736544489}
+  - component: {fileID: 8182993845203218362}
+  - component: {fileID: 4467261627916295648}
+  m_Layer: 10
   m_Name: Earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2920920780046971674}
-  m_LocalRotation: {x: -0, y: -0.7447575, z: -0, w: -0.6673352}
-  m_LocalPosition: {x: 17.697332, y: -33.037262, z: 38.525673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 456.277, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6628960031044951967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,8 +54,8 @@ MonoBehaviour:
   faceRenderMask: 0
   shapeSettings: {fileID: 11400000, guid: 944a73be3a9d9834f88a214a0a3ae38a, type: 2}
   colourSettings: {fileID: 11400000, guid: afef97740bc8af946b26bca4e85767bf, type: 2}
-  shapeSettingsFoldout: 1
-  colourSettingsFoldout: 1
+  shapeSettingsFoldout: 0
+  colourSettingsFoldout: 0
   meshFilters:
   - {fileID: 0}
   - {fileID: 0}
@@ -58,3 +63,106 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &4245794566871244036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920920780046971674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdc4ac711b4aca47ad3aae3dafdbf8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2724921140687133311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920920780046971674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0870946430fae8c4f9dc5b891454be95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  cautionDistance: 2550
+  warningDistance: 2100
+  forwardAngle: 90
+--- !u!135 &4647166653736544489
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920920780046971674}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 257.65
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8182993845203218362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920920780046971674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complexMaskingMode: 0
+  drawingMode: 1
+  outlineLayer: 0
+  outlineTargets: []
+  renderStyle: 2
+  outlineParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  backParameters:
+    enabled: 0
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  frontParameters:
+    enabled: 1
+    color: {r: 0.5487333, g: 1, b: 0.18396229, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+--- !u!114 &4467261627916295648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920920780046971674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388d03c7da92b0a4eaaa4e3b46d23550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetType: 2

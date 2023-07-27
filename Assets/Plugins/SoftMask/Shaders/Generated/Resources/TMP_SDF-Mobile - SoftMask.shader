@@ -96,7 +96,7 @@ SubShader {
 
 		#include "UnityCG.cginc"
 		#include "UnityUI.cginc"
-		#include "Assets/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc"
+		#include "Assets/Plugins/TextMesh Pro/Shaders/TMPro_Properties.cginc"
 		#include "Assets/Plugins/SoftMask/Shaders/SoftMask.cginc" // Soft Mask
 
 		struct vertex_t {

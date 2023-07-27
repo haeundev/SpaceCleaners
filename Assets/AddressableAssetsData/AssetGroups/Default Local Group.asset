@@ -22,8 +22,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9c53962885c2c4f449125a979d6ad240
-    m_Address: Scenes
+  - m_GUID: 428d6112c3d04f74fa9163a9cd8bc00a
+    m_Address: GameSystem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01125e54dc3376f42b79f175514269c2
+    m_Address: ApplicationContext
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f084435683824da43b8bff080eb5020f
+    m_Address: MasterAudioMixer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15a0babe1fbe9f144a0d4fab5be7e9ee
+    m_Address: DataTableManager
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -13,6 +13,7 @@ namespace DevFeatures.SaveSystem.Model
     {
         public string RelativePath => "/game-stat.json";
         public bool isDoneTutorial;
+        public bool isWatchedOpeningCutscene;
     }
     
     [Serializable]

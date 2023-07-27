@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Loading.unity
     guid: 3a12ec2df554cba4cb82e6c241435efd
   - enabled: 1
+    path: Assets/Scenes/OpeningCutscene.unity
+    guid: c78c615b1b4fb8c4fb2d30bdd9924955
+  - enabled: 1
     path: Assets/Scenes/OuterSpace.unity
     guid: 7f2eab73d0b7f06448e761d8db008b3b
   - enabled: 1
@@ -20,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MonumentPlanet.unity
     guid: ddaecc3d9d2ab4641973008ecb3eb18e
-  - enabled: 1
-    path: Assets/Scenes/CrystalDepot.unity
-    guid: 5e8c6eb96f1e8d64382d229969bde7db
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f0a154a9c9a8edb4f8eff98267c51fc0,
       type: 2}

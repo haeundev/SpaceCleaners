@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -8,12 +9,12 @@ namespace Script.Editor
     [InitializeOnLoad]
     public static class GameStarter
     {
-        private const string BOOTING = "Assets/Scenes/Booting.unity";
-        private const string LOADING = "Assets/Scenes/Loading.unity";
-        private const string OUTER_SPACE = "Assets/Scenes/OuterSpace.unity";
-        private const string JUNGLE = "Assets/Scenes/JunglePlanet.unity";
-        private const string MONUMENT = "Assets/Scenes/MonumentPlanet.unity";
-        private const string CRYSTAL_DEPOT = "Assets/Scenes/CrystalDepot.unity";
+        private const string BOOTING = "Assets/Scenes/Booting.unity"; // SCENE NAME
+        private const string LOADING = "Assets/Scenes/Loading.unity"; // SCENE NAME
+        private const string OUTER_SPACE = "Assets/Scenes/OuterSpace.unity"; // SCENE NAME
+        private const string JUNGLE = "Assets/Scenes/JunglePlanet.unity"; // SCENE NAME
+        private const string MONUMENT = "Assets/Scenes/MonumentPlanet.unity"; // SCENE NAME
+        private const string CRYSTAL_DEPOT = "Assets/Scenes/CrystalDepot.unity"; // SCENE NAME
 
         static GameStarter()
         {
@@ -70,3 +71,4 @@ namespace Script.Editor
         }
     }
 }
+#endif

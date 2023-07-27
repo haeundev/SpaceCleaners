@@ -49,7 +49,7 @@ namespace LiveLarson.BootAndLoad
         {
             if (_loading)
                 return;
-            var targetGameMode = Enum.Parse<Enums.GameMode>(scene.Replace("Scenes/", "").Replace(".unity", ""));
+            var targetGameMode = Enum.Parse<Enums.GameMode>(scene.Replace("Assets/Scenes/", "").Replace(".unity", ""));
             GameModeService.TryEnterGameMode(targetGameMode);
             // SoundService.Play("UI/Common/Common_Loading_Loop");
             _currentDisplay = displays[0]; // 그 외의 경우들은 임시로 Common 로딩

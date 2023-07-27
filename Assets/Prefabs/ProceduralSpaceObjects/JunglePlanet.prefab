@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 2050768054263026441}
   - component: {fileID: 2525402349080848621}
   - component: {fileID: 8784606100904678757}
-  m_Layer: 0
+  - component: {fileID: 8209101189118747831}
+  - component: {fileID: 7480029687972126278}
+  - component: {fileID: 1638075718373284758}
+  m_Layer: 10
   m_Name: JunglePlanet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +53,7 @@ MonoBehaviour:
   faceRenderMask: 0
   shapeSettings: {fileID: 11400000, guid: 62ca1fc1c7ccd514ea9e291373679266, type: 2}
   colourSettings: {fileID: 11400000, guid: 534b052d9d306304b92cea652e9d0bf8, type: 2}
-  shapeSettingsFoldout: 1
+  shapeSettingsFoldout: 0
   colourSettingsFoldout: 1
   meshFilters:
   - {fileID: 0}
@@ -71,7 +74,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0870946430fae8c4f9dc5b891454be95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 3
   cautionDistance: 2550
   warningDistance: 2100
   forwardAngle: 90
+--- !u!135 &8209101189118747831
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889186921545443015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 263.6
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7480029687972126278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889186921545443015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complexMaskingMode: 0
+  drawingMode: 1
+  outlineLayer: 0
+  outlineTargets: []
+  renderStyle: 2
+  outlineParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  backParameters:
+    enabled: 0
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  frontParameters:
+    enabled: 1
+    color: {r: 0.5487333, g: 1, b: 0.18396229, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+--- !u!114 &1638075718373284758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889186921545443015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388d03c7da92b0a4eaaa4e3b46d23550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetType: 0
