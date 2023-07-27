@@ -25,8 +25,8 @@ public class OutlineBehavior : Behavior
                 outline.enabled = false;
             }
 
-            outline.effectColor = color;
-            outline.effectDistance = new Vector2(width, width);
+            // outline.effectColor = color; //일단은 주석처리
+            // outline.effectDistance = new Vector2(width, width);
 
             dictMFObjToAct.Add(objAct, outline);
         }
@@ -36,8 +36,8 @@ public class OutlineBehavior : Behavior
     {
         foreach (var item in dictMFObjToAct)
         {
-            item.Value.effectColor = color;
-            item.Value.effectDistance = new Vector2(width, width);
+            // item.Value.effectColor = color; //일단은 주석처리
+            // item.Value.effectDistance = new Vector2(width, width);
         }
     }
 
