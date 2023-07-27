@@ -10,6 +10,10 @@ TagManager:
   - Flame
   - FxTemporaire
   - identifiable_by_radar
+  - Oxygen
+  - Leaf
+  - Flower
+  - Bug
   layers:
   - Default
   - TransparentFX
