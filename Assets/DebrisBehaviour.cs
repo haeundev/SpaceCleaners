@@ -6,13 +6,24 @@ public class DebrisBehaviour : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Gadget"))
         {
-            Destroy(GetComponentInChildren<Collider>());
-            Destroy(other.GetComponentInChildren<Rigidbody>());
-            Destroy(other.GetComponentInChildren<Collider>());
-            
-            OuterSpaceEvent.Trigger_DebrisCaptured(gameObject);
-            transform.SetParent(other.transform);
-            transform.localPosition = Vector3.zero;
+            if (other.gameObject.name.Contains("Net"))
+            {
+                Destroy(GetComponentInChildren<Collider>());
+                Destroy(other.GetComponentInChildren<Rigidbody>());
+                Destroy(other.GetComponentInChildren<Collider>());
+                OuterSpaceEvent.Trigger_DebrisCaptured(gameObject);
+                transform.SetParent(other.transform);
+                transform.localPosition = Vector3.zero;
+            }
+            else if (other.gameObject.name.Contains("Grapple"))
+            {
+                
+            }
+            else if (other.gameObject.name.Contains("fff"))
+            {
+                
+            }
+           
         }
     }
 }
