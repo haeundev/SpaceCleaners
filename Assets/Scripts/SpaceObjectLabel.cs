@@ -7,7 +7,8 @@ public enum SpaceObjectLabelType
 {
     Planet,
     Asteroid,
-    Item
+    Item,
+    Debris
 }
 
 public class SpaceObjectLabel : MonoBehaviour

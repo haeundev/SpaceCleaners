@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RayGaze : MonoBehaviour
 {
-    [SerializeField] private float gazeDistance = 1000f;
+    [SerializeField] private float gazeDistance = 500f;
     private GameObject _newHit;
     private GameObject _lastHit;
     private Camera _camera;
@@ -21,7 +21,8 @@ public class RayGaze : MonoBehaviour
         var lastGazable = _lastHit == default ? default : _lastHit.GetComponent<RayGazable>();
         var asteroidLayer = 1 << LayerMask.NameToLayer("Asteroid");
         var planetLayer = 1 << LayerMask.NameToLayer("Planet");
-        var finalLayers = asteroidLayer | planetLayer;
+        var debrisLayer = 1 << LayerMask.NameToLayer("Debris");
+        var finalLayers = asteroidLayer | planetLayer | debrisLayer;
         Debug.DrawRay(ray.origin, ray.direction * gazeDistance, Color.cyan, .1f);
         if (Physics.Raycast(ray, out var info, gazeDistance, finalLayers))
         {

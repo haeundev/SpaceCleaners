@@ -12,7 +12,8 @@ using UnityEngine.UI;
 
 public class DashboardGadget : MonoBehaviour
 {
-    [SerializeField] private Transform objParent;
+    [SerializeField] private Transform previewParent;
+    [SerializeField] private Transform gadgetParent;
     [SerializeField] private TextMeshProUGUI gadgetName;
     [SerializeField] private TextMeshProUGUI gadgetDescription;
     [SerializeField] private Button prevButton;
@@ -23,6 +24,7 @@ public class DashboardGadget : MonoBehaviour
     private List<GadgetInfo> _gadgetInfos;
     private GadgetStat _gadgetStat;
     private int _currentID;
+    private GameObject _currentTargetDebris;
     
     private void Awake()
     {
@@ -37,8 +39,14 @@ public class DashboardGadget : MonoBehaviour
         prevButton.onClick.AddListener(OnClickPrevButton);
         nextButton.onClick.AddListener(OnClickNextButton);
         selectButton.onClick.AddListener(OnClickSelectButton);
+        OuterSpaceEvent.OnGadgetShoot += OnGadgetShoot;
     }
-    
+
+    private void OnGadgetShoot(GameObject targetDebris)
+    {
+        _currentTargetDebris = targetDebris;
+    }
+
     [Button]
     private void OnClickPrevButton()
     {
@@ -68,6 +76,23 @@ public class DashboardGadget : MonoBehaviour
         _gadgetStat.lastSelectedID = _currentID;
         checkIcon.gameObject.SetActive(true);
         OuterSpaceEvent.Trigger_GadgetSelected(gadgetInfo);
+        
+        for (var i = 0; i < gadgetParent.childCount; i++)
+            Destroy(gadgetParent.GetChild(i).gameObject);
+        Addressables.InstantiateAsync(gadgetInfo.ModelPath).Completed += op =>
+        {
+            var go = op.Result.gameObject;
+            go.transform.position = gadgetParent.position;
+            go.transform.SetParent(GameObject.FindWithTag("Re-positionableHandle").transform, true);
+            var gadget = go.GetComponent<Gadget>();
+
+            if (_currentTargetDebris != default)
+            {
+                gadget.targetTransform = _currentTargetDebris.transform;
+            }
+            
+            gadget.Init();
+        };
     }
 
     private void OnEnable()
@@ -88,9 +113,9 @@ public class DashboardGadget : MonoBehaviour
         _currentID = gadgetInfo.ID;
 
         // 3D model
-        for (var i = 0; i < objParent.childCount; i++)
-            Destroy(objParent.GetChild(i).gameObject);
-        Addressables.InstantiateAsync(gadgetInfo.ModelPath, objParent).Completed += op =>
+        for (var i = 0; i < previewParent.childCount; i++)
+            Destroy(previewParent.GetChild(i).gameObject);
+        Addressables.InstantiateAsync(gadgetInfo.PreviewPath, previewParent).Completed += op =>
         {
             // var go = op.Result;
             // go.transform.localScale *= 0.2f;

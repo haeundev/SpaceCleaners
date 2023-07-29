@@ -1,9 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Gadget : MonoBehaviour
+public abstract class Gadget : MonoBehaviour
 {
     [SerializeField] public int gadgetID;
+    [SerializeField] public Transform targetTransform;
+    [HideInInspector] public bool isEquipped = true;
     
+    public virtual void Init()
+    {
+        
+    }
+
+    public virtual void Use(GameObject targetDebris)
+    {
+        isEquipped = false;
+    }
 }

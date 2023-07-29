@@ -46,13 +46,25 @@ public class RayGazable : MonoBehaviour
             if (gameObject.layer == LayerMask.NameToLayer("Asteroid"))
             {
                 var label = _labels.Single(p => p.type == SpaceObjectLabelType.Asteroid);
-                label.Show(GetLabel(label.type));
+                label.Show(GetLabelText(label.type));
                 label.gameObject.SetActive(true);
+            }
+            else if (gameObject.layer == LayerMask.NameToLayer("Debris"))
+            {
+                var label = _labels.Single(p => p.type == SpaceObjectLabelType.Debris);
+                var debrisLabel = label.GetComponent<DebrisLabel>();
+                debrisLabel.SetDebris(gameObject);
+                label.Show(GetLabelText(label.type));
+                label.gameObject.SetActive(true);
+                label.RegisterEnterButtonEvent(() =>
+                {
+                    OuterSpaceEvent.Trigger_ShootGadget(gameObject);
+                });
             }
             else if (gameObject.layer == LayerMask.NameToLayer("Planet"))
             {
                 var label = _labels.Single(p => p.type == SpaceObjectLabelType.Planet);
-                label.Show(GetLabel(label.type));
+                label.Show(GetLabelText(label.type));
                 label.gameObject.SetActive(true);
                 var planetInfo = gameObject.GetComponent<PlanetInfo>();
                 
@@ -69,7 +81,7 @@ public class RayGazable : MonoBehaviour
         }
     }
 
-    private string GetLabel(SpaceObjectLabelType type)
+    private string GetLabelText(SpaceObjectLabelType type)
     {
         if (type == SpaceObjectLabelType.Asteroid)
         {

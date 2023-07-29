@@ -17,6 +17,7 @@ namespace DataTables
         public GadgetType GadgetType;
         public string Name;
         public string Description;
+        public string PreviewPath;
         public string ModelPath;
         public bool HasFromStart;
     }
