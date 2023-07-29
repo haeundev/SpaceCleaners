@@ -5,5 +5,8 @@ namespace LiveLarson.Enums
         Harpoon,
         Net,
         Laser,
+        WateringCan,
+        Hammer,
+        Pickaxe,
     }
 }

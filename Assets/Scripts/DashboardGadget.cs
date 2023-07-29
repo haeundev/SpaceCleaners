@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using DataTables;
@@ -67,6 +66,7 @@ public class DashboardGadget : MonoBehaviour
         if (gadgetInfo == default)
             return;
         _gadgetStat.lastSelectedID = _currentID;
+        checkIcon.gameObject.SetActive(true);
         OuterSpaceEvent.Trigger_GadgetSelected(gadgetInfo);
     }
 
