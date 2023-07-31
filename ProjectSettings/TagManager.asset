@@ -15,6 +15,8 @@ TagManager:
   - Flower
   - Bug
   - Re-positionableHandle
+  - GameManager
+  - Key
   layers:
   - Default
   - TransparentFX
