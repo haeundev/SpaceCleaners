@@ -14,7 +14,7 @@ TagManager:
   - Leaf
   - Flower
   - Bug
-  - GameManager
+  - Re-positionableHandle
   layers:
   - Default
   - TransparentFX
@@ -31,7 +31,7 @@ TagManager:
   - FrozenChunks
   - Bullet
   - GrappleTarget
-  - 
+  - Debris
   - 
   - Cockpit
   - XRHands

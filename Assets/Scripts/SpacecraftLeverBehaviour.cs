@@ -4,7 +4,7 @@ using UnityEngine.XR.Content.Interaction;
 
 public class SpacecraftLeverBehaviour : MonoBehaviour
 {
-    [SerializeField] private string sfxBoost = "Audio/Simple Boost.wav";
+    [SerializeField] private string sfxBoost = "Assets/Audio/Simple Boost.wav";
 
     private Transform _playerTransform;
     private SpacePlayer _spacePlayer;

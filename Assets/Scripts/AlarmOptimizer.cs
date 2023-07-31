@@ -39,7 +39,8 @@ public class AlarmOptimizer : MonoBehaviour
             
             var asteroidLayer = 1 << LayerMask.NameToLayer("Asteroid");
             var planetLayer = 1 << LayerMask.NameToLayer("Planet");
-            var finalLayers = asteroidLayer | planetLayer;
+            var debrisLayer = 1 << LayerMask.NameToLayer("Debris");
+            var finalLayers = asteroidLayer | planetLayer | debrisLayer;
             if (Physics.Raycast(ray, out var info, rayDistance, finalLayers))
             {
                 var alarm = info.collider.gameObject.GetComponent<AlarmByDistance>();
