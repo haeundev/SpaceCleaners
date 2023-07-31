@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1147451231708993702}
   - component: {fileID: 2688852796354054250}
   - component: {fileID: 3782776845466109787}
-  - component: {fileID: 2917975035622660884}
   m_Layer: 21
   m_Name: MonumentMonster111
   m_TagString: Enemy
@@ -120,24 +119,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &2917975035622660884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910184398402379979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db136a448bc78947a77302311103f5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  curHealth: 0
-  wanderRange: 10
-  chaseRange: 15
-  target: {fileID: 0}
-  isChase: 0
 --- !u!1 &6952866079794839936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1181,7 @@ Animator:
   m_GameObject: {fileID: 6952866079794840034}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9e6376af45d044888914cb4041e67a21, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3f0ddeb286617244fbcb7f5a80d00c18, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1578ebab59e23f5478ad63008e369dab, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
