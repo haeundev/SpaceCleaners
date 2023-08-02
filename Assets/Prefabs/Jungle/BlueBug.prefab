@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7767002369851137452}
   - component: {fileID: 6490411017147964263}
   - component: {fileID: 4122218167125064953}
-  - component: {fileID: 2961886426115876239}
   - component: {fileID: 1331218884078137405}
   - component: {fileID: 5682562270940025106}
   - component: {fileID: 3388134777424718580}
@@ -245,7 +244,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2961886426115876239}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: IncreaseIngredientCount, Assembly-CSharp
         m_MethodName: AddIngredientCount
         m_Mode: 1
@@ -351,18 +350,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &2961886426115876239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939739039318023693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4147be6e103248a49b538c4927a1ae46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1331218884078137405
 MonoBehaviour:
   m_ObjectHideFlags: 0

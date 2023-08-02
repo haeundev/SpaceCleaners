@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 2261031374505993901}
   - component: {fileID: 5486487621003346089}
   - component: {fileID: 4783308797834270208}
-  - component: {fileID: 3368908093541555421}
   - component: {fileID: 6500691631683641393}
   - component: {fileID: 3840883339667621817}
   - component: {fileID: 8568689234541013047}
@@ -245,7 +244,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3368908093541555421}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: IncreaseIngredientCount, Assembly-CSharp
         m_MethodName: AddIngredientCount
         m_Mode: 1
@@ -361,18 +360,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62fb9fb1177925e4b8a383be2b9db66c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3368908093541555421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2328207722171539417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4147be6e103248a49b538c4927a1ae46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6500691631683641393
