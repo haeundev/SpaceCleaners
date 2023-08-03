@@ -1,16 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEditor;
 
-namespace GRASBOCK.XR.Inventory{
+namespace GRASBOCK.XR.Inventory
+{
     public class DynamicQuickAccessInventory : DynamicInventory
     {
-
         public Hand hand;
         public float radius = 1.0f;
         public float separation = 0.3f;
+        public event Action<HashSet<Slot>> OnInventoryUpdated;
 
         /// <summary>
         /// Shows where the <c>Slot</c>s are going to be placed
@@ -84,7 +86,8 @@ namespace GRASBOCK.XR.Inventory{
                 bs.gameObject.transform.parent = transform; //set parent pack to inventory
                 i++;
             }
-
+            
+            OnInventoryUpdated?.Invoke(slots);
         }
     }
 }

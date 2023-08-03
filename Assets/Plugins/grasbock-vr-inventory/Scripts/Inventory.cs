@@ -41,7 +41,20 @@ namespace GRASBOCK.XR.Inventory
             {
                 s.Open();
             }
-                
+        }
+        
+        // TODO: 지승 확인! 인벤토리 전체에서 이 아이템 갯수를 리턴해야 하는 함수.
+        public int GetItemCount(ItemInfo itemInfo)
+        {
+            var count = 0;
+            foreach (var slot in slots)
+            {
+                if (slot.ItemInfo == itemInfo)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
 
         public virtual void Close()
