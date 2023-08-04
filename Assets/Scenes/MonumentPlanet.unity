@@ -21385,6 +21385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb50d69d4c64f814397a98e368d96f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalCount: 30
   theEnemy: {fileID: 1555636972}
   rangeObject: {fileID: 1684245573}
   enemyCount: 0
@@ -31437,12 +31438,22 @@ PrefabInstance:
     - target: {fileID: 1147451231708993702, guid: f57273a175e9252419b618e20c169939,
         type: 3}
       propertyPath: m_Center.y
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1910184398402379979, guid: f57273a175e9252419b618e20c169939,
         type: 3}
       propertyPath: m_Name
       value: MonumentMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746416945443588252, guid: f57273a175e9252419b618e20c169939,
+        type: 3}
+      propertyPath: m_Height
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746416945443588252, guid: f57273a175e9252419b618e20c169939,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2761122981587506840, guid: f57273a175e9252419b618e20c169939,
         type: 3}
@@ -31457,7 +31468,7 @@ PrefabInstance:
     - target: {fileID: 2761122981587506840, guid: f57273a175e9252419b618e20c169939,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2761122981587506840, guid: f57273a175e9252419b618e20c169939,
         type: 3}
@@ -31509,6 +31520,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6730597491942346129, guid: f57273a175e9252419b618e20c169939,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1475031494}
+    - target: {fileID: 6952866079795273154, guid: f57273a175e9252419b618e20c169939,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6952866079804338722, guid: f57273a175e9252419b618e20c169939,
         type: 3}
       propertyPath: m_Controller
@@ -31522,16 +31543,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1910184398402379979, guid: f57273a175e9252419b618e20c169939,
         type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 1555636978}
     - targetCorrespondingSourceObject: {fileID: 1910184398402379979, guid: f57273a175e9252419b618e20c169939,
         type: 3}
-      insertIndex: -1
+      insertIndex: 5
       addedObject: {fileID: 1555636982}
-    - targetCorrespondingSourceObject: {fileID: 1910184398402379979, guid: f57273a175e9252419b618e20c169939,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1555636981}
     - targetCorrespondingSourceObject: {fileID: 1910184398402379979, guid: f57273a175e9252419b618e20c169939,
         type: 3}
       insertIndex: -1
@@ -32503,6 +32520,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6741285943292190925, guid: d462ff810b25d76439f7c88d219d5660,
     type: 3}
   m_PrefabInstance: {fileID: 1472251510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1475031494 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6952866079804338722, guid: f57273a175e9252419b618e20c169939,
+    type: 3}
+  m_PrefabInstance: {fileID: 1427311914}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1477400369
 PrefabInstance:
@@ -33812,32 +33835,6 @@ MonoBehaviour:
   version: 1
   unwrap: 1
   splitAtEveryPortal: 0
---- !u!143 &1555636981
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1555636972}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 3.04
-  m_Radius: 0.35
-  m_SlopeLimit: 45
-  m_StepOffset: 0.5
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!114 &1555636982
 MonoBehaviour:
   m_ObjectHideFlags: 0
