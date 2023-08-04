@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
 {
+    [SerializeField] private int totalCount = 30;
     public GameObject theEnemy;
     public GameObject rangeObject;
     BoxCollider RangeCollider;
     public int enemyCount;
+    private int _currentCount;
 
     private void Awake()    
     {
@@ -20,19 +22,13 @@ public class MonsterSpawner : MonoBehaviour
         float range_X = RangeCollider.bounds.size.x;
         float range_Z = RangeCollider.bounds.size.z;
 
-        float yPosition = 0f;
+        float yPosition = 1.0f;
 
         range_X = Random.Range( (range_X/2)*-1, range_X/2);
         range_Z = Random.Range((range_Z/2)*-1, range_Z/2);
         Vector3 RandomPosition = new Vector3(range_X, yPosition, range_Z);
 
         Vector3 respawnPosition = originPosition + RandomPosition;
-
-         RaycastHit hit;
-        if (Physics.Raycast(respawnPosition + Vector3.up * 100f, Vector3.down, out hit, Mathf.Infinity))
-         {
-        respawnPosition.y = hit.point.y + yPosition;
-          }
 
         return respawnPosition;
     }
@@ -42,12 +38,13 @@ public class MonsterSpawner : MonoBehaviour
 
     IEnumerator EnemyDrop()
     {
-         while (true)
+         while (_currentCount < totalCount)
         {
             yield return new WaitForSeconds(0.1f);
 
             // 생성 위치 부분에 위에서 만든 함수 Return_RandomPosition() 함수 대입
             GameObject instantCapsul = Instantiate(theEnemy, Return_RandomPosition(), Quaternion.identity);
+            _currentCount++;
         }
 
        /* while(enemyCount<10){

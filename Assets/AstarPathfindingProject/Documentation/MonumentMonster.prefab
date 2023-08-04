@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6730597491942346129}
   - component: {fileID: 1147451231708993702}
   - component: {fileID: 2688852796354054250}
+  - component: {fileID: 2746416945443588252}
   - component: {fileID: 3782776845466109787}
   m_Layer: 21
-  m_Name: MonumentMonster111
+  m_Name: MonumentMonster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2, y: 1.2, z: 1.2}
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Size: {x: 1.9683106, y: 1.7880206, z: 1.4622431}
+  m_Center: {x: 0.034317374, y: 0.67345536, z: -0.13112152}
 --- !u!195 &2688852796354054250
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -92,6 +93,32 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!143 &2746416945443588252
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910184398402379979}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Height: 1.5
+  m_Radius: 0.35
+  m_SlopeLimit: 45
+  m_StepOffset: 0.5
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!54 &3782776845466109787
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1161,7 +1188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6952866079794840034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.744, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
