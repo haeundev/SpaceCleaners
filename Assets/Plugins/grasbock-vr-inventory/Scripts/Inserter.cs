@@ -17,7 +17,6 @@ namespace GRASBOCK.XR.Inventory
         
         private void OnTriggerStay(Collider other)
         {
-
             Item item = other.GetComponent<Item>();
             if (!item)
                 //its not an item
@@ -36,6 +35,7 @@ namespace GRASBOCK.XR.Inventory
                 return;
 
             uint store_count = slot.StoreItems(1, item.itemInfo);
+            
             if(store_count == 1)
             {
                 Destroy(item.gameObject);

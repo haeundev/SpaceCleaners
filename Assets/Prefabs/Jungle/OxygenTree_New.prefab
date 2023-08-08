@@ -710,7 +710,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8067103046004768341}
-  - component: {fileID: 3049003443765928336}
   m_Layer: 0
   m_Name: ItemPosition
   m_TagString: Untagged
@@ -726,31 +725,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6150389686029716229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.808, z: 0}
+  m_LocalPosition: {x: 0, y: 0.73, z: -0.179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5953617998609645059}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3049003443765928336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6150389686029716229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8e52d5b662377a4e93acb393227aede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueBugPath: 
-  oxygenBarrelPath: 
-  pinkLeafPath: 
-  redFlowerPath: 
-  plantType: 0
-  parentTransform: {fileID: 0}
 --- !u!1 &7524079358936740021
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,8 +904,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.57682914, y: 1, z: 1}
-  m_Center: {x: -0.025432497, y: 0, z: 0}
+  m_Size: {x: 0.53777766, y: 0.44364908, z: 0.55234385}
+  m_Center: {x: -0.0059067756, y: 0.21954404, z: 0.0009012222}
 --- !u!114 &2290579873222854507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c14ee955dd96349baa57161f5d7027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RequiredTag: 
+  m_RequiredTag: Water
   m_OnEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -945,9 +926,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ingredients: []
-  plantLevel: 0
-  myAnimator: {fileID: 0}
-  animators: []
+  plantLevel: 1
+  myAnimator: {fileID: 8929898904679886316}
+  animators:
+  - {fileID: 9100000, guid: 69b56a56fe6b80f44a695b7515df68f2, type: 2}
+  - {fileID: 9100000, guid: 5917d3abedf0e1e43857f663df59b0f9, type: 2}
 --- !u!114 &5400153838849281005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,8 +947,7 @@ MonoBehaviour:
   oxygenBarrelPath: Prefabs/Jungle/OxygenBarrel.prefab
   pinkLeafPath: Prefabs/Jungle/PinkLeaf.prefab
   redFlowerPath: Prefabs/Jungle/RedFlower.prefab
-  plantType: 3
-  parentTransform: {fileID: 0}
+  parentTransform: {fileID: 8067103046004768341}
 --- !u!114 &2310748349439058334
 MonoBehaviour:
   m_ObjectHideFlags: 0

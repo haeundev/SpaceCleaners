@@ -46,7 +46,8 @@ public class JungleItemSpawner : MonoBehaviour
         Addressables.LoadAssetAsync<GameObject>(path).Completed += op =>
         {
             var go = op.Result;
-            Instantiate(go, parentTransform);
+            var temp = Instantiate(go, parentTransform);
+            temp.GetComponent<Floater>().enabled = true;
         };
     }
 }

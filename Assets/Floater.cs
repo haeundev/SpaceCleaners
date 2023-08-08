@@ -20,6 +20,7 @@ public class Floater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         transform.Rotate(new Vector3(0f, Time.deltaTime * degreesPerSecond, 0f), Space.World);
 
         tempPos = posOffset;
@@ -27,5 +28,14 @@ public class Floater : MonoBehaviour
 
         transform.position = tempPos;
       
+    }
+
+    public void OnChangeItemPosition()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.None;
+        rb.useGravity = true;
+        GetComponent<Floater>().enabled = false;
+        // posOffset = transform.position;
     }
 }

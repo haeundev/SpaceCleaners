@@ -33,6 +33,7 @@ namespace GRASBOCK.XR.Inventory
         {
             //get all child objects with inventorySlot component
             slots = new HashSet<Slot>(GetComponentsInChildren<Slot>());
+
         }
 
         public virtual void Open()
@@ -51,7 +52,8 @@ namespace GRASBOCK.XR.Inventory
             {
                 if (slot.ItemInfo == itemInfo)
                 {
-                    count++;
+                    count += (int)slot.ItemCount;
+                    //count++;
                 }
             }
             return count;

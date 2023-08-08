@@ -8,8 +8,8 @@ namespace GRASBOCK.XR.Inventory
     [RequireComponent(typeof(Collider))]
     public class Slot : MonoBehaviour
     {
-        
-        
+        public bool isItemInfoAlreadyAssigned = false; //whether item info is assigned from the beginning
+
         public float acceleration_multiplier = 1.0f; // the maximum force that will pull in the item when touching the slot
         // references to all items that are to be pulled into the slot
         private Dictionary<Item, (Rigidbody, Collider)> item_gameObjects = new Dictionary<Item, (Rigidbody, Collider)>();
@@ -128,8 +128,12 @@ namespace GRASBOCK.XR.Inventory
                         preview.gameObject.SetActive(false);
                         preview = null;
                     }
-                    ItemInfo = null;
-                    
+
+                    if(!isItemInfoAlreadyAssigned)
+                    {
+                        ItemInfo = null;
+                    }
+
                 }
                 // notify all subscribers
                 foreach(OnItemCountChange func in item_count_subscribers)
@@ -298,6 +302,10 @@ namespace GRASBOCK.XR.Inventory
             //Debug.Log("Attract");
             // if an item has multiple colliders this can be called multiple times. So allow multiple attempts to add
             item_gameObjects[item] = (rb, collider);
+
+            rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;//RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+            rb.useGravity = false;
+
         }
 
         /// <summary>
@@ -323,6 +331,7 @@ namespace GRASBOCK.XR.Inventory
             {
                 // collider is an item
                 //Debug.Log("Item is inside:" + other.gameObject);
+                
                 Attract(item, other);
             }
         }
@@ -341,9 +350,14 @@ namespace GRASBOCK.XR.Inventory
             {
                 item_gameObjects.Remove(item);
 
+                Rigidbody rb = item.gameObject.GetComponent<Rigidbody>();
+                rb.constraints = RigidbodyConstraints.None;
+                rb.useGravity = true;
+
                 if (item.Slot == this)
                 {
                     Release(item);
+                    
                 }
             }
         }
