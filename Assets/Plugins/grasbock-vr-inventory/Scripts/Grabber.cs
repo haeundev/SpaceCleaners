@@ -12,13 +12,20 @@ namespace GRASBOCK.XR.Inventory
         private void OnTriggerEnter(Collider other)
         {
             Item item = other.GetComponent<Item>();
-            if (item) touched_items.Add(item);
+            if(item)
+            {
+                touched_items.Add(item);
+            } 
+            
         }
 
         private void OnTriggerExit(Collider other)
         {
             Item item = other.GetComponent<Item>();
-            if (item) touched_items.Remove(item);
+            if(item)
+            {
+                touched_items.Remove(item);
+            } 
         }
     }
 }

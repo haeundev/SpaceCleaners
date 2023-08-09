@@ -90,6 +90,7 @@ namespace GRASBOCK.XR.Inventory
             {
                 s.StopAttract(this);
             }
+
         }
     }
 }

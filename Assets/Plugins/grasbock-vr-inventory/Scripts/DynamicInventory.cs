@@ -84,6 +84,7 @@ namespace GRASBOCK.XR.Inventory
                 //tell the inserter where to transfer to
                 return bs;
             }
+            
             return null;
         }
 

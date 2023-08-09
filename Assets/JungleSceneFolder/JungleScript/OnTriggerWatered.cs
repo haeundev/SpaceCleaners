@@ -65,6 +65,7 @@ public class OnTriggerWatered : MonoBehaviour
     private void Awake()
     {
         RegisterEvents();
+        
     }
 
     private void RegisterEvents()
