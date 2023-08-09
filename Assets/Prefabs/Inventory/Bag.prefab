@@ -91,12 +91,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0948c7523cb104e8e31925ebab29f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start_closed: 1
+  start_closed: 0
   inserter: {fileID: 0}
   invSlotPrefab: {fileID: 0}
   maxSlots: 5
   radius: 1
   separation: 0.3
+  isCraftBoxInventory: 0
 --- !u!1001 &11262667749457979
 PrefabInstance:
   m_ObjectHideFlags: 0

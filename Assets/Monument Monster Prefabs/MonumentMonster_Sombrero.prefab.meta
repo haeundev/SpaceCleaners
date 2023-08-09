@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 <<<<<<<< HEAD:Assets/AstarPathfindingProject/Documentation/MonumentMonster.prefab.meta
-guid: f57273a175e9252419b618e20c169939
+guid: 335d182f26c81124b99973b6aec10164
 DefaultImporter:
 ========
 guid: d9cdd894366438942a3a9e448724b4b1
 NativeFormatImporter:
->>>>>>>> haeun:Assets/ScriptableObjects/ItemInfos/OxygenBarrel.asset.meta
+>>>>>>>> c656b507bd1fffcb1289d8d1ef44e1df435f533f:Assets/ScriptableObjects/ItemInfos/OxygenBarrel.asset.meta
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 
