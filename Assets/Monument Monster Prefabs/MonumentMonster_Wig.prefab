@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2761122981587506840}
-  - component: {fileID: 6730597491942346129}
   - component: {fileID: 1147451231708993702}
   - component: {fileID: 2688852796354054250}
   - component: {fileID: 2746416945443588252}
@@ -41,19 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6730597491942346129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910184398402379979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e28d35be456060340a5166ed49a5bcba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 6952866079804338722}
 --- !u!65 &1147451231708993702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -251,7 +237,6 @@ MonoBehaviour:
   target: {fileID: 0}
   chaseRadius: 10
   moveAroundRadius: 20
-  attackRadius: 3
   wanderRate: 5
   wanderRadius: 30
 --- !u!1 &6952866079794839936
