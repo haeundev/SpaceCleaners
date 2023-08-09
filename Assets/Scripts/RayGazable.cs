@@ -11,7 +11,7 @@ public class RayGazable : MonoBehaviour
     private string _generatedName = "";
     private bool _isNeverGazed = true;
     
-    private void Awake()
+    private void Start()
     {
         CollectLabels();
     }
@@ -19,7 +19,11 @@ public class RayGazable : MonoBehaviour
     [Button]
     private void CollectLabels()
     {
-        _labels = GameObject.Find("SpaceObjectLabelTypes").GetComponentsInChildren<SpaceObjectLabel>().ToList();
+        _labels = SpaceObjectLabels.Instance.labels;
+        if (_labels.Count != 3)
+        {
+            Debug.LogError("why is it not 3?");
+        }
     }
 
     public void OnGazeEnter()
