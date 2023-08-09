@@ -10,13 +10,8 @@ TagManager:
   - Flame
   - FxTemporaire
   - identifiable_by_radar
-  - Oxygen
-  - Leaf
-  - Flower
-  - Bug
   - Re-positionableHandle
-  - GameManager
-  - Key
+  - Gadget
   layers:
   - Default
   - TransparentFX
@@ -40,7 +35,7 @@ TagManager:
   - 
   - PostProcessing
   - 
-  - 
+  - Particle3D
   - 
   - 
   - 

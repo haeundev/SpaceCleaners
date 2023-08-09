@@ -47,3 +47,5 @@ MonoBehaviour:
   gameConst: {fileID: 11400000, guid: bf1849f27e89ec24fba8f5509ff3390f, type: 2}
   gadgetInfos: {fileID: 11400000, guid: de1149cccaf94844682bf52c439d83a6, type: 2}
   notifications: {fileID: 11400000, guid: 09ef6e4bf0b02284080f36b54050cdad, type: 2}
+  audioConst: {fileID: 11400000, guid: a0e9cb54284f31d4d96182c5ac44dba9, type: 2}
+  taskInfos: {fileID: 11400000, guid: e9cf4bdbb4738bc48a4c62f71d02956f, type: 2}

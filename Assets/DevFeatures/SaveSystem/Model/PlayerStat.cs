@@ -14,6 +14,7 @@ namespace DevFeatures.SaveSystem.Model
         public string RelativePath => "/game-stat.json";
         public bool isDoneTutorial;
         public bool isWatchedOpeningCutscene;
+        public bool isLevelRestart;
     }
     
     [Serializable]
@@ -22,6 +23,7 @@ namespace DevFeatures.SaveSystem.Model
         public string RelativePath => "/player-stat.json";
         public string name; // agent name
         public int level; // agent level 1~7
+        public int oxygenLevel; // 0~100
 
         public PlayerStat(string name, int level)
         {

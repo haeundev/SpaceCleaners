@@ -19,11 +19,10 @@ namespace Pathfinding {
 		public Transform target;
 		IAstarAI ai;
 		public float chaseRadius = 10f;
-		public float moveAroundRadius = 20f;
-		public float attackRadius = 3f;
+		public float moveAroundRadius = 5f;
 
-		public float wanderRate = 5f;
-		public float wanderRadius = 30f;
+		public float wanderRate = 0.5f;
+		public float wanderRadius = 20f;
 		private Vector3 wanderTarget;
 
 		private Animator animator;
@@ -45,29 +44,14 @@ namespace Pathfinding {
 		}
 
 		/// <summary>Updates the AI's destination every frame</summary>
-		 void Update () {
-            if (target != null && ai != null) {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+		void Update () {
+			if (target != null && ai != null) {
 
-                if (distanceToTarget <= chaseRadius) {
-                    if (distanceToTarget <= attackRadius) {
-                        // Stop the AI from moving
-                        ai.isStopped = true;
-						animator.SetBool("Walk",false);
-                        animator.SetBool("Attack", true);
+				float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                        // Perform the attack logic here (e.g., deal damage)
-                    }
-                    else {
-                        // Resume normal movement
-                        ai.isStopped = false;
-
-                        // Move towards the player
-                        ai.destination = target.position;
-                        animator.SetBool("Walk", true);
-                        animator.SetBool("Attack", false);
-                    }
-                
+				if(distanceToTarget <= chaseRadius){
+					ai.destination = target.position;
+					animator.SetBool("Walk",true);
 
 
 				} else{
@@ -80,14 +64,13 @@ namespace Pathfinding {
 
 
 				}
-				ai.isStopped = false;
 				ai.destination = wanderTarget;
 			}
 
 			}
 
-		 }
+
 			
 		}
 	}
-
+}

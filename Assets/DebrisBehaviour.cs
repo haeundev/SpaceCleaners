@@ -4,16 +4,14 @@ public class DebrisBehaviour : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"[DebrisBehaviour]  OnTriggerEnter!  other.gameObject.layer: {other.gameObject.layer}");
         if (other.gameObject.layer == LayerMask.NameToLayer("Gadget"))
         {
             if (other.gameObject.name.Contains("Net"))
             {
-                Destroy(GetComponentInChildren<Collider>());
-                Destroy(other.GetComponentInChildren<Rigidbody>());
-                Destroy(other.GetComponentInChildren<Collider>());
                 OuterSpaceEvent.Trigger_DebrisCaptured(gameObject);
-                transform.SetParent(other.transform);
-                transform.localPosition = Vector3.zero;
+                Destroy(other.gameObject);
+                Destroy(gameObject);
             }
             else if (other.gameObject.name.Contains("Grapple"))
             {
@@ -23,7 +21,6 @@ public class DebrisBehaviour : MonoBehaviour
             {
                 
             }
-           
         }
     }
 }

@@ -1,3 +1,5 @@
+using System.Collections;
+using LiveLarson.Util;
 using UnityEngine;
 
 public enum AlarmSourceType
@@ -21,23 +23,30 @@ public class AlarmByDistance : MonoBehaviour
     private void Awake()
     {
         _playerTransform = GameObject.FindWithTag("Player").transform;
+        
+        // to coroutine
+        StartCoroutine(CheckForAlarm());
     }
 
-    private void Update()
+    private IEnumerator CheckForAlarm()
     {
-        // if in forward angle area
-        if (Vector3.Angle(_playerTransform.forward, transform.position - _playerTransform.position) < forwardAngle)
+        while (enabled)
         {
-            if (Vector3.Distance(transform.position, _playerTransform.position) < warningDistance)
+            if (Vector3.Angle(_playerTransform.forward, transform.position - _playerTransform.position) < forwardAngle)
             {
-                OuterSpaceEvent.Trigger_Notification(AlarmPriority.Warning, type);
-                enabled = false;
+                if (Vector3.Distance(transform.position, _playerTransform.position) < warningDistance)
+                {
+                    OuterSpaceEvent.Trigger_Notification(AlarmPriority.Warning, type);
+                    enabled = false;
+                }
+                else if (Vector3.Distance(transform.position, _playerTransform.position) < cautionDistance)
+                {
+                    OuterSpaceEvent.Trigger_Notification(AlarmPriority.Caution, type);
+                    enabled = false;
+                }
             }
-            else if (Vector3.Distance(transform.position, _playerTransform.position) < cautionDistance)
-            {
-                OuterSpaceEvent.Trigger_Notification(AlarmPriority.Caution, type);
-                enabled = false;
-            }
+
+            yield return YieldInstructionCache.WaitForSeconds(10f);
         }
     }
 }

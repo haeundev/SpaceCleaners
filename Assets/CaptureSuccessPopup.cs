@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CaptureSuccessPopup : MonoBehaviour
 {
+    [SerializeField] private Transform particleParent;
+    [SerializeField] private string captureSuccessSFX = "Assets/Audio/Capture Success.ogg";
+    
     private void Awake()
     {
         OuterSpaceEvent.OnDebrisCaptured += OnDebrisCaptured;
@@ -13,7 +16,22 @@ public class CaptureSuccessPopup : MonoBehaviour
     private void OnDebrisCaptured(GameObject _)
     {
         gameObject.SetActive(true);
-        SoundService.PlaySfx("Assets/Audio/Level Up.wav", transform.position);
+        // Addressables.InstantiateAsync(captureSuccessSFX).Completed += op =>
+        // {
+        //     op.Result.gameObject.transform.position = particleParent.position;
+        // };
+        SpaceObjectLabels.DisableAll();
+        SoundService.PlaySfx(captureSuccessSFX, transform.position);
         Observable.Timer(TimeSpan.FromSeconds(3f)).Subscribe(_ => { gameObject.SetActive(false); }).AddTo(this);
+    }
+
+    private void OnEnable()
+    {
+        
+    }
+    
+    private void OnDisable()
+    {
+        
     }
 }
