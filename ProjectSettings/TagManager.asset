@@ -18,6 +18,7 @@ TagManager:
   - Oxygen
   - Key
   - JungleHUD
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -42,7 +43,7 @@ TagManager:
   - PostProcessing
   - 
   - Particle3D
-  - 
+  - MonumentPlayer
   - 
   - 
   - 
