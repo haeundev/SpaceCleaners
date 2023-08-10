@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using GRASBOCK.XR.Inventory;
 using UnityEngine;
+using DevFeatures.SaveSystem;
+using DevFeatures.SaveSystem.Model;
 
 public class JungleHUD : MonoBehaviour
 {
@@ -10,11 +12,20 @@ public class JungleHUD : MonoBehaviour
     private List<JungleItemStatusUI> _itemStatusUIs;
     [SerializeField] private List<ItemInfo> itemInfos;
 
+    private PlayerStat _playerStat;
+
     private void Awake()
     {
         _itemStatusUIs = GetComponentsInChildren<JungleItemStatusUI>().ToList();
         // _inventory = FindObjectOfType<DynamicQuickAccessInventory>();
         _inventory.OnInventoryUpdated += OnInventoryUpdated;
+
+        _playerStat = SaveAndLoadManager.Instance.PlayerStat;
+    }
+
+    public void OnOxygenLevelUpdated()
+    {
+
     }
 
     public void OnInventoryUpdated(HashSet<Slot> slots)
