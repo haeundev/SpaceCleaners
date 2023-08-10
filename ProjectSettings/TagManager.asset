@@ -12,6 +12,12 @@ TagManager:
   - identifiable_by_radar
   - Re-positionableHandle
   - Gadget
+  - Flower
+  - Bug
+  - Leaf
+  - Oxygen
+  - Key
+  - JungleHUD
   layers:
   - Default
   - TransparentFX

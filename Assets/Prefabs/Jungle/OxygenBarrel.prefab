@@ -117,6 +117,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -1730574878132361773}
+    - targetCorrespondingSourceObject: {fileID: 1805304498381420, guid: 1bbb8c37e80056641b68747d186f20fa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1540664768844929864}
   m_SourcePrefab: {fileID: 100100000, guid: 1bbb8c37e80056641b68747d186f20fa, type: 3}
 --- !u!23 &980146486375722229 stripped
 MeshRenderer:
@@ -235,10 +239,10 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7881359932670481451}
-        m_TargetAssemblyTypeName: Floater, Assembly-CSharp
-        m_MethodName: OnChangeItemPosition
-        m_Mode: 1
+      - m_Target: {fileID: 994888562415954039}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -435,15 +439,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: d9cdd894366438942a3a9e448724b4b1, type: 2}
---- !u!114 &7881359932670481451 stripped
+--- !u!114 &1540664768844929864
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6965048904725470768, guid: 1bbb8c37e80056641b68747d186f20fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 993294451259509275}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994888562415954039}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225a63d80c25cab4689f26074e32dc96, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d9c309f73c853144b5251104b2b3019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
