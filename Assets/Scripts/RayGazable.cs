@@ -8,23 +8,18 @@ using UnityEngine;
 public class RayGazable : MonoBehaviour
 {
     private List<SpaceObjectLabel> _labels;
-    private string _generatedName = "";
-    private bool _isNeverGazed = true;
-    
-    private void Start()
+    public List<SpaceObjectLabel> Labels
     {
-        CollectLabels();
-    }
-    
-    [Button]
-    private void CollectLabels()
-    {
-        _labels = SpaceObjectLabels.Instance.labels;
-        if (_labels.Count != 3)
+        get
         {
-            Debug.LogError("why is it not 3?");
+            if (_labels == default || _labels.Count == 0)
+                _labels = FindObjectOfType<SpaceObjectLabels>()?.labels;
+            return _labels;
         }
     }
+    
+    private string _generatedName = "";
+    private bool _isNeverGazed = true;
 
     public void OnGazeEnter()
     {
@@ -45,17 +40,23 @@ public class RayGazable : MonoBehaviour
 
     private void ShowLabel(bool isShow)
     {
+        if (Labels.Count != 3)
+        {
+            Debug.LogError("why is it not 3?");
+            return;
+        }
+        
         if (isShow)
         {
             if (gameObject.layer == LayerMask.NameToLayer("Asteroid"))
             {
-                var label = _labels.Single(p => p.type == SpaceObjectLabelType.Asteroid);
+                var label = Labels.Single(p => p.type == SpaceObjectLabelType.Asteroid);
                 label.Show(GetLabelText(label.type));
                 label.gameObject.SetActive(true);
             }
             else if (gameObject.layer == LayerMask.NameToLayer("Debris"))
             {
-                var label = _labels.Single(p => p.type == SpaceObjectLabelType.Debris);
+                var label = Labels.Single(p => p.type == SpaceObjectLabelType.Debris);
                 var debrisLabel = label.GetComponent<DebrisLabel>();
                 debrisLabel.SetDebris(gameObject);
                 label.Show(GetLabelText(label.type));
@@ -67,7 +68,7 @@ public class RayGazable : MonoBehaviour
             }
             else if (gameObject.layer == LayerMask.NameToLayer("Planet"))
             {
-                var label = _labels.Single(p => p.type == SpaceObjectLabelType.Planet);
+                var label = Labels.Single(p => p.type == SpaceObjectLabelType.Planet);
                 label.Show(GetLabelText(label.type));
                 label.gameObject.SetActive(true);
                 var planetInfo = gameObject.GetComponent<PlanetInfo>();
@@ -81,7 +82,7 @@ public class RayGazable : MonoBehaviour
         }
         else
         {
-            _labels.ForEach(p => p.gameObject.SetActive(false));
+            Labels.ForEach(p => p.gameObject.SetActive(false));
         }
     }
 
