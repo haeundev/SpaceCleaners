@@ -171,12 +171,13 @@ namespace LiveLarson.SoundSystem
             };
         }
 
-        public static void PlaySfx(string path, Vector3 position)
+        public static Audio PlaySfx(string path, Vector3 position)
         {
             var audio = new Audio(Instance, _key, AudioType.SFX, path, position, false);
             ApplySoundSettings(path, AudioType.SFX, audio);
             AudioDict.Add(_key++, audio);
             audio.Play();
+            return audio;
         }
 
         private static void ApplySoundSettings(string path, AudioType type, Audio audio)
