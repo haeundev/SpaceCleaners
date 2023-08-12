@@ -13,6 +13,7 @@ namespace LiveLarson.DataTableManagement
         [SerializeField] private Notifications notifications;
         [SerializeField] private AudioConst audioConst;
         [SerializeField] private TaskInfos taskInfos;
+        [SerializeField] private DialogueInfos dialogueInfos;
         // [SerializeField] private Messages messages;
         // [SerializeField] private PlayerConst playerConst;
 
@@ -70,6 +71,7 @@ namespace LiveLarson.DataTableManagement
         public static Notifications Notifications => Instance.notifications;
         public static AudioConst AudioConst => Instance.audioConst;
         public static TaskInfos TaskInfos => Instance.taskInfos;
+        public static DialogueInfos DialogueInfos => Instance.dialogueInfos;
         // public static PlayerConst PlayerConst => Instance.playerConst;
         // public static Items Items => Instance.items;
     }

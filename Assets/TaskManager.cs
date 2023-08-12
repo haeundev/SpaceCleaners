@@ -7,32 +7,36 @@ using LiveLarson.DataTableManagement;
 using LiveLarson.Enums;
 using LiveLarson.Util;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
-using UnityEngine.XR.OpenXR;
-using UnityEngine.XR.OpenXR.Input;
+using UnityEngine.SceneManagement;
 
 public class TaskManager : MonoBehaviour
 {
-    [SerializeField] private int initialTaskID = 1;
+    private int initialTaskID = 1;
     public static TaskManager Instance;
     public TaskInfos taskInfos;
     private List<TaskInfo> _tasks;
     public TaskInfo CurrentTask { get; private set; }
-    private event Action<TaskInfo> OnTaskAcquired;
+    public event Action<TaskInfo> OnTaskAcquired;
+    public event Action<TaskInfo> OnDialogueTaskInit;
 
     private void Awake()
     {
         Instance = this;
         taskInfos = DataTableManager.TaskInfos;
         _tasks = taskInfos.Values;
-        OnTaskAcquired += InitTask;
     }
 
     private void Start()
     {
         CurrentTask = _tasks.First(p => p.ID == initialTaskID);
-        OnTaskAcquired?.Invoke(CurrentTask);
+        OnTaskAcquired += InitTask;
+        SceneManager.sceneLoaded += (scene, mode) =>
+        {
+            if (scene.name == "OuterSpace")
+            {
+                CompleteCurrentTask();
+            }
+        };
     }
 
     private void InitTask(TaskInfo taskInfo)
@@ -45,7 +49,7 @@ public class TaskManager : MonoBehaviour
             case TaskType.None:
                 break;
             case TaskType.Dialogue:
-                
+                OnDialogueTaskInit?.Invoke(taskInfo);
                 break;
             case TaskType.Instruction:
                 break;
@@ -115,12 +119,13 @@ public class TaskManager : MonoBehaviour
     {
         StartCoroutine(RunEndActions(() =>
         {
-            if (_tasks == default)
-                return;
-            if (CurrentTask == default)
+            if (_tasks == default || CurrentTask == default)
                 return;
             CurrentTask = _tasks.FirstOrDefault(p => p.ID == CurrentTask.ID + 1);
+            if (CurrentTask == default)
+                return;
             OnTaskAcquired?.Invoke(CurrentTask);
+            Debug.Log($"[TaskManager]  OnTaskAcquired {CurrentTask.ID}");
         }));
     }
 

@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f26d98a8f633064ca1308aade187fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTaskID: 1
+  initialTaskID: 0
   taskInfos: {fileID: 11400000, guid: e9cf4bdbb4738bc48a4c62f71d02956f, type: 2}
 --- !u!1 &6033090705862050872
 GameObject:
