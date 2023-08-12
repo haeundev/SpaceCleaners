@@ -8,7 +8,7 @@ public class MonumentPlayerController : MonoBehaviour
 {
 
 
-    private void OnCollisionEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
             return;

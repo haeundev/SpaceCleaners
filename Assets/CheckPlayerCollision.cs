@@ -9,7 +9,7 @@ public class CheckPlayerCollision : MonoBehaviour
     public event Action<int> OnPlayerDamaged;
 
 
-    private void OnCollisionEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
             return;

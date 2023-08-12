@@ -1,12 +1,32 @@
 using System;
-using System.Collections;
-using UniRx;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum MonsterLevelType
+{
+    Minion,
+    Boss
+}
+
+public enum MonsterItemType
+{
+    None,
+    Badge,
+    Mustache,
+    Wig,
+}
+
+[Serializable]
+public class MonsterTypeDictionary : SerializableDictionary<MonsterItemType, GameObject> {}
 
 public class MonumentMonster : Monster
 {
+    [SerializeField] private MonsterLevelType levelType;
+    [SerializeField] private MonsterItemType itemType;
+    [SerializeField] private MonsterTypeDictionary goByType;
+    
     private int _health;
+    
     private Animator _animator;
     
     private static readonly int AttackAnim = Animator.StringToHash("Attack"); // this is better than using string every time
@@ -18,8 +38,42 @@ public class MonumentMonster : Monster
     {
         _animator = GetComponentInChildren<Animator>();
     }
+    
+    public void SetItemType(MonsterItemType monsterItemType)
+    {
+        itemType = monsterItemType;
+        ApplyItemType();
+    }
 
-    private void OnCollisionEnter(Collider other)
+    public void SetLevelType(MonsterLevelType monsterLevelType)
+    {
+        levelType = monsterLevelType;
+        ApplyLevelType();
+    }
+
+    private void ApplyLevelType()
+    {
+        if (levelType == MonsterLevelType.Boss)
+        {
+            transform.localScale *= 3f;
+        }
+    }
+
+    private void ApplyItemType()
+    {
+        switch (itemType)
+        {
+            case MonsterItemType.None:
+                break;
+            case MonsterItemType.Badge:
+            case MonsterItemType.Mustache:
+            case MonsterItemType.Wig:
+                goByType[itemType].SetActive(true);
+                break;
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer != LayerMask.NameToLayer("Weapon"))
             return;
@@ -53,4 +107,5 @@ public class MonumentMonster : Monster
     // public void SomeFunctionCalledAfterInstantiate()
     // {
     // }
+    
 }
