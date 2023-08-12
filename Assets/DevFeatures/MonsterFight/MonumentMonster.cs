@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LiveLarson.SoundSystem;
 using UnityEngine;
 
 public enum MonsterLevelType
@@ -107,5 +108,16 @@ public class MonumentMonster : Monster
     // public void SomeFunctionCalledAfterInstantiate()
     // {
     // }
-    
+
+    public void OnPlayerNear(GameObject player)
+    {
+        Attack(player);
+    }
+
+    private void Attack(GameObject player)
+    {
+        _animator.SetTrigger(AttackAnim);
+        SoundService.PlaySfx("~~~", transform.position);
+        player.GetComponentInChildren<MonumentPlayer>().OnAttacked();
+    }
 }
