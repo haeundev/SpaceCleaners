@@ -146,18 +146,18 @@ public class TaskManager : MonoBehaviour
 
     private IEnumerator DoEndAction(IReadOnlyList<string> values)
     {
-        // switch (values[0])
-        // {
-        //     case "stop_sound":
-        //         var taskToStopAudio = _tasks.Find(p => p.ID == int.Parse(values[1]));
-        //         SoundSources.Stop(taskToStopAudio.ValueStr);
-        //         break;
-        //
-        //     case "spawn":
-        //         UIWindows.GetWindow(1).enabled = false;
-        //         yield return SpawnPlayer(values[1]);
-        //         break;
-        // }
+        switch (values[0])
+        {
+            // case "taskend":
+            //     var taskToStopAudio = _tasks.Find(p => p.ID == int.Parse(values[1]));
+            //     SoundSources.Stop(taskToStopAudio.ValueStr);
+            //     break;
+            //
+            // case "levelup":
+            //     UIWindows.GetWindow(1).enabled = false;
+            //     yield return SpawnPlayer(values[1]);
+            //     break;
+        }
         
         yield break;
     }
