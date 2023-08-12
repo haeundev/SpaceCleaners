@@ -1,60 +1,43 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using LiveLarson.Util;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.Serialization;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    [SerializeField] private int totalCount = 30;
-    public GameObject theEnemy;
-    public GameObject rangeObject;
-    BoxCollider RangeCollider;
-    public int enemyCount;
-    private int _currentCount;
-
-    private void Awake()    
+    [SerializeField] private string prefabPath = "Prefabs/Enemy/MonumentMonster.prefab";
+    [SerializeField] private int minionCount = 20;
+    [SerializeField] private MonsterSpawnPositions positions;
+    private HashSet<Transform> _occupiedPositions = new();
+    
+    private void Awake()
     {
-        RangeCollider = rangeObject.GetComponent<BoxCollider>();
-    }
-
-    Vector3 Return_RandomPosition()
-    {
-        Vector3 originPosition = rangeObject.transform.position;
-        float range_X = RangeCollider.bounds.size.x;
-        float range_Z = RangeCollider.bounds.size.z;
-
-        float yPosition = 1.0f;
-
-        range_X = Random.Range( (range_X/2)*-1, range_X/2);
-        range_Z = Random.Range((range_Z/2)*-1, range_Z/2);
-        Vector3 RandomPosition = new Vector3(range_X, yPosition, range_Z);
-
-        Vector3 respawnPosition = originPosition + RandomPosition;
-
-        return respawnPosition;
-    }
-    void Start(){
-        StartCoroutine(EnemyDrop());
-    }
-
-    IEnumerator EnemyDrop()
-    {
-         while (_currentCount < totalCount)
+        for (var i = 0; i < minionCount; i++)
         {
-            yield return new WaitForSeconds(0.1f);
-
-            // 생성 위치 부분에 위에서 만든 함수 Return_RandomPosition() 함수 대입
-            GameObject instantCapsul = Instantiate(theEnemy, Return_RandomPosition(), Quaternion.identity);
-            _currentCount++;
+            Spawn(MonsterLevelType.Boss, MonsterItemType.Badge);
         }
-
-       /* while(enemyCount<10){
-            xPos = Random.Range(-50,50);
-            zPos = Random.Range(-31,31);
-            Instantiate(theEnemy, new Vector3(xPos,2,zPos),Quaternion.identity);
-            yield return new WaitForSeconds(0.1f);
-            enemyCount += 1; */
-                    }
+    }
+    
+    private void Spawn(MonsterLevelType levelType, MonsterItemType itemType)
+    {
+        var handle = Addressables.InstantiateAsync(prefabPath);
+        handle.Completed += op =>
+        {
+            // when prefab is instantiated
+            var enemyObj = op.Result.gameObject;
+            enemyObj.transform.position = GetPosition();
+            var mm = enemyObj.GetComponentInChildren<MonumentMonster>();
+            mm.SetItemType(itemType);
+            mm.SetLevelType(levelType);
+        };
     }
 
-
-
+    private Vector3 GetPosition()
+    {
+        var randomPos = positions.positions.Where(p => _occupiedPositions.Contains(p) == false).PeekRandom();
+        _occupiedPositions.Add(randomPos);
+        return randomPos.position;
+    }
+}

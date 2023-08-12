@@ -6125,6 +6125,7 @@ GameObject:
   - component: {fileID: 9193185504087970086}
   - component: {fileID: 7327280602312139754}
   - component: {fileID: 5210892236686181296}
+  - component: {fileID: 1988099166036170515}
   m_Layer: 30
   m_Name: XR Origin
   m_TagString: Untagged
@@ -6383,6 +6384,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapTurn: {fileID: 9179442987653124722}
   continuousTurn: {fileID: 1807802495000113974}
+--- !u!136 &1988099166036170515
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944297663213991511}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.6740499
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.14, z: 0}
 --- !u!1 &8013532273749954164
 GameObject:
   m_ObjectHideFlags: 0

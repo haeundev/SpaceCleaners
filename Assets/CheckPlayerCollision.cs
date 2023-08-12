@@ -1,11 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CheckPlayerCollision : MonoBehaviour
 {
-    void OnControllerColliderHit(ControllerColliderHit hit) //character controller collision 여기서 처리!
+    public event Action<int> OnPlayerDamaged;
+
+
+    private void OnCollisionEnter(Collision other)
     {
-        print(hit.gameObject);
+        if (other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
+            return;
+
+        OnPlayerDamaged?.Invoke(20);
+
+        // var enemyObj = other.gameObject;
+        // var enemyComp = enemyObj.GetComponentInChildren<EnemyController>();
+        // enemyComp.On
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d498df6a8a665641b9217d057942f59, type: 3}
-  m_Name: ItemInfo
+  m_Name: CowboyHat
   m_EditorClassIdentifier: 
-  name: OxygenBarrel
-  prefab: {fileID: 0}
+  name: CowboyHat
+  prefab: {fileID: 3983172744973975527, guid: 0718e2be158f08544bccc298ca7686da, type: 3}
