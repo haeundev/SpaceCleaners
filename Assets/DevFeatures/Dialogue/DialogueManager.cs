@@ -9,6 +9,10 @@ namespace DevFeatures.Dialogue
 {
     public class DialogueManager : MonoBehaviour
     {
+        [SerializeField] private Button buttonOptionA;
+        [SerializeField] private Button buttonOptionB;
+        [SerializeField] private TextMeshProUGUI tmpOptionA;
+        [SerializeField] private TextMeshProUGUI tmpOptionB;
         [SerializeField] private TextMeshProUGUI tmpSpeakerName;
         [SerializeField] private TextMeshProUGUI tmpLine;
         [SerializeField] private TypewriterByCharacter typewriter;
@@ -23,15 +27,55 @@ namespace DevFeatures.Dialogue
             typewriter.onTextShowed.AddListener(OnLineEnd);
             typewriter.onTextForceStopped.AddListener(OnLineEnd);
             buttonNext.onClick.AddListener(OnNextButtonPressed);
+            buttonOptionA.onClick.AddListener(OnPressOptionA);
+            buttonOptionB.onClick.AddListener(OnPressOptionB);
+            
+            // tween buttons
+            
+        }
+
+        [Sirenix.OdinInspector.Button]
+        private void OnPressOptionA()
+        {
+            PlayLine(_currentDialogue.NextForA);
+            DisableOptionButtons();
+        }
+
+        private void DisableOptionButtons()
+        {
+            buttonOptionA.gameObject.SetActive(false);
+            buttonOptionB.gameObject.SetActive(false);
+        }
+
+        [Sirenix.OdinInspector.Button]
+        private void OnPressOptionB()
+        {
+            PlayLine(_currentDialogue.NextForB);
+            DisableOptionButtons();
         }
 
         [Sirenix.OdinInspector.Button]
         private void OnNextButtonPressed()
         {
-            if (_currentDialogue?.Next != default)
+            var next = _currentDialogue?.Next ?? 0;
+            if (next != default && next != 0)
             {
-                PlayLine(_currentDialogue.Next);
+                PlayLine(next);
             }
+            else
+            {
+                OnDialogueFinished();
+            }
+        }
+
+        private void OnDialogueFinished()
+        {
+            TaskManager.Instance.CompleteCurrentTask();
+        }
+
+        private void ShowPlayerOptions()
+        {
+            
         }
 
         private void OnLineStart()
@@ -41,6 +85,9 @@ namespace DevFeatures.Dialogue
     
         private void OnLineEnd()
         {
+            buttonOptionA.gameObject.SetActive(_currentDialogue.HasChoice);
+            buttonOptionB.gameObject.SetActive(_currentDialogue.HasChoice);
+            
             if (_currentDialogue?.Next == default)
             {
                 TaskManager.Instance.CompleteCurrentTask();
@@ -54,6 +101,7 @@ namespace DevFeatures.Dialogue
         
         private void PlayLine(int dialogueID)
         {
+            Debug.Log($"PlayLine {dialogueID}");
             if (gameObject.activeSelf == false)
             {
                 gameObject.SetActive(true);
@@ -65,7 +113,15 @@ namespace DevFeatures.Dialogue
                 return;
             }
             tmpLine.SetText(_currentDialogue.Line);
-            tmpLine.gameObject.GetComponent<TypewriterByCharacter>().StartShowingText();
+            tmpSpeakerName.SetText(_currentDialogue.DisplayName);
+            
+            // toggle options
+            buttonNext.gameObject.SetActive(!_currentDialogue.HasChoice);
+          
+            tmpOptionA.SetText(_currentDialogue.ResponseA);
+            tmpOptionB.SetText(_currentDialogue.ResponseB);
+            
+            tmpLine.gameObject.GetComponent<TypewriterByCharacter>().StartShowingText(true);
             OnLineStart();
         }
     }
