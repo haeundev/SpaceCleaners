@@ -7,11 +7,15 @@ using LiveLarson.DataTableManagement;
 using LiveLarson.Enums;
 using LiveLarson.Util;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
+using UnityEngine.XR.OpenXR;
+using UnityEngine.XR.OpenXR.Input;
 
-public class TaskDirector : MonoBehaviour
+public class TaskManager : MonoBehaviour
 {
     [SerializeField] private int initialTaskID = 1;
-    public static TaskDirector Instance;
+    public static TaskManager Instance;
     public TaskInfos taskInfos;
     private List<TaskInfo> _tasks;
     public TaskInfo CurrentTask { get; private set; }
@@ -38,19 +42,12 @@ public class TaskDirector : MonoBehaviour
         
         switch (taskInfo.TaskType)
         {
+            case TaskType.None:
+                break;
             case TaskType.Dialogue:
+                
                 break;
-            case TaskType.FindDebris:
-                break;
-            case TaskType.CaptureDebris:
-                break;
-            case TaskType.FindPlanet:
-                break;
-            case TaskType.EnterPlanet:
-                break;
-            case TaskType.CompletePlanet:
-                break;
-            case TaskType.ReturnToSpace:
+            case TaskType.Instruction:
                 break;
         }
     }
@@ -129,7 +126,7 @@ public class TaskDirector : MonoBehaviour
 
     public IEnumerator RunEndActions(Action onDone)
     {
-        foreach (var endAction in CurrentTask.EndActions.SeparateAllParenthesis())
+        foreach (var endAction in CurrentTask.EndAction.SeparateAllParenthesis())
         {
             var values = endAction.Trim('(', ')', ' ').Replace(" ", string.Empty).Split(',');
             if (values.Length == 0)

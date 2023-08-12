@@ -18,18 +18,28 @@ public class TypewriterSoundPlayer : MonoBehaviour
         {
             _typewriterByCharacter.onTypewriterStart.AddListener(() =>
             {
-                _currentAudio = SoundService.PlaySfx(sfxName, transform.position);
+                OnStart();
             });
             
             _typewriterByCharacter.onTextShowed.AddListener(() =>
             {
-                _currentAudio?.Stop();
+                OnEnd();
             });
             
             _typewriterByCharacter.onTextForceStopped.AddListener(() =>
             {
-                _currentAudio?.Stop();
+                OnEnd();
             });
         });
+    }
+
+    private void OnStart()
+    {
+        _currentAudio = SoundService.PlaySfx(sfxName, transform.position);
+    }
+    
+    private void OnEnd()
+    {
+        _currentAudio?.Stop();
     }
 }

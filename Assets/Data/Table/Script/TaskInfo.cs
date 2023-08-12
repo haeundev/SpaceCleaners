@@ -6,6 +6,7 @@ using LiveLarson.Enums;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DataTables
 {
@@ -15,9 +16,10 @@ namespace DataTables
         public int ID;
         [JsonConverter(typeof(StringEnumConverter))]
         public TaskType TaskType;
-        public int RewardID;
-        public string EndActions;
-        public List<int> ValueInts;
+        public string Title;
+        public string ValueStr;
+        public int ValueInt;
+        public string EndAction;
     }
 
 }
