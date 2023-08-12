@@ -1804,6 +1804,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonumentPlanet
       objectReference: {fileID: 0}
+    - target: {fileID: 3012375326077742876, guid: 43241223c0581be4cb4f111371d7624e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7314599731227799475, guid: 43241223c0581be4cb4f111371d7624e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3971,10 +3976,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Solar Spear
+  m_text: "\uADF8\uBB3C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a3b8726ea595d374dba138588dcc344a, type: 2}
-  m_sharedMaterial: {fileID: 2942374450750060320, guid: a3b8726ea595d374dba138588dcc344a,
+  m_fontAsset: {fileID: 11400000, guid: 07560e9dd5c9d4d62b7f942e5d7895a6, type: 2}
+  m_sharedMaterial: {fileID: 216627462055812735, guid: 07560e9dd5c9d4d62b7f942e5d7895a6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3999,7 +4004,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.7
+  m_fontSize: 43.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4489,7 +4494,7 @@ Light:
   m_RenderMode: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 29697
+    m_Bits: 62465
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
@@ -4540,6 +4545,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &460411311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100906, guid: 91e43e5afc808154b972e36534d9d946,
+    type: 3}
+  m_PrefabInstance: {fileID: 331572990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &473959024
 GameObject:
   m_ObjectHideFlags: 0
@@ -5224,7 +5235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.487}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.468, y: 0.177}
+  m_AnchoredPosition: {x: -0.468, y: 0.22}
   m_SizeDelta: {x: 708, y: 352}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541598473
@@ -6682,10 +6693,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Capture Success
+  m_text: "\uC794\uD574 \uC218\uC9D1\n\uC131\uACF5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a3b8726ea595d374dba138588dcc344a, type: 2}
-  m_sharedMaterial: {fileID: 2942374450750060320, guid: a3b8726ea595d374dba138588dcc344a,
+  m_fontAsset: {fileID: 11400000, guid: 07560e9dd5c9d4d62b7f942e5d7895a6, type: 2}
+  m_sharedMaterial: {fileID: 216627462055812735, guid: 07560e9dd5c9d4d62b7f942e5d7895a6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6716,7 +6727,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -7841,12 +7852,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Shoot the harpoon towards the debris
-
-    - Suitable for metallic objects'
+  m_text: "- \uC794\uD574\uB97C \uD5A5\uD574 \uADF8\uBB3C\uC744 \uBC1C\uC0AC\uD558\uC138\uC694.\n-
+    \uC911\uAC04 \uD06C\uAE30 \uC774\uC0C1\uC758 \uC794\uD574\uC5D0 \uC801\uD569\uD569\uB2C8\uB2E4."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3719ce25f2583454c9c9ec15c140080a, type: 2}
-  m_sharedMaterial: {fileID: -420803725709193929, guid: 3719ce25f2583454c9c9ec15c140080a,
+  m_fontAsset: {fileID: 11400000, guid: 07560e9dd5c9d4d62b7f942e5d7895a6, type: 2}
+  m_sharedMaterial: {fileID: 216627462055812735, guid: 07560e9dd5c9d4d62b7f942e5d7895a6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7871,7 +7881,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.1
+  m_fontSize: 21.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7974,12 +7984,12 @@ MonoBehaviour:
   WorldSize: 800
   WorldAdditionalSize: 1700
   UseAdditionalSize: 1
-  DistanceBetweenObjects: {x: 300, y: 300, z: 300}
+  DistanceBetweenObjects: {x: 200, y: 200, z: 200}
   StartingEnvironmentToWrap: {fileID: 3951563981437617025}
   WrapStartingEnvironment: 0
   OtherEnvironmentToWrap:
-  - {fileID: 6902422463789465754}
-  - {fileID: 6298365936143713319}
+  - {fileID: 1943177352}
+  - {fileID: 460411311}
   RandomPositionStrength: 0.8
   RandomScaleStrength: 1
   XRandomRotationStrength: 1
@@ -10806,6 +10816,10 @@ PrefabInstance:
     - target: {fileID: 100906, guid: 91e43e5afc808154b972e36534d9d946, type: 3}
       propertyPath: m_Name
       value: Debris_Concrete1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100906, guid: 91e43e5afc808154b972e36534d9d946, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 438584, guid: 91e43e5afc808154b972e36534d9d946, type: 3}
       propertyPath: m_RootOrder
@@ -14230,7 +14244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 180232, guid: cadd483f8f5216e47b2ccbc270f9e1ec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 487142, guid: cadd483f8f5216e47b2ccbc270f9e1ec, type: 3}
       propertyPath: m_RootOrder
@@ -14544,6 +14558,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1943177352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 143942, guid: 0f14063930b370b46b0c60f9b9c78221,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168758968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1960104727
 GameObject:
   m_ObjectHideFlags: 0
@@ -15630,10 +15650,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confirm
+  m_text: "\uD655\uC778"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3719ce25f2583454c9c9ec15c140080a, type: 2}
-  m_sharedMaterial: {fileID: -420803725709193929, guid: 3719ce25f2583454c9c9ec15c140080a,
+  m_fontAsset: {fileID: 11400000, guid: 07560e9dd5c9d4d62b7f942e5d7895a6, type: 2}
+  m_sharedMaterial: {fileID: 216627462055812735, guid: 07560e9dd5c9d4d62b7f942e5d7895a6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -16514,7 +16534,7 @@ PrefabInstance:
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.000000035762792
       objectReference: {fileID: 0}
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
@@ -16529,22 +16549,22 @@ PrefabInstance:
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
@@ -16559,7 +16579,7 @@ PrefabInstance:
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3123075737211501169, guid: a3f72d5f213bb7d458dfc2c4369e7acf,
         type: 3}
@@ -25154,7 +25174,7 @@ PrefabInstance:
     - target: {fileID: 597924519638078836, guid: 211e7d362aa9bfe42936aad2a69141b6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2573863380088183330, guid: 211e7d362aa9bfe42936aad2a69141b6,
         type: 3}
@@ -28715,7 +28735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3304561270252673214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48996,7 +49016,7 @@ PrefabInstance:
     - target: {fileID: 7471748975703013608, guid: 9cec3e64a0cb2cb4ab140d0c3e841bda,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
