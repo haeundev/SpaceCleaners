@@ -153,8 +153,8 @@ MonoBehaviour:
     AudioPath: 
     ImagePath: 
   - ID: 12
-    SpeakerType: 4
-    DisplayName: 
+    SpeakerType: 1
+    DisplayName: "\uBE0C\uB77C\uBCF4 \uC120\uBC30"
     Line: "\uB378\uD0C0\uB294 \uBB34\uC2A8 \uB378\uD0C0\uC57C! \n...\uBE0C\uB77C\uBCF4\uB2E4."
     Next: 14
     HasChoice: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
     AudioPath: 
     ImagePath: 
   - ID: 48
-    SpeakerType: 1
+    SpeakerType: 4
     DisplayName: 
     Line: "\uCE58\uC9C1..."
     Next: 49

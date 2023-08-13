@@ -11,6 +11,8 @@ namespace DevFeatures.Dialogue
 {
     [Serializable]
     public class SpriteBySpeakerType : SerializableDictionary<SpeakerType, Sprite> {}
+    [Serializable]
+    public class AudioBySpeakerType : SerializableDictionary<SpeakerType, string> {}
     
     public class DialogueManager : MonoBehaviour
     {
@@ -26,6 +28,7 @@ namespace DevFeatures.Dialogue
         private DialogueInfo _currentDialogue;
         public bool dialogueFinished;
         [SerializeField] private SpriteBySpeakerType speakerSpriteDict;
+        [SerializeField] private AudioBySpeakerType speakerAudioDict;
         [SerializeField] private Image speakerImage;
         
         private void Awake()
@@ -137,6 +140,7 @@ namespace DevFeatures.Dialogue
             tmpLine.SetText(_currentDialogue.Line);
             tmpSpeakerName.SetText(_currentDialogue.DisplayName);
             
+            typewriter.GetComponent<TypewriterSoundPlayer>().SetSFX(speakerAudioDict[_currentDialogue.SpeakerType]);
             speakerImage.sprite = speakerSpriteDict[_currentDialogue.SpeakerType];
             speakerImage.SetNativeSize();
             

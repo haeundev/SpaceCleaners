@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TypewriterSoundPlayer : MonoBehaviour
 {
-    [SerializeField] private string sfxName = "Assets/Audio/DialogueBipSound.mp3";
+    private string _sfxName = "Assets/Audio/DialogueBipSound.mp3";
     private Audio _currentAudio;
     private TypewriterByCharacter _typewriterByCharacter;
 
@@ -35,11 +35,16 @@ public class TypewriterSoundPlayer : MonoBehaviour
 
     private void OnStart()
     {
-        _currentAudio = SoundService.PlaySfx(sfxName, transform.position);
+        _currentAudio = SoundService.PlaySfx(_sfxName, transform.position);
     }
     
     private void OnEnd()
     {
         _currentAudio?.Stop();
+    }
+
+    public void SetSFX(string audioName)
+    {
+        _sfxName = audioName;
     }
 }

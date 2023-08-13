@@ -1642,7 +1642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec87118d330eca4e96ed554028a91b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Assets/Audio/DialogueBipSound.mp3
 --- !u!114 &142494199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4404,7 +4403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Gadget
+  m_text: "\uC7A5\uBE44\uB97C \uC7A5\uCC29\uD558\uC138\uC694"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb9ad5ebf4dc941cc8200c57cbfc954e, type: 2}
   m_sharedMaterial: {fileID: 209733471141899508, guid: bb9ad5ebf4dc941cc8200c57cbfc954e,
@@ -4414,8 +4413,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292018431
-  m_fontColor: {r: 1, g: 0, b: 0.8291087, a: 1}
+    rgba: 4291851775
+  m_fontColor: {r: 1, g: 0.4575472, b: 0.81396717, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5944,7 +5943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec87118d330eca4e96ed554028a91b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Assets/Audio/DialogueBipSound.mp3
 --- !u!114 &531569339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6482,7 +6480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec87118d330eca4e96ed554028a91b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Assets/Audio/DialogueBipSound.mp3
 --- !u!114 &580142583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7433,7 +7430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Too Far
+  m_text: "\uB108\uBB34 \uBA40\uB9AC \uC788\uC2B5\uB2C8\uB2E4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb9ad5ebf4dc941cc8200c57cbfc954e, type: 2}
   m_sharedMaterial: {fileID: 209733471141899508, guid: bb9ad5ebf4dc941cc8200c57cbfc954e,
@@ -8477,6 +8474,14 @@ MonoBehaviour:
     - {fileID: 21300000, guid: bdb37c15b057f4c94a270da98a7ad771, type: 3}
     - {fileID: 21300000, guid: d0356fbb22206407880ba43b09a297a8, type: 3}
     - {fileID: 21300000, guid: a24b437043caa4650babefba016760c0, type: 3}
+  speakerAudioDict:
+    m_keys: 0000000001000000020000000300000004000000
+    m_values:
+    - Assets/Audio/DialogueBipSound.mp3
+    - Assets/Audio/DialogueBipSound.mp3
+    - Assets/Audio/RobotVoice.mp3
+    - Assets/Audio/DialogueBipSound.mp3
+    - Assets/Audio/RadioSignal.mp3
   speakerImage: {fileID: 940652702}
 --- !u!114 &754507663
 MonoBehaviour:
@@ -11130,7 +11135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.294}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009916010
@@ -11157,6 +11162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2463d6d26f99b4bd9ba9a2cfad9552e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: Assets/Audio/Capture Success.ogg
 --- !u!114 &1009916012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11957,7 +11963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.29399994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166026943
@@ -11985,6 +11991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpTaskTitle: {fileID: 1980864969}
+  sfx: Assets/Audio/Capture Success.ogg
 --- !u!114 &1166026945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13194,7 +13201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec87118d330eca4e96ed554028a91b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxName: Assets/Audio/DialogueBipSound.mp3
 --- !u!114 &1273789133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14157,7 +14163,7 @@ PrefabInstance:
     - target: {fileID: 7368600418143178411, guid: 428d6112c3d04f74fa9163a9cd8bc00a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18082,7 +18088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Capture!
+  m_text: "\uC218\uC9D1\uD558\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb9ad5ebf4dc941cc8200c57cbfc954e, type: 2}
   m_sharedMaterial: {fileID: 209733471141899508, guid: bb9ad5ebf4dc941cc8200c57cbfc954e,
@@ -18306,7 +18312,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092138293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18319,7 +18325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.198}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092138295
