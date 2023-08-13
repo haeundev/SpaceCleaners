@@ -4,10 +4,10 @@ using UnityEngine.AddressableAssets;
 
 public class JungleItemSpawner : MonoBehaviour
 {
-    [SerializeField] private string blueBugPath = "Prefabs/Jungle/BlueBug.prefab";
+    [SerializeField] private string purpleBugPath = "Prefabs/Jungle/PurpleBug.prefab";
     [SerializeField] private string oxygenBarrelPath = "Prefabs/Jungle/OxygenBarrel.prefab";
     [SerializeField] private string pinkLeafPath = "Prefabs/Jungle/PinkLeaf.prefab";
-    [SerializeField] private string redFlowerPath = "Prefabs/Jungle/RedFlower.prefab";
+    [SerializeField] private string blueFlowerPath = "Prefabs/Jungle/BlueFlower.prefab";
 
     [SerializeField] private Transform parentTransform;
 
@@ -33,10 +33,10 @@ public class JungleItemSpawner : MonoBehaviour
                 path = pinkLeafPath;
                 break;
             case PlantType.Flower:
-                path = redFlowerPath;
+                path = blueFlowerPath;
                 break;
             case PlantType.Bug:
-                path = blueBugPath;
+                path = purpleBugPath;
                 break;
             case PlantType.Oxygen:
                 path = oxygenBarrelPath;
@@ -51,13 +51,6 @@ public class JungleItemSpawner : MonoBehaviour
         };
     }
 }
-
-
-
-
-
-
-
 
 public class PlantSoundPlayer : MonoBehaviour
 {

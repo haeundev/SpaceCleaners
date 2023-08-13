@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d498df6a8a665641b9217d057942f59, type: 3}
   m_Name: PinkLeaf
   m_EditorClassIdentifier: 
-  name: Pink Leaf
-  prefab: {fileID: 2328207722171539417, guid: 701dddc1c633bca4a8b87275669ec662, type: 3}
+  name: PinkLeaf
+  prefab: {fileID: 4250426207029917840, guid: c3fb2187012ad00428418d4f381b3367, type: 3}
