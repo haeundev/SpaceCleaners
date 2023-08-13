@@ -9,6 +9,17 @@ public class EnemyProxy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            print("player collided!");
+            var mm = transform.parent.GetComponentInChildren<MonumentMonster>();
+            mm.OnPlayerNear(other.gameObject);
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            print("player triggered");
             var mm = transform.parent.GetComponentInChildren<MonumentMonster>();
             mm.OnPlayerNear(other.gameObject);
         }

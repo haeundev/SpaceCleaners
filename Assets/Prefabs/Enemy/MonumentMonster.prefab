@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5641080378865914097}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Process05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 26.012909, y: 77.49226, z: -107.03417}
+  m_LocalEulerAnglesHint: {x: 23.224983, y: 77.92478, z: -113.3037}
 --- !u!1 &805545198191514597
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5440434085981843949}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleB02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ Transform:
   - {fileID: 2011029852037465782}
   m_Father: {fileID: 2863766692522718398}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1.4907367, y: 3.734167, z: -6.1430793}
+  m_LocalEulerAnglesHint: {x: 1.3534002, y: -0.91622734, z: -2.556141}
 --- !u!1 &835741554125756713
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8972232326397334141}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: LeftBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -0.6959324, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.6959346, y: 90, z: 0}
 --- !u!1 &1056492870394321800
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6299235013135244531}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleA05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3671395507471476139}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 3.8716505, y: 54.97034, z: -95.25455}
+  m_LocalEulerAnglesHint: {x: 3.8716536, y: 54.97034, z: -95.25455}
 --- !u!1 &1105464738374834558
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8067409043174731998}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleC04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ Transform:
   - {fileID: 4767706000259437661}
   m_Father: {fileID: 2133846444664713351}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.5270804, y: 7.0817785, z: 6.341918}
+  m_LocalEulerAnglesHint: {x: -0.4469437, y: 8.474073, z: 4.395831}
 --- !u!1 &1133503496145815080
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7329137130484444910}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: LowerEyelidCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6856495894137167967}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Process04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 10.994979, y: -48.590885, z: 28.342299}
+  m_LocalEulerAnglesHint: {x: 6.632489, y: -41.70988, z: 26.79314}
 --- !u!1 &1771210043419469603
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 648071336381922316}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: RightBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0.6959382, y: -90, z: 180}
+  m_LocalEulerAnglesHint: {x: 0.69593817, y: -90, z: 180}
 --- !u!1 &1942169889049805561
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 723363684645520094}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleE04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ Transform:
   - {fileID: 612755949528291495}
   m_Father: {fileID: 3570351018810448380}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.85127103, y: -0.5835907, z: -1.5875583}
+  m_LocalEulerAnglesHint: {x: -0.7889156, y: -3.439929, z: 0.8779602}
 --- !u!1 &2004093775631353290
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3156662836018585221}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: BottomBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.6959324, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.6959346, y: 90, z: 0}
 --- !u!1 &2093533630224912128
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3671395507471476139}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleA04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ Transform:
   - {fileID: 6299235013135244531}
   m_Father: {fileID: 4751670924581212441}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.16841595, y: 1.9853606, z: -8.048184}
+  m_LocalEulerAnglesHint: {x: 0.2739953, y: 5.207072, z: -4.717006}
 --- !u!1 &2195467778079104427
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2781314227357787718}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: RearBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: -0.6959324, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.6959346, y: 90, z: 0}
 --- !u!1 &2197089157017016073
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5806219733679616254}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Process01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -4.2017336, y: -166.66061, z: 6.323423}
+  m_LocalEulerAnglesHint: {x: -2.6255996, y: -174.05562, z: 3.4050286}
 --- !u!1 &2371303222175393597
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2951795919358120123}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5547550584251608633}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ Transform:
   - {fileID: 6748562490839136032}
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0.44608507, y: -75.35244, z: 2.7693095}
+  m_LocalEulerAnglesHint: {x: 1.2143023, y: -71.13829, z: -3.09347}
 --- !u!1 &2608699779984769824
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 349858658608485298}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: UpperEyelidCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1180058403197151441}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -89.22728, y: -0.000022888184, z: 89.99998}
+  m_LocalEulerAnglesHint: {x: -88.71678, y: -54.31488, z: 35.68512}
 --- !u!1 &2828200564211108306
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4831198504128120761}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TopBodyCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: -0.6959324, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.6959346, y: 90, z: 0}
 --- !u!1 &3098590558884903893
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7143322850511269337}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Process03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 11.565759, y: 12.094901, z: -40.67343}
+  m_LocalEulerAnglesHint: {x: 7.4835186, y: 8.740779, z: -34.312576}
 --- !u!1 &3396125412742776634
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2301179170597892156}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleD03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ Transform:
   - {fileID: 8627036664263543945}
   m_Father: {fileID: 6748562490839136032}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -2.189808, y: 10.004777, z: 12.105999}
+  m_LocalEulerAnglesHint: {x: -1.5358413, y: 14.380657, z: 6.1418076}
 --- !u!1 &3406224057741997508
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5538410192141874027}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Wig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8627036664263543945}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleD04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ Transform:
   - {fileID: 3248449351674107441}
   m_Father: {fileID: 2301179170597892156}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.1930135, y: 7.459607, z: 8.768071}
+  m_LocalEulerAnglesHint: {x: -0.8219733, y: 11.733679, z: 2.7732766}
 --- !u!1 &3663293041244183884
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4795559089638260086}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleF05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2975340716914182604}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -4.436759, y: 11.779787, z: -3.2782066}
+  m_LocalEulerAnglesHint: {x: -4.4367623, y: 11.779786, z: -3.2782035}
 --- !u!1 &3849032593132307891
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 2146006549866649324}
   - component: {fileID: 5070139673556808438}
   - component: {fileID: 1498248067440520988}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,6 +742,7 @@ Transform:
   - {fileID: 2558685666862000250}
   - {fileID: 1888625157686273521}
   - {fileID: 5538410192141874027}
+  - {fileID: 1634244179981710742}
   m_Father: {fileID: 6066253741416753058}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -882,7 +883,7 @@ GameObject:
   - component: {fileID: 4402245779918163218}
   - component: {fileID: 6455970041558208193}
   - component: {fileID: 8763648268886179712}
-  m_Layer: 16
+  m_Layer: 25
   m_Name: MonumentMonster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -902,7 +903,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2146006549866649324}
-  - {fileID: 1634244179981710742}
   - {fileID: 4373390131261379838}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1106,7 +1106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3683353512318725733}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleE01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1128,7 +1128,7 @@ Transform:
   - {fileID: 6749326184263443966}
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 1.122056, y: -148.90862, z: 23.009882}
+  m_LocalEulerAnglesHint: {x: 2.4820328, y: -151.43648, z: 25.32232}
 --- !u!1 &4391928956715873278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,7 +1138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 502728899637874755}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleC01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1160,7 +1160,7 @@ Transform:
   - {fileID: 6677334719923329749}
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0.4003829, y: -6.64579, z: -1.5937417}
+  m_LocalEulerAnglesHint: {x: 0.45121026, y: -5.2898107, z: -3.533669}
 --- !u!1 &4577799547128808769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8093564175153221587}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleB05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1191,7 +1191,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4438925755637707220}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 2.3296347, y: 0.4396672, z: -0.45796078}
+  m_LocalEulerAnglesHint: {x: 2.3296351, y: 0.43966702, z: -0.45796126}
 --- !u!1 &4632541157784666096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3513218115857843789}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleF02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ Transform:
   - {fileID: 8246756127103906156}
   m_Father: {fileID: 8766642989006858631}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.6941788, y: 4.331349, z: 8.379893}
+  m_LocalEulerAnglesHint: {x: 0.7927262, y: 6.240978, z: 5.3520756}
 --- !u!1 &4804774490729815701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6171507514895641495}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Process02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,7 +1254,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -8.708529, y: 83.73896, z: 5.7128735}
+  m_LocalEulerAnglesHint: {x: -7.4661884, y: 80.41112, z: -6.908092}
 --- !u!1 &4815825745737170368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6677334719923329749}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleC02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,7 +1286,7 @@ Transform:
   - {fileID: 2133846444664713351}
   m_Father: {fileID: 502728899637874755}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.0985749, y: 7.0937004, z: 10.578802}
+  m_LocalEulerAnglesHint: {x: -1.1141882, y: 8.489124, z: 8.62088}
 --- !u!1 &5130912419992685290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,7 +1296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8766642989006858631}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleF01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ Transform:
   - {fileID: 3513218115857843789}
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0.12561691, y: 149.09488, z: -37.37054}
+  m_LocalEulerAnglesHint: {x: 1.3423572, y: 150.52533, z: -40.42918}
 --- !u!1 &5145361668740174986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,7 +1328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3570351018810448380}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleE03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,7 +1350,7 @@ Transform:
   - {fileID: 723363684645520094}
   m_Father: {fileID: 6749326184263443966}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.66751873, y: 4.533652, z: -9.59445}
+  m_LocalEulerAnglesHint: {x: 0.17867154, y: 1.7179325, z: -7.1759205}
 --- !u!1 &5203612111604642239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,7 +1360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4895917658809111876}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleA02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1382,7 +1382,7 @@ Transform:
   - {fileID: 4751670924581212441}
   m_Father: {fileID: 7093971164106056483}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.16428886, y: -0.39290178, z: -9.011292}
+  m_LocalEulerAnglesHint: {x: 0.25793177, y: 2.7940483, z: -5.679244}
 --- !u!1 &5550831649611429114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,7 +1392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1180058403197151441}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: EyeCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1416,7 +1416,7 @@ Transform:
   - {fileID: 349858658608485298}
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -7.874702e-15, y: -180, z: 87.448746}
+  m_LocalEulerAnglesHint: {x: -4.8137712e-15, y: -180, z: 87.44874}
 --- !u!1 &5596458612675792080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6749326184263443966}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleE02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1448,7 +1448,7 @@ Transform:
   - {fileID: 3570351018810448380}
   m_Father: {fileID: 3683353512318725733}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.31790602, y: 0.40930676, z: -8.080144}
+  m_LocalEulerAnglesHint: {x: -0.5780052, y: -2.4359999, z: -5.6220775}
 --- !u!1 &5815995755434049640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3248449351674107441}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleD05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,7 +1479,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8627036664263543945}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.25923416, y: -0.039997056, z: 5.8256283}
+  m_LocalEulerAnglesHint: {x: 0.3153413, y: -0.035712764, z: 1.2008147}
 --- !u!1 &5952569503818636439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,7 +1489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 612755949528291495}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleE05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1510,7 +1510,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 723363684645520094}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.5702654, y: 1.0849656, z: -8.619423}
+  m_LocalEulerAnglesHint: {x: -1.570266, y: 1.0849638, z: -8.61942}
 --- !u!1 &6105203626321313952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,7 +1520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7093971164106056483}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleA01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,7 +1542,7 @@ Transform:
   - {fileID: 4895917658809111876}
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: -0.7566371, y: 126.43745, z: 1.8821741}
+  m_LocalEulerAnglesHint: {x: -1.2134718, y: 129.63031, z: 5.137517}
 --- !u!1 &6240189183178526088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,7 +1552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2863766692522718398}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleB01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1574,7 +1574,7 @@ Transform:
   - {fileID: 5440434085981843949}
   m_Father: {fileID: 2951795919358120123}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -2.6362288, y: 58.25784, z: 22.286177}
+  m_LocalEulerAnglesHint: {x: -0.7765213, y: 53.99394, z: 26.075212}
 --- !u!1 &6649632198620305466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8246756127103906156}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleF03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1606,7 +1606,7 @@ Transform:
   - {fileID: 2975340716914182604}
   m_Father: {fileID: 3513218115857843789}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.822546, y: 1.4789143, z: 5.962447}
+  m_LocalEulerAnglesHint: {x: -0.9211427, y: 3.3526688, z: 2.8643508}
 --- !u!1 &6816956121504982011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,7 +1616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1634244179981710742}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: CowboyItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1631,13 +1631,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6816956121504982011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.73203, y: -51.468796, z: -50.54725}
+  m_LocalPosition: {x: -66.73203, y: -50.724796, z: -50.54725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2633599542070531227}
   - {fileID: 1831634824522392776}
-  m_Father: {fileID: 6066253741416753058}
+  m_Father: {fileID: 2146006549866649324}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7588241691906906108
@@ -1649,7 +1649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7561565127501543571}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: EyeBallCTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,7 +1670,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1180058403197151441}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -88.144684, y: -90.00013, z: 1.9209888}
+  m_LocalEulerAnglesHint: {x: -88.1449, y: -89.99978, z: -1.5530486}
 --- !u!1 &7814469012235181313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,7 +1680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4611930051830521141}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1702,7 +1702,7 @@ Transform:
   - {fileID: 2951795919358120123}
   m_Father: {fileID: 2146006549866649324}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -0.9880297, y: 89.96239, z: -45.40197}
+  m_LocalEulerAnglesHint: {x: -0.51201296, y: 89.98284, z: -46.873543}
 --- !u!1 &7845655983528433972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,7 +1712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2133846444664713351}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleC03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1734,7 +1734,7 @@ Transform:
   - {fileID: 8067409043174731998}
   m_Father: {fileID: 6677334719923329749}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.009123579, y: 1.3398583, z: 10.162243}
+  m_LocalEulerAnglesHint: {x: -0.32075998, y: 2.6482458, z: 8.216679}
 --- !u!1 &7942253004631215967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,7 +1744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4767706000259437661}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleC05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1765,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8067409043174731998}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -5.967673, y: 12.442278, z: -1.2699512}
+  m_LocalEulerAnglesHint: {x: -5.967676, y: 12.442277, z: -1.2699541}
 --- !u!1 &7972364527460330254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,7 +1775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2975340716914182604}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleF04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1797,7 +1797,7 @@ Transform:
   - {fileID: 4795559089638260086}
   m_Father: {fileID: 8246756127103906156}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 4.5294504, y: 0.52404475, z: 11.972284}
+  m_LocalEulerAnglesHint: {x: 4.5187197, y: 2.4455552, z: 9.07243}
 --- !u!1 &8059151879167741128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6748562490839136032}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1829,7 +1829,7 @@ Transform:
   - {fileID: 2301179170597892156}
   m_Father: {fileID: 5547550584251608633}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.9466602, y: 9.29182, z: 12.092812}
+  m_LocalEulerAnglesHint: {x: -1.5328314, y: 13.627811, z: 6.0879393}
 --- !u!1 &8096329998798372160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,7 +1839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2011029852037465782}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleB03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,7 +1861,7 @@ Transform:
   - {fileID: 4438925755637707220}
   m_Father: {fileID: 5440434085981843949}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.2620845, y: -5.286402, z: -6.694258}
+  m_LocalEulerAnglesHint: {x: -1.1060743, y: -9.957235, z: -2.928306}
 --- !u!1 &8160643805916298251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,7 +1871,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4438925755637707220}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleB04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1893,7 +1893,7 @@ Transform:
   - {fileID: 8093564175153221587}
   m_Father: {fileID: 2011029852037465782}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 1.290917, y: -0.6868542, z: -4.91081}
+  m_LocalEulerAnglesHint: {x: 1.5650939, y: -5.351888, z: -1.3589042}
 --- !u!1 &8304852808278619924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,7 +1905,7 @@ GameObject:
   - component: {fileID: 4373390131261379838}
   - component: {fileID: 5498859074703492340}
   - component: {fileID: 4819163573777041418}
-  m_Layer: 26
+  m_Layer: 25
   m_Name: ProxyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1969,7 +1969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4751670924581212441}
-  m_Layer: 21
+  m_Layer: 25
   m_Name: TentacleA03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1991,7 +1991,7 @@ Transform:
   - {fileID: 3671395507471476139}
   m_Father: {fileID: 4895917658809111876}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.9783916, y: -7.7943273, z: -4.8668537}
+  m_LocalEulerAnglesHint: {x: -0.6999323, y: -4.5890756, z: -1.5893681}
 --- !u!1001 &1831634824522268232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2006,7 +2006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 67f444199e01f7341adb39837f8c9ba2, type: 3}
       propertyPath: m_Layer
-      value: 21
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 67f444199e01f7341adb39837f8c9ba2, type: 3}
       propertyPath: m_RootOrder
@@ -2074,6 +2074,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a9853556c4fc4d44087cd153918f7305, type: 3}
       propertyPath: m_Name
       value: MinerHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a9853556c4fc4d44087cd153918f7305, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a9853556c4fc4d44087cd153918f7305, type: 3}
       propertyPath: m_IsActive
@@ -2145,6 +2149,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: cf015317a103ab34483db3f2dc6f0f59, type: 3}
       propertyPath: m_Name
       value: PoliceCap
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cf015317a103ab34483db3f2dc6f0f59, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: cf015317a103ab34483db3f2dc6f0f59, type: 3}
       propertyPath: m_IsActive
@@ -2237,7 +2245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a0dfaf0497ab5334a99165f16b697e6e, type: 3}
       propertyPath: m_Layer
-      value: 21
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a0dfaf0497ab5334a99165f16b697e6e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2309,6 +2317,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 290f57b34312fbf448d3b8ca6b6bd41d, type: 3}
       propertyPath: m_Name
       value: Sombrero
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 290f57b34312fbf448d3b8ca6b6bd41d, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 290f57b34312fbf448d3b8ca6b6bd41d, type: 3}
       propertyPath: m_IsActive
@@ -2392,6 +2404,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 88e891c08743b2e41828003aa8dcf50f, type: 3}
       propertyPath: m_Name
       value: Hair_Wig_Female_1A_example
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 88e891c08743b2e41828003aa8dcf50f, type: 3}
+      propertyPath: m_Layer
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 88e891c08743b2e41828003aa8dcf50f, type: 3}
       propertyPath: m_RootOrder

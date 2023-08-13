@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using GogoGaga.UHM;
 using LiveLarson.SoundSystem;
 using UnityEngine;
 
@@ -25,7 +26,8 @@ public class MonumentMonster : Monster
     [SerializeField] private MonsterLevelType levelType;
     [SerializeField] private MonsterItemType itemType;
     [SerializeField] private MonsterTypeDictionary goByType;
-    
+
+    public MonsterHUD monsterHUD;
     private int _health;
     
     private Animator _animator;
@@ -65,21 +67,42 @@ public class MonumentMonster : Monster
         switch (itemType)
         {
             case MonsterItemType.None:
+                _health = 2;
+                monsterHUD.SetSliderMaxValue(_health);
                 break;
             case MonsterItemType.Badge:
-            case MonsterItemType.Mustache:
-            case MonsterItemType.Wig:
+                _health = 4;
                 goByType[itemType].SetActive(true);
+                monsterHUD.SetSliderMaxValue(_health);
+                break;
+            case MonsterItemType.Mustache:
+                _health = 8;
+                goByType[itemType].SetActive(true);
+                monsterHUD.SetSliderMaxValue(_health);
+                break;
+            case MonsterItemType.Wig:
+                _health = 10;
+                goByType[itemType].SetActive(true);
+                monsterHUD.SetSliderMaxValue(_health);
                 break;
         }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.layer != LayerMask.NameToLayer("Weapon"))
+        if (other.gameObject.layer != LayerMask.NameToLayer("Default"))
             return;
         
-
+        print(other.gameObject.name);
+        if (_health > 0)
+        {
+            _health--;
+            monsterHUD.MonsterTakeDamage(1);
+            if (_health == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
 
@@ -117,7 +140,7 @@ public class MonumentMonster : Monster
     private void Attack(GameObject player)
     {
         _animator.SetTrigger(AttackAnim);
-        SoundService.PlaySfx("~~~", transform.position);
+        // SoundService.PlaySfx("~~~", transform.position);
         player.GetComponentInChildren<MonumentPlayer>().OnAttacked();
     }
 }

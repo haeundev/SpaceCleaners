@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class MonumentHUD : MonoBehaviour
 {
-    public CheckPlayerCollision _playerCollision;
+    public MonumentPlayer _player;
     // private DynamicQuickAccessInventory _inventory;
     public DynamicQuickAccessInventory _inventory;
     private List<JungleItemStatusUI> _itemStatusUIs;
@@ -28,7 +28,7 @@ public class MonumentHUD : MonoBehaviour
         _itemStatusUIs = GetComponentsInChildren<JungleItemStatusUI>().ToList();
         // _inventory = FindObjectOfType<DynamicQuickAccessInventory>();
         _inventory.OnInventoryUpdated += OnInventoryUpdated;
-        _playerCollision.OnPlayerDamaged += TakeDamage;
+        _player.OnPlayerDamaged += TakeDamage;
 
         // _playerStat = SaveAndLoadManager.Instance.PlayerStat;
     }

@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    [SerializeField] private string prefabPath = "Prefabs/Enemy/MonumentMonster.prefab";
+    [SerializeField] private string prefabPath = "Prefabs/Enemy/Monster.prefab";
     [SerializeField] private int minionCount = 20;
     [SerializeField] private MonsterSpawnPositions positions;
     private HashSet<Transform> _occupiedPositions = new();
@@ -16,7 +16,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         for (var i = 0; i < minionCount; i++)
         {
-            Spawn(MonsterLevelType.Boss, MonsterItemType.Badge);
+            Spawn(MonsterLevelType.Minion, MonsterItemType.Mustache);
         }
     }
     
@@ -31,6 +31,7 @@ public class MonsterSpawner : MonoBehaviour
             var mm = enemyObj.GetComponentInChildren<MonumentMonster>();
             mm.SetItemType(itemType);
             mm.SetLevelType(levelType);
+            
         };
     }
 
