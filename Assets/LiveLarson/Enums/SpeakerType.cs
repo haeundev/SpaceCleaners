@@ -5,6 +5,7 @@ namespace LiveLarson.Enums
         Delta,
         Bravo,
         Jarveez,
-        Alpha
+        Alpha,
+        Unknown,
     }
 }

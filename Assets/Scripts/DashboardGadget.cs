@@ -106,10 +106,18 @@ public class DashboardGadget : MonoBehaviour
         var prevSelected = _gadgetInfos.FirstOrDefault(p => p.ID == prevSelectedID);
         Display(prevSelected != default ? DataTableManager.GadgetInfos.Find(prevSelectedID) : _gadgetInfos.First());
     }
-
+    
     private void Display(GadgetInfo gadgetInfo)
     {
-        checkIcon.SetActive(gadgetInfo.ID == _gadgetStat.lastSelectedID);
+        if (gadgetInfo.ID == _gadgetStat.lastSelectedID)
+        {
+            checkIcon.SetActive(true);
+            selectButton.GetComponentInChildren<TextMeshProUGUI>().SetText("장착됨");
+        }
+        else
+        {
+            selectButton.GetComponentInChildren<TextMeshProUGUI>().SetText("장착하기");
+        }
         _currentID = gadgetInfo.ID;
 
         // 3D model
