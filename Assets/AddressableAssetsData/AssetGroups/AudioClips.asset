@@ -137,6 +137,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55129b143ccaa46198dea17aaf8f7169
+    m_Address: Assets/Audio/RobotVoice.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83792cbaf5dc142f490b6d9a2b377570
+    m_Address: Assets/Audio/RadioSignal.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16b6bebfe19b2451898ad279d845798a
+    m_Address: Assets/Audio/RollingFilm.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 02adc8d5ec4545a48a134065cc146d5e, type: 2}
   m_SchemaSet:

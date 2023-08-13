@@ -14,6 +14,7 @@ public class TaskManager : MonoBehaviour
     public GameObject taskCompleteUI;
     public GameObject levelUpUI;
     public GameObject instructionUI;
+    public GameObject dialogueUI;
 
     private const int InitialTaskID = 1;
     public static TaskManager Instance;
@@ -63,6 +64,7 @@ public class TaskManager : MonoBehaviour
                 OnDialogueTaskInit?.Invoke(taskInfo);
                 break;
             case TaskType.Instruction:
+                dialogueUI.SetActive(false);
                 ShowInstruction(taskInfo);
                 break;
         }
