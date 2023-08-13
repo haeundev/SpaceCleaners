@@ -811,9 +811,9 @@ public class AstarPath : VersionedMonoBehaviour {
 			if (logPathResults == PathLog.InGame) {
 				inGameDebugPath = debug;
 			} else if (path.error) {
-				// Debug.LogWarning(debug); //일단 주석처리 콘솔 너무 방해됨
+				Debug.LogWarning(debug);
 			} else {
-				// Debug.Log(debug); //이것두
+				Debug.Log(debug);
 			}
 		}
 	}
@@ -1285,7 +1285,7 @@ public class AstarPath : VersionedMonoBehaviour {
 		};
 
 		pathProcessor.OnPathPostSearch += path => {
-			LogPathResults(path);
+			//LogPathResults(path);
 			var tmp = OnPathPostSearch;
 			if (tmp != null) tmp(path);
 		};

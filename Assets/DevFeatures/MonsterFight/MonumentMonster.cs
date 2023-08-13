@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using GogoGaga.UHM;
 using LiveLarson.SoundSystem;
+using UniRx;
 using UnityEngine;
 
 public enum MonsterLevelType
@@ -88,24 +89,22 @@ public class MonumentMonster : Monster
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    public void OnMonsterHitByPlayer()
     {
-        if (other.gameObject.layer != LayerMask.NameToLayer("Default"))
-            return;
-        
-        print(other.gameObject.name);
         if (_health > 0)
         {
             _health--;
             monsterHUD.MonsterTakeDamage(1);
-            if (_health == 0)
+            if (_health <= 0)
             {
-                Destroy(gameObject);
+                _animator.SetTrigger(DieAnim);
+                Observable.Timer(TimeSpan.FromSeconds(2f)).Subscribe(_ =>
+                {
+                    Destroy(gameObject);
+                }).AddTo(this);
             }
         }
     }
-
-
 
     // private void Start()
     // {
@@ -132,11 +131,26 @@ public class MonumentMonster : Monster
     // {
     // }
 
-    public void OnPlayerNear(GameObject player)
+    public void OnPlayerEnterFollowProxy(GameObject player)
+    {
+        
+    }
+    
+    public void OnPlayerExitFollowProxy(GameObject player)
+    {
+        _animator.SetTrigger(IdleAnim);
+    }
+
+    public void OnPlayerEnterAttackProxy(GameObject player)
     {
         Attack(player);
     }
 
+    public void OnPlayerExitAttackProxy(GameObject player)
+    {
+        _animator.SetTrigger(IdleAnim);
+    }
+    
     private void Attack(GameObject player)
     {
         _animator.SetTrigger(AttackAnim);
