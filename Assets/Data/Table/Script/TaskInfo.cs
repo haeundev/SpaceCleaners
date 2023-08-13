@@ -20,6 +20,7 @@ namespace DataTables
         public string ValueStr;
         public int ValueInt;
         public string EndAction;
+        public string CompleteCondition;
     }
 
 }

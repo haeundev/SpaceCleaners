@@ -9,6 +9,7 @@ namespace DevFeatures.Dialogue
 {
     public class DialogueManager : MonoBehaviour
     {
+        public static DialogueManager Instance;
         [SerializeField] private Button buttonOptionA;
         [SerializeField] private Button buttonOptionB;
         [SerializeField] private TextMeshProUGUI tmpOptionA;
@@ -18,9 +19,12 @@ namespace DevFeatures.Dialogue
         [SerializeField] private TypewriterByCharacter typewriter;
         [SerializeField] private Button buttonNext;
         private DialogueInfo _currentDialogue;
+        public bool dialogueFinished;
 
         private void Awake()
         {
+            Instance = this;
+            
             TaskManager.Instance.OnDialogueTaskInit += OnDialogueTaskInit;
       
             //typewriter.onTypewriterStart.AddListener(OnLineStart);
@@ -60,9 +64,10 @@ namespace DevFeatures.Dialogue
             var next = _currentDialogue?.Next ?? 0;
             if (next != default && next != 0)
             {
+                // has next line
                 PlayLine(next);
             }
-            else
+            else if (_currentDialogue?.Next is 0 or null)
             {
                 OnDialogueFinished();
             }
@@ -70,7 +75,7 @@ namespace DevFeatures.Dialogue
 
         private void OnDialogueFinished()
         {
-            TaskManager.Instance.CompleteCurrentTask();
+            dialogueFinished = true;
         }
 
         private void ShowPlayerOptions()
@@ -85,17 +90,23 @@ namespace DevFeatures.Dialogue
     
         private void OnLineEnd()
         {
+            if (_currentDialogue == default)
+            {
+                Debug.Log("Current dialogue is null.");
+                return;
+            }
             buttonOptionA.gameObject.SetActive(_currentDialogue.HasChoice);
             buttonOptionB.gameObject.SetActive(_currentDialogue.HasChoice);
             
-            if (_currentDialogue?.Next == default)
-            {
-                TaskManager.Instance.CompleteCurrentTask();
-            }
+            // if (_currentDialogue?.Next == default)
+            // {
+            //     TaskManager.Instance.CompleteCurrentTask();
+            // }
         }
         
         private void OnDialogueTaskInit(TaskInfo taskInfo)
         {
+            dialogueFinished = false;
             PlayLine(taskInfo.ValueInt); // dialogue ID.
         }
         
