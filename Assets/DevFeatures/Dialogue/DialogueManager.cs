@@ -1,12 +1,17 @@
+using System;
 using DataTables;
 using Febucci.UI;
 using LiveLarson.DataTableManagement;
+using LiveLarson.Enums;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace DevFeatures.Dialogue
 {
+    [Serializable]
+    public class SpriteBySpeakerType : SerializableDictionary<SpeakerType, Sprite> {}
+    
     public class DialogueManager : MonoBehaviour
     {
         public static DialogueManager Instance;
@@ -20,7 +25,9 @@ namespace DevFeatures.Dialogue
         [SerializeField] private Button buttonNext;
         private DialogueInfo _currentDialogue;
         public bool dialogueFinished;
-
+        [SerializeField] private SpriteBySpeakerType speakerSpriteDict;
+        [SerializeField] private Image speakerImage;
+        
         private void Awake()
         {
             Instance = this;
@@ -38,22 +45,28 @@ namespace DevFeatures.Dialogue
             
         }
 
-        [Sirenix.OdinInspector.Button]
-        private void OnPressOptionA()
-        {
-            PlayLine(_currentDialogue.NextForA);
-            DisableOptionButtons();
-        }
-
         private void DisableOptionButtons()
         {
             buttonOptionA.gameObject.SetActive(false);
             buttonOptionB.gameObject.SetActive(false);
         }
-
+        
+        [Sirenix.OdinInspector.Button]
+        private void OnPressOptionA()
+        {
+            if (_currentDialogue == default || _currentDialogue.HasChoice == false)
+                return;
+            
+            PlayLine(_currentDialogue.NextForA);
+            DisableOptionButtons();
+        }
+        
         [Sirenix.OdinInspector.Button]
         private void OnPressOptionB()
         {
+            if (_currentDialogue == default || _currentDialogue.HasChoice == false)
+                return;
+            
             PlayLine(_currentDialogue.NextForB);
             DisableOptionButtons();
         }
@@ -61,6 +74,9 @@ namespace DevFeatures.Dialogue
         [Sirenix.OdinInspector.Button]
         private void OnNextButtonPressed()
         {
+            if (_currentDialogue == default || _currentDialogue.HasChoice)
+                return;
+            
             var next = _currentDialogue?.Next ?? 0;
             if (next != default && next != 0)
             {
@@ -77,12 +93,7 @@ namespace DevFeatures.Dialogue
         {
             dialogueFinished = true;
         }
-
-        private void ShowPlayerOptions()
-        {
-            
-        }
-
+        
         private void OnLineStart()
         {
             
@@ -125,6 +136,9 @@ namespace DevFeatures.Dialogue
             }
             tmpLine.SetText(_currentDialogue.Line);
             tmpSpeakerName.SetText(_currentDialogue.DisplayName);
+            
+            speakerImage.sprite = speakerSpriteDict[_currentDialogue.SpeakerType];
+            speakerImage.SetNativeSize();
             
             // toggle options
             buttonNext.gameObject.SetActive(!_currentDialogue.HasChoice);

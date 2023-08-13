@@ -67,14 +67,13 @@ public class TaskManager : MonoBehaviour
                 break;
         }
     }
-
+    
     private void ShowInstruction(TaskInfo taskInfo)
     {
         instructionUI.GetComponent<InstructionUI>().SetText(taskInfo.Title, taskInfo.ValueStr);
         instructionUI.SetActive(true);
     }
-
-
+    
     public IEnumerator CheckTaskCompleteCondition()
     {
         _isCompleteConditionSatisfied = false;
@@ -115,6 +114,7 @@ public class TaskManager : MonoBehaviour
         }
         
         _isCompleteConditionSatisfied = true;
+        DialogueManager.Instance.dialogueFinished = false;
         CompleteCurrentTask();
         Debug.Log($"[TaskManager] condition satisfied. complete task: {CurrentTask.ID}");
     }
@@ -130,7 +130,7 @@ public class TaskManager : MonoBehaviour
         _debrisCount = 0;
         yield return YieldInstructionCache.WaitUntil(() => _debrisCount == count);
     }
-
+    
     public void CompleteCurrentTask()
     {
         StartCoroutine(RunEndActions(() =>
@@ -178,6 +178,7 @@ public class TaskManager : MonoBehaviour
 
     private IEnumerator ShowTaskComplete()
     {
+        taskCompleteUI.GetComponent<TaskCompleteUI>().SetText(CurrentTask.Title);
         taskCompleteUI.SetActive(true);
         yield return YieldInstructionCache.WaitForSeconds(3f);
     }
