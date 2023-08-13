@@ -9,7 +9,7 @@ public class SpaceObjectLabels : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        labels = new List<SpaceObjectLabel>(GetComponentsInChildren<SpaceObjectLabel>());
+        // labels = new List<SpaceObjectLabel>(GetComponentsInChildren<SpaceObjectLabel>());
     }
 
     public static void DisableAll()

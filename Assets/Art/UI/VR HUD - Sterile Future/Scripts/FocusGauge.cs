@@ -18,6 +18,8 @@ public class FocusGauge : MonoBehaviour
 
     public static void OnFocusEnter()
     {
+        if (_instance == default)
+            return;
         _instance.FillSprite(0f);
         _elapsedTime = 0f;
         _isActive = true;

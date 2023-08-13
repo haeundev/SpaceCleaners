@@ -2,12 +2,8 @@ namespace LiveLarson.Enums
 {
     public enum TaskType
     {
+        None,
         Dialogue,
-        FindDebris,
-        CaptureDebris,
-        FindPlanet,
-        EnterPlanet,
-        CompletePlanet,
-        ReturnToSpace,
+        Instruction,
     }
 }

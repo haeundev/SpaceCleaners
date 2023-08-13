@@ -15,89 +15,132 @@ MonoBehaviour:
   Values:
   - ID: 1
     TaskType: 0
-    RewardID: 0
-    ValueInts: 292300002a2300002b2300002c230000
+    Title: 
+    ValueStr: 
+    ValueInt: 0
+    EndAction: 
+    CompleteCondition: (spaceloaded)
   - ID: 2
     TaskType: 1
-    RewardID: 0
-    ValueInts: 
+    Title: "\uC751\uC6D0 \uBA54\uC2DC\uC9C0 #1"
+    ValueStr: 
+    ValueInt: 1
+    EndAction: (taskend)
+    CompleteCondition: (dialoguefinish)
   - ID: 3
-    TaskType: 0
-    RewardID: 0
-    ValueInts: 
-  - ID: 4
-    TaskType: 2
-    RewardID: 0
-    ValueInts: 
-  - ID: 5
-    TaskType: 0
-    RewardID: 0
-    ValueInts: 
-  - ID: 6
-    TaskType: 3
-    RewardID: 0
-    ValueInts: 
-  - ID: 7
-    TaskType: 4
-    RewardID: 0
-    ValueInts: 
-  - ID: 8
-    TaskType: 0
-    RewardID: 0
-    ValueInts: 
-  - ID: 9
-    TaskType: 5
-    RewardID: 0
-    ValueInts: 
-  - ID: 10
-    TaskType: 6
-    RewardID: 0
-    ValueInts: 
-  - ID: 11
-    TaskType: 0
-    RewardID: 0
-    ValueInts: 
-  - ID: 12
     TaskType: 1
-    RewardID: 0
-    ValueInts: 
+    Title: "\uC911\uB300\uD55C \uC784\uBB34"
+    ValueStr: 
+    ValueInt: 10
+    EndAction: (taskend)
+    CompleteCondition: (dialoguefinish)
+  - ID: 4
+    TaskType: 1
+    Title: "\uB098\uC758 \uBE44\uC11C \uC790\uBE44\uC988"
+    ValueStr: 
+    ValueInt: 23
+    EndAction: (taskend)
+    CompleteCondition: (dialoguefinish)
+  - ID: 5
+    TaskType: 2
+    Title: "\uCCAB \uC794\uD574 \uC218\uC9D1"
+    ValueStr: "\uC6B0\uC8FC\uB97C \uBE44\uD589\uD558\uC5EC \uC794\uD574\uB97C 3\uAC1C
+      \uC218\uC9D1\uD558\uC138\uC694."
+    ValueInt: 0
+    EndAction: (taskend)
+    CompleteCondition: (debris, 3)
+  - ID: 6
+    TaskType: 2
+    Title: "\uC6B8\uCC3D\uD55C \uC815\uAE00\uD589\uC131"
+    ValueStr: "\uC815\uAE00\uD589\uC131\uC774 \uC18C\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4!
+      \n\uD589\uC131 \uC9C4\uC785 \uD6C4 \uBBF8\uC158\uC744 \uC218\uD589\uD558\uC138\uC694."
+    ValueInt: 33
+    EndAction: (taskend)
+    CompleteCondition: (jungleloaded)
+  - ID: 7
+    TaskType: 2
+    Title: "\uC465\uC465 \uC790\uB77C\uAC70\uB77C"
+    ValueStr: "\uC815\uAE00\uD589\uC131\uC758 \uBBF8\uC158\uC744 \uC644\uB8CC\uD558\uC138\uC694."
+    ValueInt: 0
+    EndAction: (taskend)
+    CompleteCondition: (junglecomplete)
+  - ID: 8
+    TaskType: 2
+    Title: "\uB2E4\uC2DC \uC6B0\uC8FC\uB85C"
+    ValueStr: "\uC6B0\uC8FC\uB85C \uB3CC\uC544\uAC00\uC138\uC694."
+    ValueInt: 0
+    EndAction: (taskend)
+    CompleteCondition: (spaceloaded)
+  - ID: 9
+    TaskType: 1
+    Title: "\uB2E8\uC11C #1"
+    ValueStr: 
+    ValueInt: 39
+    EndAction: (taskend)
+    CompleteCondition: (dialoguefinish)
+  - ID: 10
+    TaskType: 2
+    Title: "\uC794\uD574 \uC218\uC9D1"
+    ValueStr: "\uC794\uD574\uB97C 2\uAC1C \uB354 \uC218\uC9D1\uD558\uC138\uC694."
+    ValueInt: 0
+    EndAction: (taskend)
+    CompleteCondition: (debris, 2)
+  - ID: 11
+    TaskType: 2
+    Title: "\uC704\uD5D8\uD55C \uBAA8\uB798\uD589\uC131"
+    ValueStr: "\uBAA8\uB798\uD589\uC131\uC774 \uC18C\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4!
+      \n\uD589\uC131 \uC9C4\uC785 \uD6C4 \uBBF8\uC158\uC744 \uC218\uD589\uD558\uC138\uC694."
+    ValueInt: 0
+    EndAction: (taskend)
+    CompleteCondition: (monumentloaded)
+  - ID: 12
+    TaskType: 2
+    Title: "\uBAA8\uB798\uD589\uC131 \uC804\uD22C!"
+    ValueStr: "\uBAA8\uB798\uBAAC\uC2A4\uD130\uB97C \uD1F4\uCE58\uD558\uACE0 \uC544\uC774\uD15C\uC744
+      \uC5BB\uC73C\uC138\uC694."
+    ValueInt: 0
+    EndAction: (taskend)
+    CompleteCondition: (monumentcomplete)
   - ID: 13
     TaskType: 2
-    RewardID: 0
-    ValueInts: 
+    Title: "\uB2E4\uC2DC \uC6B0\uC8FC\uB85C"
+    ValueStr: "\uC6B0\uC8FC\uB85C \uB3CC\uC544\uAC00\uC138\uC694."
+    ValueInt: 0
+    EndAction: (taskend)
+    CompleteCondition: (spaceloaded)
   - ID: 14
-    TaskType: 0
-    RewardID: 0
-    ValueInts: 
+    TaskType: 1
+    Title: "\uB2E8\uC11C #2"
+    ValueStr: 
+    ValueInt: 44
+    EndAction: (taskend)
+    CompleteCondition: (dialoguefinish)
   - ID: 15
-    TaskType: 3
-    RewardID: 0
-    ValueInts: 
+    TaskType: 1
+    Title: "\uC5D0\uC774\uC804\uD2B8 \uC5D0\uCF54"
+    ValueStr: 
+    ValueInt: 48
+    EndAction: (levelup)
+    CompleteCondition: (dialoguefinish)
   - ID: 16
-    TaskType: 4
-    RewardID: 0
-    ValueInts: 
+    TaskType: 1
+    Title: "\uC751\uC6D0 \uBA54\uC2DC\uC9C0 #2"
+    ValueStr: 
+    ValueInt: 54
+    EndAction: (taskend)
+    CompleteCondition: (dialoguefinish)
   - ID: 17
-    TaskType: 5
-    RewardID: 0
-    ValueInts: 
+    TaskType: 2
+    Title: "\uC815\uD06C\uD589\uC131\uC744 \uCC3E\uC544\uC11C"
+    ValueStr: "\uC6B0\uC8FC\uB97C \uBE44\uD589\uD574 \uC815\uD06C\uD589\uC131\uC744
+      \uCC3E\uC73C\uC138\uC694."
+    ValueInt: 0
+    EndAction: (taskend)
+    CompleteCondition: 
   - ID: 18
     TaskType: 0
-    RewardID: 0
-    ValueInts: 
-  - ID: 19
-    TaskType: 6
-    RewardID: 0
-    ValueInts: 
-  - ID: 20
-    TaskType: 0
-    RewardID: 0
-    ValueInts: 
-  - ID: 21
-    TaskType: 3
-    RewardID: 0
-    ValueInts: bb0b0000
-  - ID: 22
-    TaskType: 4
-    RewardID: 0
-    ValueInts: bb0b0000
+    Title: 
+    ValueStr: 
+    ValueInt: 0
+    EndAction: 
+    CompleteCondition: 

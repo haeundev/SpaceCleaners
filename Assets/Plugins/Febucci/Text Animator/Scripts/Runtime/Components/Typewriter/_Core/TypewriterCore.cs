@@ -111,6 +111,9 @@ namespace Febucci.UI.Core
         /// If the typewriter is enabled, this event is called once it has ended showing all letters.
         /// </summary>
         public UnityEvent onTextShowed = new UnityEvent();
+        
+        // called when stopped by button
+        public UnityEvent onTextForceStopped = new UnityEvent();
 
         /// <summary>
         /// Called once the typewriter starts showing text.<br/>
@@ -354,6 +357,7 @@ namespace Febucci.UI.Core
             if(showRoutine!=null) StopCoroutine(showRoutine);
             if(nestedActionRoutine!=null) StopCoroutine(nestedActionRoutine);
             if(isHidingText) StartDisappearingText();
+            onTextForceStopped?.Invoke();
         }
 
         #endregion
