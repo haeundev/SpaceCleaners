@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class JungleItemStatusUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private Image image;
+    // [SerializeField] private Image image;
     [SerializeField] public ItemInfo itemInfo;
 
     public void SetCount(int count)

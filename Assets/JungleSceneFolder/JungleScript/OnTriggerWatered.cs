@@ -124,6 +124,7 @@ public class OnTriggerWatered : MonoBehaviour
             {
                 lastAnimationName = "Grow";
                 isFullyGrown = true;
+                WaitAndTriggerPlantDone();
             }
             else if (plantLevel == Level.Hard)
             {

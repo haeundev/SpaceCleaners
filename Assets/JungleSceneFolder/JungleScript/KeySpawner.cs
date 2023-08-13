@@ -7,7 +7,7 @@ using UnityEngine.AddressableAssets;
 public class KeySpawner : MonoBehaviour
 {
     public DynamicQuickAccessInventory _inventory;
-    public int maxCount = 1;
+    public int maxCount = 5;
     public Transform keySpawnPoint;
     [SerializeField] private string keyPath = "Prefabs/Jungle/JungleKey.prefab";
 
@@ -21,7 +21,7 @@ public class KeySpawner : MonoBehaviour
     {
         foreach(Slot s in slots)
         {
-            if(s.ItemCount < maxCount)
+            if(s.ItemCount != maxCount)
             {
                 return;
             }
