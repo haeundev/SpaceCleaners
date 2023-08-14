@@ -43,7 +43,7 @@ public class JungleHUD : MonoBehaviour
     {
         currentOxygen += oxygenValue;
         slider.value = currentOxygen;
-        fill.color = gradient.Evaluate(slider.normalizedValue);
+        // fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
     public void OnOxygenLevelUpdated() //oxygen 획득하면
