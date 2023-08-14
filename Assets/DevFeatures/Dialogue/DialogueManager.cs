@@ -44,8 +44,7 @@ namespace DevFeatures.Dialogue
             buttonOptionA.onClick.AddListener(OnPressOptionA);
             buttonOptionB.onClick.AddListener(OnPressOptionB);
             
-            // tween buttons
-            
+            TaskManager.Instance.dialogueUI = gameObject;
         }
 
         private void DisableOptionButtons()

@@ -15,6 +15,11 @@ public class TaskManager : MonoBehaviour
     public GameObject levelUpUI;
     public GameObject instructionUI;
     public GameObject dialogueUI;
+    
+    private bool _isJungleDone;
+    private bool _isJungleLoaded;
+    private bool _isMonumentDone;
+    private bool _isMonumentLoaded;
 
     private const int InitialTaskID = 1;
     public static TaskManager Instance;
@@ -34,6 +39,10 @@ public class TaskManager : MonoBehaviour
         _tasks = taskInfos.Values;
         
         OuterSpaceEvent.OnDebrisCaptured += OnDebrisCaptured;
+        JungleEvents.OnSceneComplete += () => _isJungleDone = true;
+        JungleEvents.OnSceneLoaded += () => _isJungleLoaded = true;
+        MonumentEvents.OnSceneComplete += () => _isMonumentDone = true;
+        MonumentEvents.OnSceneLoaded += () => _isMonumentLoaded = true;
     }
 
     private void OnDebrisCaptured(GameObject _)
@@ -66,6 +75,7 @@ public class TaskManager : MonoBehaviour
             case TaskType.Instruction:
                 dialogueUI.SetActive(false);
                 ShowInstruction(taskInfo);
+                DoStartActions(taskInfo.StartAction);
                 break;
         }
     }
@@ -106,12 +116,19 @@ public class TaskManager : MonoBehaviour
                 Debug.Log($"[TaskManager] dialoguefinish task complete condition satisfied");
                 break;
             case "jungleloaded":
+                yield return YieldInstructionCache.WaitUntil(() => _isJungleLoaded);
+                Debug.Log($"[TaskManager] jungleloaded task complete condition satisfied");
                 break;
             case "junglecomplete":
+                yield return YieldInstructionCache.WaitUntil(() => _isJungleDone);
+                Debug.Log($"[TaskManager] junglecomplete task complete condition satisfied");
                 break;
             case "monumentloaded":
+                yield return YieldInstructionCache.WaitUntil(() => _isMonumentLoaded);
                 break;
             case "monumentcomplete":
+                yield return YieldInstructionCache.WaitUntil(() => _isMonumentDone);
+                Debug.Log($"[TaskManager] junglecomplete task complete condition satisfied");
                 break;
         }
         
@@ -120,6 +137,7 @@ public class TaskManager : MonoBehaviour
         CompleteCurrentTask();
         Debug.Log($"[TaskManager] condition satisfied. complete task: {CurrentTask.ID}");
     }
+
     
     private IEnumerator ShowLevelUp()
     {
@@ -147,6 +165,21 @@ public class TaskManager : MonoBehaviour
         }));
     }
 
+    public void DoStartActions(string startActionStr) // instant
+    {
+        var values = startActionStr.Trim('(', ')', ' ').Replace(" ", string.Empty).Split(',');
+        Debug.Log($"[TaskManager] DoStartActions: {values[0]}");
+        if (values.Length == 0)
+            return;
+        
+        switch (values[0])
+        {
+            case "spawnplanet":
+                PlanetSpawner.Instance.SpawnPlanet((PlanetType)Enum.Parse(typeof(PlanetType), values[1]));
+                break;
+        }
+    }
+
     public IEnumerator RunEndActions(Action onDone)
     {
         foreach (var endAction in CurrentTask.EndAction.SeparateAllParenthesis())
@@ -155,14 +188,14 @@ public class TaskManager : MonoBehaviour
             if (values.Length == 0)
                 yield break;
 
-            yield return DoEndAction(values);
+            yield return DoAction(values);
         }
         
         // yield return new WaitUntil(() => CloseScreen.Instance.IsClosing == false);
         onDone?.Invoke();
     }
 
-    private IEnumerator DoEndAction(IReadOnlyList<string> values)
+    private IEnumerator DoAction(IReadOnlyList<string> values)
     {
         switch (values[0])
         {

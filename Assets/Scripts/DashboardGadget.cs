@@ -4,6 +4,7 @@ using DataTables;
 using DevFeatures.SaveSystem;
 using DevFeatures.SaveSystem.Model;
 using LiveLarson.DataTableManagement;
+using LiveLarson.SoundSystem;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class DashboardGadget : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private Button selectButton;
     [SerializeField] private GameObject checkIcon;
+    [SerializeField] private string sfxNetShoot = "Assets/Audio/Net Shoot.wav";
 
     private List<GadgetInfo> _gadgetInfos;
     private GadgetStat _gadgetStat;
@@ -45,6 +47,7 @@ public class DashboardGadget : MonoBehaviour
     private void OnGadgetShoot(GameObject targetDebris)
     {
         _currentTargetDebris = targetDebris;
+        SoundService.PlaySfx(sfxNetShoot, transform.position);
     }
 
     [Button]

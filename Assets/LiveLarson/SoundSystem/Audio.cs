@@ -36,6 +36,7 @@ namespace LiveLarson.SoundSystem
             audio.transform.SetParent(_soundService.transform);
             audio.transform.position = pos;
             AudioSource = audio.AddComponent<AudioSource>();
+            AudioSource.spatialize = true;
             Loop = loop;
             AudioSource.outputAudioMixerGroup =
                 _soundService.GetAudioMixer().FindMatchingGroups(AudioType.ToString())[0];

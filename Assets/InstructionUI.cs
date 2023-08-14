@@ -1,3 +1,4 @@
+using LiveLarson.SoundSystem;
 using TMPro;
 using UnityEngine;
 
@@ -15,5 +16,6 @@ public class InstructionUI : MonoBehaviour
     {
         title.text = titleText;
         description.text = descText;
+        SoundService.PlaySfx("Assets/Audio/Message Appear.ogg", transform.position);
     }
 }

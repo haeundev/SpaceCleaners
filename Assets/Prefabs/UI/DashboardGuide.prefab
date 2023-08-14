@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8708973630700443539}
   - component: {fileID: 3961120498965330522}
   - component: {fileID: 7305491512490442941}
-  - component: {fileID: 8965179405491910610}
   m_Layer: 5
   m_Name: DashboardGuide
   m_TagString: Untagged
@@ -69,10 +68,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Tool
+  m_text: "\uC7A5\uBE44 \uC120\uD0DD"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a3b8726ea595d374dba138588dcc344a, type: 2}
-  m_sharedMaterial: {fileID: 2942374450750060320, guid: a3b8726ea595d374dba138588dcc344a,
+  m_fontAsset: {fileID: 11400000, guid: 07560e9dd5c9d4d62b7f942e5d7895a6, type: 2}
+  m_sharedMaterial: {fileID: 216627462055812735, guid: 07560e9dd5c9d4d62b7f942e5d7895a6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -139,18 +138,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8965179405491910610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395860666514327588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e129bd26ce4444ab05901a1c87816c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8714245723312604194
 GameObject:
   m_ObjectHideFlags: 0

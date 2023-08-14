@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LiveLarson.Util;
@@ -7,10 +8,10 @@ using UnityEngine.AddressableAssets;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private List<AssetReference> monsterPrefabRefs;
-    [SerializeField] private int minionCount = 30;
+    [SerializeField] private int minionCount;
     [SerializeField] private MonsterSpawnPositions positions;
     private readonly HashSet<Transform> _occupiedPositions = new();
-    
+
     private void Awake()
     {
         for (var i = 0; i < minionCount; i++)
@@ -18,7 +19,13 @@ public class MonsterSpawner : MonoBehaviour
             Spawn();
         }
     }
-    
+
+    private void OnEnable()
+    {
+        // 이 부분 여기 있는 이유 명확하지 않음. 있을 이유 없음.
+        MonumentEvents.Trigger_SceneLoaded();
+    }
+
     private void Spawn()
     {
         var handle = Addressables.InstantiateAsync(monsterPrefabRefs.PeekRandom());
