@@ -242,6 +242,61 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6507c3a1f0b72e428dc915f9c8d49c7
+    m_Address: Assets/Audio/BGM_cute2.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24970249be0dff441a90c6a51abd8388
+    m_Address: Assets/Audio/BGM_cute_1.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d334047dc88e5b4089bb6ea77de899f
+    m_Address: Assets/Audio/Grabbing.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 237818ec5fdbda441befcd63fbc114a2
+    m_Address: Assets/Audio/insert_craft.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7ce4b83a0d152b40a7586665dfd3646
+    m_Address: Assets/Audio/ItemSpawn.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51fba323abdf09b45a0a07db59c1ee3b
+    m_Address: Assets/Audio/key_appear_magic.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64c709c552a0ba044bea6f6aea0b9844
+    m_Address: Assets/Audio/loot-box.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76d5864584e01a547bab645a3cdec699
+    m_Address: Assets/Audio/MouseClick.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4d25d0d1fba6234da5b15f07a2cab52
+    m_Address: Assets/Audio/out_inventory.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b6a4637e169d1940838f6364f76868f
+    m_Address: Assets/Audio/plant_grow.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1be7b15373d880742bd5d3d30788613d
+    m_Address: Assets/Audio/Whoop.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 02adc8d5ec4545a48a134065cc146d5e, type: 2}
   m_SchemaSet:

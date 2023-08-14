@@ -1,4 +1,3 @@
-using LiveLarson.SoundSystem;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -12,6 +11,7 @@ public class JungleItemSpawner : MonoBehaviour
     [SerializeField] private Transform parentTransform;
 
     [SerializeField] private AudioClip clip;
+
     // private string itemSpawnSFX = "Assets/Audio/ItemSpawn.mp3";
     private void Awake()
     {
@@ -26,11 +26,9 @@ public class JungleItemSpawner : MonoBehaviour
             // _audioSource.clip = clip;
             // _audioSource.Play();
             AudiosourceManager.instance.PlayClip(clip);
-            
-            
+
+
             Spawn();
-            
-            
         }
     }
 
@@ -61,18 +59,3 @@ public class JungleItemSpawner : MonoBehaviour
         };
     }
 }
-
-// public class PlantSoundPlayer : MonoBehaviour
-// {
-//     [SerializeField] private string sfxPath = "PlantGrow.wav";
-//
-//     private void Awake()
-//     {
-//         JungleEvents.OnPlantGrowDone += OnPlantGrowDone;
-//     }
-//
-//     private void OnPlantGrowDone(GameObject plantObj)
-//     {
-//         SoundService.PlaySfx(sfxPath, plantObj.transform.position);
-//     }
-// }
