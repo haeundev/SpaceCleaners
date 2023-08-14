@@ -6,11 +6,13 @@ public class BoxingGloveBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject powerEffect;
     [SerializeField] private GameObject hitEffect;
-    [SerializeField] private float hitEffectDuration = 1f;
-    [SerializeField] private float powerEffectDuration = 3f;
+    [SerializeField] private float hitEffectDuration = 3f;
+    [SerializeField] private float powerEffectDuration = 10f;
     private bool _isHitEffectActive;
     private bool _isPowerEffectActive;
-    
+    private IDisposable _hitDisposable;
+    private IDisposable _powerDisposable;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -18,8 +20,9 @@ public class BoxingGloveBehaviour : MonoBehaviour
             if (_isHitEffectActive == false)
             {
                 hitEffect.SetActive(true);
+                _hitDisposable?.Dispose();
                 _isHitEffectActive = true;
-                Observable.Timer(TimeSpan.FromSeconds(hitEffectDuration)).Subscribe(_ =>
+                _hitDisposable = Observable.Timer(TimeSpan.FromSeconds(hitEffectDuration)).Subscribe(_ =>
                 {
                     hitEffect.SetActive(false);
                     _isHitEffectActive = false;
@@ -29,8 +32,9 @@ public class BoxingGloveBehaviour : MonoBehaviour
             if (_isPowerEffectActive == false)
             {
                 powerEffect.SetActive(true);
+                _powerDisposable?.Dispose();
                 _isPowerEffectActive = true;
-                Observable.Timer(TimeSpan.FromSeconds(powerEffectDuration)).Subscribe(_ =>
+                _powerDisposable = Observable.Timer(TimeSpan.FromSeconds(powerEffectDuration)).Subscribe(_ =>
                 {
                     powerEffect.SetActive(false);
                     _isPowerEffectActive = false;

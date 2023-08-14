@@ -20,12 +20,17 @@ public enum MonsterState
 
 public class MonumentMonster : Monster
 {
+    [SerializeField] private AssetReference fuelTankPrefab;
     [SerializeField] private List<AssetReference> dropItems;
     [SerializeField] private List<AssetReference> particlesOnHit;
     [SerializeField] private List<GameObject> particlesOnDie;
     [SerializeField] private List<string> sfxOnGetHit;
     [SerializeField] private List<string> sfxOnDie;
+    [SerializeField] private List<GameObject> disableOnDie;
     [SerializeField] private float knockBackIntensity = 5f;
+    [SerializeField] private string sfxSing = "Assets/Audio/MonsterSing.mp3";
+    [SerializeField] private string sfxTalk = "Assets/Audio/MonsterTalk.mp3";
+    [SerializeField] private string sfxLaugh = "Assets/Audio/LittleMonsterLaugh.wav";
     private MonsterState _state = MonsterState.Idle;
     public MonsterHUD monsterHUD;
     private int _health;
@@ -107,7 +112,9 @@ public class MonumentMonster : Monster
     }
     
     private readonly float _hitCoolTime = 1f;
-    
+    private Audio _sing;
+    private Audio _talk;
+
     private void CreateParticleOnHit()
     {
         var randomParticle = particlesOnHit.PeekRandom();
@@ -125,22 +132,26 @@ public class MonumentMonster : Monster
         particlesOnDie.ForEach(p =>
         {
             p.SetActive(true);
-            Observable.Timer(TimeSpan.FromSeconds(10f)).Subscribe(_ =>
-            {
-                p.SetActive(false);
-            });
         });
     }
     
     private void Die()
     {
         _aiPath.enabled = false;
+        disableOnDie.ForEach(go => go.SetActive(false));
         SoundService.PlaySfx(sfxOnDie.PeekRandom(), transform.position);
         CreateParticleOnDie();
         ChangeState(MonsterState.Die);
         Observable.Timer(TimeSpan.FromSeconds(2.1f)).Subscribe(_ =>
         {
-            Destroy(gameObject);
+            var handle = fuelTankPrefab.InstantiateAsync();
+            handle.Completed += op =>
+            {
+                var fuelTank = op.Result;
+                fuelTank.transform.position = transform.position;
+                fuelTank.SetActive(true);
+                Destroy(gameObject);
+            };
         }).AddTo(this);
     }
     
@@ -176,22 +187,28 @@ public class MonumentMonster : Monster
             case MonsterState.Die:
                 _animator.SetTrigger(DieAnim);
                 break;
-            case MonsterState.Attacked:
-                _animator.SetTrigger(DieAnim);
-                break;
         }
     }
     
     public void OnPlayerEnterFollowProxy(GameObject player)
     {
         ChangeState(MonsterState.Run);
+        _talk = SoundService.PlaySfx(sfxTalk, transform.position);
+        _talk.AudioSource.spatialize = true;
+        _talk.AudioSource.spread = 360f;
+        _talk.AudioSource.spatialBlend = 1f;
     }
-    
+
     public void OnPlayerExitFollowProxy(GameObject player)
     {
+        _talk?.Stop();
         ChangeState(MonsterState.Idle);
+        _sing = SoundService.PlaySfx(sfxLaugh, transform.position);
+        _sing.AudioSource.spatialize = true;
+        _sing.AudioSource.spread = 360f;
+        _sing.AudioSource.spatialBlend = 1f;
     }
-    
+
     private IEnumerator IdleRoutine()
     {
         while (_state == MonsterState.Idle)

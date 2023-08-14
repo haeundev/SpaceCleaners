@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7453776475466691169}
   - component: {fileID: 1199553694730332274}
   - component: {fileID: 3705211070061632271}
-  - component: {fileID: 2333809586791686209}
+  - component: {fileID: 1984355940907010568}
   m_Layer: 25
   m_Name: SandMonsterA
   m_TagString: Enemy
@@ -56,6 +56,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28d35be456060340a5166ed49a5bcba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuelTankPrefab:
+    m_AssetGUID: 6b3eee8e5a13e234baa32ee045b07a56
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   dropItems:
   - m_AssetGUID: d2a0c63211f3f47429dda9dfabb5315a
     m_SubObjectName: 
@@ -79,6 +84,10 @@ MonoBehaviour:
   sfxOnDie:
   - Assets/Audio/Ooh.mp3
   - Assets/Audio/Die1.mp3
+  disableOnDie:
+  - {fileID: 5782738699803685486}
+  - {fileID: 3673502497713944647}
+  - {fileID: 5746306461968659676}
   knockBackIntensity: 10
   monsterHUD: {fileID: 5123352204343074999}
 --- !u!143 &4899867466090904070
@@ -206,8 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!136 &2333809586791686209
-CapsuleCollider:
+--- !u!65 &1984355940907010568
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -224,11 +233,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.6
-  m_Height: 4.3090143
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.1528053, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 2.0661638, y: 2.305378, z: 1.5684716}
+  m_Center: {x: 0.008751337, y: 1.1464156, z: -0.28423598}
 --- !u!1 &1324208014241827533
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,8 +378,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.07
-  m_Center: {x: 0, y: 0.73, z: 0}
+  m_Radius: 1.0247512
+  m_Center: {x: 0, y: 1.45, z: -0.23313999}
 --- !u!114 &8382432670796095439
 MonoBehaviour:
   m_ObjectHideFlags: 0

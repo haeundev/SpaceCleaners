@@ -10,6 +10,8 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] private int minionCount;
     [SerializeField] private MonsterSpawnPositions positions;
     private readonly HashSet<Transform> _occupiedPositions = new();
+    public static bool HasSingingMonster;
+    public static bool HasTalkingMonster;
     
     private void Awake()
     {

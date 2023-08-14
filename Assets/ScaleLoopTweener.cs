@@ -8,8 +8,7 @@ public class ScaleLoopTweener : MonoBehaviour
     private Vector3 _scaleTo;
     [SerializeField] private float duration = 1f;
     [SerializeField] private float scaleRatio = 1.5f;
-
-
+    
     private void OnEnable()
     {
         _originalScale = targetTransform.localScale;

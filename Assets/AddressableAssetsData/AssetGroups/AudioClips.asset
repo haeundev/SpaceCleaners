@@ -177,6 +177,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33cd316b473c33c4cbaa49cb2595f7e8
+    m_Address: Assets/Audio/BlindingLightsInst.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5d07e4286abb3246ad729f22f61e766
+    m_Address: Assets/Audio/MonsterSing.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d24732193b0e0f34c96a0fe0b8d2347b
+    m_Address: Assets/Audio/MonsterTalk.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 407895ab6c860ea40ab388af23313b55
+    m_Address: Assets/Audio/LittleMonsterLaugh.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 02adc8d5ec4545a48a134065cc146d5e, type: 2}
   m_SchemaSet:

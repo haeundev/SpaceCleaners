@@ -15,6 +15,9 @@ public class TaskManager : MonoBehaviour
     public GameObject levelUpUI;
     public GameObject instructionUI;
     public GameObject dialogueUI;
+    
+    private bool _isJungleDone;
+    private bool _isMonumentDone;
 
     private const int InitialTaskID = 1;
     public static TaskManager Instance;
@@ -34,6 +37,8 @@ public class TaskManager : MonoBehaviour
         _tasks = taskInfos.Values;
         
         OuterSpaceEvent.OnDebrisCaptured += OnDebrisCaptured;
+        JungleEvents.OnSceneComplete += () => _isJungleDone = true;
+        MonumentEvents.OnSceneComplete += () => _isMonumentDone = true;
     }
 
     private void OnDebrisCaptured(GameObject _)
@@ -106,12 +111,19 @@ public class TaskManager : MonoBehaviour
                 Debug.Log($"[TaskManager] dialoguefinish task complete condition satisfied");
                 break;
             case "jungleloaded":
+                yield return YieldInstructionCache.WaitUntil(() => FindObjectOfType<JungleItemSpawner>() != default);
+                Debug.Log($"[TaskManager] jungleloaded task complete condition satisfied");
                 break;
             case "junglecomplete":
+                yield return YieldInstructionCache.WaitUntil(() => _isJungleDone);
+                Debug.Log($"[TaskManager] junglecomplete task complete condition satisfied");
                 break;
             case "monumentloaded":
+                yield return YieldInstructionCache.WaitUntil(() => FindObjectOfType<BoxingGloveBehaviour>() != default);
                 break;
             case "monumentcomplete":
+                yield return YieldInstructionCache.WaitUntil(() => _isMonumentDone);
+                Debug.Log($"[TaskManager] junglecomplete task complete condition satisfied");
                 break;
         }
         
@@ -120,6 +132,7 @@ public class TaskManager : MonoBehaviour
         CompleteCurrentTask();
         Debug.Log($"[TaskManager] condition satisfied. complete task: {CurrentTask.ID}");
     }
+
     
     private IEnumerator ShowLevelUp()
     {
