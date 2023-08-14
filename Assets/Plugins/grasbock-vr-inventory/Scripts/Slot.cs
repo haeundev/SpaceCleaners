@@ -16,6 +16,8 @@ namespace GRASBOCK.XR.Inventory
 
         //send message whenever itemcount is changed to the subscribers
         public delegate void OnItemCountChange(Slot slot);
+
+        public event Action OnSlotCollision;
         public List<OnItemCountChange> item_count_subscribers = new List<OnItemCountChange>();
 
         // stores the preview
@@ -331,7 +333,7 @@ namespace GRASBOCK.XR.Inventory
             {
                 // collider is an item
                 //Debug.Log("Item is inside:" + other.gameObject);
-                
+                OnSlotCollision?.Invoke();
                 Attract(item, other);
             }
         }

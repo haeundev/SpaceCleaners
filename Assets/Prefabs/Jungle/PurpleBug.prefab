@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 283983619051311588}
   - component: {fileID: 4211341732878823467}
   - component: {fileID: 2736296062969334183}
+  - component: {fileID: 7295366771707917648}
   m_Layer: 0
   m_Name: PurpleBug
   m_TagString: Untagged
@@ -384,6 +385,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: a9ec881b6145e294bb4da02593bf8d27, type: 2}
+--- !u!114 &7295366771707917648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315093368161898438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd56a274236b114d97f10a62fd367ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 4d334047dc88e5b4089bb6ea77de899f, type: 3}
+  selectItemLeftAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Select Item Left
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: dcf1d0b7-2bf4-4262-9033-75cc608e796c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -213658022109743373, guid: b4850527e0ee7c0439182fa58a99796e,
+      type: 3}
+  selectItemRightAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Select Item Right
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 3369a328-eea6-4cdb-9241-d0fc0f9549fb
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1 &8256022222848630480
 GameObject:
   m_ObjectHideFlags: 0

@@ -1207,6 +1207,7 @@ MonoBehaviour:
     m_Reference: {fileID: -5365662362313609688, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   bagObject: {fileID: 46229221802647077}
+  clip: {fileID: 0}
 --- !u!1 &1076099871765903336
 GameObject:
   m_ObjectHideFlags: 0

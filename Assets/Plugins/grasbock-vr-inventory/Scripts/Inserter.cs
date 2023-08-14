@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace GRASBOCK.XR.Inventory
 {
@@ -10,9 +12,10 @@ namespace GRASBOCK.XR.Inventory
     /// </summary>
     public class Inserter : MonoBehaviour
     {
-
         public delegate Slot notifyIncomingItem(Inserter inserter, Item i);
         public notifyIncomingItem target = null;
+
+        public event Action OnItemInserted;
 
         
         private void OnTriggerStay(Collider other)
@@ -38,6 +41,7 @@ namespace GRASBOCK.XR.Inventory
             
             if(store_count == 1)
             {
+                OnItemInserted?.Invoke();
                 Destroy(item.gameObject);
             }
         }

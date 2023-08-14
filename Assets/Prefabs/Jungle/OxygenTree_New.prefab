@@ -931,6 +931,7 @@ MonoBehaviour:
   animators:
   - {fileID: 9100000, guid: 69b56a56fe6b80f44a695b7515df68f2, type: 2}
   - {fileID: 9100000, guid: 5917d3abedf0e1e43857f663df59b0f9, type: 2}
+  clip: {fileID: 8300000, guid: 0b6a4637e169d1940838f6364f76868f, type: 3}
 --- !u!114 &5400153838849281005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,11 +944,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e52d5b662377a4e93acb393227aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueBugPath: Prefabs/Jungle/BlueBug.prefab
+  purpleBugPath: Prefabs/Jungle/PurpleBug.prefab
   oxygenBarrelPath: Prefabs/Jungle/OxygenBarrel.prefab
   pinkLeafPath: Prefabs/Jungle/PinkLeaf.prefab
-  redFlowerPath: Prefabs/Jungle/RedFlower.prefab
+  blueFlowerPath: Prefabs/Jungle/BlueFlower.prefab
   parentTransform: {fileID: 8067103046004768341}
+  clip: {fileID: 8300000, guid: b7ce4b83a0d152b40a7586665dfd3646, type: 3}
 --- !u!114 &2310748349439058334
 MonoBehaviour:
   m_ObjectHideFlags: 0

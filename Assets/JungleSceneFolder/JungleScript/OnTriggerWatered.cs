@@ -1,4 +1,5 @@
 using System;
+using LiveLarson.SoundSystem;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
@@ -61,11 +62,14 @@ public class OnTriggerWatered : MonoBehaviour
 
     private int dropCount;
     private static readonly int Grow = Animator.StringToHash("grow");
+    
+    // public string plantGrowSFX = "Assets/Audio/PlantGrowBounce.mp3";
+    // private AudioSource _audioSource;
+    [SerializeField] private AudioClip clip;
 
     private void Awake()
     {
         RegisterEvents();
-        
     }
 
     private void RegisterEvents()
@@ -124,6 +128,10 @@ public class OnTriggerWatered : MonoBehaviour
             {
                 lastAnimationName = "Grow";
                 isFullyGrown = true;
+                // SoundService.PlaySfx(plantGrowSFX, transform.position);
+                // _audioSource.clip = clip;
+                // _audioSource.Play();
+                AudiosourceManager.instance.PlayClip(clip);
                 WaitAndTriggerPlantDone();
             }
             else if (plantLevel == Level.Hard)
@@ -133,6 +141,9 @@ public class OnTriggerWatered : MonoBehaviour
                 {
                     // gameObject.GetComponent<JungleItemSpawner>()?.Spawn();
                     myAnimator.SetTrigger(Grow);
+                    // _audioSource.Play();
+                    // SoundService.PlaySfx(plantGrowSFX, transform.position);
+                    AudiosourceManager.instance.PlayClip(clip);
                     WaitAndTriggerPlantDone();
 
                     lastAnimationName = "grow3";
@@ -142,6 +153,9 @@ public class OnTriggerWatered : MonoBehaviour
                 else if (dropCount == 100)
                 {
                     myAnimator.SetTrigger(Grow);
+                    // _audioSource.Play();
+                    // SoundService.PlaySfx(plantGrowSFX, transform.position);
+                    AudiosourceManager.instance.PlayClip(clip);
                 }
             }
         }

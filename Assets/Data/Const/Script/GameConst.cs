@@ -18,6 +18,8 @@ namespace DataTables
             public List<string> AgentNumbers;
             public List<string> AgentGenerations;
             public List<string> AgentLevelNames;
+            public string InserterCollision;
+            public string SlotCollision;
         }
 
     public DataClass Data;

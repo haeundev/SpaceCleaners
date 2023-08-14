@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 743352275438318381}
   - component: {fileID: 9006462427929667450}
   - component: {fileID: 2988147008647570407}
+  - component: {fileID: 5637022287153490068}
   m_Layer: 0
   m_Name: BlueFlower
   m_TagString: Untagged
@@ -384,6 +385,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: ad3eb0670f29e0a44be34d45823f8e71, type: 2}
+--- !u!114 &5637022287153490068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442994966008343484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd56a274236b114d97f10a62fd367ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 4d334047dc88e5b4089bb6ea77de899f, type: 3}
+  selectItemLeftAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Select Item Left
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: dcf1d0b7-2bf4-4262-9033-75cc608e796c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -213658022109743373, guid: b4850527e0ee7c0439182fa58a99796e,
+      type: 3}
+  selectItemRightAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Select Item Right
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 3369a328-eea6-4cdb-9241-d0fc0f9549fb
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1001 &4173164356567820354
 PrefabInstance:
   m_ObjectHideFlags: 0

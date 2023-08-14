@@ -11,6 +11,8 @@ public class JungleItemSpawner : MonoBehaviour
 
     [SerializeField] private Transform parentTransform;
 
+    [SerializeField] private AudioClip clip;
+    // private string itemSpawnSFX = "Assets/Audio/ItemSpawn.mp3";
     private void Awake()
     {
         JungleEvents.OnPlantGrowDone += OnPlantGrowDone;
@@ -20,7 +22,15 @@ public class JungleItemSpawner : MonoBehaviour
     {
         if (plantObj == gameObject)
         {
+            // SoundService.PlaySfx(itemSpawnSFX, parentTransform.transform.position);
+            // _audioSource.clip = clip;
+            // _audioSource.Play();
+            AudiosourceManager.instance.PlayClip(clip);
+            
+            
             Spawn();
+            
+            
         }
     }
 
@@ -52,17 +62,17 @@ public class JungleItemSpawner : MonoBehaviour
     }
 }
 
-public class PlantSoundPlayer : MonoBehaviour
-{
-    [SerializeField] private string sfxPath = "PlantGrow.wav";
-
-    private void Awake()
-    {
-        JungleEvents.OnPlantGrowDone += OnPlantGrowDone;
-    }
-
-    private void OnPlantGrowDone(GameObject plantObj)
-    {
-        SoundService.PlaySfx(sfxPath, plantObj.transform.position);
-    }
-}
+// public class PlantSoundPlayer : MonoBehaviour
+// {
+//     [SerializeField] private string sfxPath = "PlantGrow.wav";
+//
+//     private void Awake()
+//     {
+//         JungleEvents.OnPlantGrowDone += OnPlantGrowDone;
+//     }
+//
+//     private void OnPlantGrowDone(GameObject plantObj)
+//     {
+//         SoundService.PlaySfx(sfxPath, plantObj.transform.position);
+//     }
+// }

@@ -36,11 +36,18 @@ namespace UnityEngine.XR.Content.Interaction
         /// Events to fire when a matching object stops colliding with this trigger.
         /// </summary>
         public TriggerEvent onExit => m_OnExit;
+        
+        public event Action OnChestOpened;
 
         void OnTriggerEnter(Collider other)
         {
             if (CanTrigger(other.gameObject))
+            {
                 m_OnEnter?.Invoke(other.gameObject);
+                OnChestOpened?.Invoke();
+            }
+                
+                
         }
 
         void OnTriggerExit(Collider other)
