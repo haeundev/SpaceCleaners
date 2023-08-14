@@ -19,7 +19,7 @@ public class EnemyProxyForAttack : MonoBehaviour
         else if (other.gameObject.layer == LayerMask.NameToLayer("Weapon"))
         {
             var weaponObj = other.gameObject;
-            _monumentMonster.OnMonsterHitByPlayer();
+            _monumentMonster.OnGetHit();
             Debug.Log($"[Proxy] Weapon OnTriggerEnter: {weaponObj.name}");
         }
     }

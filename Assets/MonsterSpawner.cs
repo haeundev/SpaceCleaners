@@ -3,39 +3,34 @@ using System.Linq;
 using LiveLarson.Util;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.Serialization;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    [SerializeField] private string prefabPath = "Prefabs/Enemy/Monster.prefab";
-    [SerializeField] private int minionCount = 20;
+    [SerializeField] private List<AssetReference> monsterPrefabRefs;
+    [SerializeField] private int minionCount = 30;
     [SerializeField] private MonsterSpawnPositions positions;
-    private HashSet<Transform> _occupiedPositions = new();
+    private readonly HashSet<Transform> _occupiedPositions = new();
     
     private void Awake()
     {
         for (var i = 0; i < minionCount; i++)
         {
-            Spawn(MonsterLevelType.Minion, MonsterItemType.Mustache);
+            Spawn();
         }
     }
     
-    private void Spawn(MonsterLevelType levelType, MonsterItemType itemType)
+    private void Spawn()
     {
-        var handle = Addressables.InstantiateAsync(prefabPath);
+        var handle = Addressables.InstantiateAsync(monsterPrefabRefs.PeekRandom());
         handle.Completed += op =>
         {
             // when prefab is instantiated
             var enemyObj = op.Result.gameObject;
-            enemyObj.transform.position = GetPosition();
-            var mm = enemyObj.GetComponentInChildren<MonumentMonster>();
-            mm.SetItemType(itemType);
-            mm.SetLevelType(levelType);
-            
+            enemyObj.transform.position = GetRandomPositionFromPool();
         };
     }
 
-    private Vector3 GetPosition()
+    private Vector3 GetRandomPositionFromPool()
     {
         var randomPos = positions.positions.Where(p => _occupiedPositions.Contains(p) == false).PeekRandom();
         _occupiedPositions.Add(randomPos);
