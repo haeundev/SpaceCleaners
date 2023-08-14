@@ -7,7 +7,7 @@ using UnityEngine.AddressableAssets;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField] private List<AssetReference> monsterPrefabRefs;
-    [SerializeField] private int minionCount = 30;
+    [SerializeField] private int minionCount;
     [SerializeField] private MonsterSpawnPositions positions;
     private readonly HashSet<Transform> _occupiedPositions = new();
     

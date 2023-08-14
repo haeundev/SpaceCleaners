@@ -9545,7 +9545,7 @@ GameObject:
   - component: {fileID: 9027514048236820044}
   - component: {fileID: 6747932735989160330}
   m_Layer: 0
-  m_Name: CFXR Electrified 3
+  m_Name: ElectricPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

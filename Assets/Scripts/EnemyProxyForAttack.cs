@@ -20,6 +20,7 @@ public class EnemyProxyForAttack : MonoBehaviour
         {
             var weaponObj = other.gameObject;
             _monumentMonster.OnGetHit();
+           
             Debug.Log($"[Proxy] Weapon OnTriggerEnter: {weaponObj.name}");
         }
     }
