@@ -62,8 +62,14 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   particlesOnHit:
-  - {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
-  - {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
+  - m_AssetGUID: 6718dc24203da53468af9ada8fef7d6d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 99bc28c0d45f51c4fbac01080b73edc7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   particlesOnDie:
   - {fileID: 7988591184393620033}
   - {fileID: 612312372524724092}
@@ -217,7 +223,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.6
   m_Height: 4.3090143

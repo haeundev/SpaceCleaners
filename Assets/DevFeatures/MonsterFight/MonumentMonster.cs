@@ -50,14 +50,14 @@ public class MonumentMonster : Monster
     private AIPath _aiPath;
     private Transform _playerTransform;
     private bool _isKnockBack;
-
+    
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
         _aiDestinationSetter = GetComponentInChildren<AIDestinationSetter>();
         _aiPath = GetComponentInChildren<AIPath>();
     }
-
+    
     private void Start()
     {
         _spawnPositions = FindObjectOfType<MonsterSpawnPositions>();
@@ -66,25 +66,33 @@ public class MonumentMonster : Monster
         ChangeState(MonsterState.Idle);
         _playerTransform = GameObject.FindWithTag("Player").transform;
     }
-
+    
     private bool _hitCoolTimeDone = true;
+    private int _hitCountBeforeKnockBack = 0;
     
     public void OnGetHit()
     {
-        if (_hitCoolTimeDone == false)
-        {
-            return;
-        }
-
-        _hitCoolTimeDone = false;
-        Observable.Timer(TimeSpan.FromSeconds(_hitCoolTime)).Subscribe(_ => _hitCoolTimeDone = true);
-
-        ChangeState(MonsterState.Attack);
+        _hitCountBeforeKnockBack++;
+        
+        //if (_hitCoolTimeDone == false)
+        //{
+        //    return;
+        //}
+        //
+        //_hitCoolTimeDone = false;
+        //Observable.Timer(TimeSpan.FromSeconds(_hitCoolTime)).Subscribe(_ => _hitCoolTimeDone = true);
+        
+        ChangeState(MonsterState.Attacked);
         
         if (_health > 0)
         {
-            _isKnockBack = true;
-            Observable.Timer(TimeSpan.FromSeconds(.5f)).Subscribe(_ => _isKnockBack = false);
+            if (_isKnockBack == false && _hitCountBeforeKnockBack >= 3)
+            {
+                _isKnockBack = true;
+                Observable.Timer(TimeSpan.FromSeconds(.5f)).Subscribe(_ => _isKnockBack = false);
+                _hitCountBeforeKnockBack = 0;
+            }
+           
             SoundService.PlaySfx(sfxOnGetHit.PeekRandom(), transform.position);
             _health--;
             monsterHUD.MonsterTakeDamage(1);
@@ -97,37 +105,33 @@ public class MonumentMonster : Monster
             }
         }
     }
-
+    
     private readonly float _hitCoolTime = 1f;
     
     private void CreateParticleOnHit()
     {
         var randomParticle = particlesOnHit.PeekRandom();
-        Addressables.InstantiateAsync(randomParticle, transform.position, Quaternion.identity).Completed += handle =>
+        randomParticle.InstantiateAsync(transform.position, Quaternion.identity).Completed += handle =>
         {
-            Debug.Log($"particle: {handle.Result}");
+            Debug.Log($"particle: {handle.Result.gameObject.name}");
             var particle = handle.Result;
             particle.SetActive(true);
-            Observable.Timer(TimeSpan.FromSeconds(particle.GetComponentInChildren<ParticleSystem>().time)).Subscribe(_ =>
-            {
-                Addressables.ReleaseInstance(particle);
-                Destroy(particle);
-            });
+            Destroy(particle, 5f);
         };
     }
-
+    
     private void CreateParticleOnDie()
     {
         particlesOnDie.ForEach(p =>
         {
             p.SetActive(true);
-            Observable.Timer(TimeSpan.FromSeconds(p.GetComponentInChildren<ParticleSystem>().time)).Subscribe(_ =>
+            Observable.Timer(TimeSpan.FromSeconds(10f)).Subscribe(_ =>
             {
                 p.SetActive(false);
             });
         });
     }
-
+    
     private void Die()
     {
         _aiPath.enabled = false;
@@ -139,7 +143,7 @@ public class MonumentMonster : Monster
             Destroy(gameObject);
         }).AddTo(this);
     }
-
+    
     private void FixedUpdate()
     {
         if (_isKnockBack)
@@ -149,7 +153,7 @@ public class MonumentMonster : Monster
             transform.position += (playerForward.normalized) * (Time.deltaTime * knockBackIntensity);
         }
     }
-
+    
     private void ChangeState(MonsterState targetState)
     {
         _state = targetState;
@@ -172,9 +176,12 @@ public class MonumentMonster : Monster
             case MonsterState.Die:
                 _animator.SetTrigger(DieAnim);
                 break;
+            case MonsterState.Attacked:
+                _animator.SetTrigger(DieAnim);
+                break;
         }
     }
-
+    
     public void OnPlayerEnterFollowProxy(GameObject player)
     {
         ChangeState(MonsterState.Run);
