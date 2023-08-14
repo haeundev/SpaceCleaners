@@ -14,6 +14,7 @@ public class MonsterSpawnPositions : MonoBehaviour
     [Button]
     private void CollectChildrenPosition()
     {
+        positions.Clear();
         for (var i = 0; i < transform.childCount; i++)
         {
             positions.Add(transform.GetChild(i).transform);

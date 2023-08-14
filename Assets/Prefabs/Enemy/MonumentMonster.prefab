@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 2146006549866649324}
   - component: {fileID: 5070139673556808438}
   - component: {fileID: 1498248067440520988}
+  - component: {fileID: 6683809746891848743}
   m_Layer: 25
   m_Name: Animator
   m_TagString: Untagged
@@ -866,6 +867,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.33862704, y: 0.14310592, z: 0.063367486}
     m_Extent: {x: 0.84097546, y: 0.95306545, z: 0.97063196}
   m_DirtyAABB: 0
+--- !u!114 &6683809746891848743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3849032593132307891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c82a227383e4c8f93e96db9469074b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3862082100052094550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,8 +1066,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  wanderRate: 1
-  wanderRadius: 20
   target: {fileID: 0}
 --- !u!114 &6455970041558208193
 MonoBehaviour:
@@ -1068,6 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28d35be456060340a5166ed49a5bcba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSfx: Assets/Audio/MonsterAttack.mp3
   levelType: 0
   itemType: 0
   goByType:
@@ -1076,6 +1088,8 @@ MonoBehaviour:
     - {fileID: 2558685666862363738}
     - {fileID: 3406224057741997508}
     - {fileID: 6816956121504982011}
+  idleSpeed: 1
+  monsterHUD: {fileID: 0}
 --- !u!135 &8763648268886179712
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1960,6 +1974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2e397dda3244fdcb3375777fcd5fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiDestinationSetter: {fileID: 0}
+  aiPath: {fileID: 0}
 --- !u!1 &8645481150511625716
 GameObject:
   m_ObjectHideFlags: 0
