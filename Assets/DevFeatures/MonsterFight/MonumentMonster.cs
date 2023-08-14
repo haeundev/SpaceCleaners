@@ -18,7 +18,7 @@ public enum MonsterState
     Attacked,
 }
 
-public class MonumentMonster : Monster
+public class MonumentMonster : MonoBehaviour
 {
     [SerializeField] private AssetReference fuelTankPrefab;
     [SerializeField] private List<AssetReference> dropItems;
