@@ -37,11 +37,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 34f9cbd28a9740349b6cc2f5e280dda3
-    m_Address: Assets/Audio/Level Up.wav
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b1f9e62fae5f8d46ac92af22e942f95
     m_Address: Assets/Audio/Message Appear.ogg
     m_ReadOnly: 0
@@ -194,6 +189,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 407895ab6c860ea40ab388af23313b55
     m_Address: Assets/Audio/LittleMonsterLaugh.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b164f6fbd07140b469bd5044783fa2ba
+    m_Address: Assets/Audio/AdvertisementOpening.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80097c34fe445a445ada3603d49fe0e4
+    m_Address: Assets/Audio/TrumpetFanfare.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62d109b9741b348a5aba7fb026c7297c
+    m_Address: Assets/Audio/Swoosh.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

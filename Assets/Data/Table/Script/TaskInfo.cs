@@ -19,6 +19,7 @@ namespace DataTables
         public string Title;
         public string ValueStr;
         public int ValueInt;
+        public string StartAction;
         public string EndAction;
         public string CompleteCondition;
     }
