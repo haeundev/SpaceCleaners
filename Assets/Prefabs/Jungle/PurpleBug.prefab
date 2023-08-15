@@ -397,33 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd56a274236b114d97f10a62fd367ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 4d334047dc88e5b4089bb6ea77de899f, type: 3}
-  selectItemLeftAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Select Item Left
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: dcf1d0b7-2bf4-4262-9033-75cc608e796c
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -213658022109743373, guid: b4850527e0ee7c0439182fa58a99796e,
-      type: 3}
-  selectItemRightAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Select Item Right
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 3369a328-eea6-4cdb-9241-d0fc0f9549fb
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
+  enteringClip: {fileID: 8300000, guid: 4d334047dc88e5b4089bb6ea77de899f, type: 3}
+  exitingClip: {fileID: 8300000, guid: 4d334047dc88e5b4089bb6ea77de899f, type: 3}
+  grabInteractable: {fileID: 0}
 --- !u!1 &8256022222848630480
 GameObject:
   m_ObjectHideFlags: 0

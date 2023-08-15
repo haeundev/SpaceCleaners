@@ -99,5 +99,5 @@ MonoBehaviour:
     - Brigadier
     - General
     - Commander
-    InserterCollision: 
-    SlotCollision: 
+    InserterCollision: Assets/Audio/insert_craft.mp3
+    SlotCollision: Assets/Audio/UI OK.ogg

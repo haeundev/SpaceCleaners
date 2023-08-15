@@ -117,6 +117,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1540664768844929864}
+    - targetCorrespondingSourceObject: {fileID: 1805304498381420, guid: 1bbb8c37e80056641b68747d186f20fa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4478569577210394161}
   m_SourcePrefab: {fileID: 100100000, guid: 1bbb8c37e80056641b68747d186f20fa, type: 3}
 --- !u!23 &980146486375722229 stripped
 MeshRenderer:
@@ -434,3 +438,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9c309f73c853144b5251104b2b3019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4478569577210394161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994888562415954039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd56a274236b114d97f10a62fd367ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enteringClip: {fileID: 8300000, guid: 4d334047dc88e5b4089bb6ea77de899f, type: 3}
+  exitingClip: {fileID: 8300000, guid: d69830d102ece594594b2b174bb1aa95, type: 3}
+  grabInteractable: {fileID: 0}

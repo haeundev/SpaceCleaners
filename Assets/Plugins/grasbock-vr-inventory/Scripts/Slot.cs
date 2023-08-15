@@ -307,6 +307,8 @@ namespace GRASBOCK.XR.Inventory
 
             rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;//RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
             rb.useGravity = false;
+            
+            OnSlotCollision?.Invoke();
 
         }
 
@@ -333,7 +335,6 @@ namespace GRASBOCK.XR.Inventory
             {
                 // collider is an item
                 //Debug.Log("Item is inside:" + other.gameObject);
-                OnSlotCollision?.Invoke();
                 Attract(item, other);
             }
         }

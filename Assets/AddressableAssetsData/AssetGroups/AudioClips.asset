@@ -282,8 +282,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a4d25d0d1fba6234da5b15f07a2cab52
-    m_Address: Assets/Audio/out_inventory.mp3
+  - m_GUID: 053939151f1c2bc45ad69f24cf127db9
+    m_Address: Assets/Audio/out-inventory.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -294,6 +294,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1be7b15373d880742bd5d3d30788613d
     m_Address: Assets/Audio/Whoop.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d69830d102ece594594b2b174bb1aa95
+    m_Address: Assets/Audio/OxygenBarrelObtain.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 836f5c5ff49d9b54b95136b45885f7cb
+    m_Address: Assets/Audio/chestbox_open_magic.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

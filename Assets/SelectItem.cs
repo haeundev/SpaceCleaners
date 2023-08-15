@@ -2,35 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SelectItem : MonoBehaviour
 {
     
-    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioClip enteringClip;
+    [SerializeField] private AudioClip exitingClip;
     
-    public InputActionProperty selectItemLeftAction;
-    public InputActionProperty selectItemRightAction;
+    // public InputActionProperty selectItemLeftAction;
+    // public InputActionProperty selectItemRightAction;
     // Start is called before the first frame update
+
+    public XRGrabInteractable grabInteractable;
     private void Awake()
     {
-        selectItemLeftAction.action.started += ItemSelected;
-        selectItemRightAction.action.started += ItemSelected;
+        grabInteractable = GetComponent<XRGrabInteractable>();
+
+        grabInteractable.selectEntered.AddListener(ItemSelected);
+        grabInteractable.selectExited.AddListener(ItemUnSelected);
+        // selectItemLeftAction.action.started += ItemSelected;
+        // selectItemRightAction.action.started += ItemSelected;
     }
 
-    private void OnDestroy()
+    private void ItemSelected(SelectEnterEventArgs context)
     {
-        selectItemLeftAction.action.started -= ItemSelected;
-        selectItemRightAction.action.started -= ItemSelected;
+        AudiosourceManager.instance.PlayClip(enteringClip);
     }
-
-    private void ItemSelected(InputAction.CallbackContext context)
+    
+    private void ItemUnSelected(SelectExitEventArgs context)
     {
-        AudiosourceManager.instance.PlayClip(clip);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AudiosourceManager.instance.PlayClip(exitingClip);
     }
 }
