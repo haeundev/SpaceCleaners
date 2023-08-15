@@ -1,10 +1,8 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="AlarmByDistance" preserve="all" />
-    <type fullname="angleToHUD" preserve="all" />
-    <type fullname="blink" preserve="all" />
+    <type fullname="AutoCloseInSeconds" preserve="all" />
     <type fullname="BoxingGloveBehaviour" preserve="all" />
-    <type fullname="canvasLayerMove" preserve="all" />
     <type fullname="DataTables.AudioConst" preserve="all" />
     <type fullname="DataTables.DialogueInfos" preserve="all" />
     <type fullname="DataTables.GadgetInfos" preserve="all" />
@@ -13,17 +11,20 @@
     <type fullname="DataTables.TaskInfos" preserve="all" />
     <type fullname="DebrisBehaviour" preserve="all" />
     <type fullname="DestroyOnParticleFinish" preserve="all" />
+    <type fullname="DevFeatures.Dialogue.DialogueManager" preserve="all" />
     <type fullname="DevFeatures.SaveSystem.SaveAndLoadManager" preserve="all" />
+    <type fullname="DisableOnStart" preserve="all" />
     <type fullname="EnemyProxyForAttack" preserve="all" />
     <type fullname="EnemyProxyForFollow" preserve="all" />
     <type fullname="FadeScreen" preserve="all" />
     <type fullname="Floater" preserve="all" />
-    <type fullname="FocusGauge" preserve="all" />
     <type fullname="FuelTankCollisionDetector" preserve="all" />
     <type fullname="GrappleEffect" preserve="all" />
     <type fullname="Grappler" preserve="all" />
+    <type fullname="HorizontalScaleTweener" preserve="all" />
     <type fullname="InfiniteWorldsAndMegastructures" preserve="all" />
     <type fullname="InsertItemToSlot" preserve="all" />
+    <type fullname="InstructionUI" preserve="all" />
     <type fullname="InventoryOpener" preserve="all" />
     <type fullname="ItemRandomSpawner" preserve="all" />
     <type fullname="JungleHUD" preserve="all" />
@@ -48,7 +49,6 @@
     <type fullname="Net" preserve="all" />
     <type fullname="NotificationScreen" preserve="all" />
     <type fullname="OnTriggerWatered" preserve="all" />
-    <type fullname="opacityWithMove" preserve="all" />
     <type fullname="OxygenBarrelDestoyed" preserve="all" />
     <type fullname="PlanetInfo" preserve="all" />
     <type fullname="ProceduralPlanets.ColourSettings" preserve="all" />
@@ -56,15 +56,17 @@
     <type fullname="ProceduralPlanets.ShapeSettings" preserve="all" />
     <type fullname="RayGazable" preserve="all" />
     <type fullname="ReturnToSpaceUI" preserve="all" />
-    <type fullname="rotateWithMove" preserve="all" />
     <type fullname="ScaleLoopTweener" preserve="all" />
     <type fullname="SceneTransitionManager" preserve="all" />
     <type fullname="SelectItem" preserve="all" />
     <type fullname="SetTurnTypeFromPlayerPref" preserve="all" />
     <type fullname="SimpleRotator" preserve="all" />
-    <type fullname="slideWithMove" preserve="all" />
     <type fullname="Spacecraft" preserve="all" />
+    <type fullname="TaskCompleteUI" preserve="all" />
     <type fullname="TaskManager" preserve="all" />
+    <type fullname="TypewriterSoundPlayer" preserve="all" />
+    <type fullname="UIPointerActionHandler" preserve="all" />
+    <type fullname="UIPointerSoundHandler" preserve="all" />
     <type fullname="UnityEngine.XR.Content.Animation.AnimationEventActionFinished" preserve="all" />
     <type fullname="UnityEngine.XR.Content.Animation.OnAnimationEvent" preserve="all" />
     <type fullname="UnityEngine.XR.Content.Interaction.AutoSocketAttach" preserve="all" />
@@ -101,6 +103,8 @@
     <type fullname="DataTables.GameConst/DataClass" preserve="nothing" serialized="true" />
     <type fullname="DataTables.Notification" preserve="nothing" serialized="true" />
     <type fullname="DataTables.TaskInfo" preserve="nothing" serialized="true" />
+    <type fullname="DevFeatures.Dialogue.AudioBySpeakerType" preserve="nothing" serialized="true" />
+    <type fullname="DevFeatures.Dialogue.SpriteBySpeakerType" preserve="nothing" serialized="true" />
     <type fullname="OnTriggerWatered/TriggerEvent" preserve="nothing" serialized="true" />
     <type fullname="ProceduralPlanets.ColourSettings/BiomeColourSettings" preserve="nothing" serialized="true" />
     <type fullname="ProceduralPlanets.ColourSettings/BiomeColourSettings/Biome" preserve="nothing" serialized="true" />
@@ -328,7 +332,6 @@
     <type fullname="UnityEngine.Shader" preserve="all" />
     <type fullname="UnityEngine.SkinnedMeshRenderer" preserve="all" />
     <type fullname="UnityEngine.Sprite" preserve="all" />
-    <type fullname="UnityEngine.SpriteRenderer" preserve="all" />
     <type fullname="UnityEngine.Texture2D" preserve="all" />
     <type fullname="UnityEngine.Transform" preserve="all" />
     <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
@@ -352,9 +355,6 @@
     <type fullname="UnityEngine.Rigidbody" preserve="all" />
     <type fullname="UnityEngine.SphereCollider" preserve="all" />
   </assembly>
-  <assembly fullname="UnityEngine.SpriteMaskModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-    <type fullname="UnityEngine.SpriteMask" preserve="all" />
-  </assembly>
   <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Font" preserve="all" />
     <type fullname="UnityEngine.TextMesh" preserve="all" />
@@ -373,13 +373,11 @@
     <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
     <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
     <type fullname="UnityEngine.UI.Slider" preserve="all" />
-    <type fullname="UnityEngine.UI.Text" preserve="all" />
     <type fullname="UnityEngine.UI.Toggle" preserve="all" />
     <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
     <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.UI.FontData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
