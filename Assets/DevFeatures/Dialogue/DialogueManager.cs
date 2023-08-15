@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using DataTables;
 using Febucci.UI;
 using LiveLarson.DataTableManagement;
 using LiveLarson.Enums;
+using LiveLarson.Util;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace DevFeatures.Dialogue
@@ -17,6 +20,7 @@ namespace DevFeatures.Dialogue
     public class DialogueManager : MonoBehaviour
     {
         public static DialogueManager Instance;
+        [SerializeField] private GameObject visuals;
         [SerializeField] private Button buttonOptionA;
         [SerializeField] private Button buttonOptionB;
         [SerializeField] private TextMeshProUGUI tmpOptionA;
@@ -26,7 +30,8 @@ namespace DevFeatures.Dialogue
         [SerializeField] private TypewriterByCharacter typewriter;
         [SerializeField] private Button buttonNext;
         private DialogueInfo _currentDialogue;
-        public bool dialogueFinished;
+        public bool playedDialogueInScene = false;
+        public bool dialogueFinished = false;
         [SerializeField] private SpriteBySpeakerType speakerSpriteDict;
         [SerializeField] private AudioBySpeakerType speakerAudioDict;
         [SerializeField] private Image speakerImage;
@@ -35,8 +40,7 @@ namespace DevFeatures.Dialogue
         {
             Instance = this;
             
-            TaskManager.Instance.OnDialogueTaskInit += OnDialogueTaskInit;
-      
+            TaskManager.Instance.OnInitTask += OnInitTask;
             //typewriter.onTypewriterStart.AddListener(OnLineStart);
             typewriter.onTextShowed.AddListener(OnLineEnd);
             typewriter.onTextForceStopped.AddListener(OnLineEnd);
@@ -45,6 +49,17 @@ namespace DevFeatures.Dialogue
             buttonOptionB.onClick.AddListener(OnPressOptionB);
             
             TaskManager.Instance.dialogueUI = gameObject;
+            
+            visuals.SetActive(false);
+        }
+
+        private void OnInitTask(TaskInfo taskInfo)
+        {
+            dialogueFinished = false;
+            if (taskInfo.TaskType == TaskType.Dialogue)
+            {
+                PlayLine(taskInfo.ValueInt); // dialogue ID.
+            }
         }
 
         private void DisableOptionButtons()
@@ -77,9 +92,9 @@ namespace DevFeatures.Dialogue
         private void OnNextButtonPressed()
         {
             if (_currentDialogue == default || _currentDialogue.HasChoice
-                || TaskManager.Instance.taskCompleteUI.activeSelf 
-                || TaskManager.Instance.levelUpUI.activeSelf 
-                )
+                || (TaskManager.Instance.taskCompleteUI != default && TaskManager.Instance.taskCompleteUI.activeSelf )
+                || (TaskManager.Instance.levelUpUI != default && TaskManager.Instance.levelUpUI.activeSelf )
+               )
                 return;
             
             var next = _currentDialogue?.Next ?? 0;
@@ -88,13 +103,17 @@ namespace DevFeatures.Dialogue
                 // has next line
                 PlayLine(next);
             }
+            else if (_currentDialogue?.IsEnd == true)
+            {
+                TriggerDialogueFinish();
+            }
             else if (_currentDialogue?.Next is 0 or null)
             {
-                OnDialogueFinished();
+                Debug.LogError($"why next Dialogue is null?");
             }
         }
 
-        private void OnDialogueFinished()
+        private void TriggerDialogueFinish()
         {
             dialogueFinished = true;
         }
@@ -120,24 +139,32 @@ namespace DevFeatures.Dialogue
             // }
         }
         
-        private void OnDialogueTaskInit(TaskInfo taskInfo)
-        {
-            dialogueFinished = false;
-            PlayLine(taskInfo.ValueInt); // dialogue ID.
-        }
-        
         private void PlayLine(int dialogueID)
         {
-            Debug.Log($"PlayLine {dialogueID}");
             if (gameObject.activeSelf == false)
-            {
                 gameObject.SetActive(true);
-            }
+            StartCoroutine(CoPlayLine(dialogueID));
+            playedDialogueInScene = true;
+        }
+
+        private IEnumerator CoPlayLine(int dialogueID)
+        {
+            yield return YieldInstructionCache.WaitUntil(() =>
+            {
+                var hasOtherUIOn = (TaskManager.Instance.taskCompleteUI != default &&
+                                    TaskManager.Instance.taskCompleteUI.activeSelf)
+                                   || (TaskManager.Instance.levelUpUI != default &&
+                                       TaskManager.Instance.levelUpUI.activeSelf);
+                return hasOtherUIOn == false;
+            });
+            
+            visuals.SetActive(true);
+            Debug.Log($"PlayLine {dialogueID}");
             _currentDialogue = DataTableManager.DialogueInfos.Find(dialogueID);
             if (_currentDialogue == default)
             {
                 Debug.LogError($"Dialogue ID {dialogueID} not found.");
-                return;
+                yield break;
             }
             tmpLine.SetText(_currentDialogue.Line);
             tmpSpeakerName.SetText(_currentDialogue.DisplayName);

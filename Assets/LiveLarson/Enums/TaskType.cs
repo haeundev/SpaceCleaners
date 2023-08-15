@@ -5,5 +5,9 @@ namespace LiveLarson.Enums
         None,
         Dialogue,
         Instruction,
+        GoToPlanet,
+        MissionOnPlanet,
+        ReturnToSpace,
+        
     }
 }

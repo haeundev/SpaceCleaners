@@ -48,7 +48,8 @@ public class PlanetSpawner : MonoBehaviour
             planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
             planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
             planetObj.AddComponent<RayGazable>();
-            var outlinable = planetObj.AddComponent<Outlinable>();
+            planetObj.AddComponent<Outlinable>();
+            var outlinable = planetObj.GetComponent<Outlinable>();
             outlinable.RenderStyle = RenderStyle.FrontBack;
             outlinable.BackParameters.Enabled = false;
             outlinable.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);

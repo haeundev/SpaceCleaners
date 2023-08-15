@@ -43,6 +43,11 @@ public class TypewriterSoundPlayer : MonoBehaviour
         _currentAudio?.Stop();
     }
 
+    private void OnDisable()
+    {
+        _currentAudio?.Stop();
+    }
+
     public void SetSFX(string audioName)
     {
         _sfxName = audioName;

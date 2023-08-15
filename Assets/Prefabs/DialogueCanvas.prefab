@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 8280826813211907608}
   - component: {fileID: 3810231560517831941}
   - component: {fileID: 8776009781627217307}
+  - component: {fileID: 3627032171487320702}
   m_Layer: 5
   m_Name: OptionA
   m_TagString: Untagged
@@ -334,6 +335,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3627032171487320702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2289076043878863752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 0
 --- !u!1 &3913019468761174070
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,6 +712,7 @@ GameObject:
   - component: {fileID: 8251675730971817517}
   - component: {fileID: 3876519354357045659}
   - component: {fileID: 5754018046463039627}
+  - component: {fileID: 1345615472182254771}
   m_Layer: 5
   m_Name: OptionB
   m_TagString: Untagged
@@ -808,6 +823,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1345615472182254771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071860536030528557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 0
 --- !u!1 &6308178058270804125
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc6452ec4be446c18d1fed7b169156a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visuals: {fileID: 3913019468761174070}
   buttonOptionA: {fileID: 8776009781627217307}
   buttonOptionB: {fileID: 5754018046463039627}
   tmpOptionA: {fileID: 161077802216895329}
@@ -1138,6 +1167,7 @@ GameObject:
   - component: {fileID: 3463522389154328362}
   - component: {fileID: 8745146114949454510}
   - component: {fileID: 6639190607063239532}
+  - component: {fileID: 4943787419888764273}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -1247,3 +1277,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4943787419888764273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302794070003902286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e419a4d4b65dfb94bae6eddedee04926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 0

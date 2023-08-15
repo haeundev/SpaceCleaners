@@ -19,6 +19,7 @@ namespace DataTables
         public string Line;
         public int Next;
         public bool HasChoice;
+        public bool IsEnd;
         public string ResponseA;
         public int NextForA;
         public string ResponseB;

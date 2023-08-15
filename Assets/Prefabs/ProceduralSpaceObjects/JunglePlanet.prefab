@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050768054263026441}
   - component: {fileID: 2525402349080848621}
-  - component: {fileID: 8784606100904678757}
   - component: {fileID: 8209101189118747831}
-  - component: {fileID: 7480029687972126278}
   - component: {fileID: 1638075718373284758}
   m_Layer: 10
   m_Name: JunglePlanet
@@ -62,22 +60,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &8784606100904678757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7889186921545443015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0870946430fae8c4f9dc5b891454be95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 3
-  cautionDistance: 2550
-  warningDistance: 2100
-  forwardAngle: 90
 --- !u!135 &8209101189118747831
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -99,47 +81,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 263.6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7480029687972126278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7889186921545443015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  complexMaskingMode: 0
-  drawingMode: 1
-  outlineLayer: 0
-  outlineTargets: []
-  renderStyle: 2
-  outlineParameters:
-    enabled: 1
-    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-    dilateShift: 1
-    blurShift: 1
-    fillPass:
-      shader: {fileID: 0}
-      serializedProperties: []
-  backParameters:
-    enabled: 0
-    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-    dilateShift: 1
-    blurShift: 1
-    fillPass:
-      shader: {fileID: 0}
-      serializedProperties: []
-  frontParameters:
-    enabled: 1
-    color: {r: 0.5487333, g: 1, b: 0.18396229, a: 1}
-    dilateShift: 1
-    blurShift: 1
-    fillPass:
-      shader: {fileID: 0}
-      serializedProperties: []
 --- !u!114 &1638075718373284758
 MonoBehaviour:
   m_ObjectHideFlags: 0

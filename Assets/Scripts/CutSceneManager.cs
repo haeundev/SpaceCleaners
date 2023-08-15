@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DevFeatures.SaveSystem;
 using LiveLarson.BootAndLoad;
 using LiveLarson.SoundSystem;
 using LiveLarson.Util;
@@ -13,6 +14,9 @@ public class CutSceneManager : MonoBehaviour
 
     private void Awake()
     {
+        SaveAndLoadManager.Instance.GameStat.isWatchedOpeningCutscene = true;
+        SaveAndLoadManager.Instance.Save(SaveAndLoadManager.Instance.GameStat);
+        
         _cuts = FindObjectsOfType<SingleCutBehaviour>().OrderBy(p => p.gameObject.name).ToList();
         _cutQueue = new Queue<SingleCutBehaviour>();
         _cuts.ForEach(p => _cutQueue.Enqueue(p));

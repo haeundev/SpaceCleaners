@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using DataTables;
 using DevFeatures.Dialogue;
+using DevFeatures.SaveSystem;
 using LiveLarson.DataTableManagement;
 using LiveLarson.Enums;
+using LiveLarson.SoundSystem;
 using LiveLarson.Util;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TaskManager : MonoBehaviour
 {
@@ -15,7 +19,7 @@ public class TaskManager : MonoBehaviour
     public GameObject levelUpUI;
     public GameObject instructionUI;
     public GameObject dialogueUI;
-    
+
     private bool _isJungleDone;
     private bool _isJungleLoaded;
     private bool _isMonumentDone;
@@ -28,21 +32,53 @@ public class TaskManager : MonoBehaviour
     private int _debrisCount;
     private bool _isCompleteConditionSatisfied;
 
-    public TaskInfo CurrentTask { get; private set; }
+    // public TaskInfo CurrentTask
+    // {
+    //     get
+    //     {
+    //         if (_currentTask != default)
+    //             return _currentTask;
+    //
+    //         var savedID = SaveAndLoadManager.Instance.GameStat.currentTaskID;
+    //         if (savedID != default)
+    //             _currentTask = DataTableManager.TaskInfos.Find(savedID);
+    //         else
+    //             _currentTask = DataTableManager.TaskInfos.Find(InitialTaskID);
+    //
+    //         return _currentTask;
+    //     }
+    //     private set
+    //     {
+    //         _currentTask = value;
+    //         SaveAndLoadManager.Instance.GameStat.currentTaskID = value.ID;
+    //         SaveAndLoadManager.Instance.Save(SaveAndLoadManager.Instance.GameStat);
+    //         Debug.Log($"[TaskManager]  CurrentTask is saved as {value.ID}");
+    //     }
+    // }
+
     public event Action<TaskInfo> OnTaskAcquired;
-    public event Action<TaskInfo> OnDialogueTaskInit;
+    public TaskInfo CurrentTask { get; private set; }
 
     private void Awake()
     {
         Instance = this;
         taskInfos = DataTableManager.TaskInfos;
         _tasks = taskInfos.Values;
-        
+
         OuterSpaceEvent.OnDebrisCaptured += OnDebrisCaptured;
         JungleEvents.OnSceneComplete += () => _isJungleDone = true;
         JungleEvents.OnSceneLoaded += () => _isJungleLoaded = true;
         MonumentEvents.OnSceneComplete += () => _isMonumentDone = true;
         MonumentEvents.OnSceneLoaded += () => _isMonumentLoaded = true;
+
+        Application.quitting += OnAppQuit;
+    }
+
+    private void OnAppQuit()
+    {
+        SaveAndLoadManager.Instance.GameStat.currentTaskID = CurrentTask.ID;
+        SaveAndLoadManager.Instance.Save(SaveAndLoadManager.Instance.GameStat);
+        Debug.Log($"[TaskManager]  CurrentTask is saved as {CurrentTask.ID}");
     }
 
     private void OnDebrisCaptured(GameObject _)
@@ -54,38 +90,55 @@ public class TaskManager : MonoBehaviour
     private void Start()
     {
         OnTaskAcquired += InitTask;
-        CurrentTask = _tasks.First(p => p.ID == InitialTaskID); // called after data table manager
-        OnTaskAcquired?.Invoke(CurrentTask);
+
+        var savedID = SaveAndLoadManager.Instance.GameStat.currentTaskID;
+        if (savedID == default)
+        {
+            savedID = InitialTaskID;
+            Debug.LogError("GameStat savedID is default. set to id: InitialTaskID 1");
+        }
+
+        CurrentTask = DataTableManager.TaskInfos.Find(savedID); // called after data table manager
+
+        // if (CurrentTask.ID == InitialTaskID)
+        //     OnTaskAcquired?.Invoke(CurrentTask);
     }
+
+    private void OnEnable()
+    {
+        if (CurrentTask == default)
+            CurrentTask = DataTableManager.TaskInfos.Find(SaveAndLoadManager.Instance.GameStat.currentTaskID);
+        InitTask(CurrentTask);
+    }
+
+    public event Action<TaskInfo> OnInitTask;
 
     private void InitTask(TaskInfo taskInfo)
     {
         if (taskInfo == default)
             return;
+        
+        StartCoroutine(StartCheckReadyToInitTask(taskInfo));
+    }
 
+    private IEnumerator StartCheckReadyToInitTask(TaskInfo taskInfo)
+    {
+        yield return YieldInstructionCache.WaitUntil(() => DialogueManager.Instance != default);
+        OnInitTask?.Invoke(taskInfo);
         Debug.Log($"[TaskManager]  InitTask {taskInfo.ID}");
 
         StartCoroutine(CheckTaskCompleteCondition());
-        
-        switch (taskInfo.TaskType)
-        {
-            case TaskType.Dialogue:
-                OnDialogueTaskInit?.Invoke(taskInfo);
-                break;
-            case TaskType.Instruction:
+
+        if (taskInfo.TaskType != TaskType.Dialogue)
+            if (dialogueUI != default)
+            {
+                Debug.Log($"dialogueUI is null. taskInfo: {taskInfo.ID}");
                 dialogueUI.SetActive(false);
-                ShowInstruction(taskInfo);
-                DoStartActions(taskInfo.StartAction);
-                break;
-        }
+            }
+
+        StartCoroutine(DoStartActions(taskInfo.StartAction));
     }
-    
-    private void ShowInstruction(TaskInfo taskInfo)
-    {
-        instructionUI.GetComponent<InstructionUI>().SetText(taskInfo.Title, taskInfo.ValueStr);
-        instructionUI.SetActive(true);
-    }
-    
+
     public IEnumerator CheckTaskCompleteCondition()
     {
         _isCompleteConditionSatisfied = false;
@@ -93,63 +146,80 @@ public class TaskManager : MonoBehaviour
         Debug.Log($"[TaskManager] condition type: {values[0]}");
         if (values.Length == 0)
         {
+            Debug.LogError("[TaskManager] task must have completion condition");
             _isCompleteConditionSatisfied = true;
             yield break;
         }
-        
+
         switch (values[0])
         {
             case "spaceloaded":
-                yield return YieldInstructionCache.WaitUntil(() => DialogueManager.Instance != default && taskCompleteUI != default);
-                Debug.Log($"[TaskManager] spaceloaded task complete condition satisfied");
+                yield return YieldInstructionCache.WaitUntil(() =>
+                    DialogueManager.Instance != default && taskCompleteUI != default &&
+                    SceneManager.GetActiveScene().name.Contains("Space"));
+                Debug.Log("[TaskManager] spaceloaded task complete condition satisfied");
+                OnConditionSatisfied(CurrentTask);
                 break;
             case "level":
                 yield return ShowLevelUp();
-                Debug.Log($"[TaskManager] level task complete condition satisfied");
+                Debug.Log("[TaskManager] level task complete condition satisfied");
+                OnConditionSatisfied(CurrentTask);
                 break;
             case "debris":
                 yield return CheckDebrisCount(int.Parse(values[1]));
-                Debug.Log($"[TaskManager] debris task complete condition satisfied");
+                Debug.Log("[TaskManager] debris task complete condition satisfied");
+                OnConditionSatisfied(CurrentTask);
                 break;
             case "dialoguefinish":
-                yield return YieldInstructionCache.WaitUntil(() => DialogueManager.Instance.dialogueFinished);
-                Debug.Log($"[TaskManager] dialoguefinish task complete condition satisfied");
+                yield return YieldInstructionCache.WaitUntil(() => DialogueManager.Instance != default
+                                                                   && DialogueManager.Instance.playedDialogueInScene
+                                                                   && DialogueManager.Instance.dialogueFinished);
+                Debug.Log("[TaskManager] dialoguefinish task complete condition satisfied");
+                OnConditionSatisfied(CurrentTask);
                 break;
             case "jungleloaded":
                 yield return YieldInstructionCache.WaitUntil(() => _isJungleLoaded);
-                Debug.Log($"[TaskManager] jungleloaded task complete condition satisfied");
+                Debug.Log("[TaskManager] jungleloaded task complete condition satisfied");
+                OnConditionSatisfied(CurrentTask);
                 break;
             case "junglecomplete":
                 yield return YieldInstructionCache.WaitUntil(() => _isJungleDone);
-                Debug.Log($"[TaskManager] junglecomplete task complete condition satisfied");
+                Debug.Log("[TaskManager] junglecomplete task complete condition satisfied");
+                OnConditionSatisfied(CurrentTask);
                 break;
             case "monumentloaded":
                 yield return YieldInstructionCache.WaitUntil(() => _isMonumentLoaded);
+                OnConditionSatisfied(CurrentTask);
                 break;
             case "monumentcomplete":
                 yield return YieldInstructionCache.WaitUntil(() => _isMonumentDone);
-                Debug.Log($"[TaskManager] junglecomplete task complete condition satisfied");
+                Debug.Log("[TaskManager] junglecomplete task complete condition satisfied");
+                OnConditionSatisfied(CurrentTask);
                 break;
         }
-        
+    }
+
+    private void OnConditionSatisfied(TaskInfo currentTask)
+    {
         _isCompleteConditionSatisfied = true;
         DialogueManager.Instance.dialogueFinished = false;
         CompleteCurrentTask();
-        Debug.Log($"[TaskManager] condition satisfied. complete task: {CurrentTask.ID}");
+        Debug.Log($"[TaskManager] OnConditionSatisfied. complete task: {CurrentTask.ID}");
     }
-    
+
     private IEnumerator ShowLevelUp()
     {
         levelUpUI.SetActive(true);
         yield return YieldInstructionCache.WaitForSeconds(2f);
     }
-    
+
     private IEnumerator CheckDebrisCount(int count)
     {
         _debrisCount = 0;
         yield return YieldInstructionCache.WaitUntil(() => _debrisCount == count);
     }
-    
+
+    [Button]
     public void CompleteCurrentTask()
     {
         StartCoroutine(RunEndActions(() =>
@@ -164,17 +234,25 @@ public class TaskManager : MonoBehaviour
         }));
     }
 
-    public void DoStartActions(string startActionStr) // instant
+    public IEnumerator DoStartActions(string startActionStr) // instant
     {
         var values = startActionStr.Trim('(', ')', ' ').Replace(" ", string.Empty).Split(',');
         Debug.Log($"[TaskManager] DoStartActions: {values[0]}");
         if (values.Length == 0)
-            return;
-        
+            yield break;
+
         switch (values[0])
         {
             case "spawnplanet":
                 PlanetSpawner.Instance.SpawnPlanet((PlanetType)Enum.Parse(typeof(PlanetType), values[1]));
+                break;
+            case "activatetutorialarrows":
+                yield return YieldInstructionCache.WaitUntil(() => TutorialArrows.Instance != default);
+                TutorialArrows.Activate(true);
+                break;
+            case "deactivatetutorialarrows":
+                yield return YieldInstructionCache.WaitUntil(() => TutorialArrows.Instance != default);
+                TutorialArrows.Activate(false);
                 break;
         }
     }
@@ -189,7 +267,7 @@ public class TaskManager : MonoBehaviour
 
             yield return DoAction(values);
         }
-        
+
         // yield return new WaitUntil(() => CloseScreen.Instance.IsClosing == false);
         onDone?.Invoke();
     }
@@ -201,7 +279,7 @@ public class TaskManager : MonoBehaviour
             case "taskend":
                 yield return ShowTaskComplete();
                 break;
-            
+
             case "levelup":
                 yield return ShowTaskComplete();
                 break;
@@ -210,7 +288,9 @@ public class TaskManager : MonoBehaviour
 
     private IEnumerator ShowTaskComplete()
     {
+        yield return YieldInstructionCache.WaitUntil(() => taskCompleteUI.activeSelf == false);
         taskCompleteUI.GetComponent<TaskCompleteUI>().SetText(CurrentTask.Title);
+        SoundService.PlaySfx("Assets/Audio/Capture Success.ogg", transform.position);
         taskCompleteUI.SetActive(true);
         yield return YieldInstructionCache.WaitForSeconds(2f);
     }

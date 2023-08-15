@@ -112,15 +112,15 @@ public class DashboardGadget : MonoBehaviour
     
     private void Display(GadgetInfo gadgetInfo)
     {
-        if (gadgetInfo.ID == _gadgetStat.lastSelectedID)
-        {
-            checkIcon.SetActive(true);
-            selectButton.GetComponentInChildren<TextMeshProUGUI>().SetText("장착됨");
-        }
-        else
-        {
-            selectButton.GetComponentInChildren<TextMeshProUGUI>().SetText("장착하기");
-        }
+        // if (gadgetInfo.ID == _gadgetStat.lastSelectedID)
+        // {
+        //     //checkIcon.SetActive(true);
+        //     selectButton.GetComponentInChildren<TextMeshProUGUI>().SetText("장착됨");
+        // }
+        // else
+        // {
+        //     selectButton.GetComponentInChildren<TextMeshProUGUI>().SetText("장착하기");
+        // }
         _currentID = gadgetInfo.ID;
 
         // 3D model

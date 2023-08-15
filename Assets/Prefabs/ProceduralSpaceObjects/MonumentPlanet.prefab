@@ -10,10 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7314599731227799475}
   - component: {fileID: 2124095577633894673}
-  - component: {fileID: 5409495976148897732}
   - component: {fileID: 8595047382337587048}
-  - component: {fileID: 1151864075390961110}
-  - component: {fileID: 4202649079935810064}
   - component: {fileID: 6661294026861791101}
   m_Layer: 10
   m_Name: MonumentPlanet
@@ -63,22 +60,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &5409495976148897732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012375326077742876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0870946430fae8c4f9dc5b891454be95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 3
-  cautionDistance: 2550
-  warningDistance: 2100
-  forwardAngle: 90
 --- !u!135 &8595047382337587048
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -100,59 +81,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 111.86
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1151864075390961110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012375326077742876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bdc4ac711b4aca47ad3aae3dafdbf8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4202649079935810064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012375326077742876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  complexMaskingMode: 0
-  drawingMode: 1
-  outlineLayer: 0
-  outlineTargets: []
-  renderStyle: 2
-  outlineParameters:
-    enabled: 1
-    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-    dilateShift: 1
-    blurShift: 1
-    fillPass:
-      shader: {fileID: 0}
-      serializedProperties: []
-  backParameters:
-    enabled: 0
-    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-    dilateShift: 1
-    blurShift: 1
-    fillPass:
-      shader: {fileID: 0}
-      serializedProperties: []
-  frontParameters:
-    enabled: 1
-    color: {r: 0.5487333, g: 1, b: 0.18396229, a: 1}
-    dilateShift: 1
-    blurShift: 1
-    fillPass:
-      shader: {fileID: 0}
-      serializedProperties: []
 --- !u!114 &6661294026861791101
 MonoBehaviour:
   m_ObjectHideFlags: 0

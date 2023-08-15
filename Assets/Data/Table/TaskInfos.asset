@@ -42,7 +42,7 @@ MonoBehaviour:
     Title: "\uB098\uC758 \uBE44\uC11C \uC790\uBE44\uC988"
     ValueStr: 
     ValueInt: 23
-    StartAction: 
+    StartAction: (activatetutorialarrows)
     EndAction: (taskend)
     CompleteCondition: (dialoguefinish)
   - ID: 5
@@ -51,11 +51,11 @@ MonoBehaviour:
     ValueStr: "\uC6B0\uC8FC\uB97C \uBE44\uD589\uD558\uC5EC \uC794\uD574\uB97C 3\uAC1C
       \uC218\uC9D1\uD558\uC138\uC694."
     ValueInt: 0
-    StartAction: 
+    StartAction: (deactivatetutorialarrows)
     EndAction: (taskend)
     CompleteCondition: (debris, 3)
   - ID: 6
-    TaskType: 2
+    TaskType: 3
     Title: "\uC6B8\uCC3D\uD55C \uC815\uAE00\uD589\uC131"
     ValueStr: "\uC815\uAE00\uD589\uC131\uC774 \uC18C\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4!
       \n\uD589\uC131 \uC9C4\uC785 \uD6C4 \uBBF8\uC158\uC744 \uC218\uD589\uD558\uC138\uC694."
@@ -64,7 +64,7 @@ MonoBehaviour:
     EndAction: (taskend)
     CompleteCondition: (jungleloaded)
   - ID: 7
-    TaskType: 2
+    TaskType: 4
     Title: "\uC465\uC465 \uC790\uB77C\uAC70\uB77C"
     ValueStr: "\uC815\uAE00\uD589\uC131\uC758 \uBBF8\uC158\uC744 \uC644\uB8CC\uD558\uC138\uC694."
     ValueInt: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     EndAction: (taskend)
     CompleteCondition: (junglecomplete)
   - ID: 8
-    TaskType: 2
+    TaskType: 5
     Title: "\uB2E4\uC2DC \uC6B0\uC8FC\uB85C"
     ValueStr: "\uC6B0\uC8FC\uB85C \uB3CC\uC544\uAC00\uC138\uC694."
     ValueInt: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
     EndAction: (taskend)
     CompleteCondition: (debris, 2)
   - ID: 11
-    TaskType: 2
+    TaskType: 3
     Title: "\uC704\uD5D8\uD55C \uBAA8\uB798\uD589\uC131"
     ValueStr: "\uBAA8\uB798\uD589\uC131\uC774 \uC18C\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4!
       \n\uD589\uC131 \uC9C4\uC785 \uD6C4 \uBBF8\uC158\uC744 \uC218\uD589\uD558\uC138\uC694."
@@ -105,7 +105,7 @@ MonoBehaviour:
     EndAction: (taskend)
     CompleteCondition: (monumentloaded)
   - ID: 12
-    TaskType: 2
+    TaskType: 4
     Title: "\uBAA8\uB798\uD589\uC131 \uC804\uD22C!"
     ValueStr: "\uBAA8\uB798\uBAAC\uC2A4\uD130\uB97C \uD1F4\uCE58\uD558\uACE0 \uC544\uC774\uD15C\uC744
       \uC5BB\uC73C\uC138\uC694."
@@ -114,7 +114,7 @@ MonoBehaviour:
     EndAction: (taskend)
     CompleteCondition: (monumentcomplete)
   - ID: 13
-    TaskType: 2
+    TaskType: 5
     Title: "\uB2E4\uC2DC \uC6B0\uC8FC\uB85C"
     ValueStr: "\uC6B0\uC8FC\uB85C \uB3CC\uC544\uAC00\uC138\uC694."
     ValueInt: 0

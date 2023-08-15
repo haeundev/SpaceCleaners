@@ -15,6 +15,7 @@ namespace DevFeatures.SaveSystem.Model
         public bool isDoneTutorial;
         public bool isWatchedOpeningCutscene;
         public bool isLevelRestart;
+        public int currentTaskID = 1;
     }
     
     [Serializable]

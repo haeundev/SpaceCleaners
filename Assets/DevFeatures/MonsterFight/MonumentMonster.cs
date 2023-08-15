@@ -28,7 +28,6 @@ public class MonumentMonster : MonoBehaviour
     [SerializeField] private List<string> sfxOnDie;
     [SerializeField] private List<GameObject> disableOnDie;
     [SerializeField] private float knockBackIntensity = 5f;
-    [SerializeField] private string sfxSing = "Assets/Audio/MonsterSing.mp3";
     [SerializeField] private string sfxTalk = "Assets/Audio/MonsterTalk.mp3";
     [SerializeField] private string sfxLaugh = "Assets/Audio/LittleMonsterLaugh.wav";
     private MonsterState _state = MonsterState.Idle;
@@ -170,7 +169,7 @@ public class MonumentMonster : MonoBehaviour
         _state = targetState;
         StopAllCoroutines();
         
-        Debug.Log($"[MonumentMonster] Changed state to {_state}");
+        //Debug.Log($"[MonumentMonster] Changed state to {_state}");
         
         switch (targetState)
         {

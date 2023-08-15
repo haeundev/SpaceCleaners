@@ -61,6 +61,23 @@ namespace DevFeatures.SaveSystem
             }
         }
         
+        public void ClearAll()
+        {
+            try
+            {
+                ClearData(GameStat);
+                ClearData(GadgetStat);
+                ClearData(PlayerStat);
+                ClearData(InventoryStat);
+                Debug.Log($"[SAVE LOAD]  All ClearData");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        
         [Button]
         public void Save(ISavable savable)
         {
@@ -101,7 +118,7 @@ namespace DevFeatures.SaveSystem
             }
             catch (Exception e)
             {
-                Debug.LogError($"[SAVE LOAD]  Could not read {typeof(T).Name} file! (Ignore error if first play)");
+                Debug.Log($"[SAVE LOAD]  Could not read {typeof(T).Name} file! (Ignore error if first play)");
                 return new T(); // Return a new instance of the type if loading fails
             }
         }

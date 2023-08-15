@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoCloseInSeconds : MonoBehaviour
 {
-    [SerializeField] private float closeInSeconds = 5f;
+    [SerializeField] private float closeInSeconds = 3f;
 
     private void OnEnable()
     {

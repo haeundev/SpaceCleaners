@@ -1,25 +1,27 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using EPOOutline;
 using LiveLarson.BootAndLoad;
-using Sirenix.OdinInspector;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class RayGazable : MonoBehaviour
 {
     private List<SpaceObjectLabel> _labels;
+
     public List<SpaceObjectLabel> Labels
     {
         get
         {
             if (_labels == default || _labels.Count == 0)
-                _labels = FindObjectOfType<SpaceObjectLabels>()?.labels;
+                _labels = SpaceObjectLabels.Instance.labels;
+            if (_labels == default)
+            {
+                Debug.LogError("SpaceObjectLabel - why is it null?");
+            }
             return _labels;
         }
     }
-    
+
     private string _generatedName = "";
     private bool _isNeverGazed = true;
 
@@ -37,6 +39,7 @@ public class RayGazable : MonoBehaviour
             _isNeverGazed = false;
             outline.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
         }
+
         outline.enabled = isShow;
     }
 
@@ -47,7 +50,7 @@ public class RayGazable : MonoBehaviour
             Debug.LogError("why is it not 3?");
             return;
         }
-        
+
         if (isShow)
         {
             if (gameObject.layer == LayerMask.NameToLayer("Asteroid"))
@@ -63,10 +66,7 @@ public class RayGazable : MonoBehaviour
                 debrisLabel.SetDebris(gameObject);
                 label.Show(GetLabelText(label.type));
                 label.gameObject.SetActive(true);
-                label.RegisterEnterButtonEvent(() =>
-                {
-                    OuterSpaceEvent.Trigger_ShootGadget(gameObject);
-                });
+                label.RegisterEnterButtonEvent(() => { OuterSpaceEvent.Trigger_ShootGadget(gameObject); });
             }
             else if (gameObject.layer == LayerMask.NameToLayer("Planet"))
             {
@@ -74,7 +74,7 @@ public class RayGazable : MonoBehaviour
                 label.Show(GetLabelText(label.type));
                 label.gameObject.SetActive(true);
                 var planetInfo = gameObject.GetComponent<PlanetInfo>();
-                
+
                 // HEO TODO: go to different planet scene
                 label.RegisterEnterButtonEvent(() =>
                 {

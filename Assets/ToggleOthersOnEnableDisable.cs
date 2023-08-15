@@ -8,13 +8,30 @@ public class ToggleOthersOnEnableDisable : MonoBehaviour
 
     private void OnEnable()
     {
-        toggleOnOnEnable.ForEach(p => p.SetActive(true));
-        toggleOffOnEnable.ForEach(p => p.SetActive(false));
+        toggleOnOnEnable.ForEach(p =>
+        {
+            if (p != null)
+                p.SetActive(true);
+        });
+        toggleOffOnEnable.ForEach(p =>
+        {
+            if (p != null)
+                p.SetActive(false);
+        });
     }
 
     private void OnDisable()
     {
-        toggleOnOnEnable.ForEach(p => p.SetActive(false));
-        toggleOffOnEnable.ForEach(p => p.SetActive(true));
+        toggleOnOnEnable.ForEach(p =>
+        {
+            if (p != null)
+                p.SetActive(false);
+        });
+        
+        toggleOffOnEnable.ForEach(p =>
+        {
+            if (p != null)
+                p.SetActive(true);
+        });
     }
 }

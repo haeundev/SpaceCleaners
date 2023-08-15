@@ -14,7 +14,11 @@ public class RayGaze : MonoBehaviour
 
     private void Update()
     {
-        if (_camera == default)
+        if (_camera == default 
+            || SpaceObjectLabels.Instance == default
+            || SpaceObjectLabels.Instance.labels == default
+            || SpaceObjectLabels.Instance.labels.Count == 0
+            )
             return;
 
         var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));

@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using DevFeatures.SaveSystem;
 using LiveLarson.BootAndLoad;
+using LiveLarson.DataTableManagement;
+using LiveLarson.Enums;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameStartMenu : MonoBehaviour
 {
-    private string sceneToGoOnStart = "OuterSpace"; // SCENE NAME
-    private string sceneToGoOnStartIfFirst = "OpeningCutscene"; // SCENE NAME
-    
     [Header("UI Pages")]
     public GameObject mainMenu;
     public GameObject options;
@@ -58,11 +57,29 @@ public class GameStartMenu : MonoBehaviour
         HideAll();
         if (SaveAndLoadManager.Instance.IsFirstTime)
         {
-            ApplicationContext.Instance.LoadScene(sceneToGoOnStartIfFirst);
+            ApplicationContext.Instance.LoadScene("OpeningCutscene");
         }
-        else         
-            ApplicationContext.Instance.LoadScene(sceneToGoOnStart);
+        else
+        {
+            LoadSceneThatMatchTaskID();
+        }
+    }
 
+    private void LoadSceneThatMatchTaskID()
+    {
+        var currentTaskID = SaveAndLoadManager.Instance.GameStat.currentTaskID;
+        if (currentTaskID == 7 || currentTaskID == 8) // jungle
+        {
+            ApplicationContext.Instance.LoadScene("JunglePlanet");
+        }
+        else if (currentTaskID == 12 || currentTaskID == 13)
+        {
+            ApplicationContext.Instance.LoadScene("MonumentPlanet");
+        }
+        else
+        {
+            ApplicationContext.Instance.LoadScene("OuterSpace");
+        }
     }
 
     public void HideAll()
