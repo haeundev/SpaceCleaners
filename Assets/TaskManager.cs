@@ -137,12 +137,11 @@ public class TaskManager : MonoBehaviour
         CompleteCurrentTask();
         Debug.Log($"[TaskManager] condition satisfied. complete task: {CurrentTask.ID}");
     }
-
     
     private IEnumerator ShowLevelUp()
     {
         levelUpUI.SetActive(true);
-        yield return YieldInstructionCache.WaitForSeconds(3f);
+        yield return YieldInstructionCache.WaitForSeconds(2f);
     }
     
     private IEnumerator CheckDebrisCount(int count)
@@ -207,14 +206,12 @@ public class TaskManager : MonoBehaviour
                 yield return ShowTaskComplete();
                 break;
         }
-        
-        yield break;
     }
 
     private IEnumerator ShowTaskComplete()
     {
         taskCompleteUI.GetComponent<TaskCompleteUI>().SetText(CurrentTask.Title);
         taskCompleteUI.SetActive(true);
-        yield return YieldInstructionCache.WaitForSeconds(3f);
+        yield return YieldInstructionCache.WaitForSeconds(2f);
     }
 }
