@@ -76,7 +76,10 @@ namespace DevFeatures.Dialogue
         [Sirenix.OdinInspector.Button]
         private void OnNextButtonPressed()
         {
-            if (_currentDialogue == default || _currentDialogue.HasChoice)
+            if (_currentDialogue == default || _currentDialogue.HasChoice
+                || TaskManager.Instance.taskCompleteUI.activeSelf 
+                || TaskManager.Instance.levelUpUI.activeSelf 
+                )
                 return;
             
             var next = _currentDialogue?.Next ?? 0;
