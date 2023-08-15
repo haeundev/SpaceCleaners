@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using EPOOutline;
 using LiveLarson.BootAndLoad;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RayGazable : MonoBehaviour
 {
@@ -88,13 +90,18 @@ public class RayGazable : MonoBehaviour
 
     private string GetLabelText(SpaceObjectLabelType type)
     {
-        if (type == SpaceObjectLabelType.Asteroid)
+        switch (type)
         {
-            if (_generatedName == "")
-                _generatedName = GenerateRandomAsteroidName();
-            return _generatedName;
+            case SpaceObjectLabelType.Planet:
+                return "Planet";
+            case SpaceObjectLabelType.Asteroid:
+                if (_generatedName == "")
+                    _generatedName = GenerateRandomAsteroidName();
+                return _generatedName;
+            case SpaceObjectLabelType.Debris:
+                return "Debris";
         }
-        
+
         return gameObject.name;
     }
 
