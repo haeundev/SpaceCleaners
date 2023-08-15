@@ -9,7 +9,7 @@ using UnityEngine.AddressableAssets;
 public class KeySpawner : MonoBehaviour
 {
     public DynamicQuickAccessInventory _inventory;
-    public int maxCount = 5;
+    [SerializeField] private int maxCount;
     public Transform keySpawnPoint;
     [SerializeField] private string keyPath = "Prefabs/Jungle/JungleKey.prefab";
 
