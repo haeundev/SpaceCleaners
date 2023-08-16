@@ -10,7 +10,7 @@ namespace LiveLarson.GameMode
 {
     public class GameModeService : MonoBehaviour, IGameModeService
     {
-        private GameModeService Instance { get; set; }
+        public static GameModeService Instance { get; set; }
         private const float DEFAULT_FADE_TIME = 0.3f;
         private static readonly List<Enums.GameMode> BaseGameModes = new() { Enums.GameMode.OuterSpace };
         private Enums.GameMode _currentGameMode;

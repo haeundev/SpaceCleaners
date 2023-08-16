@@ -100,7 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestBoxSFX: Assets/Audio/chestbox_open_magic.mp3
   myAnimator: {fileID: 291885360908045510}
-  finalItemPath: Prefabs/Jungle/FinalItemCrane.prefab
+  finalItemPrefab: {fileID: 4295117539779923530, guid: 210e0f882452ec244ae3158b90883529,
+    type: 3}
   finalItemSpot: {fileID: 1133179732236936765}
 --- !u!1 &1948051946559989564
 GameObject:

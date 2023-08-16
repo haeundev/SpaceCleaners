@@ -944,10 +944,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e52d5b662377a4e93acb393227aede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  purpleBugPath: Prefabs/Jungle/PurpleBug.prefab
-  oxygenBarrelPath: Prefabs/Jungle/OxygenBarrel.prefab
-  pinkLeafPath: Prefabs/Jungle/PinkLeaf.prefab
-  blueFlowerPath: Prefabs/Jungle/BlueFlower.prefab
+  purpleBug: {fileID: 7315093368161898438, guid: d173782c459d8bd41960be5f4dc8bba5,
+    type: 3}
+  oxygenBarrel: {fileID: 994888562415954039, guid: eee7d3dee0610224cbc23e23ff0d5f54,
+    type: 3}
+  pinkLeaf: {fileID: 4250426207029917840, guid: c3fb2187012ad00428418d4f381b3367,
+    type: 3}
+  blueFlower: {fileID: 442994966008343484, guid: a957e5452611e2946a21b43ea1d1c352,
+    type: 3}
   parentTransform: {fileID: 8067103046004768341}
   clip: {fileID: 8300000, guid: b7ce4b83a0d152b40a7586665dfd3646, type: 3}
 --- !u!114 &2310748349439058334

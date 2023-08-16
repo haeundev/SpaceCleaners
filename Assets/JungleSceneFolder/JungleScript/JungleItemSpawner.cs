@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 public class JungleItemSpawner : MonoBehaviour
 {
-    [SerializeField] private string purpleBugPath = "Prefabs/Jungle/PurpleBug.prefab";
-    [SerializeField] private string oxygenBarrelPath = "Prefabs/Jungle/OxygenBarrel.prefab";
-    [SerializeField] private string pinkLeafPath = "Prefabs/Jungle/PinkLeaf.prefab";
-    [SerializeField] private string blueFlowerPath = "Prefabs/Jungle/BlueFlower.prefab";
+    [SerializeField] private GameObject purpleBug;
+    [SerializeField] private GameObject oxygenBarrel;
+    [SerializeField] private GameObject pinkLeaf;
+    [SerializeField] private GameObject blueFlower;
 
     [SerializeField] private Transform parentTransform;
 
@@ -34,28 +33,24 @@ public class JungleItemSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        var path = "";
         switch (GetComponent<JunglePlant>().plantType)
         {
             case PlantType.Leaf:
-                path = pinkLeafPath;
+                var leaf = Instantiate(pinkLeaf, parentTransform);
+                leaf.GetComponent<Floater>().enabled = true;
                 break;
             case PlantType.Flower:
-                path = blueFlowerPath;
+                var flower = Instantiate(blueFlower, parentTransform);
+                flower.GetComponent<Floater>().enabled = true;
                 break;
             case PlantType.Bug:
-                path = purpleBugPath;
+                var bug = Instantiate(purpleBug, parentTransform);
+                bug.GetComponent<Floater>().enabled = true;
                 break;
             case PlantType.Oxygen:
-                path = oxygenBarrelPath;
+                var oxygen = Instantiate(oxygenBarrel, parentTransform);
+                oxygen.GetComponent<Floater>().enabled = true;
                 break;
         }
-
-        Addressables.LoadAssetAsync<GameObject>(path).Completed += op =>
-        {
-            var go = op.Result;
-            var temp = Instantiate(go, parentTransform);
-            temp.GetComponent<Floater>().enabled = true;
-        };
     }
 }

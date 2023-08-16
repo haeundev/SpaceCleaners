@@ -1,8 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using LiveLarson.Enums;
+using LiveLarson.GameMode;
+using LiveLarson.SoundSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class SelectItem : MonoBehaviour
@@ -31,17 +35,42 @@ public class SelectItem : MonoBehaviour
 
     private void ItemSelected(SelectEnterEventArgs context)
     {
-        AudiosourceManager.instance.PlayClip(enteringClip);
+        if (AudiosourceManager.instance == default)
+        {
+            SoundService.PlaySfx("Assets/Audio/Grabbing.mp3", transform.position);
+        }
+        else
+        {
+            AudiosourceManager.instance.PlayClip(enteringClip);
+        }
     }
     
     private void ItemUnSelected(SelectExitEventArgs context)
     {
-        AudiosourceManager.instance.PlayClip(exitingClip);
-
+        if (AudiosourceManager.instance == default)
+        {
+            SoundService.PlaySfx("Assets/Audio/Grabbing.mp3", transform.position);
+        }
+        else
+        {
+            AudiosourceManager.instance.PlayClip(enteringClip);
+        }
+        
         if (isFinalObject)
         {
-            //여기서 미션 컴플릿
-            JungleEvents.Trigger_SceneComplete();
+            // planet mission complete
+            if (TaskManager.Instance.CurrentTask.TaskType == TaskType.MissionOnPlanet)
+            {
+                if (SceneManager.GetActiveScene().name.Contains("Jungle"))
+                {
+                    JungleEvents.Trigger_SceneComplete();
+                }
+                if (SceneManager.GetActiveScene().name.Contains("Monument"))
+                {
+                    MonumentEvents.Trigger_SceneComplete();
+                }
+            }
+           
         }
     }
 }

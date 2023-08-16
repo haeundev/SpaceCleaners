@@ -211,8 +211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventory: {fileID: 784766169775721337}
   maxCount: 1
-  keySpawnPoint: {fileID: 0}
-  keyPath: Prefabs/Jungle/JungleKey.prefab
+  keySpawnPoint: {fileID: 9158180704931611122}
+  keyPrefab: {fileID: 5933447568737362310, guid: e64eee039c2e6f1479672d2de3bdc064,
+    type: 3}
   keySpawnSFX: Assets/Audio/key_appear_magic.mp3
 --- !u!114 &4315192050072015194
 MonoBehaviour:

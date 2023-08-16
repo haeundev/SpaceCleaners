@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 2678252798376097906, guid: 71124f7d565c27b428d84542b8931a3a,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2678252798376097906, guid: 71124f7d565c27b428d84542b8931a3a,
         type: 3}
@@ -224,7 +224,9 @@ MonoBehaviour:
   _inventory: {fileID: 258086690872023830}
   maxCount: 1
   keySpawnPoint: {fileID: 1662147044231164590}
-  keyPath: Prefabs/Jungle/JungleKey.prefab
+  keyPrefab: {fileID: 5933447568737362310, guid: e64eee039c2e6f1479672d2de3bdc064,
+    type: 3}
+  keySpawnSFX: Assets/Audio/key_appear_magic.mp3
 --- !u!114 &258086690872023830
 MonoBehaviour:
   m_ObjectHideFlags: 0

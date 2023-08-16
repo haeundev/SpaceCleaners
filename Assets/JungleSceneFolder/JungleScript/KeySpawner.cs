@@ -1,22 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using GRASBOCK.XR.Inventory;
-using LiveLarson.DataTableManagement;
 using LiveLarson.SoundSystem;
-using UnityEngine.AddressableAssets;
+using UnityEngine;
 
 public class KeySpawner : MonoBehaviour
 {
     public DynamicQuickAccessInventory _inventory;
     [SerializeField] private int maxCount;
     public Transform keySpawnPoint;
-    [SerializeField] private string keyPath = "Prefabs/Jungle/JungleKey.prefab";
+    [SerializeField] private GameObject keyPrefab;
 
     [SerializeField] private string keySpawnSFX = "Assets/Audio/key_appear_magic.mp3";
 
-    private bool isKeySpawned = false;
-    void Awake()
+    private bool isKeySpawned;
+
+    private void Awake()
     {
         _inventory.OnKeySpawned += OnKeySpawned;
     }
@@ -25,24 +23,13 @@ public class KeySpawner : MonoBehaviour
     {
         if (isKeySpawned)
             return;
-        
-        foreach(Slot s in slots)
-        {
-            if(s.ItemCount != maxCount)
-            {
-                return;
-            }
-        }
 
-        //Key spawn
-        Addressables.LoadAssetAsync<GameObject>(keyPath).Completed += op =>
-        {
-            var go = op.Result;
-            var temp = Instantiate(go, keySpawnPoint);
-            SoundService.PlaySfx(keySpawnSFX, temp.transform.position);
-            isKeySpawned = true;
-            // AudiosourceManager.instance.PlayClip(clip);
-            // temp.GetComponent<Floater>().enabled = true;
-        };
+        foreach (var s in slots)
+            if (s.ItemCount != maxCount)
+                return;
+
+        var key = Instantiate(keyPrefab, keySpawnPoint);
+        SoundService.PlaySfx(keySpawnSFX, key.transform.position);
+        isKeySpawned = true;
     }
 }

@@ -21,7 +21,7 @@ namespace GRASBOCK.XR.Inventory
         {
             if (!inserter)
             {//the inserter is the point where items will get put into
-                Debug.LogError("[Distributer] Kind of pointless without an Inserter");
+                Debug.Log("[Distributer] Kind of pointless without an Inserter");
             }
             else
             {

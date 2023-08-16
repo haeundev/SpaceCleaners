@@ -2,7 +2,6 @@ using System;
 using LiveLarson.SoundSystem;
 using UniRx;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.XR.Content.Interaction;
 
 public class OnChestOpened : MonoBehaviour
@@ -15,7 +14,7 @@ public class OnChestOpened : MonoBehaviour
     private bool isChestOpened;
 
     public Animator myAnimator;
-    [SerializeField] private string finalItemPath = "Prefabs/Jungle/FinalItemCrane.prefab";
+    [SerializeField] private GameObject finalItemPrefab;
     [SerializeField] public Transform finalItemSpot;
 
     private void Awake()
@@ -44,12 +43,8 @@ public class OnChestOpened : MonoBehaviour
         var animLength = myAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         Observable.Timer(TimeSpan.FromSeconds(animLength)).Subscribe(_ =>
         {
-            Addressables.LoadAssetAsync<GameObject>(finalItemPath).Completed += op =>
-            {
-                var go = op.Result;
-                var temp = Instantiate(go, finalItemSpot);
-                temp.GetComponent<Floater>().enabled = true;
-            };
+            var finalItem = Instantiate(finalItemPrefab, finalItemSpot);
+            finalItem.GetComponent<Floater>().enabled = true;
         });
     }
 }

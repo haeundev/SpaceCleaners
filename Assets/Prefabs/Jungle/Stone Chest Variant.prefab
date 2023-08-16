@@ -100,7 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestBoxSFX: Assets/Audio/chestbox_open_magic.mp3
   myAnimator: {fileID: 1455340891321618619}
-  finalItemPath: Prefabs/Jungle/FinalItemBoat.prefab
+  finalItemPrefab: {fileID: 4295117539779923530, guid: 210e0f882452ec244ae3158b90883529,
+    type: 3}
   finalItemSpot: {fileID: 5525574255098172124}
 --- !u!1 &8285959478827978693
 GameObject:
@@ -149,7 +150,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3dea39ecdb1f837449c4bf3a885eda94,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3dea39ecdb1f837449c4bf3a885eda94,
         type: 3}
