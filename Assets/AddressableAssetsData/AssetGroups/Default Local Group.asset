@@ -16,7 +16,17 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: ca3b4ca7f21ebbf429ff4e14f2ded0cd
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: fd5283efa0f804e429b190de096f8827
+    m_Address: Assets/Prefabs/Enemy/SandMonsterA.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4e5ec027d46c4087a54e804cb943952
+    m_Address: Assets/Prefabs/Enemy/SandMonsterB.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 02adc8d5ec4545a48a134065cc146d5e, type: 2}
   m_SchemaSet:
