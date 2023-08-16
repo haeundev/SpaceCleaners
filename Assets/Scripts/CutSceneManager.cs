@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using LiveLarson.BootAndLoad;
-using LiveLarson.SoundSystem;
 using LiveLarson.Util;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -56,7 +55,7 @@ public class CutSceneManager : MonoBehaviour
     {
         if (ApplicationContext.Instance == default)
         {
-            Debug.LogError($"Please start with the first booting scene");
+            Debug.LogError("Please start with the first booting scene");
             return;
         }
 

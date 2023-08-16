@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5277e8fff51f9bb4280fbd3c1b6f3ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneType: 0
+  cutsceneType: 1
 --- !u!4 &420604461
 Transform:
   m_ObjectHideFlags: 0

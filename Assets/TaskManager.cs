@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using DataTables;
 using DevFeatures.Dialogue;
+using LiveLarson.BootAndLoad;
 using LiveLarson.Enums;
 using LiveLarson.SoundSystem;
 using LiveLarson.Util;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -84,6 +86,15 @@ public class TaskManager : MonoBehaviour
     {
         if (taskInfo == default)
             return;
+
+        if (taskInfo.TaskType == TaskType.EndGame)
+        {
+            Observable.Timer(TimeSpan.FromSeconds(5f)).Subscribe(_ =>
+            {
+                StopAllCoroutines();
+                ApplicationContext.Instance.LoadScene("EndingCutscene");
+            }).AddTo(this);
+        }
 
         StartCoroutine(StartCheckReadyToInitTask(taskInfo));
     }

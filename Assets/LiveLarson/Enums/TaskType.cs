@@ -8,6 +8,6 @@ namespace LiveLarson.Enums
         GoToPlanet,
         MissionOnPlanet,
         ReturnToSpace,
-        
+        EndGame,
     }
 }
