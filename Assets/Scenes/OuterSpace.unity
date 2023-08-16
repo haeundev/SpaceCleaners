@@ -1546,6 +1546,12 @@ PrefabInstance:
       addedObject: {fileID: 126909880}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43241223c0581be4cb4f111371d7624e, type: 3}
+--- !u!1 &181378353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3012375326077742876, guid: 43241223c0581be4cb4f111371d7624e,
+    type: 3}
+  m_PrefabInstance: {fileID: 181378352}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &191315155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191315155}
   m_LocalRotation: {x: -0.4787247, y: -0, z: -0, w: 0.87796515}
-  m_LocalPosition: {x: -0.89, y: -2.03, z: -9.17}
+  m_LocalPosition: {x: -0.89, y: -1.87, z: -9.42}
   m_LocalScale: {x: 0.7, y: 0.16, z: 0.32926}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13590,7 +13596,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367330442}
   m_LocalRotation: {x: -0.4787247, y: -0, z: -0, w: 0.87796515}
-  m_LocalPosition: {x: 0.94, y: -2.03, z: -9.17}
+  m_LocalPosition: {x: 0.94, y: -1.87, z: -9.42}
   m_LocalScale: {x: 0.7, y: 0.16, z: 0.32926}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27305,9 +27311,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetRefs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7889186921545443015, guid: 62dd056c883d9634385788b579345e01, type: 3}
+  - {fileID: 181378353}
+  - {fileID: 2920920780046971674, guid: cc62363eacf03ee44a6cab1fdce152f7, type: 3}
   spawnPoints:
   - {fileID: 8700510966908969242}
 --- !u!222 &1877958836464574079
