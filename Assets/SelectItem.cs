@@ -53,11 +53,12 @@ public class SelectItem : MonoBehaviour
         }
         else
         {
-            AudiosourceManager.instance.PlayClip(enteringClip);
+            AudiosourceManager.instance.PlayClip(exitingClip);
         }
         
         if (isFinalObject)
         {
+            print(TaskManager.Instance.CurrentTask.TaskType);
             // planet mission complete
             if (TaskManager.Instance.CurrentTask.TaskType == TaskType.MissionOnPlanet)
             {
