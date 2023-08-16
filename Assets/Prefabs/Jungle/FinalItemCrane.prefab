@@ -370,6 +370,7 @@ MonoBehaviour:
   enteringClip: {fileID: 8300000, guid: 4d334047dc88e5b4089bb6ea77de899f, type: 3}
   exitingClip: {fileID: 8300000, guid: 4d334047dc88e5b4089bb6ea77de899f, type: 3}
   grabInteractable: {fileID: 0}
+  isFinalObject: 1
 --- !u!1001 &966705107371503458
 PrefabInstance:
   m_ObjectHideFlags: 0
