@@ -46,7 +46,7 @@ public class DashboardGadget : MonoBehaviour
     //  
     // }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         OuterSpaceEvent.OnGadgetShoot -= OnGadgetShoot;
     }

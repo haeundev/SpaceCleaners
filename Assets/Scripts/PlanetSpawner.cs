@@ -15,7 +15,6 @@ public class PlanetSpawner : MonoBehaviour
     {
         Instance = this;
         // OuterSpaceEvent.PlayerPositionWrapped += OnPlayerPositionWrapped;
-        OuterSpaceEvent.PlayerRefusePlanet += OnPlayerRefusePlanet;
     }
 
     public void SpawnPlanet(PlanetType planetType)
@@ -88,7 +87,4 @@ public class PlanetSpawner : MonoBehaviour
     //     };
     // }
 
-    private void OnPlayerRefusePlanet()
-    {
-    }
 }

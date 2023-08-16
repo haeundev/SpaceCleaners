@@ -39,6 +39,12 @@ public class Net : Gadget
         OuterSpaceEvent.OnDebrisCaptured += OnDebrisCaptured;
     }
 
+    private void OnDestroy()
+    {
+        OuterSpaceEvent.OnGadgetShoot -= Use;
+        OuterSpaceEvent.OnDebrisCaptured -= OnDebrisCaptured;
+    }
+
     [Button]
     private void OnDebrisCaptured(GameObject targetDebris)
     {

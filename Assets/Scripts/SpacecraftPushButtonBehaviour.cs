@@ -1,3 +1,4 @@
+using System;
 using DataTables;
 using LiveLarson.Enums;
 using LiveLarson.SoundSystem;
@@ -27,7 +28,12 @@ public class SpacecraftPushButtonBehaviour : MonoBehaviour
         _pushButton.onRelease.AddListener(OnReleased);
         OuterSpaceEvent.OnGadgetSelected += OnGadgetSelected;
     }
-    
+
+    private void OnDestroy()
+    {
+        OuterSpaceEvent.OnGadgetSelected -= OnGadgetSelected;
+    }
+
     private void OnGadgetSelected(GadgetInfo gadgetInfo)
     {
         _currentGadget = gadgetInfo;

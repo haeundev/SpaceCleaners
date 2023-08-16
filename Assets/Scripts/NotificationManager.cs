@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using DataTables;
@@ -24,6 +25,11 @@ public class NotificationManager : MonoBehaviour
         _screens = FindObjectsOfType<NotificationScreen>();
         _leftScreen = _screens.Single(p => p.screenPosition == ScreenPosition.Left);
         _rightScreen = _screens.Single(p => p.screenPosition == ScreenPosition.Right);
+    }
+
+    private void OnDestroy()
+    {
+        OuterSpaceEvent.OnNotification -= OnNotificationReceived;
     }
 
     private void Start()
