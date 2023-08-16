@@ -12,5 +12,6 @@ namespace LiveLarson.Enums
         JunglePlanet,
         MonumentPlanet,
         EndingCutscene,
+        CreditScene,
     }
 }
