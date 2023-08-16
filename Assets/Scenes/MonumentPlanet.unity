@@ -38018,6 +38018,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1648486411}
     m_Modifications:
+    - target: {fileID: 2893408150602020436, guid: d2a0c63211f3f47429dda9dfabb5315a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3716044515669858213, guid: d2a0c63211f3f47429dda9dfabb5315a,
         type: 3}
       propertyPath: m_RootOrder
@@ -38097,6 +38102,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BoxingGlove
+      objectReference: {fileID: 0}
+    - target: {fileID: 5846335633322626973, guid: d2a0c63211f3f47429dda9dfabb5315a,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677945740750907804, guid: d2a0c63211f3f47429dda9dfabb5315a,
+        type: 3}
+      propertyPath: hitEffectDuration
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46787,42 +46802,42 @@ PrefabInstance:
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.253
+      value: 0.283
       objectReference: {fileID: 0}
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9816903
       objectReference: {fileID: 0}
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.19048399
       objectReference: {fileID: 0}
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.00000011920925
       objectReference: {fileID: 0}
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.00000004470347
       objectReference: {fileID: 0}
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 502.05017
+      value: 502.05
       objectReference: {fileID: 0}
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 276.25
+      value: 276.38
       objectReference: {fileID: 0}
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 21.962
       objectReference: {fileID: 0}
     - target: {fileID: 6125670066147664526, guid: dfaf053ee0cf15b4fa5748e31f97341b,
         type: 3}
@@ -48104,6 +48119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Intensity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677945740750907804, guid: d2a0c63211f3f47429dda9dfabb5315a,
+        type: 3}
+      propertyPath: hitEffectDuration
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

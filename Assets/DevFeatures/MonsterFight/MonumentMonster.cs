@@ -14,11 +14,12 @@ public enum MonsterState
     Run,
     Attack,
     Die,
-    Attacked,
+    Attacked
 }
 
 public class MonumentMonster : MonoBehaviour
 {
+    [SerializeField] private GameObject fuelTankPrefab;
     [SerializeField] private List<GameObject> particlesOnHit;
     [SerializeField] private List<GameObject> particlesOnDie;
     [SerializeField] private List<string> sfxOnGetHit;
@@ -33,32 +34,36 @@ public class MonumentMonster : MonoBehaviour
     private Animator _animator;
     private MonsterSpawnPositions _spawnPositions;
     private AIDestinationSetter _aiDestinationSetter;
-    
+
     private static readonly List<int> AttackAnims = new()
     {
         Animator.StringToHash("PunchForward"), Animator.StringToHash("PunchUpward"), Animator.StringToHash("Push")
     };
+
     private static readonly List<int> IdleAnims = new()
     {
-        Animator.StringToHash("Idle"), Animator.StringToHash("Jump"), Animator.StringToHash("Dance"), Animator.StringToHash("Victory")
+        Animator.StringToHash("Idle"), Animator.StringToHash("Jump"), Animator.StringToHash("Dance"),
+        Animator.StringToHash("Victory")
     };
+
     private static readonly List<int> RunAnims = new()
     {
         Animator.StringToHash("Run")
     };
+
     private static readonly int DieAnim = Animator.StringToHash("Die");
-    
+
     private AIPath _aiPath;
     private Transform _playerTransform;
     private bool _isKnockBack;
-    
+
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
         _aiDestinationSetter = GetComponentInChildren<AIDestinationSetter>();
         _aiPath = GetComponentInChildren<AIPath>();
     }
-    
+
     private void Start()
     {
         _spawnPositions = FindObjectOfType<MonsterSpawnPositions>();
@@ -67,14 +72,14 @@ public class MonumentMonster : MonoBehaviour
         ChangeState(MonsterState.Idle);
         _playerTransform = GameObject.FindWithTag("Player").transform;
     }
-    
+
     private bool _hitCoolTimeDone = true;
-    private int _hitCountBeforeKnockBack = 0;
-    
+    private int _hitCountBeforeKnockBack;
+
     public void OnGetHit()
     {
         _hitCountBeforeKnockBack++;
-        
+
         //if (_hitCoolTimeDone == false)
         //{
         //    return;
@@ -82,9 +87,9 @@ public class MonumentMonster : MonoBehaviour
         //
         //_hitCoolTimeDone = false;
         //Observable.Timer(TimeSpan.FromSeconds(_hitCoolTime)).Subscribe(_ => _hitCoolTimeDone = true);
-        
+
         ChangeState(MonsterState.Attacked);
-        
+
         if (_health > 0)
         {
             if (_isKnockBack == false && _hitCountBeforeKnockBack >= 3)
@@ -93,20 +98,17 @@ public class MonumentMonster : MonoBehaviour
                 Observable.Timer(TimeSpan.FromSeconds(.5f)).Subscribe(_ => _isKnockBack = false);
                 _hitCountBeforeKnockBack = 0;
             }
-           
+
             SoundService.PlaySfx(sfxOnGetHit.PeekRandom(), transform.position);
             _health--;
             monsterHUD.MonsterTakeDamage(1);
             CreateParticleOnHit();
             _animator.SetTrigger(AttackAnims.PeekRandom());
-            
-            if (_health <= 0)
-            {
-                Die();
-            }
+
+            if (_health <= 0) Die();
         }
     }
-    
+
     private readonly float _hitCoolTime = 1f;
     private Audio _sing;
     private Audio _talk;
@@ -115,18 +117,16 @@ public class MonumentMonster : MonoBehaviour
     {
         var particle = Instantiate(particlesOnHit.PeekRandom());
         particle.transform.position = transform.position;
+        particle.transform.rotation = Quaternion.identity;
         particle.SetActive(true);
         Destroy(particle, 5f);
     }
 
     private void CreateParticleOnDie()
     {
-        particlesOnDie.ForEach(p =>
-        {
-            p.SetActive(true);
-        });
+        particlesOnDie.ForEach(p => { p.SetActive(true); });
     }
-    
+
     private void Die()
     {
         _aiPath.enabled = false;
@@ -136,30 +136,30 @@ public class MonumentMonster : MonoBehaviour
         ChangeState(MonsterState.Die);
         Observable.Timer(TimeSpan.FromSeconds(2.1f)).Subscribe(_ =>
         {
-            var fuelTank = Instantiate(particlesOnHit.PeekRandom());
-            fuelTank.transform.position = transform.position;
-            fuelTank.SetActive(true);
+            var fuel = Instantiate(fuelTankPrefab);
+            fuel.transform.position = transform.position;
+            fuel.SetActive(true);
             Destroy(gameObject);
         }).AddTo(this);
     }
-    
+
     private void FixedUpdate()
     {
         if (_isKnockBack)
         {
             var playerForward = _playerTransform.transform.forward;
             //var dir = new Vector3(playerForward.x, playerForward.y, playerForward.z);
-            transform.position += (playerForward.normalized) * (Time.deltaTime * knockBackIntensity);
+            transform.position += playerForward.normalized * (Time.deltaTime * knockBackIntensity);
         }
     }
-    
+
     private void ChangeState(MonsterState targetState)
     {
         _state = targetState;
         StopAllCoroutines();
-        
+
         //Debug.Log($"[MonumentMonster] Changed state to {_state}");
-        
+
         switch (targetState)
         {
             case MonsterState.Idle:
@@ -177,8 +177,8 @@ public class MonumentMonster : MonoBehaviour
                 break;
         }
     }
-    
-    public void OnPlayerEnterFollowProxy(GameObject player)
+
+    public void OnPlayerEnterFollowProxy(GameObject _)
     {
         ChangeState(MonsterState.Run);
         _talk = SoundService.PlaySfx(sfxTalk, transform.position);
@@ -187,7 +187,7 @@ public class MonumentMonster : MonoBehaviour
         _talk.AudioSource.spatialBlend = 1f;
     }
 
-    public void OnPlayerExitFollowProxy(GameObject player)
+    public void OnPlayerExitFollowProxy(GameObject _)
     {
         _talk?.Stop();
         ChangeState(MonsterState.Idle);
@@ -202,10 +202,7 @@ public class MonumentMonster : MonoBehaviour
         while (_state == MonsterState.Idle)
         {
             yield return YieldInstructionCache.WaitForSeconds(Random.Range(5, 15));
-            if (_state != MonsterState.Idle)
-            {
-                yield break;
-            }
+            if (_state != MonsterState.Idle) yield break;
             _aiPath.enabled = true;
             var randomPos = _spawnPositions.positions.PeekRandom();
             _animator.SetTrigger(RunAnims.PeekRandom());
@@ -213,13 +210,22 @@ public class MonumentMonster : MonoBehaviour
         }
     }
 
+    private IEnumerator AttackRoutine()
+    {
+        yield break;
+        // while (_state == MonsterState.Attack)
+        // {
+        //     
+        // }
+    }
+
     public void OnPlayerEnterAttackProxy(GameObject player)
     {
         ChangeState(MonsterState.Attack);
         player.GetComponentInChildren<MonumentPlayer>().OnAttacked();
     }
-    
-    public void OnPlayerExitAttackProxy(GameObject _)
+
+    public void OnPlayerExitAttackProxy(GameObject player)
     {
         ChangeState(MonsterState.Run);
     }
