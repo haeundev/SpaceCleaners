@@ -13,7 +13,7 @@ public class ClearReset : MonoBehaviour
 
     private void ResetAndRestart()
     {
-        SaveAndLoadManager.Instance.ClearAll();
+        // SaveAndLoadManager.Instance.ClearAll();
         Application.Quit();
     }
 }

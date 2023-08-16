@@ -9,10 +9,14 @@ public class GameStartMenu : MonoBehaviour
     public GameObject options;
     public GameObject about;
 
-    [Header("Main Menu Buttons")] public Button startButton;
+    [Header("Main Menu Buttons")] 
+    public Button startFromBeginningButton;
+    public Button startFromLaterButton;
     public Button optionButton;
     public Button aboutButton;
     public Button quitButton;
+    public GameObject arrowLeft;
+    public GameObject arrowRight;
 
     public List<Button> returnButtons;
 
@@ -21,8 +25,10 @@ public class GameStartMenu : MonoBehaviour
         EnableMainMenu();
 
         //Hook events
-        if (startButton != default)
-            startButton.onClick.AddListener(StartGame);
+        if (startFromBeginningButton != default)
+            startFromBeginningButton.onClick.AddListener(StartGameFromBeginning);
+        if (startFromLaterButton != default)
+            startFromLaterButton.onClick.AddListener(StartGameFromLater);
         if (optionButton != default)
             optionButton.onClick.AddListener(EnableOption);
         if (aboutButton != default)
@@ -33,6 +39,18 @@ public class GameStartMenu : MonoBehaviour
         foreach (var item in returnButtons) item.onClick.AddListener(EnableMainMenu);
     }
 
+    private void StartGameFromBeginning()
+    {
+        GlobalValues.SetInitialTaskID(1);
+        StartGame();
+    }
+    
+    private void StartGameFromLater()
+    {
+        GlobalValues.SetInitialTaskID(9);
+        StartGame();
+    }
+    
     private bool isStartedGame;
 
     // private void Update()
@@ -76,6 +94,8 @@ public class GameStartMenu : MonoBehaviour
         mainMenu.SetActive(false);
         options.SetActive(false);
         about.SetActive(false);
+        arrowLeft.SetActive(false);
+        arrowRight.SetActive(false);
     }
 
     public void EnableMainMenu()

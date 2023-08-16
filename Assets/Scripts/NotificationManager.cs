@@ -37,7 +37,7 @@ public class NotificationManager : MonoBehaviour
         {
             yield return YieldInstructionCache.WaitForSeconds(10f);
             var data = notifications.Values.PeekRandom();
-            Debug.Log($"Notification Default: {data.Value}");
+            //Debug.Log($"Notification Default: {data.Value}");
             var text = data.Value.SplitIntoTwo();
             if (text.Length != 2)
                 yield break;
