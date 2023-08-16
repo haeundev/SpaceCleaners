@@ -146,16 +146,7 @@ MonoBehaviour:
     EndAction: (taskend)
     CompleteCondition: (dialoguefinish)
   - ID: 17
-    TaskType: 2
-    Title: "\uC815\uD06C\uD589\uC131\uC744 \uCC3E\uC544\uC11C"
-    ValueStr: "\uC6B0\uC8FC\uB97C \uBE44\uD589\uD574 \uC815\uD06C\uD589\uC131\uC744
-      \uCC3E\uC73C\uC138\uC694."
-    ValueInt: 0
-    StartAction: 
-    EndAction: (taskend)
-    CompleteCondition: 
-  - ID: 18
-    TaskType: 0
+    TaskType: 6
     Title: 
     ValueStr: 
     ValueInt: 0
