@@ -1,13 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using LiveLarson.Util;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    [SerializeField] private List<AssetReference> monsterPrefabRefs;
+    [SerializeField] private List<GameObject> monsterPrefabRefs;
     [SerializeField] private int minionCount;
     [SerializeField] private MonsterSpawnPositions positions;
     private readonly HashSet<Transform> _occupiedPositions = new();
@@ -28,13 +26,8 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        var handle = Addressables.InstantiateAsync(monsterPrefabRefs.PeekRandom());
-        handle.Completed += op =>
-        {
-            // when prefab is instantiated
-            var enemyObj = op.Result.gameObject;
-            enemyObj.transform.position = GetRandomPositionFromPool();
-        };
+        var monster = Instantiate(monsterPrefabRefs.PeekRandom());
+        monster.transform.position = GetRandomPositionFromPool();
     }
 
     private Vector3 GetRandomPositionFromPool()

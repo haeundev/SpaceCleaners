@@ -24,6 +24,6 @@ public class InsertItemToInserter : MonoBehaviour
     
     private void OnItemInserted()
     {
-        SoundService.PlaySfx(DataTableManager.GameConst.Data.InserterCollision, transform.position);
+        SoundService.PlaySfx("Assets/Audio/insert_craft.mp3", transform.position);
     }
 }

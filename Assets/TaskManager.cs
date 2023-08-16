@@ -240,11 +240,14 @@ public class TaskManager : MonoBehaviour
         Debug.Log($"[TaskManager] DoStartActions: {values[0]}");
         if (values.Length == 0)
             yield break;
-
+        
         switch (values[0])
         {
             case "spawnplanet":
-                PlanetSpawner.Instance.SpawnPlanet((PlanetType)Enum.Parse(typeof(PlanetType), values[1]));
+                if (PlanetSpawner.Instance == default)
+                    Debug.Log($"This task requires a planet spawner.");
+                else 
+                    PlanetSpawner.Instance.SpawnPlanet((PlanetType)Enum.Parse(typeof(PlanetType), values[1]));
                 break;
             case "activatetutorialarrows":
                 yield return YieldInstructionCache.WaitUntil(() => TutorialArrows.Instance != default);

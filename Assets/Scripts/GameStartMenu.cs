@@ -1,20 +1,15 @@
 using System.Collections.Generic;
-using DevFeatures.SaveSystem;
 using LiveLarson.BootAndLoad;
-using LiveLarson.DataTableManagement;
-using LiveLarson.Enums;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameStartMenu : MonoBehaviour
 {
-    [Header("UI Pages")]
-    public GameObject mainMenu;
+    [Header("UI Pages")] public GameObject mainMenu;
     public GameObject options;
     public GameObject about;
 
-    [Header("Main Menu Buttons")]
-    public Button startButton;
+    [Header("Main Menu Buttons")] public Button startButton;
     public Button optionButton;
     public Button aboutButton;
     public Button quitButton;
@@ -26,26 +21,28 @@ public class GameStartMenu : MonoBehaviour
         EnableMainMenu();
 
         //Hook events
-        startButton.onClick.AddListener(StartGame);
-        optionButton.onClick.AddListener(EnableOption);
-        aboutButton.onClick.AddListener(EnableAbout);
-        quitButton.onClick.AddListener(QuitGame);
+        if (startButton != default)
+            startButton.onClick.AddListener(StartGame);
+        if (optionButton != default)
+            optionButton.onClick.AddListener(EnableOption);
+        if (aboutButton != default)
+            aboutButton.onClick.AddListener(EnableAbout);
+        if (quitButton != default)
+            quitButton.onClick.AddListener(QuitGame);
 
-        foreach (var item in returnButtons)
-        {
-            item.onClick.AddListener(EnableMainMenu);
-        }
+        foreach (var item in returnButtons) item.onClick.AddListener(EnableMainMenu);
     }
 
     private bool isStartedGame;
-    private void Update()
-    {
-        if (isStartedGame == false )
-        {
-            isStartedGame = true;
-            StartGame();
-        }
-    }
+
+    // private void Update()
+    // {
+    //     if (isStartedGame == false)
+    //     {
+    //         isStartedGame = true;
+    //         StartGame();
+    //     }
+    // }
 
     public void QuitGame()
     {
@@ -55,32 +52,24 @@ public class GameStartMenu : MonoBehaviour
     public void StartGame()
     {
         HideAll();
-        if (SaveAndLoadManager.Instance.IsFirstTime)
-        {
-            ApplicationContext.Instance.LoadScene("OpeningCutscene");
-        }
-        else
-        {
-            LoadSceneThatMatchTaskID();
-        }
+        ApplicationContext.Instance.LoadScene("OpeningCutscene");
+
+        // if (SaveAndLoadManager.Instance.IsFirstTime)
+        //     ApplicationContext.Instance.LoadScene("OpeningCutscene");
+        // else
+        //     LoadSceneThatMatchTaskID();
     }
 
-    private void LoadSceneThatMatchTaskID()
-    {
-        var currentTaskID = SaveAndLoadManager.Instance.GameStat.currentTaskID;
-        if (currentTaskID == 7 || currentTaskID == 8) // jungle
-        {
-            ApplicationContext.Instance.LoadScene("JunglePlanet");
-        }
-        else if (currentTaskID == 12 || currentTaskID == 13)
-        {
-            ApplicationContext.Instance.LoadScene("MonumentPlanet");
-        }
-        else
-        {
-            ApplicationContext.Instance.LoadScene("OuterSpace");
-        }
-    }
+    // private void LoadSceneThatMatchTaskID()
+    // {
+    //     var currentTaskID = SaveAndLoadManager.Instance.GameStat.currentTaskID;
+    //     if (currentTaskID == 7 || currentTaskID == 8) // jungle
+    //         ApplicationContext.Instance.LoadScene("JunglePlanet");
+    //     else if (currentTaskID == 12 || currentTaskID == 13)
+    //         ApplicationContext.Instance.LoadScene("MonumentPlanet");
+    //     else
+    //         ApplicationContext.Instance.LoadScene("OuterSpace");
+    // }
 
     public void HideAll()
     {
@@ -95,12 +84,14 @@ public class GameStartMenu : MonoBehaviour
         options.SetActive(false);
         about.SetActive(false);
     }
+
     public void EnableOption()
     {
         mainMenu.SetActive(false);
         options.SetActive(true);
         about.SetActive(false);
     }
+
     public void EnableAbout()
     {
         mainMenu.SetActive(false);

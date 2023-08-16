@@ -1,20 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
-using LiveLarson.DataTableManagement;
 using LiveLarson.SoundSystem;
 using UniRx;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.XR.Content.Interaction;
 
 public class OnChestOpened : MonoBehaviour
 {
     private OnTrigger _onTrigger;
+
     [SerializeField] private string chestBoxSFX = "Assets/Audio/loot-box.mp3";
+
     // Start is called before the first frame update
-    private bool isChestOpened = false;
-    
+    private bool isChestOpened;
+
     public Animator myAnimator;
     [SerializeField] private string finalItemPath = "Prefabs/Jungle/FinalItemCrane.prefab";
     [SerializeField] public Transform finalItemSpot;
@@ -23,14 +22,13 @@ public class OnChestOpened : MonoBehaviour
     {
         _onTrigger = GetComponent<OnTrigger>();
         RegisterEvents();
-        
     }
-    
+
     private void RegisterEvents()
     {
         _onTrigger.OnChestOpened += OnChestboxOpened;
     }
-    
+
     private void OnChestboxOpened()
     {
         if (!isChestOpened)
@@ -39,9 +37,8 @@ public class OnChestOpened : MonoBehaviour
             WaitAndSpawnFinalItem();
             isChestOpened = true;
         }
-        
     }
-    
+
     private void WaitAndSpawnFinalItem()
     {
         var animLength = myAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
@@ -55,6 +52,4 @@ public class OnChestOpened : MonoBehaviour
             };
         });
     }
-    
-    
 }

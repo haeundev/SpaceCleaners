@@ -192,12 +192,12 @@ MonoBehaviour:
     - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
     - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
     - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
+    - Assets/Audio/BGM_cute2.mp3
     - Assets/Audio/BlindingLightsInst.mp3
-    - Assets/Audio/BlindingLightsInst.mp3
     - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
     - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
+    - Assets/Audio/RollingFilm.mp3
+    - Assets/Audio/RollingFilm.mp3
 --- !u!1 &4454550543836065612
 GameObject:
   m_ObjectHideFlags: 0

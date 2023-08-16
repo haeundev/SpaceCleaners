@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using GRASBOCK.XR.Inventory;
-using LiveLarson.DataTableManagement;
 using LiveLarson.SoundSystem;
+using UnityEngine;
 
 public class InsertItemToSlot : MonoBehaviour
 {
@@ -16,14 +12,14 @@ public class InsertItemToSlot : MonoBehaviour
         _slot = GetComponent<Slot>();
         RegisterEvents();
     }
-    
+
     private void RegisterEvents()
     {
         _slot.OnSlotCollision += OnSlotCollision;
     }
-    
+
     private void OnSlotCollision()
     {
-        SoundService.PlaySfx(DataTableManager.GameConst.Data.SlotCollision, transform.position);
+        SoundService.PlaySfx("Assets/Audio/UI OK.ogg", transform.position);
     }
 }

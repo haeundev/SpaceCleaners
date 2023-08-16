@@ -6,7 +6,6 @@ using LiveLarson.Util;
 using Pathfinding;
 using UniRx;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using Random = UnityEngine.Random;
 
 public enum MonsterState
@@ -20,9 +19,7 @@ public enum MonsterState
 
 public class MonumentMonster : MonoBehaviour
 {
-    [SerializeField] private AssetReference fuelTankPrefab;
-    [SerializeField] private List<AssetReference> dropItems;
-    [SerializeField] private List<AssetReference> particlesOnHit;
+    [SerializeField] private List<GameObject> particlesOnHit;
     [SerializeField] private List<GameObject> particlesOnDie;
     [SerializeField] private List<string> sfxOnGetHit;
     [SerializeField] private List<string> sfxOnDie;
@@ -116,16 +113,12 @@ public class MonumentMonster : MonoBehaviour
 
     private void CreateParticleOnHit()
     {
-        var randomParticle = particlesOnHit.PeekRandom();
-        randomParticle.InstantiateAsync(transform.position, Quaternion.identity).Completed += handle =>
-        {
-            Debug.Log($"particle: {handle.Result.gameObject.name}");
-            var particle = handle.Result;
-            particle.SetActive(true);
-            Destroy(particle, 5f);
-        };
+        var particle = Instantiate(particlesOnHit.PeekRandom());
+        particle.transform.position = transform.position;
+        particle.SetActive(true);
+        Destroy(particle, 5f);
     }
-    
+
     private void CreateParticleOnDie()
     {
         particlesOnDie.ForEach(p =>
@@ -143,14 +136,10 @@ public class MonumentMonster : MonoBehaviour
         ChangeState(MonsterState.Die);
         Observable.Timer(TimeSpan.FromSeconds(2.1f)).Subscribe(_ =>
         {
-            var handle = fuelTankPrefab.InstantiateAsync();
-            handle.Completed += op =>
-            {
-                var fuelTank = op.Result;
-                fuelTank.transform.position = transform.position;
-                fuelTank.SetActive(true);
-                Destroy(gameObject);
-            };
+            var fuelTank = Instantiate(particlesOnHit.PeekRandom());
+            fuelTank.transform.position = transform.position;
+            fuelTank.SetActive(true);
+            Destroy(gameObject);
         }).AddTo(this);
     }
     
@@ -223,23 +212,14 @@ public class MonumentMonster : MonoBehaviour
             _aiDestinationSetter.target = randomPos;
         }
     }
-    
-    private IEnumerator AttackRoutine()
-    {
-        yield break;
-        // while (_state == MonsterState.Attack)
-        // {
-        //     
-        // }
-    }
-    
+
     public void OnPlayerEnterAttackProxy(GameObject player)
     {
         ChangeState(MonsterState.Attack);
         player.GetComponentInChildren<MonumentPlayer>().OnAttacked();
     }
     
-    public void OnPlayerExitAttackProxy(GameObject player)
+    public void OnPlayerExitAttackProxy(GameObject _)
     {
         ChangeState(MonsterState.Run);
     }

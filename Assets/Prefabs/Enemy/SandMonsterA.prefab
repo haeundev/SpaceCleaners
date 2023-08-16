@@ -56,25 +56,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28d35be456060340a5166ed49a5bcba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuelTankPrefab:
-    m_AssetGUID: 6b3eee8e5a13e234baa32ee045b07a56
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  dropItems:
-  - m_AssetGUID: d2a0c63211f3f47429dda9dfabb5315a
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  fuelTankPrefab: {fileID: 9195328832990799857, guid: 6b3eee8e5a13e234baa32ee045b07a56,
+    type: 3}
   particlesOnHit:
-  - m_AssetGUID: 6718dc24203da53468af9ada8fef7d6d
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 99bc28c0d45f51c4fbac01080b73edc7
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  - {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
+  - {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
   particlesOnDie:
   - {fileID: 7988591184393620033}
   - {fileID: 612312372524724092}
@@ -89,6 +75,8 @@ MonoBehaviour:
   - {fileID: 3673502497713944647}
   - {fileID: 5746306461968659676}
   knockBackIntensity: 10
+  sfxTalk: Assets/Audio/MonsterTalk.mp3
+  sfxLaugh: Assets/Audio/LittleMonsterLaugh.wav
   monsterHUD: {fileID: 5123352204343074999}
 --- !u!143 &4899867466090904070
 CharacterController:
