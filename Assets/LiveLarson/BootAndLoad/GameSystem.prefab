@@ -132,76 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208116c8db00de748a3860e623bd8f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2769788005814912915
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5314196463844326427}
-  - component: {fileID: 5127113569909343873}
-  m_Layer: 0
-  m_Name: SoundService
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5314196463844326427
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769788005814912915}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3891615972159287887}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5127113569909343873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769788005814912915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d80b926ae50a38848b30bdc15c4fedb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: f084435683824da43b8bff080eb5020f, type: 2}
-  bgmByGameMode:
-    m_keys:
-    - Loading
-    - OuterSpace
-    - JunglePlanet
-    - MonumentPlanet
-    - None
-    - OpeningCutscene
-    - EndingCutscene
-    - CreditScene
-    - Booting_0_GameSystem
-    - Booting_1_ApplicationContext
-    - Booting_2_DataTableManager
-    m_values:
-    - Assets/Audio/SpaceChillout.mp3
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
-    - Assets/Audio/BGM_cute2.mp3
-    - Assets/Audio/CountryBlues.mp3
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
-    - Assets/Audio/RollingFilm.mp3
-    - Assets/Audio/RollingFilm.mp3
-    - Assets/Audio/SpaceChillout.mp3
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
 --- !u!1 &4454550543836065612
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,56 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50102b7ed870e3c4994e42f96bccd396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  encryptionEnabled: 0
---- !u!1 &5357345089258696403
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2071596788270770682}
-  - component: {fileID: 8669018524527640996}
-  m_Layer: 0
-  m_Name: TaskManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2071596788270770682
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5357345089258696403}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5570476420833261897}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8669018524527640996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5357345089258696403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f26d98a8f633064ca1308aade187fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskCompleteUI: {fileID: 0}
-  levelUpUI: {fileID: 0}
-  instructionUI: {fileID: 0}
-  dialogueUI: {fileID: 0}
-  taskInfos: {fileID: 11400000, guid: e9cf4bdbb4738bc48a4c62f71d02956f, type: 2}
 --- !u!1 &6033090705862050872
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +249,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5778435233982056764}
-  - {fileID: 5314196463844326427}
   - {fileID: 7598561300062206093}
   m_Father: {fileID: 7023256021685881100}
   m_RootOrder: 0
@@ -485,7 +364,6 @@ Transform:
   - {fileID: 7129846551102788555}
   - {fileID: 9183873789947606582}
   - {fileID: 9075485660056106573}
-  - {fileID: 2071596788270770682}
   m_Father: {fileID: 7023256021685881100}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

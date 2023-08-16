@@ -62,6 +62,7 @@ namespace LiveLarson.SoundSystem
         
         private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
             LoadAudioMixer();
         }
         

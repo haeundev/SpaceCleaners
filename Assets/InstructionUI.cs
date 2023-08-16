@@ -14,9 +14,9 @@ public class InstructionUI : MonoBehaviour
         TaskManager.Instance.OnInitTask += OnInitTask;
     }
 
-    private void OnEnable()
+    private void OnDestroy()
     {
-        ShowInstruction(TaskManager.Instance.CurrentTask);
+        TaskManager.Instance.OnInitTask -= OnInitTask;
     }
 
     private void OnInitTask(TaskInfo taskInfo)
@@ -34,6 +34,11 @@ public class InstructionUI : MonoBehaviour
     {
         title.text = titleText;
         description.text = descText;
+        if (transform == default)
+        {
+            Debug.LogError($"Should not be null");
+            return;
+        }
         if (transform == default)
             return;
         SoundService.PlaySfx("Assets/Audio/Message Appear.ogg", transform.position);

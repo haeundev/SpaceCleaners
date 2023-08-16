@@ -57,11 +57,17 @@ namespace DevFeatures.Dialogue
 
             visuals.SetActive(false);
         }
+        
+        private void OnDestroy()
+        {
+            TaskManager.Instance.OnInitTask -= OnInitTask;
+        }
 
         private void OnInitTask(TaskInfo taskInfo)
         {
             dialogueFinished = false;
-            if (taskInfo.TaskType == TaskType.Dialogue) PlayLine(taskInfo.ValueInt); // dialogue ID.
+            if (taskInfo.TaskType == TaskType.Dialogue)
+                PlayLine(taskInfo.ValueInt); // dialogue ID.
         }
 
         private void DisableOptionButtons()
@@ -97,8 +103,7 @@ namespace DevFeatures.Dialogue
                                             || (TaskManager.Instance.taskCompleteUI != default &&
                                                 TaskManager.Instance.taskCompleteUI.activeSelf)
                                             || (TaskManager.Instance.levelUpUI != default &&
-                                                TaskManager.Instance.levelUpUI.activeSelf)
-               )
+                                                TaskManager.Instance.levelUpUI.activeSelf))
                 return;
 
             var next = _currentDialogue?.Next ?? 0;
@@ -138,6 +143,11 @@ namespace DevFeatures.Dialogue
 
         private void PlayLine(int dialogueID)
         {
+            if (gameObject == default)
+            {
+                Debug.LogError($"Should not be null");
+                return;
+            }
             if (gameObject.activeSelf == false)
                 gameObject.SetActive(true);
             StartCoroutine(CoPlayLine(dialogueID));

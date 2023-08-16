@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class JungleItemSpawner : MonoBehaviour
@@ -15,6 +16,11 @@ public class JungleItemSpawner : MonoBehaviour
     private void Awake()
     {
         JungleEvents.OnPlantGrowDone += OnPlantGrowDone;
+    }
+
+    private void OnDestroy()
+    {
+        JungleEvents.OnPlantGrowDone -= OnPlantGrowDone;
     }
 
     private void OnPlantGrowDone(GameObject plantObj)

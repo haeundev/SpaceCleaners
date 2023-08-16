@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using DevFeatures.SaveSystem.Model;
 using GRASBOCK.XR.Inventory;
 using UnityEngine;
-using DevFeatures.SaveSystem;
-using DevFeatures.SaveSystem.Model;
 using UnityEngine.UI;
 
 public class JungleHUD : MonoBehaviour
@@ -19,7 +18,7 @@ public class JungleHUD : MonoBehaviour
 
     private PlayerStat _playerStat;
     public int maxOxygen = 100;
-    public int currentOxygen = 0;
+    public int currentOxygen;
 
     private void Awake()
     {
@@ -30,8 +29,9 @@ public class JungleHUD : MonoBehaviour
         // _playerStat = SaveAndLoadManager.Instance.PlayerStat;
     }
 
-    void Start()
+    private void Start()
     {
+        JungleEvents.Trigger_SceneLoaded(); // 꼭 여기 있을 이유 없음
         //_playerStat = SaveAndLoadManager.Instance.PlayerStat;
         // print(_playerStat.oxygenLevel);
         // SetOxygenLevel(_playerStat.oxygenLevel);
@@ -48,10 +48,7 @@ public class JungleHUD : MonoBehaviour
 
     public void OnOxygenLevelUpdated() //oxygen 획득하면
     {
-        if(currentOxygen < maxOxygen)
-        {
-            SetOxygenLevel(20);
-        }
+        if (currentOxygen < maxOxygen) SetOxygenLevel(20);
     }
 
     public void OnInventoryUpdated(HashSet<Slot> slots)

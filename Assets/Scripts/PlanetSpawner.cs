@@ -50,6 +50,7 @@ public class PlanetSpawner : MonoBehaviour
         outlinable.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
         planet.transform.position = randomPoint.position;
         _currentSpawnedPlanet = planet;
+        _currentSpawnedPlanet.SetActive(true);
         Debug.Log($"[PlanetSpawner] Spawned planet {planetType.ToString()}");
     }
 

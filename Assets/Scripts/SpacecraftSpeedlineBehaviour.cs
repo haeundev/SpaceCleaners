@@ -8,6 +8,11 @@ public class SpacecraftSpeedlineBehaviour : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void OnDestroy()
+    {
+        OuterSpaceEvent.OnBoost -= OnBoost;
+    }
+
     private void OnBoost(bool isOn)
     {
         gameObject.SetActive(isOn);

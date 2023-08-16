@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using DataTables;
 using DevFeatures.Dialogue;
-using DevFeatures.SaveSystem;
-using LiveLarson.DataTableManagement;
 using LiveLarson.Enums;
 using LiveLarson.SoundSystem;
 using LiveLarson.Util;
@@ -25,43 +23,19 @@ public class TaskManager : MonoBehaviour
     private bool _isJungleLoaded;
     private bool _isMonumentDone;
     private bool _isMonumentLoaded;
-
-    private const int InitialTaskID = 1;
+    
     public static TaskManager Instance;
     [SerializeField] private TaskInfos taskInfos;
     private List<TaskInfo> _tasks;
     private int _debrisCount;
     private bool _isCompleteConditionSatisfied;
 
-    // public TaskInfo CurrentTask
-    // {
-    //     get
-    //     {
-    //         if (_currentTask != default)
-    //             return _currentTask;
-    //
-    //         var savedID = SaveAndLoadManager.Instance.GameStat.currentTaskID;
-    //         if (savedID != default)
-    //             _currentTask = DataTableManager.TaskInfos.Find(savedID);
-    //         else
-    //             _currentTask = DataTableManager.TaskInfos.Find(InitialTaskID);
-    //
-    //         return _currentTask;
-    //     }
-    //     private set
-    //     {
-    //         _currentTask = value;
-    //         SaveAndLoadManager.Instance.GameStat.currentTaskID = value.ID;
-    //         SaveAndLoadManager.Instance.Save(SaveAndLoadManager.Instance.GameStat);
-    //         Debug.Log($"[TaskManager]  CurrentTask is saved as {value.ID}");
-    //     }
-    // }
-
     public event Action<TaskInfo> OnTaskAcquired;
     public TaskInfo CurrentTask { get; private set; }
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         Instance = this;
         _tasks = taskInfos.Values;
 
@@ -72,14 +46,23 @@ public class TaskManager : MonoBehaviour
         MonumentEvents.OnSceneLoaded += () => _isMonumentLoaded = true;
 
         // Application.quitting += OnAppQuit;
+        
+        GlobalValues.OnGlobalInitTaskSet += Init;
     }
 
-    private void OnAppQuit()
+    public void Init(int taskID)
     {
-        SaveAndLoadManager.Instance.GameStat.currentTaskID = CurrentTask.ID;
-        SaveAndLoadManager.Instance.Save(SaveAndLoadManager.Instance.GameStat);
-        Debug.Log($"[TaskManager]  CurrentTask is saved as {CurrentTask.ID}");
+        OnTaskAcquired += InitTask;
+        CurrentTask = taskInfos.Find(taskID); // called after data table manager
+        InitTask(CurrentTask);
     }
+
+    // private void OnAppQuit()
+    // {
+    //     SaveAndLoadManager.Instance.GameStat.currentTaskID = CurrentTask.ID;
+    //     SaveAndLoadManager.Instance.Save(SaveAndLoadManager.Instance.GameStat);
+    //     Debug.Log($"[TaskManager]  CurrentTask is saved as {CurrentTask.ID}");
+    // }
 
     private void OnDebrisCaptured(GameObject _)
     {
@@ -89,26 +72,10 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
-        OnTaskAcquired += InitTask;
-
-        var savedID = SaveAndLoadManager.Instance.GameStat.currentTaskID;
-        if (savedID == default)
-        {
-            savedID = InitialTaskID;
-            Debug.LogError("GameStat savedID is default. set to id: InitialTaskID 1");
-        }
-
-        CurrentTask = taskInfos.Find(savedID); // called after data table manager
+      
 
         // if (CurrentTask.ID == InitialTaskID)
         //     OnTaskAcquired?.Invoke(CurrentTask);
-    }
-
-    private void OnEnable()
-    {
-        if (CurrentTask == default)
-            CurrentTask = taskInfos.Find(SaveAndLoadManager.Instance.GameStat.currentTaskID);
-        InitTask(CurrentTask);
     }
 
     public event Action<TaskInfo> OnInitTask;
@@ -117,7 +84,7 @@ public class TaskManager : MonoBehaviour
     {
         if (taskInfo == default)
             return;
-        
+
         StartCoroutine(StartCheckReadyToInitTask(taskInfo));
     }
 
@@ -240,13 +207,13 @@ public class TaskManager : MonoBehaviour
         Debug.Log($"[TaskManager] DoStartActions: {values[0]}");
         if (values.Length == 0)
             yield break;
-        
+
         switch (values[0])
         {
             case "spawnplanet":
                 if (PlanetSpawner.Instance == default)
-                    Debug.Log($"This task requires a planet spawner.");
-                else 
+                    Debug.Log("This task requires a planet spawner.");
+                else
                     PlanetSpawner.Instance.SpawnPlanet((PlanetType)Enum.Parse(typeof(PlanetType), values[1]));
                 break;
             case "activatetutorialarrows":

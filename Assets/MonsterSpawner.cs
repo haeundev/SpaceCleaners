@@ -12,16 +12,12 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Awake()
     {
-        for (var i = 0; i < minionCount; i++)
-        {
-            Spawn();
-        }
+        for (var i = 0; i < minionCount; i++) Spawn();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        // 이 부분 여기 있는 이유 명확하지 않음. 있을 이유 없음.
-        MonumentEvents.Trigger_SceneLoaded();
+        MonumentEvents.Trigger_SceneLoaded(); // 꼭 여기 있을 이유 없음
     }
 
     private void Spawn()
