@@ -9,7 +9,7 @@ namespace Script.Editor
     [InitializeOnLoad]
     public static class GameStarter
     {
-        private const string BOOTING = "Assets/Scenes/Booting.unity"; // SCENE NAME
+        private const string BOOTING = "Assets/Scenes/Booting_0_GameSystem.unity"; // SCENE NAME
         private const string LOADING = "Assets/Scenes/Loading.unity"; // SCENE NAME
         private const string OUTER_SPACE = "Assets/Scenes/OuterSpace.unity"; // SCENE NAME
         private const string JUNGLE = "Assets/Scenes/JunglePlanet.unity"; // SCENE NAME

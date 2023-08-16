@@ -1,6 +1,4 @@
 using DevFeatures.SaveSystem;
-using LiveLarson.DataTableManagement;
-using LiveLarson.Util;
 using UnityEngine;
 
 public class LoginManager : MonoBehaviour
@@ -18,12 +16,12 @@ public class LoginManager : MonoBehaviour
         }
         else
         {
-            var gameConst = DataTableManager.GameConst.Data;
-            var agentName =
-                $"{gameConst.AgentNames.PeekRandom()} {gameConst.AgentNumbers.PeekRandom()} {gameConst.AgentGenerations.PeekRandom()}";
-            var agentLevel = 1;
-            SaveAndLoadManager.CreateNewPlayer(agentName, agentLevel);
-            Debug.Log($"[LoginManager] Player Created with AgentName:{agentName}");
+            // var gameConst = DataTableManager.GameConst.Data;
+            // var agentName =
+            //     $"{gameConst.AgentNames.PeekRandom()} {gameConst.AgentNumbers.PeekRandom()} {gameConst.AgentGenerations.PeekRandom()}";
+            // var agentLevel = 1;
+            SaveAndLoadManager.CreateNewPlayer("Echo", 1);
+            Debug.Log($"[LoginManager] Player Created with AgentName:{"Echo"}");
         }
     }
 }

@@ -4,29 +4,36 @@ using UnityEngine.AddressableAssets;
 
 public class Bootstrap : MonoBehaviour
 {
-    private string nextSceneName = "Loading";
+    public enum BootTarget
+    {
+        GameSystem, ApplicationContext, DataTableManager
+    }
+    
+    [SerializeField] private string nextSceneName = "Booting_1_ApplicationContext";
+    [SerializeField] private BootTarget bootTarget = BootTarget.GameSystem;
     
     private void Awake()
     {
-        LoadInOrder();
+        Addressables.LoadAssetAsync<GameObject>("Assets/LiveLarson/DataTableManagement/DataTableManager.prefab").Completed += op2 =>
+        {
+            var go2 = Instantiate(op2.Result);
+            DontDestroyOnLoad(go2);
+            ApplicationContext.Instance.LoadScene(nextSceneName);
+        };
     }
     
     private void LoadInOrder()
     {
-        Addressables.LoadAssetAsync<GameObject>("GameSystem").Completed += op0 =>
+        // AddressableHelper.LoadGameObject("GameSystem");
+        Addressables.LoadAssetAsync<GameObject>("Assets/LiveLarson/BootAndLoad/GameSystem.prefab").Completed += op0 =>
         {
             var go0 = Instantiate(op0.Result);
             DontDestroyOnLoad(go0);
-            Addressables.LoadAssetAsync<GameObject>("ApplicationContext").Completed += op1 =>
+            Addressables.LoadAssetAsync<GameObject>("Assets/LiveLarson/BootAndLoad/ApplicationContext.prefab").Completed += op1 =>
             {
                 var go1 = Instantiate(op1.Result);
                 DontDestroyOnLoad(go1);
-                Addressables.LoadAssetAsync<GameObject>("DataTableManager").Completed += op2 =>
-                {
-                    var go2 = Instantiate(op2.Result);
-                    DontDestroyOnLoad(go2);
-                    ApplicationContext.Instance.LoadScene(nextSceneName);
-                };
+              
             };
         };
     }

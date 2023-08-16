@@ -20,6 +20,7 @@ public class TaskManager : MonoBehaviour
     public GameObject instructionUI;
     public GameObject dialogueUI;
 
+
     private bool _isJungleDone;
     private bool _isJungleLoaded;
     private bool _isMonumentDone;
@@ -27,7 +28,7 @@ public class TaskManager : MonoBehaviour
 
     private const int InitialTaskID = 1;
     public static TaskManager Instance;
-    public TaskInfos taskInfos;
+    [SerializeField] private TaskInfos taskInfos;
     private List<TaskInfo> _tasks;
     private int _debrisCount;
     private bool _isCompleteConditionSatisfied;
@@ -62,7 +63,6 @@ public class TaskManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        taskInfos = DataTableManager.TaskInfos;
         _tasks = taskInfos.Values;
 
         OuterSpaceEvent.OnDebrisCaptured += OnDebrisCaptured;
@@ -98,7 +98,7 @@ public class TaskManager : MonoBehaviour
             Debug.LogError("GameStat savedID is default. set to id: InitialTaskID 1");
         }
 
-        CurrentTask = DataTableManager.TaskInfos.Find(savedID); // called after data table manager
+        CurrentTask = taskInfos.Find(savedID); // called after data table manager
 
         // if (CurrentTask.ID == InitialTaskID)
         //     OnTaskAcquired?.Invoke(CurrentTask);
@@ -107,7 +107,7 @@ public class TaskManager : MonoBehaviour
     private void OnEnable()
     {
         if (CurrentTask == default)
-            CurrentTask = DataTableManager.TaskInfos.Find(SaveAndLoadManager.Instance.GameStat.currentTaskID);
+            CurrentTask = taskInfos.Find(SaveAndLoadManager.Instance.GameStat.currentTaskID);
         InitTask(CurrentTask);
     }
 

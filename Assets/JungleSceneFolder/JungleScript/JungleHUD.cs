@@ -32,7 +32,7 @@ public class JungleHUD : MonoBehaviour
 
     void Start()
     {
-        _playerStat = SaveAndLoadManager.Instance.PlayerStat;
+        //_playerStat = SaveAndLoadManager.Instance.PlayerStat;
         // print(_playerStat.oxygenLevel);
         // SetOxygenLevel(_playerStat.oxygenLevel);
 

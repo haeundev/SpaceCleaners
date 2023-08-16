@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0042765094, g: 0.0054014013, b: 0.017312484, a: 1}
+  m_IndirectSpecularColor: {r: 0.004285891, g: 0.005412559, b: 0.017335163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8798,6 +8798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265312455ef1c984ea350e78e62e19f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notifications: {fileID: 11400000, guid: 09ef6e4bf0b02284080f36b54050cdad, type: 2}
 --- !u!1 &836969420
 GameObject:
   m_ObjectHideFlags: 0
@@ -9140,6 +9141,10 @@ MonoBehaviour:
   nextButton: {fileID: 2055710036}
   selectButton: {fileID: 956061013}
   checkIcon: {fileID: 1742206594}
+  netPrefab: {fileID: 5310414270313852522, guid: 4802075c164038e4f83ce900c8959ca7,
+    type: 3}
+  netPreviewPrefab: {fileID: 5310414270313852522, guid: 33f575a402edc3343806ab12bcf0a208,
+    type: 3}
   sfxNetShoot: Assets/Audio/Net Shoot.wav
 --- !u!114 &860398668
 MonoBehaviour:
@@ -27300,18 +27305,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetRefs:
-  - m_AssetGUID: 62dd056c883d9634385788b579345e01
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 43241223c0581be4cb4f111371d7624e
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: cc62363eacf03ee44a6cab1fdce152f7
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spawnPoints:
   - {fileID: 8700510966908969242}
 --- !u!222 &1877958836464574079

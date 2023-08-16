@@ -9,7 +9,7 @@ public class PlanetSpawner : MonoBehaviour
 {
     public static PlanetSpawner Instance;
     private GameObject _currentSpawnedPlanet;
-    [SerializeField] private List<AssetReference> planetRefs;
+    [SerializeField] private List<GameObject> planetRefs;
     [SerializeField] private List<Transform> spawnPoints;
 
     private void Awake()
@@ -40,29 +40,24 @@ public class PlanetSpawner : MonoBehaviour
             Destroy(_currentSpawnedPlanet);
 
         var randomPoint = spawnPoints.PeekRandom();
-        var planetModel = planetRefs[index];
-        var handle = Addressables.InstantiateAsync(planetModel);
-        handle.Completed += op =>
-        {
-            var planetObj = op.Result;
-            planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
-            planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
-            planetObj.AddComponent<RayGazable>();
-            planetObj.AddComponent<Outlinable>();
-            var outlinable = planetObj.GetComponent<Outlinable>();
-            outlinable.RenderStyle = RenderStyle.FrontBack;
-            outlinable.BackParameters.Enabled = false;
-            outlinable.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
-            planetObj.transform.position = randomPoint.position;
-            _currentSpawnedPlanet = planetObj;
-            Debug.Log($"[PlanetSpawner] Spawned planet {planetType.ToString()}");
-        };
+        var planet = Instantiate(planetRefs[index]);
+        planet.GetComponent<PlanetGenerator>().GeneratePlanet();
+        planet.GetComponent<PlanetGenerator>().GeneratePlanet();
+        planet.AddComponent<RayGazable>();
+        planet.AddComponent<Outlinable>();
+        var outlinable = planet.GetComponent<Outlinable>();
+        outlinable.RenderStyle = RenderStyle.FrontBack;
+        outlinable.BackParameters.Enabled = false;
+        outlinable.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
+        planet.transform.position = randomPoint.position;
+        _currentSpawnedPlanet = planet;
+        Debug.Log($"[PlanetSpawner] Spawned planet {planetType.ToString()}");
     }
 
-    private void OnPlayerPositionWrapped()
-    {
-        RandomSpawnPlanet();
-    }
+    // private void OnPlayerPositionWrapped()
+    // {
+    //     RandomSpawnPlanet();
+    // }
 
     /// test
     private void Start()
@@ -70,28 +65,28 @@ public class PlanetSpawner : MonoBehaviour
         // RandomSpawnPlanet();
     }
 
-    private void RandomSpawnPlanet()
-    {
-        if (_currentSpawnedPlanet != default)
-            Destroy(_currentSpawnedPlanet);
-
-        var randomPoint = spawnPoints.PeekRandom();
-        var randomModel = planetRefs.PeekRandom();
-        var handle = Addressables.InstantiateAsync(randomModel);
-        handle.Completed += op =>
-        {
-            var planetObj = op.Result;
-            planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
-            planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
-            planetObj.AddComponent<RayGazable>();
-            var outlinable = planetObj.AddComponent<Outlinable>();
-            outlinable.RenderStyle = RenderStyle.FrontBack;
-            outlinable.BackParameters.Enabled = false;
-            outlinable.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
-            planetObj.transform.position = randomPoint.position;
-            _currentSpawnedPlanet = planetObj;
-        };
-    }
+    // private void RandomSpawnPlanet()
+    // {
+    //     if (_currentSpawnedPlanet != default)
+    //         Destroy(_currentSpawnedPlanet);
+    //
+    //     var randomPoint = spawnPoints.PeekRandom();
+    //     var randomModel = planetRefs.PeekRandom();
+    //     var handle = Addressables.InstantiateAsync(randomModel);
+    //     handle.Completed += op =>
+    //     {
+    //         var planetObj = op.Result;
+    //         planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
+    //         planetObj.GetComponent<PlanetGenerator>().GeneratePlanet();
+    //         planetObj.AddComponent<RayGazable>();
+    //         var outlinable = planetObj.AddComponent<Outlinable>();
+    //         outlinable.RenderStyle = RenderStyle.FrontBack;
+    //         outlinable.BackParameters.Enabled = false;
+    //         outlinable.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
+    //         planetObj.transform.position = randomPoint.position;
+    //         _currentSpawnedPlanet = planetObj;
+    //     };
+    // }
 
     private void OnPlayerRefusePlanet()
     {

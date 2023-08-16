@@ -13,9 +13,9 @@ namespace DevFeatures.SaveSystem
     {
         public static SaveAndLoadManager Instance;
         public GameStat GameStat { get; set; } = new();
-        public PlayerStat PlayerStat { get; set; } = new();
-        public GadgetStat GadgetStat { get; set; } = new();
-        public InventoryStat InventoryStat { get; set; } = new();
+        //public PlayerStat PlayerStat { get; set; } = new();
+        //public GadgetStat GadgetStat { get; set; } = new();
+        //public InventoryStat InventoryStat { get; set; } = new();
         public bool IsFirstTime => GameStat.isWatchedOpeningCutscene == false;
 
         private readonly IDataService _dataService = new JsonDataService();
@@ -39,9 +39,9 @@ namespace DevFeatures.SaveSystem
         public static void LoadAll()
         {
             Instance.GameStat = Instance.Load<GameStat>();
-            Instance.GadgetStat = Instance.Load<GadgetStat>();
-            Instance.PlayerStat = Instance.Load<PlayerStat>();
-            Instance.InventoryStat = Instance.Load<InventoryStat>();
+            //Instance.GadgetStat = Instance.Load<GadgetStat>();
+            //Instance.PlayerStat = Instance.Load<PlayerStat>();
+            //Instance.InventoryStat = Instance.Load<InventoryStat>();
         }
         
         private void SaveAll()
@@ -49,9 +49,9 @@ namespace DevFeatures.SaveSystem
             try
             {
                 Save(GameStat);
-                Save(GadgetStat);
-                Save(PlayerStat);
-                Save(InventoryStat);
+                //Save(GadgetStat);
+                //Save(PlayerStat);
+                //Save(InventoryStat);
                 Debug.Log($"[SAVE LOAD]  All Saved");
             }
             catch (Exception e)
@@ -66,9 +66,9 @@ namespace DevFeatures.SaveSystem
             try
             {
                 ClearData(GameStat);
-                ClearData(GadgetStat);
-                ClearData(PlayerStat);
-                ClearData(InventoryStat);
+                //ClearData(GadgetStat);
+                //ClearData(PlayerStat);
+                //ClearData(InventoryStat);
                 Debug.Log($"[SAVE LOAD]  All ClearData");
             }
             catch (Exception e)
@@ -136,15 +136,15 @@ namespace DevFeatures.SaveSystem
 
         public static bool IsPlayerCreated()
         {
-            return string.IsNullOrEmpty(Instance.PlayerStat.name) == false;
+            return Instance.GameStat.isWatchedOpeningCutscene;
         }
 
         public static void CreateNewPlayer(string name, int agentLevel)
         {
             Instance.GameStat = new GameStat();
-            Instance.GadgetStat = CreateInitialGadgetStat();
-            Instance.PlayerStat = new PlayerStat(name, agentLevel);
-            Instance.InventoryStat = new InventoryStat();
+            //Instance.GadgetStat = CreateInitialGadgetStat();
+            //Instance.PlayerStat = new PlayerStat(name, agentLevel);
+            //Instance.InventoryStat = new InventoryStat();
             Instance.SaveAll();
         }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using DataTables;
 using LiveLarson.DataTableManagement;
 using LiveLarson.Util;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class NotificationManager : MonoBehaviour
     private NotificationScreen[] _screens;
     private NotificationScreen _leftScreen;
     private NotificationScreen _rightScreen;
+    [SerializeField] private Notifications notifications;
 
     private void Awake()
     {
@@ -34,7 +36,7 @@ public class NotificationManager : MonoBehaviour
         while (enabled)
         {
             yield return YieldInstructionCache.WaitForSeconds(10f);
-            var data = DataTableManager.Notifications.Values.PeekRandom();
+            var data = notifications.Values.PeekRandom();
             Debug.Log($"Notification Default: {data.Value}");
             var text = data.Value.SplitIntoTwo();
             if (text.Length != 2)

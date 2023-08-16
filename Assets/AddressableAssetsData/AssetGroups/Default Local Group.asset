@@ -15,33 +15,8 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: bbfb8b525e95cad44899f3851339ffd2
-  m_SerializeEntries:
-  - m_GUID: a83504204f6241741a06f3be2cbc3438
-    m_Address: Prefabs
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 428d6112c3d04f74fa9163a9cd8bc00a
-    m_Address: GameSystem
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 01125e54dc3376f42b79f175514269c2
-    m_Address: ApplicationContext
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f084435683824da43b8bff080eb5020f
-    m_Address: MasterAudioMixer
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 15a0babe1fbe9f144a0d4fab5be7e9ee
-    m_Address: DataTableManager
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GUID: ca3b4ca7f21ebbf429ff4e14f2ded0cd
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 02adc8d5ec4545a48a134065cc146d5e, type: 2}
   m_SchemaSet:

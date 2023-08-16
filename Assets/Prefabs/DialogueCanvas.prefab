@@ -895,7 +895,9 @@ MonoBehaviour:
   tmpSpeakerName: {fileID: 7566930429006958243}
   tmpLine: {fileID: 8821763876323315911}
   typewriter: {fileID: 7980342791974910059}
+  dialogueInfos: {fileID: 11400000, guid: 81357eaef3b124949b4ed8396f357a3d, type: 2}
   buttonNext: {fileID: 6639190607063239532}
+  playedDialogueInScene: 0
   dialogueFinished: 0
   speakerSpriteDict:
     m_keys: 0000000001000000020000000300000004000000
