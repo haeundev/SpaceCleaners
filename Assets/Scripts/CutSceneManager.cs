@@ -4,6 +4,7 @@ using System.Linq;
 using LiveLarson.BootAndLoad;
 using LiveLarson.SoundSystem;
 using LiveLarson.Util;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public enum CutsceneType
@@ -42,15 +43,21 @@ public class CutSceneManager : MonoBehaviour
         {
             var cut = _cutQueue.Dequeue();
             cut.gameObject.SetActive(true);
-            if (string.IsNullOrEmpty(cut.audioPath) == false) SoundService.PlaySfx(cut.audioPath, default);
+            // if (string.IsNullOrEmpty(cut.audioPath) == false) SoundService.PlaySfx(cut.audioPath, default);
             yield return YieldInstructionCache.WaitForSeconds(cut.duration);
             cut.gameObject.SetActive(false);
         }
-        
+
+        FinishCutscene();
+    }
+
+    [Button]
+    private void FinishCutscene()
+    {
         if (ApplicationContext.Instance == default)
         {
             Debug.LogError($"Please start with the first booting scene");
-            yield break;
+            return;
         }
 
         switch (cutsceneType)
