@@ -9,14 +9,13 @@ using UnityEngine.AddressableAssets;
 public class KeySpawner : MonoBehaviour
 {
     public DynamicQuickAccessInventory _inventory;
-    public int maxCount = 5;
+    [SerializeField] private int maxCount;
     public Transform keySpawnPoint;
     [SerializeField] private string keyPath = "Prefabs/Jungle/JungleKey.prefab";
 
     [SerializeField] private string keySpawnSFX = "Assets/Audio/key_appear_magic.mp3";
-    // [SerializeField] private AudioClip clip;
 
-    // Start is called before the first frame update
+    private bool isKeySpawned = false;
     void Awake()
     {
         _inventory.OnKeySpawned += OnKeySpawned;
@@ -24,6 +23,9 @@ public class KeySpawner : MonoBehaviour
 
     public void OnKeySpawned(HashSet<Slot> slots)
     {
+        if (isKeySpawned)
+            return;
+        
         foreach(Slot s in slots)
         {
             if(s.ItemCount != maxCount)
@@ -38,6 +40,7 @@ public class KeySpawner : MonoBehaviour
             var go = op.Result;
             var temp = Instantiate(go, keySpawnPoint);
             SoundService.PlaySfx(keySpawnSFX, temp.transform.position);
+            isKeySpawned = true;
             // AudiosourceManager.instance.PlayClip(clip);
             // temp.GetComponent<Floater>().enabled = true;
         };

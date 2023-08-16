@@ -11,6 +11,6 @@ public class JungleItemStatusUI : MonoBehaviour
 
     public void SetCount(int count)
     {
-        text.text = $"{count}/5";
+        text.text = $"{count}/1";
     }
 }
