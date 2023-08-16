@@ -361,6 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da818d2de4050934b9a54bfeeafffbc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextSceneName: Booting_1_ApplicationContext
+  bootTarget: 0
 --- !u!1 &1273556205
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d307bd3ad695434e9db213e0ec30def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextSceneName: Booting_1_ApplicationContext
+  nextGameMode: 2
 --- !u!1001 &1691084841
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scenes/JunglePlanet 1.unity.meta
-guid: 40ab612436ee97c41b56d48affc967fb
+<<<<<<<< HEAD:Assets/Scenes/Booting.unity.meta
+guid: 9ccc55d7e400b2f4b9d8a3615e49752d
 ========
-guid: c78c615b1b4fb8c4fb2d30bdd9924955
->>>>>>>> dev:Assets/Scenes/OpeningCutscene.unity.meta
+guid: 70adad55f04e54319857702c62a433e2
+>>>>>>>> 013773c2 (cutscene):Assets/Scenes/EndingCutScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

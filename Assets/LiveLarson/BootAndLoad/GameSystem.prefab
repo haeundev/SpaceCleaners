@@ -180,26 +180,28 @@ MonoBehaviour:
   bgmByGameMode:
     m_keys:
     - Loading
-    - Tutorial
     - OuterSpace
     - JunglePlanet
     - MonumentPlanet
-    - CrystalDepot
     - None
     - OpeningCutscene
     - EndingCutscene
     - CreditScene
+    - Booting_0_GameSystem
+    - Booting_1_ApplicationContext
+    - Booting_2_DataTableManager
     m_values:
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
-    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
+    - Assets/Audio/SpaceChillout.mp3
     - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
     - Assets/Audio/BGM_cute2.mp3
     - Assets/Audio/CountryBlues.mp3
     - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
+    - Assets/Audio/RollingFilm.mp3
+    - Assets/Audio/RollingFilm.mp3
+    - Assets/Audio/SpaceChillout.mp3
     - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
-    - Assets/Audio/RollingFilm.mp3
-    - Assets/Audio/RollingFilm.mp3
-    - Assets/Audio/Mt. Berkoo - Long Way Home (wav CUT).wav
+    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
+    - Assets/Audio/Mt. Berkoo - Far-reaching (wav).wav
 --- !u!1 &4454550543836065612
 GameObject:
   m_ObjectHideFlags: 0

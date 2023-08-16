@@ -71,7 +71,7 @@ public class TaskManager : MonoBehaviour
         MonumentEvents.OnSceneComplete += () => _isMonumentDone = true;
         MonumentEvents.OnSceneLoaded += () => _isMonumentLoaded = true;
 
-        Application.quitting += OnAppQuit;
+        // Application.quitting += OnAppQuit;
     }
 
     private void OnAppQuit()

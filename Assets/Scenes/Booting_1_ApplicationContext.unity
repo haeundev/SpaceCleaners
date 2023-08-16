@@ -729,6 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Booting_2_DataTableManager
+  nextGameMode: 3
 --- !u!1 &122084618674232364
 GameObject:
   m_ObjectHideFlags: 0

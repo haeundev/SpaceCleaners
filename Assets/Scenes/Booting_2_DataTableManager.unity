@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Loading
+  nextGameMode: 4
 --- !u!1001 &1691084841
 PrefabInstance:
   m_ObjectHideFlags: 0

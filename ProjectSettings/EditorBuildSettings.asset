@@ -19,7 +19,7 @@ EditorBuildSettings:
     guid: 3a12ec2df554cba4cb82e6c241435efd
   - enabled: 1
     path: Assets/Scenes/OpeningCutscene.unity
-    guid: 40ab612436ee97c41b56d48affc967fb
+    guid: 9ccc55d7e400b2f4b9d8a3615e49752d
   - enabled: 1
     path: Assets/Scenes/OuterSpace.unity
     guid: 7f2eab73d0b7f06448e761d8db008b3b
@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MonumentPlanet.unity
     guid: ddaecc3d9d2ab4641973008ecb3eb18e
+  - enabled: 1
+    path: Assets/Scenes/EndingCutScene.unity
+    guid: a941cebb8f3149144bc13581409d55f9
   - enabled: 1
     path: Assets/Scenes/CreditScene.unity
     guid: bfde5c10ec1ca1849824bcc8e159350f

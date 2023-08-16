@@ -44,21 +44,23 @@ public class CutSceneManager : MonoBehaviour
             cut.gameObject.SetActive(true);
             if (string.IsNullOrEmpty(cut.audioPath) == false) SoundService.PlaySfx(cut.audioPath, default);
             yield return YieldInstructionCache.WaitForSeconds(cut.duration);
-
-            if (_cutQueue.Count == 0)
-                switch (cutsceneType)
-                {
-                    case CutsceneType.Opening:
-                        ApplicationContext.Instance.LoadScene("OuterSpace"); // SCENE NAME
-                        break;
-                    case CutsceneType.Ending:
-                        ApplicationContext.Instance.LoadScene("CreditScene"); // SCENE NAME
-                        break;
-                }
-
             cut.gameObject.SetActive(false);
         }
+        
+        if (ApplicationContext.Instance == default)
+        {
+            Debug.LogError($"Please start with the first booting scene");
+            yield break;
+        }
 
-        ApplicationContext.Instance.LoadScene("OuterSpace"); // SCENE NAME
+        switch (cutsceneType)
+        {
+            case CutsceneType.Opening:
+                ApplicationContext.Instance.LoadScene("OuterSpace"); // SCENE NAME
+                break;
+            case CutsceneType.Ending:
+                ApplicationContext.Instance.LoadScene("CreditScene"); // SCENE NAME
+                break;
+        }
     }
 }

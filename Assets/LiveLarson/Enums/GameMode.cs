@@ -3,14 +3,14 @@ namespace LiveLarson.Enums
     public enum GameMode
     {
         None,
-        Booting,
+        Booting_0_GameSystem,
+        Booting_1_ApplicationContext,
+        Booting_2_DataTableManager,
         Loading,
-        Tutorial,
+        OpeningCutscene,
         OuterSpace,
         JunglePlanet,
         MonumentPlanet,
-        CrystalDepot,
-        OpeningCutscene,
         EndingCutscene,
     }
 }
