@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DataTables;
@@ -34,15 +35,20 @@ public class DashboardGadget : MonoBehaviour
         //_gadgetInfos = DataTableManager.GadgetInfos.Values;
         //_gadgetStat = SaveAndLoadManager.Instance.GadgetStat;
 
-        RegisterEvents();
-    }
-
-    private void RegisterEvents()
-    {
-        //prevButton.onClick.AddListener(OnClickPrevButton);
-        //nextButton.onClick.AddListener(OnClickNextButton);
         selectButton.onClick.AddListener(OnClickSelectButton);
         OuterSpaceEvent.OnGadgetShoot += OnGadgetShoot;
+    }
+
+    // private void RegisterEvents()
+    // {
+    //     //prevButton.onClick.AddListener(OnClickPrevButton);
+    //     //nextButton.onClick.AddListener(OnClickNextButton);
+    //  
+    // }
+
+    private void OnDisable()
+    {
+        OuterSpaceEvent.OnGadgetShoot -= OnGadgetShoot;
     }
 
     private void OnGadgetShoot(GameObject targetDebris)
