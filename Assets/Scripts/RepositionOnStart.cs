@@ -12,12 +12,12 @@ public class RepositionOnStart : MonoBehaviour
     private Vector3 _cameraForward;
     private float _angle;
     
-    [Button]
     private void Start()
     {
         Recenter();
     }
 
+    [Button]
     public void Recenter()
     {
         _offset = head.position - origin.position;

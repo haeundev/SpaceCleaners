@@ -9290,6 +9290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 836969421}
+  - component: {fileID: 836969422}
   m_Layer: 0
   m_Name: Re-position Reference
   m_TagString: Untagged
@@ -9305,13 +9306,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836969420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8734308, y: 0.51151246, z: 0.12092398}
+  m_LocalPosition: {x: 0.587, y: -0.497, z: -0.028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4167136800036221505}
+  m_Father: {fileID: 6784358475581660673}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836969422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836969420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3003b4f24fe924fba94a6873b2af77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 900889539}
+  origin: {fileID: 836969421}
+  recenterButton: {fileID: 2451116882753798807, guid: b4850527e0ee7c0439182fa58a99796e,
+    type: 3}
 --- !u!1 &858272594
 GameObject:
   m_ObjectHideFlags: 0
@@ -10502,7 +10519,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900889534}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b4985b2f4325e546a1b8859c3c1ebe7, type: 3}
   m_Name: 
@@ -26748,34 +26765,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &995763431360683088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2231629937492435259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4e761271832d0040ad004d1e455320c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 6784358475581660673}
-  origin: {fileID: 4167136800036221505}
-  target: {fileID: 4374479427901990707}
-  recenterButton:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Recenter Button
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: b1ce88be-b1bf-485b-9ea7-c09d405a2ddf
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 2451116882753798807, guid: b4850527e0ee7c0439182fa58a99796e,
-      type: 3}
 --- !u!4 &1012546809639538322
 Transform:
   m_ObjectHideFlags: 0
@@ -29915,7 +29904,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8283250915315561146}
   - component: {fileID: 1071365393064155245}
-  - component: {fileID: 995763431360683088}
   m_Layer: 30
   m_Name: XR Origin
   m_TagString: Untagged
@@ -40021,7 +40009,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 836969421}
   - {fileID: 900889539}
   - {fileID: 4707977745124289535}
   m_Father: {fileID: 0}
@@ -46964,6 +46951,7 @@ Transform:
   m_Children:
   - {fileID: 1427020104}
   - {fileID: 7654051115217333984}
+  - {fileID: 836969421}
   m_Father: {fileID: 5861841660886799934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
