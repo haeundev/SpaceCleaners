@@ -103,6 +103,7 @@ public class DashboardGadget : MonoBehaviour
             Destroy(gadgetParent.GetChild(i).gameObject);
         var net = Instantiate(netPrefab);
         net.transform.position = gadgetParent.position;
+        net.transform.forward = gadgetParent.forward;
         net.transform.SetParent(GameObject.FindWithTag("Re-positionableHandle").transform, true);
         var gadget = net.GetComponent<Gadget>();
         if (_currentTargetDebris != default) gadget.targetTransform = _currentTargetDebris.transform;

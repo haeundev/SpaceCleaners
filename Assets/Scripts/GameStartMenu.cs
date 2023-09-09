@@ -73,15 +73,17 @@ public class GameStartMenu : MonoBehaviour
     public void StartGame()
     {
         HideAll();
+        ApplicationContext.Instance.LoadScene("OuterSpace");
 
-        if (_startFromBeginning == false)
-        {
-            ApplicationContext.Instance.LoadScene("OuterSpace");
-        }
-        else
-        {
-            ApplicationContext.Instance.LoadScene("OpeningCutscene");
-        }
+        //
+        // if (_startFromBeginning == false)
+        // {
+        //     ApplicationContext.Instance.LoadScene("OuterSpace");
+        // }
+        // else
+        // {
+        //     ApplicationContext.Instance.LoadScene("OpeningCutscene");
+        // }
 
         // if (SaveAndLoadManager.Instance.IsFirstTime)
         //     ApplicationContext.Instance.LoadScene("OpeningCutscene");

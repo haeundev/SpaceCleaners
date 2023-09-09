@@ -66,7 +66,7 @@ public class RayGazable : MonoBehaviour
                 debrisLabel.SetDebris(gameObject);
                 label.Show(GetLabelText(label.type));
                 label.gameObject.SetActive(true);
-                label.RegisterEnterButtonEvent(() => { OuterSpaceEvent.Trigger_ShootGadget(gameObject); });
+                //label.RegisterEnterButtonEvent(() => { OuterSpaceEvent.Trigger_ShootGadget(gameObject); });
             }
             else if (gameObject.layer == LayerMask.NameToLayer("Planet"))
             {

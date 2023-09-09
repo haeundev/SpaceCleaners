@@ -37,9 +37,14 @@ public class TaskCanvas : MonoBehaviour
 
     private void OnEnable()
     {
-        if (TaskManager.Instance == default || TaskManager.Instance.CurrentTask == default)
+        if (TaskManager.Instance == default)
         {
-            Debug.LogError("TaskManager or CurrentTask is not initialized");
+            Debug.LogError("TaskManager is not initialized");
+            return;
+        }
+        if (TaskManager.Instance.CurrentTask == default)
+        {
+            Debug.LogError("CurrentTask is not initialized");
             return;
         }
         var taskInfo = TaskManager.Instance.CurrentTask;

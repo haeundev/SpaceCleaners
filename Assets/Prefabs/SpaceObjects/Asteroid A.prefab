@@ -43,7 +43,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2573863380088183330}
-  - component: {fileID: 4348464148814974432}
   m_Layer: 11
   m_Name: Asteroid A
   m_TagString: Untagged
@@ -60,29 +59,13 @@ Transform:
   m_GameObject: {fileID: 597924519638078836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3332508350040655750}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4348464148814974432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597924519638078836}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0870946430fae8c4f9dc5b891454be95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  cautionDistance: 80
-  warningDistance: 40
-  forwardAngle: 90
 --- !u!1 &3009089754241500829
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,15 +774,15 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.5
+  - screenRelativeHeight: 0.22900833
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2073430246418905047}
-  - screenRelativeHeight: 0.17
+  - screenRelativeHeight: 0.065385096
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2841689419704494443}
-  - screenRelativeHeight: 0.02
+  - screenRelativeHeight: 0.015269263
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3798404723762795609}

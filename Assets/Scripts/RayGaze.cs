@@ -20,7 +20,7 @@ public class RayGaze : MonoBehaviour
             || SpaceObjectLabels.Instance.labels.Count == 0
             )
             return;
-
+        
         var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         var lastGazable = _lastHit == default ? default : _lastHit.GetComponent<RayGazable>();
         var asteroidLayer = 1 << LayerMask.NameToLayer("Asteroid");
