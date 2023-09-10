@@ -19,6 +19,8 @@ TagManager:
   - Key
   - JungleHUD
   - Enemy
+  - JungleTree
+  - Volume
   layers:
   - Default
   - TransparentFX

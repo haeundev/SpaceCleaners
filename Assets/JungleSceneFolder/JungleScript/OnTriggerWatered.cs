@@ -3,6 +3,8 @@ using LiveLarson.SoundSystem;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 /// <summary>
 ///     Calls functionality when a physics trigger occurs
@@ -66,7 +68,7 @@ public class OnTriggerWatered : MonoBehaviour
     // public string plantGrowSFX = "Assets/Audio/PlantGrowBounce.mp3";
     // private AudioSource _audioSource;
     [SerializeField] private AudioClip clip;
-
+    
     private void Awake()
     {
         RegisterEvents();
@@ -89,6 +91,7 @@ public class OnTriggerWatered : MonoBehaviour
         if (plantLevel == Level.Easy)
             myAnimator.runtimeAnimatorController = animators[0];
         else if (plantLevel == Level.Hard) myAnimator.runtimeAnimatorController = animators[1];
+        
     }
 
     // private void Update()
