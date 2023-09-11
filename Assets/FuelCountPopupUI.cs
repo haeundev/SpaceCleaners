@@ -25,7 +25,7 @@ public class FuelCountPopupUI : MonoBehaviour
         Instance._fuelCount++;
         Instance._tmp.text = $"{Instance._fuelCount} / 10";
         Instance.gameObject.SetActive(true);
-        if (Instance._fuelCount >= 10)
+        if (Instance._fuelCount >= 1)
             Instance.SpawnKey();
         Observable.Timer(TimeSpan.FromSeconds(3f)).Subscribe(_ => Instance.gameObject.SetActive(false));
     }
