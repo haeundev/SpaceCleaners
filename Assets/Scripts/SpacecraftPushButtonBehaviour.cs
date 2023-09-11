@@ -53,8 +53,6 @@ public class SpacecraftPushButtonBehaviour : MonoBehaviour
                 SoundService.PlaySfx("Audio/SFX/Flare gun 5-2.wav", transform.position);
                 break;
             case GadgetType.Net:
-                
-                //OuterSpaceEvent.Trigger_ShootGadget();
                 break;
             case GadgetType.Laser:
                 break;

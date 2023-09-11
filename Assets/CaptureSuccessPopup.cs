@@ -13,7 +13,7 @@ public class CaptureSuccessPopup : MonoBehaviour
         OuterSpaceEvent.OnDebrisCaptured += OnDebrisCaptured;
     }
 
-    private void OnDebrisCaptured(GameObject _)
+    private void OnDebrisCaptured(DebrisType _, GameObject __)
     {
         gameObject.SetActive(true);
         // Addressables.InstantiateAsync(captureSuccessSFX).Completed += op =>

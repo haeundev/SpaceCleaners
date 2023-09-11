@@ -30,10 +30,8 @@ MonoBehaviour:
     SpeakerType: 4
     DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
     Line: "\uD658\uC601\uD569\uB2C8\uB2E4 775\uBC88 \uCC38\uAC00\uC790, \uC5D0\uCF54!
-      \n\uC804\uC6B0\uC8FC\uC5F0\uD569 \uC2A4\uD3EC\uCE20, \uC6B0\uC8FC\uC4F0\uB808\uAE30
-      \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC5D0 \uCC38\uC5EC\uD574\uC8FC\uC154\uC11C
-      \uAC10\uC0AC\uD569\uB2C8\uB2E4.\n\uC790, \uC2DC\uC791\uD560 \uC900\uBE44\uAC00
-      \uB418\uC5C8\uB098\uC694?"
+      \n\uC6B0\uC8FC\uC4F0\uB808\uAE30 \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC744
+      \uACE7 \uC2DC\uC791\uD569\uB2C8\uB2E4.\n\uC790, \uC900\uBE44 \uB418\uC5C8\uB098\uC694?"
     Next: 0
     HasChoice: 1
     IsEnd: 0
@@ -75,10 +73,9 @@ MonoBehaviour:
     SpeakerType: 0
     DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
     Line: "\uC774\uBC88 \uB300\uD68C\uC758 \uCF54\uC2A4\uB97C \uC18C\uAC1C\uD560\uAC8C\uC694.
-      \uB300\uD68C\uC758 \uBAA8\uB4E0 \uCC38\uAC00\uC790\uB4E4\uC740 \n\uC794\uD574
-      \uC218\uC9D1 - \uC815\uAE00\uD589\uC131 \uAD6C\uC870 - \uB2E4\uC2DC \uC794\uD574
-      \uC218\uC9D1 - \uBAA8\uB798\uD589\uC131 \uAD6C\uC870 \uC21C\uC11C\uB85C \n\uB300\uCCAD\uC18C
-      \uC791\uC5C5\uC744 \uD560 \uC608\uC815\uC774\uC5D0\uC694."
+      \n\uC794\uD574 \uC218\uC9D1 - \uC815\uAE00\uD589\uC131 \uAD6C\uC870 - \uB2E4\uC2DC
+      \uC794\uD574 \uC218\uC9D1 - \uBAA8\uB798\uD589\uC131 \uAD6C\uC870 \uC21C\uC11C\uB85C
+      \n\uB300\uCCAD\uC18C \uC791\uC5C5\uC744 \uD560 \uC608\uC815\uC774\uC5D0\uC694."
     Next: 0
     HasChoice: 1
     IsEnd: 0
@@ -526,10 +523,10 @@ MonoBehaviour:
     AudioPath: 
     ImagePath: 
   - ID: 41
-    SpeakerType: 4
+    SpeakerType: 0
     DisplayName: 
-    Line: "\uCE58\uC9C1..."
-    Next: 42
+    Line: 
+    Next: 0
     HasChoice: 0
     IsEnd: 0
     ResponseA: 
@@ -539,10 +536,10 @@ MonoBehaviour:
     AudioPath: 
     ImagePath: 
   - ID: 42
-    SpeakerType: 1
-    DisplayName: "\uBE0C\uB77C\uBCF4"
-    Line: "...\uBE0C\uB77C\uBCF4\uB2E4."
-    Next: 43
+    SpeakerType: 0
+    DisplayName: 
+    Line: 
+    Next: 0
     HasChoice: 0
     IsEnd: 0
     ResponseA: 
@@ -552,15 +549,12 @@ MonoBehaviour:
     AudioPath: 
     ImagePath: 
   - ID: 43
-    SpeakerType: 1
-    DisplayName: "\uBE0C\uB77C\uBCF4"
-    Line: "\uC2E0\uC785 \uCE58\uACE0\uB294 \uC2E4\uB825\uC774 \uC88B\uC740 \uAC83
-      \uAC19\uAD70. \n\uC790\uB124\uAC00 \uCC3E\uC740 \uB2E8\uC11C\uB294 \uBD84\uC11D\uD300\uC5D0
-      \uC758\uB8B0\uD558\uACA0\uB2E4. \n\uACB0\uACFC\uAC00 \uB098\uC62C \uB54C\uAE4C\uC9C0
-      \uAE30\uB2E4\uB9AC\uB3C4\uB85D \uD574."
+    SpeakerType: 0
+    DisplayName: 
+    Line: 
     Next: 0
     HasChoice: 0
-    IsEnd: 1
+    IsEnd: 0
     ResponseA: 
     NextForA: 0
     ResponseB: 

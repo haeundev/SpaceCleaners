@@ -66,7 +66,7 @@ public class TaskManager : MonoBehaviour
     //     Debug.Log($"[TaskManager]  CurrentTask is saved as {CurrentTask.ID}");
     // }
 
-    private void OnDebrisCaptured(GameObject _)
+    private void OnDebrisCaptured(DebrisType _, GameObject __)
     {
         _debrisCount++;
         Debug.Log($"[TaskManager]  _debrisCount {_debrisCount}");

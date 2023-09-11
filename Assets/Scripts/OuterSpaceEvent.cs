@@ -8,7 +8,7 @@ public static class OuterSpaceEvent
     public static event Action PlayerEnterPlanet = delegate { };
     public static event Action PlayerRefusePlanet = delegate { };
     public static event Action<GameObject> OnGadgetShoot = delegate { };
-    public static event Action<GameObject> OnDebrisCaptured = delegate { };
+    public static event Action<DebrisType, GameObject> OnDebrisCaptured = delegate { };
     public static event Action<bool> OnBoost = delegate { };
     public static event Action<GadgetInfo> OnGadgetSelected = delegate { };
     public static event Action<AlarmPriority, AlarmSourceType> OnNotification = delegate { };
@@ -55,9 +55,9 @@ public static class OuterSpaceEvent
         OnGadgetShoot(targetDebris);
     }
 
-    public static void Trigger_DebrisCaptured(GameObject targetDebris)
+    public static void Trigger_DebrisCaptured(DebrisType debrisType, GameObject targetDebris)
     {
         Debug.Log($"[OuterSpaceEvent] OnDebrisCaptured");
-        OnDebrisCaptured(targetDebris);
+        OnDebrisCaptured(debrisType, targetDebris);
     }
 }

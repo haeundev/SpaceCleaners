@@ -204,7 +204,7 @@ Transform:
   - {fileID: 7239894632891224189}
   - {fileID: 2395940468528165308}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5730735821364815969
 BoxCollider:
@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352940e0da8a10c438b97df8ce340795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debrisType: 1
 --- !u!114 &6641237850232518811
 MonoBehaviour:
   m_ObjectHideFlags: 0

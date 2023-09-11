@@ -13,10 +13,17 @@ public class Net : Gadget
     private bool _isCaptured;
     private Animator _animator;
     private Transform _netCapturePositionObj;
+    [SerializeField] private GameObject turbineModel;
+    [SerializeField] private GameObject satelliteModel;
 
     private void Awake()
     {
         _netCapturePositionObj = GameObject.Find("NetCapturePosition").transform;
+    }
+
+    private void Start()
+    {
+        TurnOffModels();
     }
     // for test
     // private void Start()
@@ -46,25 +53,42 @@ public class Net : Gadget
     }
 
     [Button]
-    private void OnDebrisCaptured(GameObject targetDebris)
+    private void OnDebrisCaptured(DebrisType debrisType, GameObject targetDebris)
     {
         if (_isCaptured)
             return;
         
         _isCaptured = true;
+        
+        // reset
+        TurnOffModels();
+        
+        switch (debrisType)
+        {
+            case DebrisType.Turbine:
+                turbineModel.SetActive(true);
+                break;
+            case DebrisType.Satellite:
+                satelliteModel.SetActive(true);
+                break;
+        }
+        
         var currentClip = _animator.GetCurrentAnimatorClipInfo(0)[0].clip;
         _animator.Play(currentClip.name, 0, captureTimingRatioInAnimClip);
         Observable.Timer(TimeSpan.FromSeconds(currentClip.length * (1 - captureTimingRatioInAnimClip))).Subscribe(_ =>
         {
+            TurnOffModels();
             Destroy(gameObject);
             Destroy(targetDebris);
         }).AddTo(this);
         
         transform.position = _netCapturePositionObj.transform.position;
-        //
-        // // Step 3: Make the player face the enemy
-        // Vector3 lookAtPosition = new Vector3(debrisTransform.position.x, transform.position.y, debrisTransform.position.z);
-        // transform.LookAt(lookAtPosition);
+    }
+
+    private void TurnOffModels()
+    {
+        turbineModel.SetActive(false);
+        satelliteModel.SetActive(false);
     }
 
     [Button]
