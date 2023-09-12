@@ -66,10 +66,10 @@ public class SelectItem : MonoBehaviour
                 {
                     JungleEvents.Trigger_SceneComplete();
                 }
-                if (SceneManager.GetActiveScene().name.Contains("Monument"))
-                {
-                    MonumentEvents.Trigger_SceneComplete();
-                }
+                // if (SceneManager.GetActiveScene().name.Contains("Monument"))
+                // {
+                //     MonumentEvents.Trigger_SceneComplete();
+                // }
             }
            
         }

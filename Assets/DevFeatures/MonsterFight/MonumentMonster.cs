@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using LiveLarson.SoundSystem;
 using LiveLarson.Util;
 using Pathfinding;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -25,6 +26,9 @@ public class MonumentMonster : MonoBehaviour
     [SerializeField] private List<string> sfxOnGetHit;
     [SerializeField] private List<string> sfxOnDie;
     [SerializeField] private List<GameObject> disableOnDie;
+    [SerializeField] private List<GameObject> trashObjects;
+    [SerializeField] private int trashEmitCount = 3;
+    [SerializeField] private float explosionForce = 1f;
     [SerializeField] private float knockBackIntensity = 5f;
     [SerializeField] private string sfxTalk = "Assets/Audio/MonsterTalk.mp3";
     [SerializeField] private string sfxLaugh = "Assets/Audio/LittleMonsterLaugh.wav";
@@ -71,6 +75,8 @@ public class MonumentMonster : MonoBehaviour
         monsterHUD.SetSliderMaxValue(_health);
         ChangeState(MonsterState.Idle);
         _playerTransform = GameObject.FindWithTag("Player").transform;
+
+        EmitTrash();
     }
 
     private bool _hitCoolTimeDone = true;
@@ -100,7 +106,7 @@ public class MonumentMonster : MonoBehaviour
             }
 
             SoundService.PlaySfx(sfxOnGetHit.PeekRandom(), transform.position);
-            _health--;
+            _health = 0;
             monsterHUD.MonsterTakeDamage(1);
             CreateParticleOnHit();
             _animator.SetTrigger(AttackAnims.PeekRandom());
@@ -134,14 +140,29 @@ public class MonumentMonster : MonoBehaviour
         SoundService.PlaySfx(sfxOnDie.PeekRandom(), transform.position);
         CreateParticleOnDie();
         ChangeState(MonsterState.Die);
+        EmitTrash();
         Observable.Timer(TimeSpan.FromSeconds(2.1f)).Subscribe(_ =>
         {
-            var fuel = Instantiate(fuelTankPrefab);
-            fuel.transform.position = transform.position;
-            fuel.SetActive(true);
+            //var fuel = Instantiate(fuelTankPrefab);
+            //fuel.transform.position = transform.position;
+            //fuel.SetActive(true);
             Destroy(gameObject);
         }).AddTo(this);
     }
+
+    [SerializeField] private float emitHeight = 1f;
+    [Button]
+    private void EmitTrash()
+    {
+        for (var i = 0; i < trashEmitCount; i++)
+        {
+            var spawned = Instantiate(trashObjects.PeekRandom(), transform.position + Vector3.up * emitHeight, Quaternion.identity);
+            var rb = spawned.GetComponent<Rigidbody>();
+            if (rb == null) continue;
+            rb.AddForce(Vector3.up * explosionForce, ForceMode.Impulse);
+        }
+    }
+
 
     private void FixedUpdate()
     {
