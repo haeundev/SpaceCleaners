@@ -21,6 +21,9 @@ TagManager:
   - Enemy
   - JungleTree
   - Volume
+  - IngredientHolder
+  - Metal
+  - Plastic
   layers:
   - Default
   - TransparentFX
@@ -50,8 +53,8 @@ TagManager:
   - Enemy
   - EnemyProxy
   - Weapon
+  - IngredientHolder
   - Trash
-  - 
   - 
   - 
   m_SortingLayers:
