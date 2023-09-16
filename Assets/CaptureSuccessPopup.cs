@@ -25,13 +25,8 @@ public class CaptureSuccessPopup : MonoBehaviour
         Observable.Timer(TimeSpan.FromSeconds(3f)).Subscribe(_ => { gameObject.SetActive(false); }).AddTo(this);
     }
 
-    private void OnEnable()
+    private void OnDestroy()
     {
-        
-    }
-    
-    private void OnDisable()
-    {
-        
+        OuterSpaceEvent.OnDebrisCaptured -= OnDebrisCaptured;
     }
 }
