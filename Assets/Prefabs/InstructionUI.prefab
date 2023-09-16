@@ -424,9 +424,7 @@ GameObject:
   - component: {fileID: 3260070700169612630}
   - component: {fileID: 3136945137760786411}
   - component: {fileID: 4953137537696260123}
-  - component: {fileID: 8706764686490654004}
   - component: {fileID: 7075187290245100119}
-  - component: {fileID: 6963185211098692467}
   m_Layer: 5
   m_Name: InstructionUI
   m_TagString: Untagged
@@ -510,25 +508,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7241212818280905620}
   m_CullTransparentMesh: 1
---- !u!114 &8706764686490654004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7241212818280905620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
-  m_CheckFor3DOcclusion: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 1473719
-  m_RaycastTriggerInteraction: 1
 --- !u!114 &7075187290245100119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,15 +522,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 3475778063169602977}
   description: {fileID: 4987417650452617862}
---- !u!114 &6963185211098692467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7241212818280905620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a6f7acf75b19c4e98ba3b08adf5e7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
