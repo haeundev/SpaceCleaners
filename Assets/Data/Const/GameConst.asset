@@ -104,3 +104,4 @@ MonoBehaviour:
     increaseSliderValuePerCorrectRecycle: 0.3
     sfxCorrectRecycle: Assets/Audio/correct-choice-43861.mp3
     sfxWrongRecycle: Assets/Audio/negative_beeps-6008.mp3
+    sfxInstruction: Assets/Audio/ringtone 1.mp3

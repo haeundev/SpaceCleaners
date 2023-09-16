@@ -23,6 +23,7 @@ namespace DataTables
             public float increaseSliderValuePerCorrectRecycle;
             public string sfxCorrectRecycle;
             public string sfxWrongRecycle;
+            public string sfxInstruction;
         }
 
     public DataClass Data;
