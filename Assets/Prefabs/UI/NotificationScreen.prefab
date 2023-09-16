@@ -112,8 +112,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279888295
-  m_fontColor: {r: 0.6536253, g: 0.9150943, b: 0.09927912, a: 1}
+    rgba: 4291879935
+  m_fontColor: {r: 1, g: 0.89044756, b: 0.8160377, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -226,6 +226,9 @@ MonoBehaviour:
   onTextShowed:
     m_PersistentCalls:
       m_Calls: []
+  onTextForceStopped:
+    m_PersistentCalls:
+      m_Calls: []
   onTypewriterStart:
     m_PersistentCalls:
       m_Calls: []
@@ -259,6 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1329509a9e93311438a82423d3620260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenPosition: 0
   normalMat: {fileID: 2100000, guid: b075d44014b2d7449b3ade4b8474df12, type: 2}
   cautionMat: {fileID: 2100000, guid: 64e12d93b9284414093667709d9b05a0, type: 2}
   warningMat: {fileID: 2100000, guid: c6ed169698cabee4fa1b338bbc298469, type: 2}
