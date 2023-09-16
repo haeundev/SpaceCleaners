@@ -28,10 +28,10 @@ MonoBehaviour:
     ImagePath: 
   - ID: 2
     SpeakerType: 4
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
-    Line: "\uD658\uC601\uD569\uB2C8\uB2E4 775\uBC88 \uCC38\uAC00\uC790, \uC5D0\uCF54!
-      \n\uC6B0\uC8FC\uC4F0\uB808\uAE30 \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC744
-      \uACE7 \uC2DC\uC791\uD569\uB2C8\uB2E4.\n\uC790, \uC900\uBE44 \uB418\uC5C8\uB098\uC694?"
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
+    Line: "\uD658\uC601\uD569\uB2C8\uB2E4 \uCC38\uAC00\uC790, \uC5D0\uCF54! \n\n\uC6B0\uC8FC
+      \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC744 \uACE7 \uC2DC\uC791\uD569\uB2C8\uB2E4.\n\n\uC790,
+      \uC900\uBE44 \uB418\uC5C8\uB098\uC694?"
     Next: 0
     HasChoice: 1
     IsEnd: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
     ImagePath: 
   - ID: 3
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
-    Line: "\uB124, \uC88B\uC2B5\uB2C8\uB2E4! \uAF2D \uC6B0\uC2B9\uD574\uC11C \n\uC804\uC6B0\uC8FC\uC5F0\uD569
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
+    Line: "\uB124, \uC88B\uC2B5\uB2C8\uB2E4! \uAF2D \uC6B0\uC2B9\uD574\uC11C \n\n\uC804\uC6B0\uC8FC\uC5F0\uD569
       \uBA85\uC608\uC758 \uC804\uB2F9\uC5D0 \uC785\uC131\uD558\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4."
     Next: 5
     HasChoice: 0
@@ -57,8 +57,8 @@ MonoBehaviour:
     ImagePath: 
   - ID: 4
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
-    Line: "\uD558\uD558, \uC88B\uC544\uC694. \uAF2D \uC6B0\uC2B9\uD574\uC11C \n\uC804\uC6B0\uC8FC\uC5F0\uD569
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
+    Line: "\uD558\uD558, \uC88B\uC544\uC694. \uAF2D \uC6B0\uC2B9\uD574\uC11C \n\n\uC804\uC6B0\uC8FC\uC5F0\uD569
       \uBA85\uC608\uC758 \uC804\uB2F9\uC5D0 \uC785\uC131\uD558\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4."
     Next: 5
     HasChoice: 0
@@ -71,11 +71,10 @@ MonoBehaviour:
     ImagePath: 
   - ID: 5
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
-    Line: "\uC774\uBC88 \uB300\uD68C\uC758 \uCF54\uC2A4\uB97C \uC18C\uAC1C\uD560\uAC8C\uC694.
-      \n\uC794\uD574 \uC218\uC9D1 - \uC815\uAE00\uD589\uC131 \uAD6C\uC870 - \uB2E4\uC2DC
-      \uC794\uD574 \uC218\uC9D1 - \uBAA8\uB798\uD589\uC131 \uAD6C\uC870 \uC21C\uC11C\uB85C
-      \n\uB300\uCCAD\uC18C \uC791\uC5C5\uC744 \uD560 \uC608\uC815\uC774\uC5D0\uC694."
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
+    Line: "\uB300\uD68C \uCF54\uC2A4\uB294 \uC794\uD574 \uC218\uC9D1 - \uC815\uAE00\uD589\uC131
+      -\n\n\uB2E4\uC2DC \uC794\uD574 \uC218\uC9D1 - \uBAA8\uB798\uD589\uC131\uC73C\uB85C\n\n\uC774\uB8E8\uC5B4\uC838
+      \uC788\uC5B4\uC694."
     Next: 0
     HasChoice: 1
     IsEnd: 0
@@ -87,9 +86,10 @@ MonoBehaviour:
     ImagePath: 
   - ID: 6
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
-    Line: "\uD558\uD558, \uAC71\uC815 \uB9C8\uC138\uC694. \n\uB300\uD68C \uC6B4\uC601\uC9C4\uC774
-      \uAC01 \uC9C0\uC810\uC5D0\uC11C \uC548\uB0B4\uB97C \uB3C4\uC6B8 \uAC70\uB78D\uB2C8\uB2E4."
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
+    Line: "\uD558\uD558, \uAC71\uC815 \uB9C8\uC138\uC694. \n\n\uB300\uD68C \uC21C\uC11C\uB97C
+      \uD655\uC778\uD560 \uC218 \uC788\uB294 \uC9C0\uB3C4\uAC00 \n\n\uC606\uC5D0
+      \uBCF4\uC77C \uAC70\uC5D0\uC694."
     Next: 9
     HasChoice: 0
     IsEnd: 0
@@ -101,9 +101,10 @@ MonoBehaviour:
     ImagePath: 
   - ID: 7
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
-    Line: "\uD558\uD558, \uC88B\uC2B5\uB2C8\uB2E4. \n\uB300\uD68C \uC6B4\uC601\uC9C4\uC774
-      \uAC01 \uC9C0\uC810\uC5D0\uC11C \uC548\uB0B4\uB97C \uB3C4\uC6B8 \uAC70\uC5D0\uC694."
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
+    Line: "\uD558\uD558, \uC88B\uC2B5\uB2C8\uB2E4. \n\n\uB300\uD68C \uC21C\uC11C\uB97C
+      \uD655\uC778\uD560 \uC218 \uC788\uB294 \uC9C0\uB3C4\uAC00 \n\n\uC606\uC5D0
+      \uBCF4\uC77C \uAC70\uC5D0\uC694."
     Next: 9
     HasChoice: 0
     IsEnd: 0
@@ -115,9 +116,9 @@ MonoBehaviour:
     ImagePath: 
   - ID: 9
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
-    Line: "\uC790, \uAE34\uB9D0 \uD560 \uAC83 \uC5C6\uC774 \uB2F9\uC2E0\uC758 \uC2E4\uB825\uC744
-      \uBCF4\uC5EC\uC8FC\uC138\uC694! \n\uD589\uC6B4\uC744 \uBE4C\uC5B4\uC694."
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
+    Line: "\uC790, \uB2F9\uC2E0\uC758 \uC2E4\uB825\uC744 \uBCF4\uC5EC\uC8FC\uC138\uC694!
+      \n\n\uD589\uC6B4\uC744 \uBE4C\uC5B4\uC694."
     Next: 0
     HasChoice: 0
     IsEnd: 1
@@ -142,9 +143,9 @@ MonoBehaviour:
     ImagePath: 
   - ID: 11
     SpeakerType: 4
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
-    Line: "\uC0C8 \uACBD\uC7C1\uC790\uAC00 \uB098\uD0C0\uB0AC\uAD70. \n\uADF8\uB798\uBD24\uC790
-      \uC6B0\uC2B9\uC740 \uB098\uC778\uB370 \uB9D0\uC774\uC57C! \uC6B0\uD558\uD558\uD558"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
+    Line: "\uC0C8 \uACBD\uC7C1\uC790\uAC00 \uB098\uD0C0\uB0AC\uAD70. \n\n\uADF8\uB798\uBD24\uC790
+      \uC6B0\uC2B9\uC740 \uB098\uC778\uB370 \uB9D0\uC774\uC57C! \n\n\uC6B0\uD558\uD558\uD558"
     Next: 0
     HasChoice: 1
     IsEnd: 0
@@ -156,8 +157,8 @@ MonoBehaviour:
     ImagePath: 
   - ID: 12
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
-    Line: "\uB09C 138\uD68C \uC5F0\uC18D \uC6B0\uC2B9\uC790, \uBE0C\uB77C\uBCF4\uB2E4!"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
+    Line: "\uB09C 1338\uD68C \uC5F0\uC18D \uC6B0\uC2B9\uC790, \uBE0C\uB77C\uBCF4\uB2E4!"
     Next: 14
     HasChoice: 0
     IsEnd: 0
@@ -169,8 +170,8 @@ MonoBehaviour:
     ImagePath: 
   - ID: 13
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
-    Line: "138\uD68C \uC5F0\uC18D \uC6B0\uC2B9\uC790, \uB098, \uBE0C\uB77C\uBCF4\uB97C
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
+    Line: "1338\uD68C \uC5F0\uC18D \uC6B0\uC2B9\uC790, \uB098, \uBE0C\uB77C\uBCF4\uB97C
       \uC774\uAE30\uACA0\uB2E4\uACE0? \n\uD760. \uAC74\uBC29\uC9C0\uC9C0\uB9CC \uC790\uC2E0\uAC10\uC774
       \uBCF4\uAE30 \uC88B\uAD70."
     Next: 14
@@ -184,11 +185,11 @@ MonoBehaviour:
     ImagePath: 
   - ID: 14
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uB274\uBE44\uB77C\uACE0 \uD558\uB2C8 \uADF8\uB798\uB3C4 \uBA87 \uAC00\uC9C0
-      \uC54C\uB824\uC8FC\uB3C4\uB85D \uD558\uC9C0. \n\uC6B0\uC8FC \uC794\uD574\uB97C
+      \uC54C\uB824\uC8FC\uB3C4\uB85D \uD558\uC9C0.\n\n\uC6B0\uC8FC \uC794\uD574\uB97C
       \uC218\uC9D1\uD558\uACE0 \uC7AC\uD65C\uC6A9\uD574\uC11C \uD544\uC694\uD55C
-      \uB3C4\uAD6C\uB97C \uC81C\uC791\uD574. \n\uADF8 \uC815\uB3C4\uB294 \uC54C\uACA0\uC9C0?"
+      \uB3C4\uAD6C\uB97C \uC81C\uC791\uD574.\n\n\uADF8 \uC815\uB3C4\uB294 \uC54C\uACA0\uC9C0?"
     Next: 15
     HasChoice: 0
     IsEnd: 0
@@ -200,10 +201,10 @@ MonoBehaviour:
     ImagePath: 
   - ID: 15
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uC815\uAE00\uD589\uC131\uC740 \uACF5\uAE30\uAC00 \uD0C1\uD558\uAE30\uB85C
-      \uC720\uBA85\uD558\uACE0, \n\uBAA8\uB798\uD589\uC131\uC740 \uC545\uBA85 \uB192\uC740
-      \uC4F0\uB808\uAE30 \uBAAC\uC2A4\uD130\uAC00 \uB9CE\uC73C\uB2C8 \n\uC544\uBB34\uCABC\uB85D
+      \uC720\uBA85\uD558\uACE0, \n\n\uBAA8\uB798\uD589\uC131\uC740 \uC545\uBA85 \uB192\uC740
+      \uC4F0\uB808\uAE30 \uBAAC\uC2A4\uD130\uAC00 \uB9CE\uC73C\uB2C8 \n\n\uC544\uBB34\uCABC\uB85D
       \uC870\uC2EC\uD558\uB294 \uAC8C \uC88B\uC744 \uAC70\uB2E4!"
     Next: 0
     HasChoice: 1
@@ -217,7 +218,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 16
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uADF8\uB798. \uB2E4\uAC19\uC774 \uAE68\uB057\uD55C \uC6B0\uC8FC\uB97C
       \uB9CC\uB4DC\uB294 \uAC8C \n\uC774 \uC2A4\uD3EC\uCE20\uC758 \uBAA9\uC801\uC774\uB2C8\uAE4C
       \uC774\uB807\uAC8C \uB3C4\uC640\uC8FC\uB294 \uAC70\uB2E4. \n\uADF8\uB798\uBD24\uC790
@@ -233,7 +234,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 17
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uBB50, \uADF8\uB798\uB3C4 \uB2E4\uAC19\uC774 \uAE68\uB057\uD55C \uC6B0\uC8FC\uB97C
       \uB9CC\uB4DC\uB294 \uAC8C \n\uC774 \uC2A4\uD3EC\uCE20\uC758 \uBAA9\uC801\uC774\uB2C8\uAE4C
       \uB9D0\uC774\uC57C. \n\uC5EC\uC804\uD788 \uC6B0\uC2B9\uC740 \uB098\uC77C\uD14C\uC9C0\uB9CC.
@@ -249,7 +250,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 18
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uB610 \uBB50 \uAD81\uAE08\uD55C \uAC8C \uC788\uB098?"
     Next: 0
     HasChoice: 1
@@ -263,7 +264,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 19
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uAE4C\uCE60\uD558\uAC8C \uAD74\uAE34. \uD6C4\uD6C4. \n\uADF8\uB7FC \uC2DC\uC0C1\uC2DD
       \uB54C \uBCF4\uC790\uACE0."
     Next: 21
@@ -277,7 +278,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 20
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uD6C4\uD6C4. \uC2DC\uC0C1\uC2DD \uB54C \uBCF4\uC790\uACE0."
     Next: 21
     HasChoice: 0
@@ -290,7 +291,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 21
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uC544, \uB0B4 \uC6B0\uC2B9\uCEF5 \uC2DC\uC0C1\uC2DD \uB9D0\uC774\uC57C.
       \uC6B0\uD558\uD558"
     Next: 22
@@ -304,7 +305,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 22
     SpeakerType: 1
-    DisplayName: "\uCC38\uAC00\uC790 \uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "...\uADF8\uB7FC \uC774\uB9CC."
     Next: 0
     HasChoice: 0
@@ -317,7 +318,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 23
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uD658\uC601\uD569\uB2C8\uB2E4, \uC5D0\uCF54. \n\uC800\uB294 \uC774 \uC6B0\uC8FC\uC120\uC758
       AI \uBCF4\uC870\uC6D0, \uC790\uBE44\uC988\uB78D\uB2C8\uB2E4."
     Next: 24
@@ -331,7 +332,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 24
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uBA87 \uAC00\uC9C0 \uD6C8\uB828 \uB0B4\uC6A9\uC744 \uC0C1\uAE30\uC2DC\uCF1C\uB4DC\uB9B4\uAC8C\uC694."
     Next: 25
     HasChoice: 0
@@ -344,7 +345,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 25
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uBA3C\uC800 \uC6B0\uC8FC\uC120\uC744 \uD68C\uC804\uD574\uBCFC\uAE4C\uC694?
       \n\uD578\uB4E4\uC744 \uB3CC\uB824\uBCF4\uC138\uC694."
     Next: 26
@@ -358,7 +359,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 26
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uC798 \uD558\uC168\uC2B5\uB2C8\uB2E4."
     Next: 27
     HasChoice: 0
@@ -371,7 +372,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 27
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uC774\uC81C \uC67C\uCABD\uC758 \uD2F8\uD130\uB97C \uC870\uC791\uD574
       \uC6B0\uC8FC\uC120\uC744 \uAE30\uC6B8\uC5EC\uBCF4\uC138\uC694."
     Next: 28
@@ -385,7 +386,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 28
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uD6CC\uB96D\uD558\uC2DC\uAD70\uC694!"
     Next: 29
     HasChoice: 0
@@ -398,9 +399,10 @@ MonoBehaviour:
     ImagePath: 
   - ID: 29
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
-    Line: "\uC624\uB978\uCABD\uC758 \uB808\uBC84\uB85C\uB294 \uBE44\uD589 \uC18D\uB3C4\uB97C
-      \uC870\uC808\uD560 \uC218 \uC788\uC5B4\uC694. \n\uD55C\uBC88 \uD574\uBD05\uC2DC\uB2E4."
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
+    Line: "\uD578\uB4E4 \uC624\uB978\uCABD \uBC11\uC758 \uB808\uBC84\uB85C\uB294
+      \n\n\uBE44\uD589 \uC18D\uB3C4\uB97C \uC870\uC808\uD560 \uC218 \uC788\uC5B4\uC694.
+      \n\uD55C\uBC88 \uD574\uBD05\uC2DC\uB2E4."
     Next: 30
     HasChoice: 0
     IsEnd: 0
@@ -412,7 +414,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 30
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uAD49\uC7A5\uD558\uB124\uC694!"
     Next: 31
     HasChoice: 0
@@ -425,7 +427,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 31
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uC0B0\uC18C\uB294 \uC815\uAE00\uD589\uC131, \n\uC5F0\uB8CC\uB294 \uBAA8\uB798\uD589\uC131\uC5D0\uC11C
       \uC5BB\uAC8C \uB420 \uAC70\uC5D0\uC694."
     Next: 0
@@ -439,7 +441,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 32
     SpeakerType: 2
-    DisplayName: "AI\uBE44\uC11C \uC790\uBE44\uC988"
+    DisplayName: "AI\uBE44\uC11C \n\uC790\uBE44\uC988"
     Line: "\uC88B\uC544\uC694! \uB2F9\uC2E0\uACFC\uC758 \uBE44\uD589\uC774 \uAE30\uB300\uB418\uB124\uC694."
     Next: 0
     HasChoice: 0
@@ -465,7 +467,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 34
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
     Line: "\uB2E4\uC74C \uCCB4\uD06C\uD3EC\uC778\uD2B8\uB294 \uC815\uAE00\uD589\uC131!
       \n\uC815\uAE00\uD589\uC131\uC740 \uB9D1\uACE0 \uAE68\uB057\uD558\uAE30\uB85C
       \uC720\uBA85\uD588\uC5C8\uC9C0\uB9CC, \n\uD604\uC7AC\uB294 \uB300\uAE30\uC624\uC5FC
@@ -482,7 +484,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 35
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
     Line: "\uC815\uAE00\uD589\uC131\uC758 \uC2DD\uBB3C\uC744 \uAE38\uB7EC\uC11C \n\uB9D1\uC740
       \uD558\uB298\uC744 \uB418\uCC3E\uC544\uC8FC\uC138\uC694!"
     Next: 0
@@ -509,7 +511,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 40
     SpeakerType: 4
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
     Line: "\uCCAB\uBC88\uC9F8 \uCCB4\uD06C\uD3EC\uC778\uD2B8 \uC644\uB8CC! \n\uC774\uC81C
       \uC794\uD574\uB97C \uB354 \uC218\uC9D1\uD558\uBA70 \uB2E4\uC74C \uCCB4\uD06C\uD3EC\uC778\uD2B8
       \uBBF8\uC158\uC744 \uAE30\uB2E4\uB9AC\uC138\uC694."
@@ -576,7 +578,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 45
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
     Line: "\uC624, \uD6CC\uB96D\uD569\uB2C8\uB2E4 \uD6CC\uB96D\uD574\uC694! \n \uBE0C\uB77C\uBCF4\uC758
       139\uD68C \uC5F0\uC2B9\uC744 \uACAC\uC81C\uD558\uB294 \uB274\uBE44 \uCC38\uAC00\uC790
       \uC5D0\uCF54. \n\uB300\uC911\uC758 \uBC18\uC751\uC774 \uB728\uAC81\uC2B5\uB2C8\uB2E4!"
@@ -591,11 +593,10 @@ MonoBehaviour:
     ImagePath: 
   - ID: 46
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
     Line: "\uAE68\uB057\uD55C \uC6B0\uC8FC\uB97C \uB9CC\uB4DC\uB294 \uC2A4\uD3EC\uCE20.
-      \n\uC6B0\uC8FC\uC4F0\uB808\uAE30 \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC758
-      \n\uC0C8 \uC5BC\uAD74\uC774 \uD0C4\uC0DD\uD560 \uC218 \uC788\uC744\uC9C0 \uAE30\uB300\uAC00
-      \uB429\uB2C8\uB2E4."
+      \n\uC6B0\uC8FC \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC758 \n\uC0C8 \uC5BC\uAD74\uC774
+      \uD0C4\uC0DD\uD560 \uC218 \uC788\uC744\uC9C0 \uAE30\uB300\uAC00 \uB429\uB2C8\uB2E4."
     Next: 47
     HasChoice: 0
     IsEnd: 0
@@ -607,7 +608,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 47
     SpeakerType: 0
-    DisplayName: "\uC6B4\uC601\uC9C4 \uB378\uD0C0"
+    DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
     Line: "\uB450\uAD6C\uB450\uAD6C\uB450\uAD6C..."
     Next: 0
     HasChoice: 0
@@ -633,10 +634,9 @@ MonoBehaviour:
     ImagePath: 
   - ID: 49
     SpeakerType: 3
-    DisplayName: "\uBCF8\uBD80\uC7A5 \uC54C\uD30C"
+    DisplayName: "\uBCF8\uBD80\uC7A5 \n\uC54C\uD30C"
     Line: "\uACB0\uACFC\uB97C \uBC1C\uD45C\uD558\uACA0\uC2B5\uB2C8\uB2E4. \uC81C
-      139\uD68C \uC6B0\uC8FC\uC4F0\uB808\uAE30 \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED
-      \uC6B0\uC2B9\uC790\uB294..."
+      1339\uD68C \uC6B0\uC8FC \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED \uC6B0\uC2B9\uC790\uB294..."
     Next: 50
     HasChoice: 0
     IsEnd: 0
@@ -648,7 +648,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 50
     SpeakerType: 1
-    DisplayName: "\uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "(\uBE0C\uB77C\uBCF4! \uBE0C\uB77C\uBCF4! \uBE0C\uB77C\uBCF4!)"
     Next: 51
     HasChoice: 0
@@ -661,7 +661,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 51
     SpeakerType: 3
-    DisplayName: "\uBCF8\uBD80\uC7A5 \uC54C\uD30C"
+    DisplayName: "\uBCF8\uBD80\uC7A5 \n\uC54C\uD30C"
     Line: "\uC5D0\uCF54!"
     Next: 52
     HasChoice: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 52
     SpeakerType: 1
-    DisplayName: "\uBE0C\uB77C\uBCF4"
+    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
     Line: "\uCCC7..."
     Next: 53
     HasChoice: 0
@@ -687,7 +687,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 53
     SpeakerType: 3
-    DisplayName: "\uBCF8\uBD80\uC7A5 \uC54C\uD30C"
+    DisplayName: "\uBCF8\uBD80\uC7A5 \n\uC54C\uD30C"
     Line: "\uCD95\uD558\uD569\uB2C8\uB2E4 \uC5D0\uCF54. \uB2F9\uC2E0\uC740 \uC794\uD574
       \uC218\uC9D1\uACFC \uD589\uC131 \uB300\uCCAD\uC18C \uBBF8\uC158\uC744 \n\uD6CC\uB96D\uD558\uAC8C
       \uC218\uD589\uD558\uC5EC, \uAE68\uB057\uD55C \uC6B0\uC8FC\uB97C \uB9CC\uB4DC\uB294
@@ -703,7 +703,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 54
     SpeakerType: 3
-    DisplayName: "\uBCF8\uBD80\uC7A5 \uC54C\uD30C"
+    DisplayName: "\uBCF8\uBD80\uC7A5 \n\uC54C\uD30C"
     Line: "\uC62C\uD574\uC758 \uCC54\uD53C\uC5B8\uC2ED\uC740 \uC5EC\uAE30\uC11C \uB9C8\uBB34\uB9AC\uD558\uC9C0\uB9CC,
       \n\uAE30\uC5B5\uD558\uC138\uC694. \uC6B0\uC8FC\uC5D0\uB294 \uC5B8\uC81C\uB098
       \uCCAD\uC18C\uD560 \uAC8C \uAC00\uB4DD\uD558\uB2E4\uB294 \uC0AC\uC2E4\uC744!"
@@ -718,7 +718,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 55
     SpeakerType: 3
-    DisplayName: "\uBCF8\uBD80\uC7A5 \uC54C\uD30C"
+    DisplayName: "\uBCF8\uBD80\uC7A5 \n\uC54C\uD30C"
     Line: "\uC6B0\uB9AC \uCC54\uD53C\uC5B8\uC2ED\uC758 \uC0C8\uB85C\uC6B4 \uC5BC\uAD74\uC774
       \uB418\uC5B4\uC8FC\uC2DC\uACA0\uC2B5\uB2C8\uAE4C? \n\uB2F9\uC2E0\uC744 \uB530\uB77C
       \uB354 \uB9CE\uC740 \uC6B0\uC8FC \uC0DD\uBA85\uCCB4\uAC00 \uC774 \uC758\uBBF8\uC788\uB294
@@ -734,7 +734,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 56
     SpeakerType: 3
-    DisplayName: "\uBCF8\uBD80\uC7A5 \uC54C\uD30C"
+    DisplayName: "\uBCF8\uBD80\uC7A5 \n\uC54C\uD30C"
     Line: "\uD6CC\uB96D\uD569\uB2C8\uB2E4! \n\uC790, \uC5EC\uAE30 \uCC54\uD53C\uC5B8
       \uC6B0\uC2B9\uCEF5\uC744 \uB4DC\uB9BD\uB2C8\uB2E4. \n\uC55E\uC73C\uB85C\uB3C4
       \uD568\uAED8 \uAE68\uB057\uD55C \uC6B0\uC8FC\uB97C \uB9CC\uB4ED\uC2DC\uB2E4!"

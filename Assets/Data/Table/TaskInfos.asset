@@ -23,7 +23,7 @@ MonoBehaviour:
     CompleteCondition: (spaceloaded)
   - ID: 2
     TaskType: 1
-    Title: "\uC751\uC6D0 \uBA54\uC2DC\uC9C0 #1"
+    Title: "\uC6B0\uC8FC \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED"
     ValueStr: 
     ValueInt: 1
     StartAction: 
@@ -31,7 +31,7 @@ MonoBehaviour:
     CompleteCondition: (dialoguefinish)
   - ID: 3
     TaskType: 1
-    Title: "\uC911\uB300\uD55C \uC784\uBB34"
+    Title: "\uC790\uCE6D \uC6B0\uC2B9\uD6C4\uBCF4 \uBE0C\uB77C\uBCF4"
     ValueStr: 
     ValueInt: 10
     StartAction: 
@@ -39,7 +39,7 @@ MonoBehaviour:
     CompleteCondition: (dialoguefinish)
   - ID: 4
     TaskType: 1
-    Title: "\uB098\uC758 \uBE44\uC11C \uC790\uBE44\uC988"
+    Title: "\uD2B8\uB808\uC774\uB2DD"
     ValueStr: 
     ValueInt: 23
     StartAction: (activatetutorialarrows)
@@ -56,7 +56,7 @@ MonoBehaviour:
     CompleteCondition: (debris, 3)
   - ID: 6
     TaskType: 3
-    Title: "\uC6B8\uCC3D\uD55C \uC815\uAE00\uD589\uC131"
+    Title: "\uD589\uC131 \uCF54\uC2A4 #1"
     ValueStr: "\uC815\uAE00\uD589\uC131\uC774 \uC18C\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4!
       \n\uD589\uC131 \uC9C4\uC785 \uD6C4 \uBBF8\uC158\uC744 \uC218\uD589\uD558\uC138\uC694."
     ValueInt: 33
@@ -65,8 +65,8 @@ MonoBehaviour:
     CompleteCondition: (jungleloaded)
   - ID: 7
     TaskType: 4
-    Title: "\uC465\uC465 \uC790\uB77C\uAC70\uB77C"
-    ValueStr: "\uC815\uAE00\uD589\uC131\uC758 \uBBF8\uC158\uC744 \uC644\uB8CC\uD558\uC138\uC694."
+    Title: "\uB9D1\uC544\uC838\uB77C, \uC815\uAE00\uD589\uC131!"
+    ValueStr: "\uC815\uAE00\uD589\uC131\uC758 \uC624\uC5FC\uC744 \uC81C\uAC70\uD558\uC138\uC694."
     ValueInt: 0
     StartAction: 
     EndAction: (taskend)
@@ -81,7 +81,7 @@ MonoBehaviour:
     CompleteCondition: (spaceloaded)
   - ID: 9
     TaskType: 1
-    Title: "\uB2E8\uC11C #1"
+    Title: 
     ValueStr: 
     ValueInt: 39
     StartAction: 
@@ -97,7 +97,7 @@ MonoBehaviour:
     CompleteCondition: (debris, 2)
   - ID: 11
     TaskType: 3
-    Title: "\uC704\uD5D8\uD55C \uBAA8\uB798\uD589\uC131"
+    Title: "\uD589\uC131 \uCF54\uC2A4 #2"
     ValueStr: "\uBAA8\uB798\uD589\uC131\uC774 \uC18C\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4!
       \n\uD589\uC131 \uC9C4\uC785 \uD6C4 \uBBF8\uC158\uC744 \uC218\uD589\uD558\uC138\uC694."
     ValueInt: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
     CompleteCondition: (monumentloaded)
   - ID: 12
     TaskType: 4
-    Title: "\uBAA8\uB798\uD589\uC131 \uC804\uD22C!"
-    ValueStr: "\uBAA8\uB798\uBAAC\uC2A4\uD130\uB97C \uD1F4\uCE58\uD558\uACE0 \uC544\uC774\uD15C\uC744
-      \uC5BB\uC73C\uC138\uC694."
+    Title: "\uBAA8\uB798\uD589\uC131 \uC804\uD22C"
+    ValueStr: "\uC4F0\uB808\uAE30\uBAAC\uC2A4\uD130\uB97C \uD1F4\uCE58\uD558\uACE0
+      \uBD84\uB9AC\uC218\uAC70\uD558\uC138\uC694."
     ValueInt: 0
     StartAction: 
     EndAction: (taskend)
@@ -123,7 +123,7 @@ MonoBehaviour:
     CompleteCondition: (spaceloaded)
   - ID: 14
     TaskType: 1
-    Title: "\uB2E8\uC11C #2"
+    Title: 
     ValueStr: 
     ValueInt: 44
     StartAction: 
@@ -131,7 +131,7 @@ MonoBehaviour:
     CompleteCondition: (dialoguefinish)
   - ID: 15
     TaskType: 1
-    Title: "\uC5D0\uC774\uC804\uD2B8 \uC5D0\uCF54"
+    Title: "\uCC54\uD53C\uC5B8\uC740 \uBC14\uB85C \uB098!"
     ValueStr: 
     ValueInt: 48
     StartAction: 
@@ -139,7 +139,7 @@ MonoBehaviour:
     CompleteCondition: (dialoguefinish)
   - ID: 16
     TaskType: 1
-    Title: "\uC751\uC6D0 \uBA54\uC2DC\uC9C0 #2"
+    Title: "\uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC758 \uC0C8 \uC5BC\uAD74"
     ValueStr: 
     ValueInt: 54
     StartAction: 
