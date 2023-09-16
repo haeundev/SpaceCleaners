@@ -101,3 +101,6 @@ MonoBehaviour:
     - Commander
     InserterCollision: Assets/Audio/insert_craft.mp3
     SlotCollision: Assets/Audio/UI OK.ogg
+    increaseSliderValuePerCorrectRecycle: 0.3
+    sfxCorrectRecycle: Assets/Audio/correct-choice-43861.mp3
+    sfxWrongRecycle: Assets/Audio/negative_beeps-6008.mp3

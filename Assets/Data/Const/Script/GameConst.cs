@@ -20,6 +20,9 @@ namespace DataTables
             public List<string> AgentLevelNames;
             public string InserterCollision;
             public string SlotCollision;
+            public float increaseSliderValuePerCorrectRecycle;
+            public string sfxCorrectRecycle;
+            public string sfxWrongRecycle;
         }
 
     public DataClass Data;

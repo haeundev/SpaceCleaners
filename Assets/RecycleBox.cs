@@ -1,4 +1,6 @@
 using System;
+using DataTables;
+using LiveLarson.DataTableManagement;
 using LiveLarson.SoundSystem;
 using UniRx;
 using UnityEngine;
@@ -10,12 +12,16 @@ public class RecycleBox : MonoBehaviour
     [SerializeField] private GameObject particleOnCorrect;
     [SerializeField] private GameObject particleOnWrong;
     [SerializeField] private Slider slider;
-    private string sfxCorrectRecycle = "Assets/Audio/correct-choice-43861.mp3";
-    private string sfxWrongRecycle = "Assets/Audio/negative_beeps-6008.mp3";
     private IDisposable _particleOnCorrectDisposable;
     private IDisposable _particleOnWrongDisposable;
-    [SerializeField] private float increaseSliderValuePerCorrectRecycle = 1f;
+    private GameConst.DataClass _gameConst;
+
     public bool IsDone { get; set; } = false;
+
+    private void Awake()
+    {
+        _gameConst = DataTableManager.GameConst.Data;
+    }
 
     private void Start()
     {
@@ -48,8 +54,8 @@ public class RecycleBox : MonoBehaviour
         _particleOnCorrectDisposable?.Dispose();
         particleOnCorrect.SetActive(false);
         particleOnCorrect.SetActive(true);
-        SoundService.PlaySfx(sfxCorrectRecycle, transform.position);
-        slider.value += increaseSliderValuePerCorrectRecycle;
+        SoundService.PlaySfx(_gameConst.sfxCorrectRecycle, transform.position);
+        slider.value += _gameConst.increaseSliderValuePerCorrectRecycle;
         if (slider.value >= 1f)
         {
             slider.value = 1f;
@@ -64,7 +70,7 @@ public class RecycleBox : MonoBehaviour
         _particleOnWrongDisposable?.Dispose();
         particleOnWrong.SetActive(false);
         particleOnWrong.SetActive(true);
-        SoundService.PlaySfx(sfxWrongRecycle, transform.position);
+        SoundService.PlaySfx(_gameConst.sfxWrongRecycle, transform.position);
         slider.value -= 0.1f;
         if (slider.value < 0f)
         {
