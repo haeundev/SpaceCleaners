@@ -27,7 +27,7 @@ MonoBehaviour:
     AudioPath: 
     ImagePath: 
   - ID: 2
-    SpeakerType: 4
+    SpeakerType: 0
     DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
     Line: "\uD658\uC601\uD569\uB2C8\uB2E4 \uCC38\uAC00\uC790, \uC5D0\uCF54!\n\uC6B0\uC8FC
       \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC744 \uACE7 \uC2DC\uC791\uD569\uB2C8\uB2E4\n\uC790,
@@ -143,7 +143,7 @@ MonoBehaviour:
     ImagePath: 
   - ID: 11
     SpeakerType: 4
-    DisplayName: "\uCC38\uAC00\uC790 \n\uBE0C\uB77C\uBCF4"
+    DisplayName: 
     Line: "\uC0C8 \uACBD\uC7C1\uC790\uAC00 \uB098\uD0C0\uB0AC\uAD70.\n\uADF8\uB798\uBD24\uC790
       \uC6B0\uC2B9\uC740 \uB098\uC778\uB370 \uB9D0\uC774\uC57C!\n\uC6B0\uD558\uD558\uD558"
     Next: 0
@@ -509,7 +509,7 @@ MonoBehaviour:
     AudioPath: 
     ImagePath: 
   - ID: 40
-    SpeakerType: 4
+    SpeakerType: 0
     DisplayName: "\uC6B4\uC601\uC9C4 \n\uB378\uD0C0"
     Line: "\uCCAB\uBC88\uC9F8 \uCCB4\uD06C\uD3EC\uC778\uD2B8 \uC644\uB8CC!\n\uC774\uC81C
       \uC794\uD574\uB97C \uB354 \uC218\uC9D1\uD569\uC2DC\uB2E4.\n\uC6B0\uC2B9\uC744
