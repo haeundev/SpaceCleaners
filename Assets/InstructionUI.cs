@@ -1,5 +1,6 @@
 using DataTables;
 using LiveLarson.DataTableManagement;
+using LiveLarson.Enums;
 using LiveLarson.SoundSystem;
 using TMPro;
 using UnityEngine;
@@ -30,7 +31,8 @@ public class InstructionUI : MonoBehaviour
         SetText(taskInfo.Title, taskInfo.ValueStr);
         gameObject.SetActive(true);
 
-        if (string.IsNullOrEmpty(taskInfo.ValueStr) == false)
+        if (string.IsNullOrEmpty(taskInfo.ValueStr) == false
+            && taskInfo.TaskType != TaskType.MissionOnPlanet)
         {
             SoundService.PlaySfx(DataTableManager.GameConst.Data.sfxInstruction, transform.position);
         }
