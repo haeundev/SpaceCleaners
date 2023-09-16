@@ -269,6 +269,11 @@ public class TaskManager : MonoBehaviour
 
     private IEnumerator ShowTaskComplete()
     {
+        if (taskCompleteUI == default)
+        {
+            Debug.LogError("taskCompleteUI is null.");
+            yield break;
+        }
         yield return YieldInstructionCache.WaitUntil(() => taskCompleteUI.activeSelf == false);
         taskCompleteUI.GetComponent<TaskCompleteUI>().SetText(CurrentTask.Title);
         SoundService.PlaySfx("Assets/Audio/Capture Success.ogg", transform.position);

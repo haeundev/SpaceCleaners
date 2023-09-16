@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using LiveLarson.BootAndLoad;
+using LiveLarson.DataTableManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,14 +44,14 @@ public class GameStartMenu : MonoBehaviour
     
     private void StartGameFromBeginning()
     {
-        GlobalValues.SetInitialTaskID(1);
+        GlobalValues.SetInitialTaskID(DataTableManager.GameConst.Data.startGameFromBeginningTaskID);
         StartGame();
     }
     
     private void StartGameFromLater()
     {
         _startFromBeginning = false;
-        GlobalValues.SetInitialTaskID(9);
+        GlobalValues.SetInitialTaskID(DataTableManager.GameConst.Data.startGameFromMiddleTaskID);
         StartGame();
     }
     

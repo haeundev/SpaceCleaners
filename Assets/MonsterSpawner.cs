@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using LiveLarson.Util;
+using UniRx;
 using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
@@ -17,7 +19,10 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Start()
     {
-        MonumentEvents.Trigger_SceneLoaded(); // 꼭 여기 있을 이유 없음
+        Observable.Timer(TimeSpan.FromSeconds(3f)).Subscribe(_ =>
+        {
+            MonumentEvents.Trigger_SceneLoaded(); // 꼭 여기 있을 이유 없음
+        });
     }
 
     private void Spawn()

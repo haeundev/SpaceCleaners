@@ -31,7 +31,6 @@ public class JungleHUD : MonoBehaviour
 
     private void Start()
     {
-        JungleEvents.Trigger_SceneLoaded(); // 꼭 여기 있을 이유 없음
         //_playerStat = SaveAndLoadManager.Instance.PlayerStat;
         // print(_playerStat.oxygenLevel);
         // SetOxygenLevel(_playerStat.oxygenLevel);
