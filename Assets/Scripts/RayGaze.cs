@@ -47,6 +47,11 @@ public class RayGaze : MonoBehaviour
         {
             _newHit = info.collider.gameObject;
             var newGazable = _newHit.GetComponent<RayGazable>();
+            if (newGazable == default)
+            {
+                Debug.LogError($"why is RayGazable null? {_newHit.name}");
+                return;
+            }
 
             if (_newHit == _lastHit)
             {
