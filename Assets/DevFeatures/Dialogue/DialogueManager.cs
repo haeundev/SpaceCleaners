@@ -40,6 +40,8 @@ namespace DevFeatures.Dialogue
         [SerializeField] private SpriteBySpeakerType speakerSpriteDict;
         [SerializeField] private AudioBySpeakerType speakerAudioDict;
         [SerializeField] private Image speakerImage;
+        public event Action OnLineStart;
+        public event Action OnLineFinished;
 
         private void Awake()
         {
@@ -120,12 +122,10 @@ namespace DevFeatures.Dialogue
             dialogueFinished = true;
         }
 
-        private void OnLineStart()
-        {
-        }
-
         private void OnLineEnd()
         {
+            OnLineFinished?.Invoke();
+            
             if (_currentDialogue == default)
             {
                 Debug.Log("Current dialogue is null.");
@@ -153,7 +153,7 @@ namespace DevFeatures.Dialogue
             StartCoroutine(CoPlayLine(dialogueID));
             playedDialogueInScene = true;
         }
-
+        
         private IEnumerator CoPlayLine(int dialogueID)
         {
             yield return YieldInstructionCache.WaitUntil(() =>
@@ -188,7 +188,8 @@ namespace DevFeatures.Dialogue
             tmpOptionB.SetText(_currentDialogue.ResponseB);
 
             tmpLine.gameObject.GetComponent<TypewriterByCharacter>().StartShowingText(true);
-            OnLineStart();
+            
+            OnLineStart?.Invoke();
         }
     }
 }

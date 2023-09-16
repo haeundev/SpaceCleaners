@@ -27,7 +27,7 @@ public class MonumentMonster : MonoBehaviour
     [SerializeField] private List<string> sfxOnDie;
     [SerializeField] private List<GameObject> disableOnDie;
     [SerializeField] private List<GameObject> trashObjects;
-    [SerializeField] private int trashEmitCount = 3;
+    private int trashEmitCount = 1;
     [SerializeField] private float explosionForce = 1f;
     [SerializeField] private float knockBackIntensity = 5f;
     [SerializeField] private string sfxTalk = "Assets/Audio/MonsterTalk.mp3";
@@ -76,7 +76,7 @@ public class MonumentMonster : MonoBehaviour
         ChangeState(MonsterState.Idle);
         _playerTransform = GameObject.FindWithTag("Player").transform;
 
-        EmitTrash();
+        //EmitTrash();
     }
 
     private bool _hitCoolTimeDone = true;

@@ -10,8 +10,8 @@ public class RecycleBox : MonoBehaviour
     [SerializeField] private GameObject particleOnCorrect;
     [SerializeField] private GameObject particleOnWrong;
     [SerializeField] private Slider slider;
-    [SerializeField] private string sfxCorrectRecycle;
-    [SerializeField] private string sfxWrongRecycle;
+    private string sfxCorrectRecycle = "Assets/Audio/correct-choice-43861.mp3";
+    private string sfxWrongRecycle = "Assets/Audio/negative_beeps-6008.mp3";
     private IDisposable _particleOnCorrectDisposable;
     private IDisposable _particleOnWrongDisposable;
     [SerializeField] private float increaseSliderValuePerCorrectRecycle = 1f;
@@ -44,6 +44,7 @@ public class RecycleBox : MonoBehaviour
 
     private void OnCorrectRecycle()
     {
+        MonumentEvents.Trigger_RecycleCorrect();
         _particleOnCorrectDisposable?.Dispose();
         particleOnCorrect.SetActive(false);
         particleOnCorrect.SetActive(true);
@@ -59,6 +60,7 @@ public class RecycleBox : MonoBehaviour
 
     private void OnWrongRecycle()
     {
+        MonumentEvents.Trigger_RecycleWrong();
         _particleOnWrongDisposable?.Dispose();
         particleOnWrong.SetActive(false);
         particleOnWrong.SetActive(true);
