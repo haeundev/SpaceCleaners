@@ -21,6 +21,12 @@ public class TaskCanvas : MonoBehaviour
         noTeleportButton.onClick.AddListener(OnNoTeleportButtonClicked);
     }
 
+    private void Start()
+    {
+        tmpTitle.SetText("");
+        tmpDetail.SetText("");
+    }
+
     private void OnTeleportButtonClicked()
     {
         var playerObj = GameObject.FindGameObjectWithTag("Player");
