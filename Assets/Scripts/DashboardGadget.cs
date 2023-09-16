@@ -108,6 +108,8 @@ public class DashboardGadget : MonoBehaviour
         var gadget = net.GetComponent<Gadget>();
         if (_currentTargetDebris != default) gadget.targetTransform = _currentTargetDebris.transform;
         gadget.Init();
+        
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()
