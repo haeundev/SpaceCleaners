@@ -62,12 +62,12 @@ public class CraftingZoneManager : MonoBehaviour
         {
             slider.value = time / duration;
             time += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null; //yield return new WaitForEndOfFrame();
         }
 
         for (int i = 0; i < 2; i++)
         {
-            Instantiate(spawnIngredients[i], spawnIngredientsPos[i].transform.position, Quaternion.identity);
+            Instantiate(spawnIngredients[i], spawnIngredientsPos[i]);//Instantiate(spawnIngredients[i], spawnIngredientsPos[i].transform.position, Quaternion.identity);
         }
     }
 
