@@ -24,6 +24,8 @@ namespace DataTables
             public string sfxCorrectRecycle;
             public string sfxWrongRecycle;
             public string sfxInstruction;
+            public int startGameFromBeginningTaskID;
+            public int startGameFromMiddleTaskID;
         }
 
     public DataClass Data;
