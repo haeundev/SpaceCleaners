@@ -123,7 +123,7 @@ MonoBehaviour:
     CompleteCondition: (spaceloaded)
   - ID: 14
     TaskType: 1
-    Title: 
+    Title: "\uACBD\uAE30 \uC885\uB8CC"
     ValueStr: 
     ValueInt: 44
     StartAction: 
