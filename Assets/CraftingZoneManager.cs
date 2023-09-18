@@ -9,9 +9,14 @@ public class CraftingZoneManager : MonoBehaviour
 {
     public GameObject processingSlider;
     private Slider slider;
+
+    public GameObject statusDescUI;
+    public TMP_Text statusDesc;
+    
     [SerializeField] private float duration = 3f;
 
     public GameObject[] spawnIngredients;
+    private GameObject[] craftingIngredients = new GameObject[2];
 
     public Transform[] spawnIngredientsPos;
     
@@ -34,10 +39,19 @@ public class CraftingZoneManager : MonoBehaviour
     //
     // public GameObject[] craftedObj;
     // public Transform craftedObjPos;
+    public GameObject upgradedObj;
+    public Transform upgradedObjPos;
+    
+    private CraftingRecipe recipe;
+    private bool isReadyToCraft = false;
+
+    public GameObject leftCraftingLight;
+    public GameObject rightCraftingLight;
 
     private void Awake()
     {
         OuterSpaceEvent.OnDebrisCaptured += OnDebrisCaptured;
+        OuterSpaceEvent.OnCraftingReady += OnCraftingReady;
         
         slider = processingSlider.GetComponent<Slider>();
         // craftSlider = craftingSliderUI.GetComponent<Slider>();
@@ -47,16 +61,95 @@ public class CraftingZoneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        leftCraftingLight.SetActive(false);
+        rightCraftingLight.SetActive(false);
+        
+        statusDesc.text = "PROCESSING...";
         StartCoroutine(ProcessingBar(duration)); //for testing
+
+        List<string> temp = new List<string>();
+        temp.Add("Plastic");
+        temp.Add("Metal");
+        
+        recipe = new CraftingRecipe(temp, upgradedObj);
+        recipe.PrintAll();
+    }
+
+    private void OnDestroy()
+    {
+        OuterSpaceEvent.OnDebrisCaptured -= OnDebrisCaptured;
+        OuterSpaceEvent.OnCraftingReady -= OnCraftingReady;
+        
     }
 
     void OnDebrisCaptured(DebrisType _, GameObject __)
     {
         //StartCoroutine(ProcessingBar(duration)); //실제는 이거!!
     }
+    
+    void OnCraftingReady(string ingredientType, bool isReady)
+    {
+        if (isReady)
+        {
+            recipe.Detected(ingredientType);
+            bool isCraftable = recipe.IsAllMatched();
+            if (isCraftable && !recipe.isDoneCrafting)
+            {
+                statusDesc.text = "READY TO CRAFT";
+                isReadyToCraft = true;
+            }
+            //일단은 위치시키는 거로 + 버튼 누르는거 
+            
+        }
+        else
+        {
+            recipe.UnDetected(ingredientType);
+            processingSlider.SetActive(false);
+            statusDesc.text = "PLACE TO CRAFT";
+            isReadyToCraft = false;
+        }
+    }
+
+    public void OnButtonPressed()
+    {
+        if (isReadyToCraft)
+        {
+            StartCoroutine(CraftingBar(duration)); //실제는 이거!!
+        }
+    }
+    
+    IEnumerator CraftingBar(float duration)
+    {
+        processingSlider.SetActive(true);
+        statusDesc.text = "CRAFTING...";
+        
+        leftCraftingLight.SetActive(true);
+        rightCraftingLight.SetActive(true);
+        
+        float time = 0;
+        while (time < duration)
+        {
+            slider.value = time / duration;
+            time += Time.deltaTime;
+            yield return null; //yield return new WaitForEndOfFrame();
+        }
+
+        leftCraftingLight.SetActive(false);
+        rightCraftingLight.SetActive(false);
+        Destroy(craftingIngredients[0]);
+        Destroy(craftingIngredients[1]);
+        
+        statusDesc.text = "CRAFTING COMPLETED";
+        processingSlider.SetActive(false);
+        recipe.isDoneCrafting = true;
+        Instantiate(recipe.upgradedObj, upgradedObjPos);
+        isReadyToCraft = false;
+
+    }
 
     IEnumerator ProcessingBar(float duration)
     {
+        statusDescUI.SetActive(true);
         float time = 0;
         while (time < duration)
         {
@@ -67,8 +160,11 @@ public class CraftingZoneManager : MonoBehaviour
 
         for (int i = 0; i < 2; i++)
         {
-            Instantiate(spawnIngredients[i], spawnIngredientsPos[i]);//Instantiate(spawnIngredients[i], spawnIngredientsPos[i].transform.position, Quaternion.identity);
+            craftingIngredients[i] = Instantiate(spawnIngredients[i], spawnIngredientsPos[i]);//Instantiate(spawnIngredients[i], spawnIngredientsPos[i].transform.position, Quaternion.identity);
         }
+        
+        processingSlider.SetActive(false);
+        statusDesc.text = "PLACE TO CRAFT";
     }
 
     // Update is called once per frame

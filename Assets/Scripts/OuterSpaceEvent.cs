@@ -13,6 +13,8 @@ public static class OuterSpaceEvent
     public static event Action<GadgetInfo> OnGadgetSelected = delegate { };
     public static event Action<AlarmPriority, AlarmSourceType> OnNotification = delegate { };
     
+    public static event Action<string, bool> OnCraftingReady = delegate { };
+    
     internal static void Trigger_PlayerPositionWrapped()
     {
         Debug.Log($"[OuterSpaceEvent] PlayerPositionWrapped");
@@ -59,5 +61,11 @@ public static class OuterSpaceEvent
     {
         Debug.Log($"[OuterSpaceEvent] OnDebrisCaptured");
         OnDebrisCaptured(debrisType, targetDebris);
+    }
+    
+    public static void Trigger_CraftingReady(string ingredientType, bool isReady)
+    {
+        Debug.Log($"[OuterSpaceEvent] OnCraftingReady");
+        OnCraftingReady(ingredientType, isReady);
     }
 }

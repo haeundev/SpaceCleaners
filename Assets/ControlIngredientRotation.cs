@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -47,8 +48,24 @@ public class ControlIngredientRotation : MonoBehaviour
     {
         if (other.gameObject.tag == "IngredientHolder")
         {
-            transform.position = other.gameObject.transform.position;
+            // transform.position = other.gameObject.transform.position;
             gameObject.GetComponent<SimpleRotator>().enabled = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "IngredientHolder")
+        {
+            transform.position = other.gameObject.transform.position;
+        }
+    }
+
+    void OnTriggerExit(Collider other) //collider 만나면 가운데로 위치 / 회전하게
+    {
+        if (other.gameObject.tag == "IngredientHolder")
+        {
+            gameObject.GetComponent<SimpleRotator>().enabled = false;
         }
     }
 }
