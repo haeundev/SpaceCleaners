@@ -92,7 +92,7 @@ public class TaskManager : MonoBehaviour
             Observable.Timer(TimeSpan.FromSeconds(5f)).Subscribe(_ =>
             {
                 StopAllCoroutines();
-                ApplicationContext.Instance.LoadScene("EndingCutscene");
+                ApplicationContext.Instance.LoadScene("CreditScene");
             }).AddTo(this);
         }
 
