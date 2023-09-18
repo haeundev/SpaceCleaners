@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using LiveLarson.SoundSystem;
 using LiveLarson.Util;
 using UniRx;
 using UnityEngine;
@@ -53,8 +54,10 @@ public class Flourish : MonoBehaviour
 
         if (currentWateredCount == treeCount)
         {
-            Observable.Timer(TimeSpan.FromSeconds(3)).Subscribe(_ =>
+            
+            Observable.Timer(TimeSpan.FromSeconds(1.5f)).Subscribe(_ =>
             {
+                SoundService.PlaySfx("Assets/Audio/chestbox_open_magic.mp3", transform.position);
                 StartCoroutine(JunglePlantArise());
             });
             
@@ -66,8 +69,11 @@ public class Flourish : MonoBehaviour
     {
         while (transform.position.y < 0) //_colorAdjustments.hueShift.value < 0
         {
-            transform.position += new Vector3(0, 2, 0); //
-            yield return YieldInstructionCache.WaitForSeconds(0.02f); //
+            // transform.position += new Vector3(0, 2, 0); //
+            // yield return YieldInstructionCache.WaitForSeconds(0.02f); //
+            
+            transform.position += new Vector3(0, 1.5f, 0); //
+            yield return YieldInstructionCache.WaitForSeconds(0.085f); //
 
         }
     }

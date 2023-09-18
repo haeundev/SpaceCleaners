@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Random = System.Random;
 
 /// <summary>
 ///     Calls functionality when a physics trigger occurs
@@ -68,6 +69,9 @@ public class OnTriggerWatered : MonoBehaviour
     // public string plantGrowSFX = "Assets/Audio/PlantGrowBounce.mp3";
     // private AudioSource _audioSource;
     [SerializeField] private AudioClip clip;
+
+    public GameObject dustParticle;
+    public GameObject[] cleanParticle;
     
     private void Awake()
     {
@@ -91,6 +95,10 @@ public class OnTriggerWatered : MonoBehaviour
         if (plantLevel == Level.Easy)
             myAnimator.runtimeAnimatorController = animators[0];
         else if (plantLevel == Level.Hard) myAnimator.runtimeAnimatorController = animators[1];
+        
+        dustParticle.SetActive(true);
+        cleanParticle[0].SetActive(false);
+        cleanParticle[1].SetActive(false);
         
     }
 
@@ -169,6 +177,13 @@ public class OnTriggerWatered : MonoBehaviour
         var animLength = myAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         Observable.Timer(TimeSpan.FromSeconds(animLength)).Subscribe(_ =>
         {
+            Random random = new Random();
+            int randomIndex = random.Next(0, 2);
+            dustParticle.SetActive(false);
+            cleanParticle[randomIndex].SetActive(true);
+            
+            SoundService.PlaySfx("Assets/Audio/Glitter.mp3", transform.position);
+            
             JungleEvents.Trigger_PlantGrowDone(gameObject);
         });
     }
