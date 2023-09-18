@@ -726,9 +726,9 @@ MonoBehaviour:
     HasChoice: 1
     IsEnd: 0
     ResponseA: "\uADF8\uB7FC \uC800\uC57C \uC601\uAD11\uC785\uB2C8\uB2E4!"
-    NextForA: 0
+    NextForA: 56
     ResponseB: "\uC815 \uC6D0\uD558\uC2E0\uB2E4\uBA74, \uADF8\uB807\uAC8C \uD574\uB4DC\uB9AC\uC8E0."
-    NextForB: 0
+    NextForB: 56
     AudioPath: 
     ImagePath: 
   - ID: 56
