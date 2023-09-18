@@ -66,7 +66,7 @@ public class RayGaze : MonoBehaviour
                     FocusGauge.OnFocusExit();
                 }
 
-                Debug.Log($"focus enter {_newHit.name}");
+                //Debug.Log($"focus enter {_newHit.name}");
                 newGazable.OnGazeEnter();
                 FocusGauge.OnFocusEnter();
             }

@@ -64,7 +64,7 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
             // is boosting
             _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.FastMoveSpeed);
 
-            if (Chromatic.intensity.value < 0.9f)
+            if (Chromatic.intensity.value < 0.5f)
             {
                 Chromatic.intensity.value += Time.deltaTime * chromaticAmount;
             }

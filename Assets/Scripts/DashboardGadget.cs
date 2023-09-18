@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using DataTables;
-using LiveLarson.DataTableManagement;
 using LiveLarson.Enums;
 using LiveLarson.SoundSystem;
 using Sirenix.OdinInspector;
@@ -84,7 +80,7 @@ public class DashboardGadget : MonoBehaviour
         // if (gadgetInfo == default)
         //     return;
 
-        var gadgetInfo = new GadgetInfo()
+        var gadgetInfo = new GadgetInfo
         {
             ID = 1001,
             GadgetType = GadgetType.Net,
@@ -94,7 +90,7 @@ public class DashboardGadget : MonoBehaviour
             ModelPath = "Prefabs/Net.prefab",
             HasFromStart = true
         };
-        
+
         //_gadgetStat.lastSelectedID = _currentID;
         checkIcon.gameObject.SetActive(true);
         OuterSpaceEvent.Trigger_GadgetSelected(gadgetInfo);
@@ -103,12 +99,13 @@ public class DashboardGadget : MonoBehaviour
             Destroy(gadgetParent.GetChild(i).gameObject);
         var net = Instantiate(netPrefab);
         net.transform.position = gadgetParent.position;
+        net.transform.up = gadgetParent.up;
         net.transform.forward = gadgetParent.forward;
         net.transform.SetParent(GameObject.FindWithTag("Re-positionableHandle").transform, true);
         var gadget = net.GetComponent<Gadget>();
         if (_currentTargetDebris != default) gadget.targetTransform = _currentTargetDebris.transform;
         gadget.Init();
-        
+
         gameObject.SetActive(false);
     }
 
@@ -123,7 +120,7 @@ public class DashboardGadget : MonoBehaviour
         //var prevSelected = _gadgetInfos.FirstOrDefault(p => p.ID == prevSelectedID);
         //Display(prevSelected != default ? DataTableManager.GadgetInfos.Find(prevSelectedID) : _gadgetInfos.First());
         // Display(_gadgetInfos.First());
-        Display(new GadgetInfo()
+        Display(new GadgetInfo
         {
             ID = 1001,
             GadgetType = GadgetType.Net,

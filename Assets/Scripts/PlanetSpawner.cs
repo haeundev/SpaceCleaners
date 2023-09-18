@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using EPOOutline;
-using LiveLarson.Util;
 using ProceduralPlanets;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class PlanetSpawner : MonoBehaviour
@@ -15,8 +15,11 @@ public class PlanetSpawner : MonoBehaviour
     {
         Instance = this;
         // OuterSpaceEvent.PlayerPositionWrapped += OnPlayerPositionWrapped;
+
+        //SpawnPlanet(PlanetType.Monument);
     }
 
+    [Button]
     public void SpawnPlanet(PlanetType planetType)
     {
         var index = 0;
@@ -31,14 +34,15 @@ public class PlanetSpawner : MonoBehaviour
             case PlanetType.Earth:
                 index = 2;
                 Debug.Log("Not implemented yet");
-                break;
+                return;
         }
 
         if (_currentSpawnedPlanet != default)
             Destroy(_currentSpawnedPlanet);
 
-        var randomPoint = spawnPoints.PeekRandom();
-        var planet = Instantiate(planetRefs[index]);
+        //var randomPoint = spawnPoints.PeekRandom();
+        var planet = Instantiate(planetRefs[index], Vector3.zero, Quaternion.identity);
+        Debug.Log("Planet Position: " + planet.transform.position);
         planet.GetComponent<PlanetGenerator>().GeneratePlanet();
         planet.GetComponent<PlanetGenerator>().GeneratePlanet();
         planet.AddComponent<RayGazable>();
@@ -47,7 +51,7 @@ public class PlanetSpawner : MonoBehaviour
         outlinable.RenderStyle = RenderStyle.FrontBack;
         outlinable.BackParameters.Enabled = false;
         outlinable.AddAllChildRenderersToRenderingList(RenderersAddingMode.MeshRenderer);
-        planet.transform.position = randomPoint.position;
+        //planet.transform.position = randomPoint.position;
         _currentSpawnedPlanet = planet;
         _currentSpawnedPlanet.SetActive(true);
         Debug.Log($"[PlanetSpawner] Spawned planet {planetType.ToString()}");

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8209101189118747831}
   - component: {fileID: 1638075718373284758}
   m_Layer: 10
-  m_Name: JunglePlanet
+  m_Name: Planet Monument
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,8 +49,8 @@ MonoBehaviour:
   resolution: 55
   autoUpdate: 1
   faceRenderMask: 0
-  shapeSettings: {fileID: 11400000, guid: 62ca1fc1c7ccd514ea9e291373679266, type: 2}
-  colourSettings: {fileID: 11400000, guid: 534b052d9d306304b92cea652e9d0bf8, type: 2}
+  shapeSettings: {fileID: 11400000, guid: 2c77596b6d776684397f415939b09ee6, type: 2}
+  colourSettings: {fileID: 11400000, guid: 01dc989e084cf3f48b249ac667db2599, type: 2}
   shapeSettingsFoldout: 0
   colourSettingsFoldout: 1
   meshFilters:
@@ -93,4 +93,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388d03c7da92b0a4eaaa4e3b46d23550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetType: 0
+  planetType: 1

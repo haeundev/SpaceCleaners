@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3012375326077742876
+--- !u!1 &7889186921545443015
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7314599731227799475}
-  - component: {fileID: 2124095577633894673}
-  - component: {fileID: 8595047382337587048}
-  - component: {fileID: 6661294026861791101}
+  - component: {fileID: 2050768054263026441}
+  - component: {fileID: 2525402349080848621}
+  - component: {fileID: 8209101189118747831}
+  - component: {fileID: 1638075718373284758}
   m_Layer: 10
-  m_Name: MonumentPlanet
+  m_Name: Planet Jungle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7314599731227799475
+--- !u!4 &2050768054263026441
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012375326077742876}
+  m_GameObject: {fileID: 7889186921545443015}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2124095577633894673
+--- !u!114 &2525402349080848621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012375326077742876}
+  m_GameObject: {fileID: 7889186921545443015}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e574a1192a85a645867d0dc3953e7c4, type: 3}
@@ -49,10 +49,10 @@ MonoBehaviour:
   resolution: 55
   autoUpdate: 1
   faceRenderMask: 0
-  shapeSettings: {fileID: 11400000, guid: 9ea4ca311f24dcb41845c612e475b694, type: 2}
-  colourSettings: {fileID: 11400000, guid: 918e43181bfd7f34d8fa4be61592bb67, type: 2}
+  shapeSettings: {fileID: 11400000, guid: 62ca1fc1c7ccd514ea9e291373679266, type: 2}
+  colourSettings: {fileID: 11400000, guid: 534b052d9d306304b92cea652e9d0bf8, type: 2}
   shapeSettingsFoldout: 0
-  colourSettingsFoldout: 0
+  colourSettingsFoldout: 1
   meshFilters:
   - {fileID: 0}
   - {fileID: 0}
@@ -60,13 +60,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!135 &8595047382337587048
+--- !u!135 &8209101189118747831
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012375326077742876}
+  m_GameObject: {fileID: 7889186921545443015}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -79,18 +79,18 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 111.86
+  m_Radius: 263.6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6661294026861791101
+--- !u!114 &1638075718373284758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012375326077742876}
+  m_GameObject: {fileID: 7889186921545443015}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 388d03c7da92b0a4eaaa4e3b46d23550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetType: 1
+  planetType: 0

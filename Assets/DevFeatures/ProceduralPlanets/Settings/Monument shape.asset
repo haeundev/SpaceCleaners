@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f524fe12c0055e64eb5734f0db84be55, type: 3}
-  m_Name: MonumentPlanet Preview shape
+  m_Name: Monument shape
   m_EditorClassIdentifier: 
-  planetRadius: 0.04
+  planetRadius: 250
   noiseLayers:
   - enabled: 1
     useFirstLayerAsMask: 0
     noiseSettings:
       filterType: 0
       simpleNoiseSettings:
-        strength: 0.19
-        numLayers: 4
-        baseRoughness: 0.63
-        roughness: 1.81
-        persistence: 0.65
-        centre: {x: 0.01, y: 0, z: 0}
+        strength: 0.1
+        numLayers: 5
+        baseRoughness: 0.93
+        roughness: 1.53
+        persistence: 0.58
+        centre: {x: 0, y: 0, z: 0}
         minValue: 1.03
       rigidNoiseSettings:
         strength: 1
@@ -48,11 +48,32 @@ MonoBehaviour:
         centre: {x: 0, y: 0, z: 0}
         minValue: 0.58
       rigidNoiseSettings:
-        strength: 1.44
+        strength: 1
         numLayers: 1
-        baseRoughness: 1.32
-        roughness: 2.02
-        persistence: 0.25
+        baseRoughness: 1
+        roughness: 2
+        persistence: 0.5
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 0
+        weightMultiplier: 0.8
+  - enabled: 1
+    useFirstLayerAsMask: 1
+    noiseSettings:
+      filterType: 1
+      simpleNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 2
+        persistence: 0.5
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 0
+      rigidNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 2.57
+        roughness: 2
+        persistence: 0.5
         centre: {x: 0, y: 0, z: 0}
         minValue: 0
         weightMultiplier: 0.8

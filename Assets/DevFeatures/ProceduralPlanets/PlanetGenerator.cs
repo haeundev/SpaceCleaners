@@ -121,7 +121,7 @@ namespace ProceduralPlanets
 
         private void GenerateColours()
         {
-            Debug.Log($"generate color");
+            //Debug.Log($"generate color");
             _colourGenerator.UpdateColours();
             for (var i = 0; i < 6; i++)
                 if (meshFilters[i].gameObject.activeSelf)
