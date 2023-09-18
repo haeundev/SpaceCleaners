@@ -139,7 +139,7 @@ MonoBehaviour:
     CompleteCondition: (dialoguefinish)
   - ID: 16
     TaskType: 1
-    Title: "\uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED\uC758 \uC0C8 \uC5BC\uAD74"
+    Title: "\uCC54\uD53C\uC5B8\uC2ED\uC758 \uC0C8 \uC5BC\uAD74"
     ValueStr: 
     ValueInt: 54
     StartAction: 
