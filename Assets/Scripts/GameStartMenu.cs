@@ -44,14 +44,14 @@ public class GameStartMenu : MonoBehaviour
     
     private void StartGameFromBeginning()
     {
-        GlobalValues.SetInitialTaskID(DataTableManager.GameConst.Data.startGameFromBeginningTaskID);
+        GlobalValues.SetInitialTaskID(1);
         StartGame();
     }
     
     private void StartGameFromLater()
     {
         _startFromBeginning = false;
-        GlobalValues.SetInitialTaskID(DataTableManager.GameConst.Data.startGameFromMiddleTaskID);
+        GlobalValues.SetInitialTaskID(9);
         StartGame();
     }
     

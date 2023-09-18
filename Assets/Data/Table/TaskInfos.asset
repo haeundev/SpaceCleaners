@@ -48,8 +48,7 @@ MonoBehaviour:
   - ID: 5
     TaskType: 2
     Title: "\uCCAB \uC794\uD574 \uC218\uC9D1"
-    ValueStr: "\uC6B0\uC8FC\uB97C \uBE44\uD589\uD558\uC5EC \uC794\uD574\uB97C 3\uAC1C
-      \uC218\uC9D1\uD558\uC138\uC694."
+    ValueStr: "\uC6B0\uC8FC \uC794\uD574\uB97C \uCD1D 3\uAC1C \uC218\uC9D1\uD558\uC138\uC694."
     ValueInt: 0
     StartAction: (deactivatetutorialarrows)
     EndAction: (taskend)
@@ -90,7 +89,7 @@ MonoBehaviour:
   - ID: 10
     TaskType: 2
     Title: "\uC794\uD574 \uC218\uC9D1"
-    ValueStr: "\uC794\uD574\uB97C 2\uAC1C \uB354 \uC218\uC9D1\uD558\uC138\uC694."
+    ValueStr: "\uC6B0\uC8FC \uC794\uD574\uB97C \uCD1D 2\uAC1C \uC218\uC9D1\uD558\uC138\uC694."
     ValueInt: 0
     StartAction: 
     EndAction: (taskend)

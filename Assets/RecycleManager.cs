@@ -5,6 +5,7 @@ public class RecycleManager : MonoBehaviour
 {
     public static RecycleManager Instance { get; private set; }
     public List<RecycleBox> recycleBoxes = new();
+    public List<RecyclableType> doneRecyclables = new();
 
     private void Awake()
     {

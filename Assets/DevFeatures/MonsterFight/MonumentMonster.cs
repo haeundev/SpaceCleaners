@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using LiveLarson.SoundSystem;
 using LiveLarson.Util;
 using Pathfinding;
@@ -156,7 +157,15 @@ public class MonumentMonster : MonoBehaviour
     {
         for (var i = 0; i < trashEmitCount; i++)
         {
-            var spawned = Instantiate(trashObjects.PeekRandom(), transform.position + Vector3.up * emitHeight, Quaternion.identity);
+            var randomObj = trashObjects.Where(p =>
+                RecycleManager.Instance.doneRecyclables.Contains(p.GetComponentInChildren<Recyclable>()
+                    .RecyclableType) == false).PeekRandom();
+            if (randomObj == default)
+            {
+                Debug.LogError("No trash object to emit");
+                return;
+            }
+            var spawned = Instantiate(randomObj, transform.position + Vector3.up * emitHeight, Quaternion.identity);
             var rb = spawned.GetComponent<Rigidbody>();
             if (rb == null) continue;
             rb.AddForce(Vector3.up * explosionForce, ForceMode.Impulse);

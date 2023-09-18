@@ -34,7 +34,7 @@ public class InstructionUI : MonoBehaviour
         if (string.IsNullOrEmpty(taskInfo.ValueStr) == false
             && taskInfo.TaskType != TaskType.MissionOnPlanet)
         {
-            SoundService.PlaySfx(DataTableManager.GameConst.Data.sfxInstruction, transform.position);
+            SoundService.PlaySfx("Assets/Audio/ringtone 1.mp3", transform.position);
         }
     }
 
