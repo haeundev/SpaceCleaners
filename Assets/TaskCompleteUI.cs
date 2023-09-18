@@ -12,6 +12,6 @@ public class TaskCompleteUI : MonoBehaviour
     
     public void SetText(string taskTitle)
     {
-        tmpTaskTitle.text = $"미션 완료:\n{taskTitle}";
+        tmpTaskTitle.text = $"{taskTitle}";
     }
 }
