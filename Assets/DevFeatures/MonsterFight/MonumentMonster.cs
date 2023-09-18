@@ -71,7 +71,7 @@ public class MonumentMonster : MonoBehaviour
     private void Start()
     {
         _spawnPositions = FindObjectOfType<MonsterSpawnPositions>();
-        _health = 10;
+        _health = 3;
         monsterHUD.SetSliderMaxValue(_health);
         ChangeState(MonsterState.Idle);
         _playerTransform = GameObject.FindWithTag("Player").transform;
@@ -106,7 +106,7 @@ public class MonumentMonster : MonoBehaviour
             }
 
             SoundService.PlaySfx(sfxOnGetHit.PeekRandom(), transform.position);
-            _health = 0;
+            _health--;
             monsterHUD.MonsterTakeDamage(1);
             CreateParticleOnHit();
             _animator.SetTrigger(AttackAnims.PeekRandom());
