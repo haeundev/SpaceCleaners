@@ -49983,11 +49983,36 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5113878684809029200, guid: 87b1e80066df1c64caf8b52e22005a0d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6284426499528685259, guid: 87b1e80066df1c64caf8b52e22005a0d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5694342780814466755}
   m_SourcePrefab: {fileID: 100100000, guid: 87b1e80066df1c64caf8b52e22005a0d, type: 3}
+--- !u!1 &5694342780814466754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6284426499528685259, guid: 87b1e80066df1c64caf8b52e22005a0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5694342780814466753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5694342780814466755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694342780814466754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884bf2ae0b1e9c64a8c0490ac34cd739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contestMapImg: {fileID: 0}
+  mapImgs: []
 --- !u!4 &5711534832158121420
 Transform:
   m_ObjectHideFlags: 0

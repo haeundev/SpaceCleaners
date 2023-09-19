@@ -19,8 +19,7 @@ public class TaskManager : MonoBehaviour
     public GameObject levelUpUI;
     public GameObject instructionUI;
     public GameObject dialogueUI;
-
-
+    
     private bool _isJungleDone;
     private bool _isJungleLoaded;
     private bool _isMonumentDone;
@@ -33,6 +32,7 @@ public class TaskManager : MonoBehaviour
     private bool _isCompleteConditionSatisfied;
 
     public event Action<TaskInfo> OnTaskAcquired;
+    
     public TaskInfo CurrentTask { get; private set; }
 
     private void Awake()
@@ -74,8 +74,6 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
-      
-
         // if (CurrentTask.ID == InitialTaskID)
         //     OnTaskAcquired?.Invoke(CurrentTask);
     }

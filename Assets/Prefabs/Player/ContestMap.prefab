@@ -203,6 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7858261923049974765}
+  - component: {fileID: 5113878684809029200}
   m_Layer: 0
   m_Name: ContestMap
   m_TagString: Untagged
@@ -225,8 +226,22 @@ Transform:
   - {fileID: 1340499207026702662}
   - {fileID: 6403522155491640618}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 15.817, y: 109.11, z: 0}
+--- !u!114 &5113878684809029200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284426499528685259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884bf2ae0b1e9c64a8c0490ac34cd739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contestMapImg: {fileID: 0}
+  mapImgs: []
 --- !u!1 &8340037966145609329
 GameObject:
   m_ObjectHideFlags: 0
