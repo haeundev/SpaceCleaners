@@ -6,20 +6,20 @@ using LiveLarson.Enums;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ContestMapUIChange : MonoBehaviour
+public class LeaderboardUIChange : MonoBehaviour
 {
-    public GameObject contestMapImg;
+    public GameObject leaderboardImg;
 
-    public Sprite[] mapImgs;
+    public Sprite[] leaderboardImgs;
 
-    private Sprite currentMapSprite;
+    private Sprite currentLeaderboardSprite;
     // Start is called before the first frame update
     private void Awake()
     {
         TaskManager.Instance.OnTaskAcquired += OnTaskAcquired;
 
-        currentMapSprite = contestMapImg.GetComponent<Image>().sprite;
-        currentMapSprite = mapImgs[0];
+        currentLeaderboardSprite = leaderboardImg.GetComponent<Image>().sprite;
+        currentLeaderboardSprite = leaderboardImgs[0];
     }
 
     private void OnDestroy()
@@ -29,14 +29,12 @@ public class ContestMapUIChange : MonoBehaviour
 
     private void OnTaskAcquired(TaskInfo taskInfo)
     {
-        currentMapSprite = taskInfo.ID switch
+        currentLeaderboardSprite = taskInfo.ID switch
         {
-            4 => mapImgs[1],
-            5 => mapImgs[2],
-            8 => mapImgs[3],
-            10 => mapImgs[4],
-            13 => mapImgs[5],
-            _ => currentMapSprite
+            5 => leaderboardImgs[1],
+            12 => leaderboardImgs[2],
+            14 => leaderboardImgs[3],
+            _ => currentLeaderboardSprite
         };
     }
 
