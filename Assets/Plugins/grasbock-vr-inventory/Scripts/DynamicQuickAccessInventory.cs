@@ -13,10 +13,7 @@ namespace GRASBOCK.XR.Inventory
         public float radius = 1.0f;
         public float separation = 0.3f;
         public event Action<HashSet<Slot>> OnInventoryUpdated;
-        public event Action<HashSet<Slot>> OnKeySpawned;
-
-        public bool isCraftBoxInventory = false;
-
+        
         /// <summary>
         /// Shows where the <c>Slot</c>s are going to be placed
         /// </summary>
@@ -44,29 +41,13 @@ namespace GRASBOCK.XR.Inventory
         {
             base.Start();
             //Close(); //to prevent the inventory staying open at startup
-
-            if(isCraftBoxInventory)
-            {
-                foreach (Slot s in slots)
-                {
-                    s.item_count_subscribers.Add(CheckKeySpawn);
-                }
-            }
-            else
-            {
-                foreach (Slot s in slots)
-                {
-                    s.item_count_subscribers.Add(UIUpdate);
-                }
-            }
             
+            foreach (Slot s in slots)
+            {
+                s.item_count_subscribers.Add(UIUpdate);
+            }
         }
-
-        public void CheckKeySpawn(Slot slot)
-        {
-            OnKeySpawned?.Invoke(slots);
-        }
-
+        
         public void UIUpdate(Slot slot)
         {
             OnInventoryUpdated?.Invoke(slots);
