@@ -213,7 +213,7 @@ AudioMixerController:
     - 3855044ed8cd1ae4d9ccf7f08feac253
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 2088992240564951460}
+  m_TargetSnapshot: {fileID: 2347713369498970371}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -296,7 +296,8 @@ AudioMixerSnapshotController:
   m_Name: InGame
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 74002f660f1e743409fc04039c4cdcb2
-  m_FloatValues: {}
+  m_FloatValues:
+    2bf4bd04bc9a1be47b811cfa48d6a920: 5.67851
   m_TransitionOverrides: {}
 --- !u!244 &2557668402720095251
 AudioMixerEffectController:

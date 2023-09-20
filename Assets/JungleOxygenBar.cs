@@ -25,8 +25,8 @@ public class JungleOxygenBar : MonoBehaviour
         _currentItemCount++;
 
         if (_currentItemCount == TotalItemCount)
-            _slider.value = 1f;
+            _slider.value = 100f;
         else
-            _slider.value = _currentItemCount * 0.3f;
+            _slider.value = _currentItemCount * 33f;
     }
 }

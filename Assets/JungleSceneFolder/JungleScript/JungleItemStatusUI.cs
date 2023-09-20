@@ -5,8 +5,6 @@ using UnityEngine;
 public class JungleItemStatusUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-
-    // [SerializeField] private Image image;
     [SerializeField] public ItemInfo itemInfo;
 
     private void Awake()

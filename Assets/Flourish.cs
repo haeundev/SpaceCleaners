@@ -25,7 +25,8 @@ public class Flourish : MonoBehaviour
     {
         var volume = vol.GetComponent<Volume>();
         ColorAdjustments tmp;
-        if (volume.profile.TryGet(out tmp)) _colorAdjustments = tmp;
+        if (volume.profile.TryGet(out tmp))
+            _colorAdjustments = tmp;
 
         _colorAdjustments.hueShift.value = -60f;
 

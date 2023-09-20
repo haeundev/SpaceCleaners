@@ -60,7 +60,7 @@ public class OnTriggerWatered : MonoBehaviour
     public RuntimeAnimatorController[] animators;
 
     private bool isAnimatorEnabled;
-    private bool isFullyGrown;
+    public bool isFullyGrown;
     private string lastAnimationName = "Grow";
 
     private int dropCount;
@@ -172,7 +172,7 @@ public class OnTriggerWatered : MonoBehaviour
         }
     }
 
-    private void WaitAndTriggerPlantDone()
+    public void WaitAndTriggerPlantDone()
     {
         var animLength = myAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         Observable.Timer(TimeSpan.FromSeconds(animLength)).Subscribe(_ =>
