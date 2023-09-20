@@ -17,7 +17,7 @@ namespace GRASBOCK.XR.Inventory
         //send message whenever itemcount is changed to the subscribers
         public delegate void OnItemCountChange(Slot slot);
 
-        public event Action OnSlotCollision;
+        public event Action<Collider> OnSlotCollision;
         public List<OnItemCountChange> item_count_subscribers = new List<OnItemCountChange>();
 
         // stores the preview
@@ -88,7 +88,7 @@ namespace GRASBOCK.XR.Inventory
         public ItemInfo ItemInfo
         {
             get { return m_item_info; }
-            private set {
+            set {
                 m_item_info = value;
             ; }
         }
@@ -288,7 +288,7 @@ namespace GRASBOCK.XR.Inventory
         /// <summary>
         /// rotates preview and handles storing of storable items
         /// </summary>
-        public void Attract(Item item, Collider collider)
+        public void Attract(Item item, Collider other)
         {
             if (m_item_info && item.itemInfo != m_item_info) return;
             //Debug.Log("matching item types");
@@ -303,12 +303,12 @@ namespace GRASBOCK.XR.Inventory
 
             //Debug.Log("Attract");
             // if an item has multiple colliders this can be called multiple times. So allow multiple attempts to add
-            item_gameObjects[item] = (rb, collider);
+            item_gameObjects[item] = (rb, other);
 
             rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;//RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
             rb.useGravity = false;
             
-            OnSlotCollision?.Invoke();
+            OnSlotCollision?.Invoke(other);
 
         }
 

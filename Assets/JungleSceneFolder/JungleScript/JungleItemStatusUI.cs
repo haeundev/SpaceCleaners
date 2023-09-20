@@ -1,16 +1,22 @@
 using GRASBOCK.XR.Inventory;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class JungleItemStatusUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
+
     // [SerializeField] private Image image;
     [SerializeField] public ItemInfo itemInfo;
 
-    public void SetCount(int count)
+    private void Awake()
     {
-        text.text = $"{count}/1";
+        JungleEvents.OnInventoryUpdated += OnInventoryUpdated;
+    }
+
+    private void OnInventoryUpdated(Slot slot)
+    {
+        if (slot.ItemInfo == itemInfo)
+            text.text = "1/1";
     }
 }

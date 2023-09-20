@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class JungleItemSpawner : MonoBehaviour
@@ -31,8 +30,6 @@ public class JungleItemSpawner : MonoBehaviour
             // _audioSource.clip = clip;
             // _audioSource.Play();
             AudiosourceManager.instance.PlayClip(clip);
-
-
             Spawn();
         }
     }
