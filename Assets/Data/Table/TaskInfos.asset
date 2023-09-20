@@ -21,6 +21,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: 
     CompleteCondition: (spaceloaded)
+    ContestMapIndex: 0
+    LeaderboardIndex: 0
   - ID: 2
     TaskType: 1
     Title: "\uC6B0\uC8FC \uD50C\uB85C\uAE45 \uCC54\uD53C\uC5B8\uC2ED"
@@ -29,6 +31,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (dialoguefinish)
+    ContestMapIndex: 0
+    LeaderboardIndex: 0
   - ID: 3
     TaskType: 1
     Title: "\uC790\uCE6D \uC6B0\uC2B9\uD6C4\uBCF4 \uBE0C\uB77C\uBCF4"
@@ -37,6 +41,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (dialoguefinish)
+    ContestMapIndex: 0
+    LeaderboardIndex: 0
   - ID: 4
     TaskType: 1
     Title: "\uD2B8\uB808\uC774\uB2DD"
@@ -45,6 +51,8 @@ MonoBehaviour:
     StartAction: (activatetutorialarrows)
     EndAction: (taskend)
     CompleteCondition: (dialoguefinish)
+    ContestMapIndex: 0
+    LeaderboardIndex: 0
   - ID: 5
     TaskType: 2
     Title: "\uCCAB \uC794\uD574 \uC218\uC9D1"
@@ -53,6 +61,8 @@ MonoBehaviour:
     StartAction: (deactivatetutorialarrows)
     EndAction: (taskend)
     CompleteCondition: (debris, 3)
+    ContestMapIndex: 1
+    LeaderboardIndex: 0
   - ID: 6
     TaskType: 3
     Title: "\uD589\uC131 \uCF54\uC2A4 #1"
@@ -62,6 +72,8 @@ MonoBehaviour:
     StartAction: (spawnplanet, Jungle)
     EndAction: (taskend)
     CompleteCondition: (jungleloaded)
+    ContestMapIndex: 2
+    LeaderboardIndex: 0
   - ID: 7
     TaskType: 4
     Title: "\uB9D1\uC544\uC838\uB77C, \uC815\uAE00\uD589\uC131!"
@@ -70,6 +82,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (junglecomplete)
+    ContestMapIndex: 2
+    LeaderboardIndex: 0
   - ID: 8
     TaskType: 5
     Title: "\uB2E4\uC2DC \uC6B0\uC8FC\uB85C"
@@ -78,14 +92,18 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (spaceloaded)
+    ContestMapIndex: 2
+    LeaderboardIndex: 0
   - ID: 9
     TaskType: 1
-    Title: 
+    Title: "\uC815\uAE00\uD589\uC131 \uC644\uB8CC!"
     ValueStr: 
     ValueInt: 39
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (dialoguefinish)
+    ContestMapIndex: 3
+    LeaderboardIndex: 1
   - ID: 10
     TaskType: 2
     Title: "\uC794\uD574 \uC218\uC9D1"
@@ -94,6 +112,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (debris, 2)
+    ContestMapIndex: 3
+    LeaderboardIndex: 1
   - ID: 11
     TaskType: 3
     Title: "\uD589\uC131 \uCF54\uC2A4 #2"
@@ -103,6 +123,8 @@ MonoBehaviour:
     StartAction: (spawnplanet, Monument)
     EndAction: (taskend)
     CompleteCondition: (monumentloaded)
+    ContestMapIndex: 4
+    LeaderboardIndex: 1
   - ID: 12
     TaskType: 4
     Title: "\uBD84\uB9AC\uC218\uAC70\uC758 \uB2EC\uC778"
@@ -112,6 +134,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (monumentcomplete)
+    ContestMapIndex: 4
+    LeaderboardIndex: 1
   - ID: 13
     TaskType: 5
     Title: "\uB2E4\uC2DC \uC6B0\uC8FC\uB85C"
@@ -120,6 +144,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (spaceloaded)
+    ContestMapIndex: 4
+    LeaderboardIndex: 1
   - ID: 14
     TaskType: 1
     Title: "\uACBD\uAE30 \uC885\uB8CC"
@@ -128,6 +154,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (dialoguefinish)
+    ContestMapIndex: 5
+    LeaderboardIndex: 2
   - ID: 15
     TaskType: 1
     Title: "\uCC54\uD53C\uC5B8\uC740 \uBC14\uB85C \uB098!"
@@ -136,6 +164,8 @@ MonoBehaviour:
     StartAction: 
     EndAction: (levelup)
     CompleteCondition: (dialoguefinish)
+    ContestMapIndex: 5
+    LeaderboardIndex: 2
   - ID: 16
     TaskType: 1
     Title: "\uCC54\uD53C\uC5B8\uC2ED\uC758 \uC0C8 \uC5BC\uAD74"
@@ -144,11 +174,15 @@ MonoBehaviour:
     StartAction: 
     EndAction: (taskend)
     CompleteCondition: (dialoguefinish)
+    ContestMapIndex: 5
+    LeaderboardIndex: 2
   - ID: 17
     TaskType: 6
-    Title: 
+    Title: "\uC57C\uD638!"
     ValueStr: 
     ValueInt: 0
     StartAction: 
     EndAction: 
     CompleteCondition: 
+    ContestMapIndex: 5
+    LeaderboardIndex: 2

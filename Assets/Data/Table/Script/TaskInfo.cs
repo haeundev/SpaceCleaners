@@ -6,7 +6,6 @@ using LiveLarson.Enums;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace DataTables
 {
@@ -22,6 +21,8 @@ namespace DataTables
         public string StartAction;
         public string EndAction;
         public string CompleteCondition;
+        public int ContestMapIndex;
+        public int LeaderboardIndex;
     }
 
 }
