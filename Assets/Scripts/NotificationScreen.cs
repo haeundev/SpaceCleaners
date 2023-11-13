@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -55,5 +56,10 @@ public class NotificationScreen : MonoBehaviour
     public void ResetMat()
     {
         _meshRenderer.sharedMaterial = normalMat;
+    }
+
+    private void OnDestroy()
+    {
+        OuterSpaceEvent.OnNotification -= OnNotificationReceived;
     }
 }

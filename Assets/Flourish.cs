@@ -41,6 +41,11 @@ public class Flourish : MonoBehaviour
         _initialPos = transform.position;
     }
 
+    private void OnDestroy()
+    {
+        JungleEvents.OnInventoryUpdated -= OnInventoryUpdated;
+    }
+
     private void OnInventoryUpdated(Slot _)
     {
         _completedItemCount++;

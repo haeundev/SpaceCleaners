@@ -6,8 +6,6 @@ public class PlanetAlien : MonoBehaviour
 {
     private readonly int AnimVictory = Animator.StringToHash("Victory");
     private readonly int AnimDisappointed = Animator.StringToHash("Disappointed");
-    private readonly int AnimTalk = Animator.StringToHash("Talk");
-    private readonly int AnimIdle = Animator.StringToHash("Idle");
 
     [SerializeField] private GameObject particleCorrect;
     
@@ -37,13 +35,9 @@ public class PlanetAlien : MonoBehaviour
         _animator.SetTrigger(AnimDisappointed);
     }
 
-    private void OnLineFinished()
+    private void OnDestroy()
     {
-        _animator.SetTrigger(AnimIdle);
-    }
-
-    private void OnLineStart()
-    {
-        _animator.SetTrigger(AnimTalk);
+        MonumentEvents.OnRecycleWrong -= OnRecycleWrong;
+        MonumentEvents.OnRecycleCorrect -= OnRecycleCorrect;
     }
 }

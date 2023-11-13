@@ -1,3 +1,4 @@
+using System;
 using GRASBOCK.XR.Inventory;
 using LiveLarson.SoundSystem;
 using UnityEngine;
@@ -29,5 +30,10 @@ public class InsertItemToSlot : MonoBehaviour
         _slot.ItemInfo = collidedItem.GetComponentInChildren<Item>().itemInfo;
         JungleEvents.Trigger_InventoryUpdated(_slot);
         SoundService.PlaySfx("Assets/Audio/UI OK.ogg", transform.position);
+    }
+
+    private void OnDestroy()
+    {
+        _slot.OnSlotCollision -= OnSlotCollision;
     }
 }

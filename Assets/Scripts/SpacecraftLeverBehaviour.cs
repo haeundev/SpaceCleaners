@@ -6,7 +6,8 @@ using UnityEngine.XR.Content.Interaction;
 
 public class SpacecraftLeverBehaviour : MonoBehaviour
 {
-    [SerializeField] private string sfxBoost = "Assets/Audio/Simple Boost.wav";
+    [SerializeField] private string sfxBoostOn = "Assets/Audio/swoosh-on.mp3";
+    [SerializeField] private string sfxBoostOff = "Assets/Audio/swoosh-off.mp3";
     [SerializeField] private Volume globalVolume;
     [SerializeField] private float chromaticAmount = 0.1f;
 
@@ -82,9 +83,6 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
 
     private void PlaySFX(bool isLeverUp)
     {
-        if (isLeverUp)
-        {
-            SoundService.PlaySfx(sfxBoost, transform.position);
-        }
+        SoundService.PlaySfx(isLeverUp ? sfxBoostOn : sfxBoostOff, transform.position);
     }
 }

@@ -21,7 +21,6 @@ public enum MonsterState
 
 public class MonumentMonster : MonoBehaviour
 {
-    [SerializeField] private GameObject fuelTankPrefab;
     [SerializeField] private List<GameObject> particlesOnHit;
     [SerializeField] private List<GameObject> particlesOnDie;
     [SerializeField] private List<string> sfxOnGetHit;
@@ -137,6 +136,7 @@ public class MonumentMonster : MonoBehaviour
     private void Die()
     {
         _aiPath.enabled = false;
+        _isKnockBack = false;
         disableOnDie.ForEach(go => go.SetActive(false));
         SoundService.PlaySfx(sfxOnDie.PeekRandom(), transform.position);
         CreateParticleOnDie();
@@ -258,5 +258,10 @@ public class MonumentMonster : MonoBehaviour
     public void OnPlayerExitAttackProxy(GameObject player)
     {
         ChangeState(MonsterState.Run);
+    }
+
+    private void OnDestroy()
+    {
+        _talk?.Stop();
     }
 }

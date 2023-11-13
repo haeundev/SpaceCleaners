@@ -44,10 +44,20 @@ public class RecycleBox : MonoBehaviour
     {
         MonumentEvents.Trigger_RecycleCorrect();
         _particleOnCorrectDisposable?.Dispose();
+        if (particleOnCorrect == default)
+        {
+            Debug.LogError("Why is particle default ?");
+            return;
+        }
         particleOnCorrect.SetActive(false);
         particleOnCorrect.SetActive(true);
         SoundService.PlaySfx("Assets/Audio/correct-choice-43861.mp3", transform.position);
-        slider.value += 0.3f;
+        if (slider == default)
+        {
+            Debug.LogError("Why is slider default ?");
+            return;
+        }
+        slider.value += 0.35f;
         if (slider.value >= 1f)
         {
             slider.value = 1f;
@@ -60,9 +70,19 @@ public class RecycleBox : MonoBehaviour
     {
         MonumentEvents.Trigger_RecycleWrong();
         _particleOnWrongDisposable?.Dispose();
+        if (particleOnWrong == default)
+        {
+            Debug.LogError("Why is particleOnWrong default ?");
+            return;
+        }
         particleOnWrong.SetActive(false);
         particleOnWrong.SetActive(true);
         SoundService.PlaySfx("Assets/Audio/negative_beeps-6008.mp3", transform.position);
+        if (slider == default)
+        {
+            Debug.LogError("Why is slider default ?");
+            return;
+        }
         slider.value -= 0.1f;
         if (slider.value < 0f)
         {

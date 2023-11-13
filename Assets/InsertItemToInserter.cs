@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using GRASBOCK.XR.Inventory;
-using LiveLarson.DataTableManagement;
 using LiveLarson.SoundSystem;
+using UnityEngine;
 
 public class InsertItemToInserter : MonoBehaviour
 {
@@ -16,14 +12,19 @@ public class InsertItemToInserter : MonoBehaviour
         _inserter = FindObjectOfType<Inserter>();
         RegisterEvents();
     }
-    
+
     private void RegisterEvents()
     {
         _inserter.OnItemInserted += OnItemInserted;
     }
-    
+
     private void OnItemInserted()
     {
         SoundService.PlaySfx("Assets/Audio/insert_craft.mp3", transform.position);
+    }
+
+    private void OnDestroy()
+    {
+        _inserter.OnItemInserted -= OnItemInserted;
     }
 }

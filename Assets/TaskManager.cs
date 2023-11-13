@@ -51,7 +51,7 @@ public class TaskManager : MonoBehaviour
         
         GlobalValues.OnGlobalInitTaskSet += Init;
     }
-
+    
     public void Init(int taskID)
     {
         OnTaskAcquired += InitTask;

@@ -17,4 +17,9 @@ public class JungleItemStatusUI : MonoBehaviour
         if (slot.ItemInfo == itemInfo)
             text.text = "1/1";
     }
+
+    private void OnDestroy()
+    {
+        JungleEvents.OnInventoryUpdated += OnInventoryUpdated;
+    }
 }

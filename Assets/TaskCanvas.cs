@@ -1,3 +1,4 @@
+using System;
 using DataTables;
 using LiveLarson.Enums;
 using LiveLarson.SoundSystem;
@@ -63,5 +64,10 @@ public class TaskCanvas : MonoBehaviour
     private void OnTaskAcquired(TaskInfo taskInfo)
     {
         // characterIcon.sprite = GetSprite()
+    }
+
+    private void OnDestroy()
+    {
+        TaskManager.Instance.OnTaskAcquired -= OnTaskAcquired;
     }
 }

@@ -536,7 +536,7 @@ Transform:
   - {fileID: 2897924471722957818}
   - {fileID: 2890599019928174658}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3623522133533809711
 MonoBehaviour:
@@ -550,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352940e0da8a10c438b97df8ce340795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debrisType: 0
 --- !u!114 &8581176446096406142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,11 +707,11 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.20984964
+  - screenRelativeHeight: 0.071514264
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6195152920036873350}
-  - screenRelativeHeight: 0.107294716
+  - screenRelativeHeight: 0.030229282
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 7481980959729257189}
