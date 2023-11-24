@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "users": {
+    	"$user_id": {        
+        ".write": "auth.uid == $user_id",
+        ".read": "auth.uid == $user_id"
+    	}
+  	},
+    "tokens": {
+      ".write": "auth.token.email != null",
+      "$code": { 
+        ".write": "auth.uid.toLowerCase().beginsWith($code)",
+        ".read": "auth.uid.toLowerCase().beginsWith($code)",
+      }
+    }
+  }
+}
