@@ -24,6 +24,19 @@ TagManager:
   - IngredientHolder
   - Metal
   - Plastic
+  - Target
+  - spark
+  - MainThruster
+  - SolidObject
+  - Life
+  - Dummy
+  - Planet A
+  - Planet B
+  - Space Rock
+  - Friendly
+  - Planet
+  - ShipPivot
+  - RadarTarget
   layers:
   - Default
   - TransparentFX

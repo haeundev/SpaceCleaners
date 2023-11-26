@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 6190114597377087237}
   m_Layer: 11
   m_Name: Asteroid B
-  m_TagString: Untagged
+  m_TagString: RadarTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,7 +605,7 @@ Transform:
   m_Children:
   - {fileID: 5318474384142801285}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7803819552510201103
 GameObject:
