@@ -10,6 +10,7 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
     [SerializeField] private string sfxBoostOff = "Assets/Audio/swoosh-off.mp3";
     [SerializeField] private Volume globalVolume;
     [SerializeField] private float chromaticAmount = 0.1f;
+    [SerializeField] private float accelerationRate = 0.95f;
 
     private ChromaticAberration _chromatic;
     private ChromaticAberration Chromatic
@@ -49,6 +50,8 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
     }
 #endif
     
+    private float _currentSpeed; // Variable to keep track of the current speed
+
     private void Update()
     {
         _isLeverUp = _lever.value;
@@ -60,11 +63,17 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
             PlaySFX(_isLeverUp);
         }
 
-        if (_isLeverUp || Input.GetKey(KeyCode.W))
-        {
-            // is boosting
-            _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.FastMoveSpeed);
+        float targetSpeed = _isLeverUp || Input.GetKey(KeyCode.W) ? _spacePlayer.FastMoveSpeed : _spacePlayer.IdleMoveSpeed;
 
+        // Gradually adjust the current speed towards the target speed
+        _currentSpeed = Mathf.Lerp(_currentSpeed, targetSpeed, Time.deltaTime * accelerationRate);
+
+        // Apply the current speed to the player's position
+        _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _currentSpeed);
+
+        // Adjust Chromatic intensity based on the lever state
+        if (_isLeverUp)
+        {
             if (Chromatic.intensity.value < 0.5f)
             {
                 Chromatic.intensity.value += Time.deltaTime * chromaticAmount;
@@ -72,8 +81,6 @@ public class SpacecraftLeverBehaviour : MonoBehaviour
         }
         else
         {
-            _playerTransform.position += _playerTransform.forward * (Time.deltaTime * _spacePlayer.IdleMoveSpeed);
-
             if (Chromatic.intensity.value > 0f)
             {
                 Chromatic.intensity.value -= Time.deltaTime * chromaticAmount;
